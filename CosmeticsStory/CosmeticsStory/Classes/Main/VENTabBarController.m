@@ -18,16 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIViewController *vc1 = [self loadChildViewControllerWithClassName:@"VENHomePageViewController" andTitle:@"首页" andImageName:@"icon_nav01"];
-    UIViewController *vc2 = [self loadChildViewControllerWithClassName:@"VENClassifyViewController" andTitle:@"分类" andImageName:@"icon_nav02"];
-    UIViewController *vc3 = [self loadChildViewControllerWithClassName:@"VENShoppingCartViewController" andTitle:@"购物车" andImageName:@"icon_nav03"];
-    UIViewController *vc4 = [self loadChildViewControllerWithClassName:@"VENMineViewController" andTitle:@"我的" andImageName:@"icon_nav04"];
-    vc4.tabBarItem.tag = 3;
-    
+    UIViewController *vc1 = [self loadChildViewControllerWithClassName:@"VENHomePageViewController" andTitle:@"首页" andImageName:@"icon_tab01"];
+    UIViewController *vc2 = [self loadChildViewControllerWithClassName:@"VENClassifyViewController" andTitle:@"分类" andImageName:@"icon_tab02"];
+    UIViewController *vc3 = [self loadChildViewControllerWithClassName:@"VENCosmeticBagViewController" andTitle:@"化妆包" andImageName:@"icon_tab03"];
+    UIViewController *vc4 = [self loadChildViewControllerWithClassName:@"VENMineViewController" andTitle:@"我的" andImageName:@"icon_tab04"];
+
     self.viewControllers = @[vc1, vc2, vc3, vc4];
     
     self.tabBar.tintColor = COLOR_THEME;
-    //    self.tabBar.barTintColor = [UIColor whiteColor];
     self.tabBar.translucent = NO;
 }
 
