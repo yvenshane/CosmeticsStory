@@ -22,7 +22,7 @@
     UIViewController *vc2 = [self loadChildViewControllerWithClassName:@"VENClassifyViewController" andTitle:@"分类" andImageName:@"icon_tab02"];
     UIViewController *vc3 = [self loadChildViewControllerWithClassName:@"VENCosmeticBagViewController" andTitle:@"化妆包" andImageName:@"icon_tab03"];
     UIViewController *vc4 = [self loadChildViewControllerWithClassName:@"VENMineViewController" andTitle:@"我的" andImageName:@"icon_tab04"];
-
+    
     self.viewControllers = @[vc1, vc2, vc3, vc4];
     
     self.tabBar.tintColor = COLOR_THEME;

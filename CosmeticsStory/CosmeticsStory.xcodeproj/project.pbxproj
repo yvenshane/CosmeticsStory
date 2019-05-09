@@ -185,6 +185,10 @@
 		2CBA51722282BFB300EF003C /* VENBindingPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51702282BFB300EF003C /* VENBindingPhoneViewController.m */; };
 		2CBA51732282BFB300EF003C /* VENBindingPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51712282BFB300EF003C /* VENBindingPhoneViewController.xib */; };
 		2CBA51762282C4D800EF003C /* VENAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51742282C4D800EF003C /* VENAboutUsViewController.m */; };
+		2CBA517A228401DA00EF003C /* VENMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA5178228401DA00EF003C /* VENMineTableViewCell.m */; };
+		2CBA517B228401DA00EF003C /* VENMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */; };
+		2CBA51802284095700EF003C /* VENMineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */; };
+		2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -551,6 +555,12 @@
 		2CBA51712282BFB300EF003C /* VENBindingPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENBindingPhoneViewController.xib; sourceTree = "<group>"; };
 		2CBA51742282C4D800EF003C /* VENAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENAboutUsViewController.m; sourceTree = "<group>"; };
 		2CBA51752282C4D800EF003C /* VENAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENAboutUsViewController.h; sourceTree = "<group>"; };
+		2CBA5177228401DA00EF003C /* VENMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMineTableViewCell.h; sourceTree = "<group>"; };
+		2CBA5178228401DA00EF003C /* VENMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMineTableViewCell.m; sourceTree = "<group>"; };
+		2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMineTableViewCell.xib; sourceTree = "<group>"; };
+		2CBA517E2284095700EF003C /* VENMineTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMineTableHeaderView.h; sourceTree = "<group>"; };
+		2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMineTableHeaderView.m; sourceTree = "<group>"; };
+		2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMineTableHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1448,6 +1458,8 @@
 		2C88661B22816E8E00B21E2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2CBA517D2284092800EF003C /* View */,
+				2CBA517C2284092200EF003C /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1605,6 +1617,26 @@
 			path = BindingPhone;
 			sourceTree = "<group>";
 		};
+		2CBA517C2284092200EF003C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2CBA5177228401DA00EF003C /* VENMineTableViewCell.h */,
+				2CBA5178228401DA00EF003C /* VENMineTableViewCell.m */,
+				2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2CBA517D2284092800EF003C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CBA517E2284095700EF003C /* VENMineTableHeaderView.h */,
+				2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */,
+				2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1662,6 +1694,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBA517B228401DA00EF003C /* VENMineTableViewCell.xib in Resources */,
 				2C9EDC54228189AD0072C547 /* VENResetPasswordViewController.xib in Resources */,
 				2CBA51732282BFB300EF003C /* VENBindingPhoneViewController.xib in Resources */,
 				2C8864262281307E00B21E2D /* LaunchScreen.storyboard in Resources */,
@@ -1671,6 +1704,7 @@
 				2C8864232281307E00B21E2D /* Assets.xcassets in Resources */,
 				2C8865D32281381400B21E2D /* IQKeyboardManager.bundle in Resources */,
 				2C88659A2281381400B21E2D /* MJRefresh.bundle in Resources */,
+				2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1747,6 +1781,7 @@
 				2C88641B2281307D00B21E2D /* AppDelegate.m in Sources */,
 				2C8865D12281381400B21E2D /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2C8865E12281381400B21E2D /* UIWebView+AFNetworking.m in Sources */,
+				2CBA517A228401DA00EF003C /* VENMineTableViewCell.m in Sources */,
 				2C8865FD2281381400B21E2D /* UIImageView+WebCache.m in Sources */,
 				2C8865D82281381400B21E2D /* IQUIView+Hierarchy.m in Sources */,
 				2C8865F92281381400B21E2D /* SDWebImagePrefetcher.m in Sources */,
@@ -1829,6 +1864,7 @@
 				2C8865BA2281381400B21E2D /* JXCategoryTitleImageCellModel.m in Sources */,
 				2C8865802281381400B21E2D /* LGPhotoPickerBrowserPhoto.m in Sources */,
 				2C8865D02281381400B21E2D /* IQBarButtonItem.m in Sources */,
+				2CBA51802284095700EF003C /* VENMineTableHeaderView.m in Sources */,
 				2C8865E62281381400B21E2D /* AFURLSessionManager.m in Sources */,
 				2C8865BB2281381400B21E2D /* JXCategoryTitleCellModel.m in Sources */,
 				2C8865B82281381400B21E2D /* JXCategoryTitleImageView.m in Sources */,
@@ -1988,7 +2024,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CosmeticsStory/VENPrefixHeader.pch";
 				INFOPLIST_FILE = CosmeticsStory/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2008,7 +2044,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CosmeticsStory/VENPrefixHeader.pch";
 				INFOPLIST_FILE = CosmeticsStory/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

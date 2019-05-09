@@ -8,7 +8,7 @@
 
 #import "VENBaseViewController.h"
 
-@interface VENBaseViewController ()
+@interface VENBaseViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -18,9 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
-    
-//    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // 不允许 viewController 自动调整，我们自己布局；如果设置为YES，视图会自动下移 64 像素
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -31,6 +29,25 @@
     }
 }
 
+#pragma mark - TableView
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        // 解决 iOS 11 执行 reloadData 方法上移问题 (已知在部分页面 estimatedRowHeight = 0 会使 cellForRowAtIndexPath 方法从 index.row = 4 开始)
+        _tableView.estimatedRowHeight = 0;
+        _tableView.estimatedSectionHeaderHeight = 0;
+        _tableView.estimatedSectionFooterHeight = 0;
+        // 解决多余 cell 问题
+        _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    return _tableView;
+}
+
+#pragma mark - NavigationItem LeftBarButtonItem
 - (void)setupNavigationItemLeftBarButtonItem {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
@@ -45,6 +62,11 @@
 
 - (void)backButtonClick {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - dealloc
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

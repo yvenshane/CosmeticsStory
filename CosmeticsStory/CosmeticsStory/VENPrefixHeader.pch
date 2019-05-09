@@ -27,10 +27,12 @@
 #import "MBProgressHUD+VEN.h"
 #import "VENEmptyClass.h"
 
+// 获取屏幕宽高
 #define kMainScreenFrameRect [UIScreen mainScreen].bounds
 #define kMainScreenWidth kMainScreenFrameRect.size.width
 #define kMainScreenHeight kMainScreenFrameRect.size.height
 
+//
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define kStatusBarAndNavigationBarHeight (kStatusBarHeight + 44)
 #define kTabBarHeight (kStatusBarHeight == 20 ? 49 : 83)
@@ -40,6 +42,18 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define COLOR_THEME UIColorFromRGB(0xFF9400)
+
+//View圆角和加边框
+#define ViewBorderRadius(View,Radius,Width,Color)\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
+// View圆角
+#define ViewRadius(View,Radius)\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES]
 
 // 调试的宏
 #ifdef DEBUG // 测试!
