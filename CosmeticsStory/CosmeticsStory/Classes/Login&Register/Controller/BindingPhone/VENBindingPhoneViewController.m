@@ -37,7 +37,7 @@
     self.getVerificationCodeButton.layer.cornerRadius = 3.0f;
     self.getVerificationCodeButton.layer.masksToBounds = YES;
     self.getVerificationCodeButton.layer.borderWidth = 1.0f;
-    self.getVerificationCodeButton.layer.borderColor = UIColorFromRGB(0xFF9400).CGColor;
+    self.getVerificationCodeButton.layer.borderColor = COLOR_THEME.CGColor;
     
     [self setupWidget];
     [self setupNavigationItemLeftBarButtonItem];
@@ -60,10 +60,10 @@
     NSString *str = @"我已阅读并同意“用户协议”和“隐私政策”";
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
     attributedString.yy_color = UIColorFromRGB(0x5E5E5E);
-    [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“用户协议”"] color:UIColorFromRGB(0xFF9400) backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+    [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“用户协议”"] color:COLOR_THEME backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
         
     }];
-    [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“隐私政策”"] color:UIColorFromRGB(0xFF9400) backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+    [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“隐私政策”"] color:COLOR_THEME backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
         
     }];
     

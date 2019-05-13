@@ -260,13 +260,13 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="S5x-36-GUf"/>
             <connections>
-                <outlet property="addButton" destination="vgi-ol-n9b" id="cWy-x9-y8t"/>
+                <outlet property="dataButton" destination="Omt-Sd-jyX" id="ouu-QB-CFr"/>
+                <outlet property="footprintButton" destination="dy8-q2-rrO" id="OKg-Tt-xEU"/>
                 <outlet property="iconImageView" destination="3xx-DZ-JJb" id="p35-Mm-prv"/>
+                <outlet property="messageButton" destination="1Qf-cL-nFw" id="DSt-gx-cgG"/>
                 <outlet property="nameLabel" destination="AEs-rK-xhb" id="Feg-6c-GbV"/>
                 <outlet property="phoneLabel" destination="iHe-aj-qbh" id="ftW-V2-HD5"/>
-                <outlet property="shezhiButton" destination="Omt-Sd-jyX" id="iPC-l6-EKb"/>
-                <outlet property="xiaoxiButton" destination="1Qf-cL-nFw" id="eQp-tn-Mpk"/>
-                <outlet property="zujiButton" destination="dy8-q2-rrO" id="ChG-Yj-uPu"/>
+                <outlet property="settingButton" destination="vgi-ol-n9b" id="jim-ti-g4m"/>
             </connections>
             <point key="canvasLocation" x="189.85507246376812" y="-414.50892857142856"/>
         </view>

@@ -14,10 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UIButton *zujiButton;
-@property (weak, nonatomic) IBOutlet UIButton *xiaoxiButton;
-@property (weak, nonatomic) IBOutlet UIButton *ziliaoButton;
-@property (weak, nonatomic) IBOutlet UIButton *shezhiButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *footprintButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UIButton *dataButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @end

@@ -36,7 +36,7 @@
     self.getVerificationCodeButton.layer.cornerRadius = 3.0f;
     self.getVerificationCodeButton.layer.masksToBounds = YES;
     self.getVerificationCodeButton.layer.borderWidth = 1.0f;
-    self.getVerificationCodeButton.layer.borderColor = UIColorFromRGB(0xFF9400).CGColor;
+    self.getVerificationCodeButton.layer.borderColor = COLOR_THEME.CGColor;
     
     [self setupNavigationItemLeftBarButtonItem];
 }

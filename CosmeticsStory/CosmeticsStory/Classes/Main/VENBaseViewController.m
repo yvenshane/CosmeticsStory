@@ -32,7 +32,8 @@
 #pragma mark - TableView
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _tableView.backgroundColor = UIColorMake(245, 245, 245);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -42,7 +43,6 @@
         _tableView.estimatedSectionFooterHeight = 0;
         // 解决多余 cell 问题
         _tableView.tableFooterView = [[UIView alloc] init];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
 }
@@ -53,6 +53,7 @@
     button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
     [button setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = barButton;
     
