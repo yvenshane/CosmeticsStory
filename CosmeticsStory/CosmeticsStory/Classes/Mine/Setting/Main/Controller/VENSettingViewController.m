@@ -9,6 +9,7 @@
 #import "VENSettingViewController.h"
 #import "VENDataTableViewCell.h"
 #import "VENChangePhoneNumberViewController.h"
+#import "VENModifyPasswordViewController.h"
 
 @interface VENSettingViewController ()
 
@@ -62,6 +63,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             VENChangePhoneNumberViewController *vc = [[VENChangePhoneNumberViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            VENModifyPasswordViewController *vc = [[VENModifyPasswordViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else {

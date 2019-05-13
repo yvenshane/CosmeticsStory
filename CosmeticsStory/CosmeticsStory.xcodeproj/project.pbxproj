@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C007BC422895FBC002509D5 /* VENModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C007BC322895FBC002509D5 /* VENModifyPasswordViewController.m */; };
 		2C4F47A722880C3F008F48CE /* VENPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A622880C3F008F48CE /* VENPickerView.m */; };
 		2C4F47AA22884AC1008F48CE /* VENDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A922884AC1008F48CE /* VENDatePickerView.m */; };
 		2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47AC228854C2008F48CE /* VENListPickerView.m */; };
@@ -204,6 +205,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C007BC222895FBC002509D5 /* VENModifyPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENModifyPasswordViewController.h; sourceTree = "<group>"; };
+		2C007BC322895FBC002509D5 /* VENModifyPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENModifyPasswordViewController.m; sourceTree = "<group>"; };
 		2C4F47A522880C3F008F48CE /* VENPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENPickerView.h; sourceTree = "<group>"; };
 		2C4F47A622880C3F008F48CE /* VENPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENPickerView.m; sourceTree = "<group>"; };
 		2C4F47A822884AC1008F48CE /* VENDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENDatePickerView.h; sourceTree = "<group>"; };
@@ -607,6 +610,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C007BBF22895F7A002509D5 /* ModifyPassword */ = {
+			isa = PBXGroup;
+			children = (
+				2C007BC022895F9E002509D5 /* Model */,
+				2C007BC122895FA2002509D5 /* Controller */,
+			);
+			path = ModifyPassword;
+			sourceTree = "<group>";
+		};
+		2C007BC022895F9E002509D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C007BC122895FA2002509D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C007BC222895FBC002509D5 /* VENModifyPasswordViewController.h */,
+				2C007BC322895FBC002509D5 /* VENModifyPasswordViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2C4F47A422880C17008F48CE /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1628,6 +1656,7 @@
 			children = (
 				2CB5C65D228908E1009F1ABC /* Main */,
 				2CB5C65E228908EF009F1ABC /* ChangePhoneNumber */,
+				2C007BBF22895F7A002509D5 /* ModifyPassword */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1995,6 +2024,7 @@
 				2C8865B32281381400B21E2D /* JXCategoryIndicatorCell.m in Sources */,
 				2C8865FF2281381400B21E2D /* UIButton+WebCache.m in Sources */,
 				2CBA51682282B4DB00EF003C /* NSAttributedString+YYText.m in Sources */,
+				2C007BC422895FBC002509D5 /* VENModifyPasswordViewController.m in Sources */,
 				2CBA51722282BFB300EF003C /* VENBindingPhoneViewController.m in Sources */,
 				2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */,
 				2C88662222816FAB00B21E2D /* VENHomePageViewController.m in Sources */,
