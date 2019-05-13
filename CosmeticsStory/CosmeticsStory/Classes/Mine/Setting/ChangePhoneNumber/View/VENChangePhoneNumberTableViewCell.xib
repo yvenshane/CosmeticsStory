@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="VENChangePhoneNumberTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-lb-BLQ">
+                        <rect key="frame" x="15" y="24" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dm9-SD-1d9">
+                        <rect key="frame" x="66" y="0.0" width="239" height="64.5"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU9-nE-Fz4">
+                        <rect key="frame" x="215" y="16.5" width="90" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="2kD-jB-bEk"/>
+                            <constraint firstAttribute="height" constant="32" id="tYS-sE-yEL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="获取验证码">
+                            <color key="titleColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Syn-lb-BLQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3Rp-NK-Q8B"/>
+                    <constraint firstItem="dm9-SD-1d9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3bb-v1-vgS"/>
+                    <constraint firstAttribute="trailing" secondItem="VU9-nE-Fz4" secondAttribute="trailing" constant="15" id="6sc-W3-ifl"/>
+                    <constraint firstAttribute="trailing" secondItem="dm9-SD-1d9" secondAttribute="trailing" constant="15" id="G8a-78-7y5"/>
+                    <constraint firstItem="Syn-lb-BLQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="O4g-no-wVJ"/>
+                    <constraint firstAttribute="bottom" secondItem="dm9-SD-1d9" secondAttribute="bottom" id="TOM-ld-wfz"/>
+                    <constraint firstItem="VU9-nE-Fz4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mAz-3M-lJd"/>
+                    <constraint firstItem="dm9-SD-1d9" firstAttribute="leading" secondItem="Syn-lb-BLQ" secondAttribute="trailing" constant="15" id="sdO-fM-KP5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="contentTextField" destination="dm9-SD-1d9" id="RTz-eu-lum"/>
+                <outlet property="contentTextFieldRightLayoutConstraint" destination="G8a-78-7y5" id="mFf-r7-qAK"/>
+                <outlet property="getVerificationCodeButton" destination="VU9-nE-Fz4" id="qgs-z1-ZL0"/>
+                <outlet property="titleLabel" destination="Syn-lb-BLQ" id="nmw-YD-lcR"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="157.70089285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -9,14 +9,13 @@
 #import "VENAboutUsViewController.h"
 
 @interface VENAboutUsViewController () <UITableViewDelegate, UIWebViewDelegate>
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) UIWebView *webView;
 
 @end
 
-static NSString *cellIdentifier = @"cellIdentifier";
+static NSString *const cellIdentifier = @"cellIdentifier";
 @implementation VENAboutUsViewController
 
 - (void)viewDidLoad {
@@ -40,15 +39,14 @@ static NSString *cellIdentifier = @"cellIdentifier";
     
     CGFloat y = self.isPush ? 0 : kStatusBarAndNavigationBarHeight;
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, y, kMainScreenWidth, kMainScreenHeight - kStatusBarHeight) style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.showsVerticalScrollIndicator = NO;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:tableView];
+    self.tableView.frame = CGRectMake(0, y, kMainScreenWidth, kMainScreenHeight - kStatusBarHeight);
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
     
     UIView *headerView = [[UIView alloc] init];
     headerView.backgroundColor = [UIColor whiteColor];
-    tableView.tableHeaderView = headerView;
+    self.tableView.tableHeaderView = headerView;
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 1)];
     webView.delegate = self;
@@ -57,7 +55,6 @@ static NSString *cellIdentifier = @"cellIdentifier";
     [webView loadHTMLString:self.HTMLString baseURL:nil];
     [headerView addSubview:webView];
     
-    self.tableView = tableView;
     self.headerView = headerView;
 }
 

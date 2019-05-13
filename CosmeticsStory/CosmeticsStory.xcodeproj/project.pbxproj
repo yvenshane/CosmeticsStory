@@ -166,6 +166,10 @@
 		2C9EDC54228189AD0072C547 /* VENResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EDC52228189AD0072C547 /* VENResetPasswordViewController.xib */; };
 		2CB5C65422885A1C009F1ABC /* VENListPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5C65222885A1C009F1ABC /* VENListPickerViewCell.m */; };
 		2CB5C65522885A1C009F1ABC /* VENListPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CB5C65322885A1C009F1ABC /* VENListPickerViewCell.xib */; };
+		2CB5C65C22890338009F1ABC /* VENSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5C65B22890338009F1ABC /* VENSettingViewController.m */; };
+		2CB5C664228909A4009F1ABC /* VENChangePhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5C663228909A4009F1ABC /* VENChangePhoneNumberViewController.m */; };
+		2CB5C66B22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5C66922890D42009F1ABC /* VENChangePhoneNumberTableViewCell.m */; };
+		2CB5C66C22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CB5C66A22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib */; };
 		2CBA51562282B4DB00EF003C /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51232282B4DB00EF003C /* YYTextView.m */; };
 		2CBA51572282B4DB00EF003C /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51272282B4DB00EF003C /* YYTextMagnifier.m */; };
 		2CBA51582282B4DB00EF003C /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA512A2282B4DB00EF003C /* YYTextContainerView.m */; };
@@ -523,6 +527,13 @@
 		2CB5C65122885A1C009F1ABC /* VENListPickerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENListPickerViewCell.h; sourceTree = "<group>"; };
 		2CB5C65222885A1C009F1ABC /* VENListPickerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENListPickerViewCell.m; sourceTree = "<group>"; };
 		2CB5C65322885A1C009F1ABC /* VENListPickerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENListPickerViewCell.xib; sourceTree = "<group>"; };
+		2CB5C65A22890338009F1ABC /* VENSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENSettingViewController.h; sourceTree = "<group>"; };
+		2CB5C65B22890338009F1ABC /* VENSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENSettingViewController.m; sourceTree = "<group>"; };
+		2CB5C662228909A4009F1ABC /* VENChangePhoneNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENChangePhoneNumberViewController.h; sourceTree = "<group>"; };
+		2CB5C663228909A4009F1ABC /* VENChangePhoneNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENChangePhoneNumberViewController.m; sourceTree = "<group>"; };
+		2CB5C66822890D42009F1ABC /* VENChangePhoneNumberTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENChangePhoneNumberTableViewCell.h; sourceTree = "<group>"; };
+		2CB5C66922890D42009F1ABC /* VENChangePhoneNumberTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENChangePhoneNumberTableViewCell.m; sourceTree = "<group>"; };
+		2CB5C66A22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENChangePhoneNumberTableViewCell.xib; sourceTree = "<group>"; };
 		2CBA51222282B4DB00EF003C /* YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYText.h; sourceTree = "<group>"; };
 		2CBA51232282B4DB00EF003C /* YYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextView.m; sourceTree = "<group>"; };
 		2CBA51252282B4DB00EF003C /* YYTextSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextSelectionView.h; sourceTree = "<group>"; };
@@ -1519,6 +1530,7 @@
 			children = (
 				2C710EBF2285143100DAC826 /* Main */,
 				2C710EC02285144900DAC826 /* Data */,
+				2CB5C6562289026A009F1ABC /* Setting */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1609,6 +1621,76 @@
 				2C9EDC52228189AD0072C547 /* VENResetPasswordViewController.xib */,
 			);
 			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		2CB5C6562289026A009F1ABC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5C65D228908E1009F1ABC /* Main */,
+				2CB5C65E228908EF009F1ABC /* ChangePhoneNumber */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		2CB5C658228902CD009F1ABC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CB5C659228902E5009F1ABC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5C65A22890338009F1ABC /* VENSettingViewController.h */,
+				2CB5C65B22890338009F1ABC /* VENSettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CB5C65D228908E1009F1ABC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5C658228902CD009F1ABC /* Model */,
+				2CB5C659228902E5009F1ABC /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2CB5C65E228908EF009F1ABC /* ChangePhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5C66622890D12009F1ABC /* Model */,
+				2CB5C66722890D16009F1ABC /* View */,
+				2CB5C66522890D09009F1ABC /* Controller */,
+			);
+			path = ChangePhoneNumber;
+			sourceTree = "<group>";
+		};
+		2CB5C66522890D09009F1ABC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5C662228909A4009F1ABC /* VENChangePhoneNumberViewController.h */,
+				2CB5C663228909A4009F1ABC /* VENChangePhoneNumberViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CB5C66622890D12009F1ABC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CB5C66722890D16009F1ABC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CB5C66822890D42009F1ABC /* VENChangePhoneNumberTableViewCell.h */,
+				2CB5C66922890D42009F1ABC /* VENChangePhoneNumberTableViewCell.m */,
+				2CB5C66A22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2CBA51212282B4DB00EF003C /* YYText */ = {
@@ -1783,6 +1865,7 @@
 				2CBA51732282BFB300EF003C /* VENBindingPhoneViewController.xib in Resources */,
 				2C8864262281307E00B21E2D /* LaunchScreen.storyboard in Resources */,
 				2C9EDC4E22817CCE0072C547 /* VENLoginPageViewController.xib in Resources */,
+				2CB5C66C22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib in Resources */,
 				2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */,
 				2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */,
 				2C710ECB2285177D00DAC826 /* VENDataTableViewCell.xib in Resources */,
@@ -1824,6 +1907,7 @@
 				2C8865ED2281381400B21E2D /* SDCollectionViewCell.m in Sources */,
 				2C8865AE2281381400B21E2D /* JXCategoryIndicatorImageView.m in Sources */,
 				2C88662B2281702500B21E2D /* VENMineViewController.m in Sources */,
+				2CB5C65C22890338009F1ABC /* VENSettingViewController.m in Sources */,
 				2C8865E72281381400B21E2D /* AFURLRequestSerialization.m in Sources */,
 				2C8865982281381400B21E2D /* UIScrollView+MJRefresh.m in Sources */,
 				2C8865C72281381400B21E2D /* UIColor+JXAdd.m in Sources */,
@@ -1843,6 +1927,7 @@
 				2C8865C32281381400B21E2D /* JXCategoryNumberCellModel.m in Sources */,
 				2C8865A22281381400B21E2D /* MJRefreshAutoGifFooter.m in Sources */,
 				2C88659D2281381400B21E2D /* UIView+MJExtension.m in Sources */,
+				2CB5C664228909A4009F1ABC /* VENChangePhoneNumberViewController.m in Sources */,
 				2C8865A12281381400B21E2D /* MJRefreshAutoStateFooter.m in Sources */,
 				2C8865DC2281381400B21E2D /* UIRefreshControl+AFNetworking.m in Sources */,
 				2C8865C22281381400B21E2D /* JXCategoryNumberCell.m in Sources */,
@@ -1906,6 +1991,7 @@
 				2C8865E22281381400B21E2D /* AFAutoPurgingImageCache.m in Sources */,
 				2C8865AA2281381400B21E2D /* MJRefreshAutoFooter.m in Sources */,
 				2C8865A62281381400B21E2D /* MJRefreshGifHeader.m in Sources */,
+				2CB5C66B22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.m in Sources */,
 				2C8865B32281381400B21E2D /* JXCategoryIndicatorCell.m in Sources */,
 				2C8865FF2281381400B21E2D /* UIButton+WebCache.m in Sources */,
 				2CBA51682282B4DB00EF003C /* NSAttributedString+YYText.m in Sources */,

@@ -17,7 +17,7 @@
 
 @end
 
-static NSString *cellIdentifier = @"cellIdentifier";
+static NSString *const cellIdentifier = @"cellIdentifier";
 @implementation VENDataViewController
 
 - (void)viewDidLoad {

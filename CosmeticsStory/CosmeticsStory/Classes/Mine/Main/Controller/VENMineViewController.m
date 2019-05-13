@@ -10,12 +10,13 @@
 #import "VENMineTableHeaderView.h"
 #import "VENMineTableViewCell.h"
 #import "VENDataViewController.h"
+#import "VENSettingViewController.h"
 
 @interface VENMineViewController ()
 
 @end
 
-static NSString *cellIdentifier = @"cellIdentifier";
+static NSString *const cellIdentifier = @"cellIdentifier";
 @implementation VENMineViewController
 
 - (void)viewDidLoad {
@@ -51,6 +52,8 @@ static NSString *cellIdentifier = @"cellIdentifier";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENMineTableHeaderView *headerView = [[NSBundle mainBundle] loadNibNamed:@"VENMineTableHeaderView" owner:nil options:nil].lastObject;
     [headerView.dataButton addTarget:self action:@selector(dataButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [headerView.settingButton addTarget:self action:@selector(settingButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
     return headerView;
 }
 
@@ -61,6 +64,13 @@ static NSString *cellIdentifier = @"cellIdentifier";
 #pragma mark - 资料
 - (void)dataButtonClick {
     VENDataViewController *vc = [[VENDataViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 设置
+- (void)settingButtonClick {
+    VENSettingViewController *vc = [[VENSettingViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

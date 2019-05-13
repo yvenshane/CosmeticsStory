@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     
     VENInitialPageViewController *vc = [[VENInitialPageViewController alloc] init];
-//    [self presentViewController:vc animated:NO completion:nil];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 /*
