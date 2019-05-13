@@ -11,6 +11,7 @@
 #import "VENMineTableViewCell.h"
 #import "VENDataViewController.h"
 #import "VENSettingViewController.h"
+#import "VENMessageViewController.h"
 
 @interface VENMineViewController ()
 
@@ -51,6 +52,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENMineTableHeaderView *headerView = [[NSBundle mainBundle] loadNibNamed:@"VENMineTableHeaderView" owner:nil options:nil].lastObject;
+    
+    [headerView.messageButton addTarget:self action:@selector(messageButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.dataButton addTarget:self action:@selector(dataButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.settingButton addTarget:self action:@selector(settingButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -59,6 +62,13 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 317.0f;
+}
+
+#pragma mark - 消息
+- (void)messageButtonClick {
+    VENMessageViewController *vc = [[VENMessageViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 资料
