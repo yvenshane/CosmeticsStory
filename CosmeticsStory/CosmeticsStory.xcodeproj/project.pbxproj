@@ -19,6 +19,22 @@
 		2C710ECB2285177D00DAC826 /* VENDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C710EC92285177D00DAC826 /* VENDataTableViewCell.xib */; };
 		2C73D00E2281DC1300C4872F /* VENRegisterPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C73D00C2281DC1300C4872F /* VENRegisterPageViewController.m */; };
 		2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D00D2281DC1300C4872F /* VENRegisterPageViewController.xib */; };
+		2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE1228B9A9C00F24C75 /* TYPageControl.m */; };
+		2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */; };
+		2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */; };
+		2C806BEB228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE9228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m */; };
+		2C806BEC228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C806BEA228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.xib */; };
+		2C80A9EB228CFBE500249CB4 /* VENHomePageTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80A9EA228CFBE500249CB4 /* VENHomePageTableHeaderView.m */; };
+		2C80A9F0228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80A9EE228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.m */; };
+		2C80A9F1228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C80A9EF228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.xib */; };
+		2C80A9F9228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80A9F4228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.m */; };
+		2C80A9FA228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80A9F6228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.m */; };
+		2C80A9FB228E4DAB00249CB4 /* VENHomePageHeaderViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80A9F8228E4DAB00249CB4 /* VENHomePageHeaderViewButton.m */; };
+		2C80A9FF228E94AC00249CB4 /* VENHomePageTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80A9FE228E94AC00249CB4 /* VENHomePageTableFooterView.m */; };
+		2C80AA04228EA51800249CB4 /* VENWaterfallFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80AA03228EA51800249CB4 /* VENWaterfallFlowView.m */; };
+		2C80AA08228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80AA06228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.m */; };
+		2C80AA09228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C80AA07228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.xib */; };
+		2C80AA122292F6AC00249CB4 /* XRWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C80AA102292F6AB00249CB4 /* XRWaterfallLayout.m */; };
 		2C88641B2281307D00B21E2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88641A2281307D00B21E2D /* AppDelegate.m */; };
 		2C8864232281307E00B21E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8864222281307E00B21E2D /* Assets.xcassets */; };
 		2C8864262281307E00B21E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8864242281307E00B21E2D /* LaunchScreen.storyboard */; };
@@ -229,6 +245,35 @@
 		2C73D00B2281DC1300C4872F /* VENRegisterPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENRegisterPageViewController.h; sourceTree = "<group>"; };
 		2C73D00C2281DC1300C4872F /* VENRegisterPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENRegisterPageViewController.m; sourceTree = "<group>"; };
 		2C73D00D2281DC1300C4872F /* VENRegisterPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENRegisterPageViewController.xib; sourceTree = "<group>"; };
+		2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
+		2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
+		2C806BE1228B9A9C00F24C75 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
+		2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCyclePagerView.m; sourceTree = "<group>"; };
+		2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCyclePagerTransformLayout.m; sourceTree = "<group>"; };
+		2C806BE4228B9A9C00F24C75 /* TYPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPageControl.h; sourceTree = "<group>"; };
+		2C806BE8228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageBannerCollectionViewCell.h; sourceTree = "<group>"; };
+		2C806BE9228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageBannerCollectionViewCell.m; sourceTree = "<group>"; };
+		2C806BEA228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENHomePageBannerCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C80A9E9228CFBE500249CB4 /* VENHomePageTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageTableHeaderView.h; sourceTree = "<group>"; };
+		2C80A9EA228CFBE500249CB4 /* VENHomePageTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageTableHeaderView.m; sourceTree = "<group>"; };
+		2C80A9ED228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageTableViewPopularRecommendCell.h; sourceTree = "<group>"; };
+		2C80A9EE228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageTableViewPopularRecommendCell.m; sourceTree = "<group>"; };
+		2C80A9EF228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENHomePageTableViewPopularRecommendCell.xib; sourceTree = "<group>"; };
+		2C80A9F3228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENHomePageHeaderViewScrollView.h; sourceTree = "<group>"; };
+		2C80A9F4228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENHomePageHeaderViewPageControl.m; sourceTree = "<group>"; };
+		2C80A9F5228E4DAB00249CB4 /* VENHomePageHeaderViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENHomePageHeaderViewButton.h; sourceTree = "<group>"; };
+		2C80A9F6228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENHomePageHeaderViewScrollView.m; sourceTree = "<group>"; };
+		2C80A9F7228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENHomePageHeaderViewPageControl.h; sourceTree = "<group>"; };
+		2C80A9F8228E4DAB00249CB4 /* VENHomePageHeaderViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENHomePageHeaderViewButton.m; sourceTree = "<group>"; };
+		2C80A9FD228E94AC00249CB4 /* VENHomePageTableFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageTableFooterView.h; sourceTree = "<group>"; };
+		2C80A9FE228E94AC00249CB4 /* VENHomePageTableFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageTableFooterView.m; sourceTree = "<group>"; };
+		2C80AA02228EA51800249CB4 /* VENWaterfallFlowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENWaterfallFlowView.h; sourceTree = "<group>"; };
+		2C80AA03228EA51800249CB4 /* VENWaterfallFlowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENWaterfallFlowView.m; sourceTree = "<group>"; };
+		2C80AA05228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENWaterfallFlowViewCollectionViewCell.h; sourceTree = "<group>"; };
+		2C80AA06228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENWaterfallFlowViewCollectionViewCell.m; sourceTree = "<group>"; };
+		2C80AA07228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENWaterfallFlowViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C80AA102292F6AB00249CB4 /* XRWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRWaterfallLayout.m; sourceTree = "<group>"; };
+		2C80AA112292F6AC00249CB4 /* XRWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRWaterfallLayout.h; sourceTree = "<group>"; };
 		2C8864162281307D00B21E2D /* CosmeticsStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CosmeticsStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8864192281307D00B21E2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C88641A2281307D00B21E2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -759,6 +804,79 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		2C806BDE228B9A9C00F24C75 /* TYCyclePagerView */ = {
+			isa = PBXGroup;
+			children = (
+				2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */,
+				2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */,
+				2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */,
+				2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */,
+				2C806BE4228B9A9C00F24C75 /* TYPageControl.h */,
+				2C806BE1228B9A9C00F24C75 /* TYPageControl.m */,
+			);
+			path = TYCyclePagerView;
+			sourceTree = "<group>";
+		};
+		2C80A9EC228D093600249CB4 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				2C80A9F2228E4DAB00249CB4 /* Classify */,
+				2C806BE8228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.h */,
+				2C806BE9228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m */,
+				2C806BEA228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.xib */,
+				2C80A9E9228CFBE500249CB4 /* VENHomePageTableHeaderView.h */,
+				2C80A9EA228CFBE500249CB4 /* VENHomePageTableHeaderView.m */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		2C80A9F2228E4DAB00249CB4 /* Classify */ = {
+			isa = PBXGroup;
+			children = (
+				2C80A9F5228E4DAB00249CB4 /* VENHomePageHeaderViewButton.h */,
+				2C80A9F8228E4DAB00249CB4 /* VENHomePageHeaderViewButton.m */,
+				2C80A9F3228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.h */,
+				2C80A9F6228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.m */,
+				2C80A9F7228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.h */,
+				2C80A9F4228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.m */,
+			);
+			path = Classify;
+			sourceTree = "<group>";
+		};
+		2C80A9FC228E949100249CB4 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				2C80AA01228EA4ED00249CB4 /* WaterfallFlow */,
+				2C80A9FD228E94AC00249CB4 /* VENHomePageTableFooterView.h */,
+				2C80A9FE228E94AC00249CB4 /* VENHomePageTableFooterView.m */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		2C80AA00228E986700249CB4 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C80A9ED228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.h */,
+				2C80A9EE228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.m */,
+				2C80A9EF228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		2C80AA01228EA4ED00249CB4 /* WaterfallFlow */ = {
+			isa = PBXGroup;
+			children = (
+				2C80AA112292F6AC00249CB4 /* XRWaterfallLayout.h */,
+				2C80AA102292F6AB00249CB4 /* XRWaterfallLayout.m */,
+				2C80AA02228EA51800249CB4 /* VENWaterfallFlowView.h */,
+				2C80AA03228EA51800249CB4 /* VENWaterfallFlowView.m */,
+				2C80AA05228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.h */,
+				2C80AA06228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.m */,
+				2C80AA07228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.xib */,
+			);
+			path = WaterfallFlow;
+			sourceTree = "<group>";
+		};
 		2C88640D2281307D00B21E2D = {
 			isa = PBXGroup;
 			children = (
@@ -808,6 +926,7 @@
 		2C8864312281381300B21E2D /* ThirdPartyFramework */ = {
 			isa = PBXGroup;
 			children = (
+				2C806BDE228B9A9C00F24C75 /* TYCyclePagerView */,
 				2CBA51212282B4DB00EF003C /* YYText */,
 				2C8864322281381300B21E2D /* LGPhotoBrowser */,
 				2C8864722281381300B21E2D /* MJRefresh */,
@@ -1670,6 +1789,9 @@
 		2C88661F22816E8E00B21E2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C80A9EC228D093600249CB4 /* HeaderView */,
+				2C80A9FC228E949100249CB4 /* FooterView */,
+				2C80AA00228E986700249CB4 /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1946,12 +2068,15 @@
 				2C9EDC54228189AD0072C547 /* VENResetPasswordViewController.xib in Resources */,
 				2CBA51732282BFB300EF003C /* VENBindingPhoneViewController.xib in Resources */,
 				2C007BD0228962AC002509D5 /* VENMessageTableViewCell.xib in Resources */,
+				2C806BEC228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.xib in Resources */,
 				2C8864262281307E00B21E2D /* LaunchScreen.storyboard in Resources */,
+				2C80AA09228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.xib in Resources */,
 				2C9EDC4E22817CCE0072C547 /* VENLoginPageViewController.xib in Resources */,
 				2CB5C66C22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib in Resources */,
 				2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */,
 				2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */,
 				2C710ECB2285177D00DAC826 /* VENDataTableViewCell.xib in Resources */,
+				2C80A9F1228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.xib in Resources */,
 				2C8864232281307E00B21E2D /* Assets.xcassets in Resources */,
 				2C8865D32281381400B21E2D /* IQKeyboardManager.bundle in Resources */,
 				2C88659A2281381400B21E2D /* MJRefresh.bundle in Resources */,
@@ -1974,6 +2099,7 @@
 				2C8865FC2281381400B21E2D /* NSData+ImageContentType.m in Sources */,
 				2CBA516C2282B4DB00EF003C /* YYTextAsyncLayer.m in Sources */,
 				2C8865A42281381400B21E2D /* MJRefreshNormalHeader.m in Sources */,
+				2C80A9FA228E4DAB00249CB4 /* VENHomePageHeaderViewScrollView.m in Sources */,
 				2C8865DD2281381400B21E2D /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2CBA515A2282B4DB00EF003C /* YYTextInput.m in Sources */,
 				2C8865E52281381400B21E2D /* AFHTTPSessionManager.m in Sources */,
@@ -1995,6 +2121,7 @@
 				2C8865982281381400B21E2D /* UIScrollView+MJRefresh.m in Sources */,
 				2C8865C72281381400B21E2D /* UIColor+JXAdd.m in Sources */,
 				2C8865F62281381400B21E2D /* UIImage+GIF.m in Sources */,
+				2C80AA08228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.m in Sources */,
 				2C8866282281701000B21E2D /* VENCosmeticBagViewController.m in Sources */,
 				2C8865FB2281381400B21E2D /* SDWebImageDownloaderOperation.m in Sources */,
 				2C886608228159A300B21E2D /* MBProgressHUD+VEN.m in Sources */,
@@ -2036,11 +2163,13 @@
 				2C8865A02281381400B21E2D /* MJRefreshBackNormalFooter.m in Sources */,
 				2C88641B2281307D00B21E2D /* AppDelegate.m in Sources */,
 				2C8865D12281381400B21E2D /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				2C80A9F0228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.m in Sources */,
 				2C8865E12281381400B21E2D /* UIWebView+AFNetworking.m in Sources */,
 				2CBA517A228401DA00EF003C /* VENMineTableViewCell.m in Sources */,
 				2CB5C65422885A1C009F1ABC /* VENListPickerViewCell.m in Sources */,
 				2C8865FD2281381400B21E2D /* UIImageView+WebCache.m in Sources */,
 				2C8865D82281381400B21E2D /* IQUIView+Hierarchy.m in Sources */,
+				2C80A9EB228CFBE500249CB4 /* VENHomePageTableHeaderView.m in Sources */,
 				2C8865F92281381400B21E2D /* SDWebImagePrefetcher.m in Sources */,
 				2C8865C92281381400B21E2D /* JXCategoryBaseCell.m in Sources */,
 				2C8865D22281381400B21E2D /* IQPreviousNextView.m in Sources */,
@@ -2049,9 +2178,12 @@
 				2C8865CD2281381400B21E2D /* IQTextView.m in Sources */,
 				2C8865FE2281381400B21E2D /* UIView+WebCacheOperation.m in Sources */,
 				2C8866032281381400B21E2D /* VENBaseViewController.m in Sources */,
+				2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */,
 				2CBA51612282B4DB00EF003C /* YYTextRunDelegate.m in Sources */,
+				2C806BEB228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m in Sources */,
 				2C8865F72281381400B21E2D /* UIImage+MultiFormat.m in Sources */,
 				2C8865F32281381400B21E2D /* SDWebImageDecoder.m in Sources */,
+				2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */,
 				2C8865B72281381400B21E2D /* JXCategoryDotCellModel.m in Sources */,
 				2C8865DE2281381400B21E2D /* UIImageView+AFNetworking.m in Sources */,
 				2C8865E42281381400B21E2D /* AFURLResponseSerialization.m in Sources */,
@@ -2072,6 +2204,7 @@
 				2C9EDC4D22817CCE0072C547 /* VENLoginPageViewController.m in Sources */,
 				2C8865D42281381400B21E2D /* IQKeyboardManager.m in Sources */,
 				2C88662522816FF300B21E2D /* VENClassifyViewController.m in Sources */,
+				2C80AA122292F6AC00249CB4 /* XRWaterfallLayout.m in Sources */,
 				2C8865E22281381400B21E2D /* AFAutoPurgingImageCache.m in Sources */,
 				2C8865AA2281381400B21E2D /* MJRefreshAutoFooter.m in Sources */,
 				2C8865A62281381400B21E2D /* MJRefreshGifHeader.m in Sources */,
@@ -2090,11 +2223,14 @@
 				2C8865CF2281381400B21E2D /* IQTitleBarButtonItem.m in Sources */,
 				2C8865EF2281381400B21E2D /* TAPageControl.m in Sources */,
 				2C8865E32281381400B21E2D /* AFImageDownloader.m in Sources */,
+				2C80AA04228EA51800249CB4 /* VENWaterfallFlowView.m in Sources */,
 				2C007BCB22896285002509D5 /* VENMessageViewController.m in Sources */,
 				2C8865EA2281381400B21E2D /* MBProgressHUD.m in Sources */,
+				2C80A9F9228E4DAB00249CB4 /* VENHomePageHeaderViewPageControl.m in Sources */,
 				2C8866052281381400B21E2D /* VENNavigationController.m in Sources */,
 				2C88662F228177E000B21E2D /* VENInitialPageViewController.m in Sources */,
 				2C8865F42281381400B21E2D /* UIImageView+HighlightedWebCache.m in Sources */,
+				2C80A9FB228E4DAB00249CB4 /* VENHomePageHeaderViewButton.m in Sources */,
 				2C8865A52281381400B21E2D /* MJRefreshStateHeader.m in Sources */,
 				2C88659F2281381400B21E2D /* MJRefreshBackStateFooter.m in Sources */,
 				2C8865C42281381400B21E2D /* JXCategoryListVCContainerView.m in Sources */,
@@ -2107,6 +2243,7 @@
 				2C8865882281381400B21E2D /* ZLCameraImageView.m in Sources */,
 				2C88658D2281381400B21E2D /* LGPhotoPickerGroup.m in Sources */,
 				2C8866042281381400B21E2D /* VENTabBarController.m in Sources */,
+				2C80A9FF228E94AC00249CB4 /* VENHomePageTableFooterView.m in Sources */,
 				2C8865992281381400B21E2D /* MJRefreshConst.m in Sources */,
 				2C8865BC2281381400B21E2D /* JXCategoryTitleCell.m in Sources */,
 				2C8865B02281381400B21E2D /* JXCategoryIndicatorComponentView.m in Sources */,
@@ -2127,6 +2264,7 @@
 				2C710ECA2285177D00DAC826 /* VENDataTableViewCell.m in Sources */,
 				2C8865802281381400B21E2D /* LGPhotoPickerBrowserPhoto.m in Sources */,
 				2C710EC6228515B600DAC826 /* VENDataViewController.m in Sources */,
+				2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */,
 				2C8865D02281381400B21E2D /* IQBarButtonItem.m in Sources */,
 				2CBA51802284095700EF003C /* VENMineTableHeaderView.m in Sources */,
 				2C8865E62281381400B21E2D /* AFURLSessionManager.m in Sources */,

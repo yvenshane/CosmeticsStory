@@ -22,6 +22,8 @@
 #import "JXCategoryView.h"
 #import "YYLabel.h"
 #import "YYText.h"
+#import "TYCyclePagerView.h"
+#import "TYPageControl.h"
 
 #import "VENNetworkTool.h"
 #import "MBProgressHUD+VEN.h"
