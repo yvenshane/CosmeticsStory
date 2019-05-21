@@ -15,11 +15,12 @@
 
 static VENNetworkTool *instance;
 static dispatch_once_t onceToken;
+static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
 @implementation VENNetworkTool
 
 + (instancetype)sharedManager {
     dispatch_once(&onceToken, ^{
-        instance = [[VENNetworkTool alloc] initWithBaseURL:[NSURL URLWithString:@"http://ciluying.ahaiba.cn/"]];
+        instance = [[VENNetworkTool alloc] initWithBaseURL:[NSURL URLWithString:url]];
     });
     return instance;
 }
@@ -30,7 +31,6 @@ static dispatch_once_t onceToken;
         //request
         self.requestSerializer.timeoutInterval = 15;
         self.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-//        [self.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"Login"][@"userid"] forHTTPHeaderField:@"userid"];
         self.requestSerializer.HTTPShouldHandleCookies = YES;
         
         //response
@@ -41,11 +41,7 @@ static dispatch_once_t onceToken;
 
 - (void)requestWithMethod:(HTTPMethod)method path:(NSString *)path params:(NSDictionary *)params showLoading:(BOOL)isShow successBlock:(SuccessBlock)success failureBlock:(FailureBlock)failure {
     
-//    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
-//    [self.requestSerializer setValue:![[VENClassEmptyManager sharedManager] isEmptyString:token] ? token : @"" forHTTPHeaderField:@"Authorization"];
-    
-    path = [[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] lowercaseString];
-    NSLog(@"请求接口：%@", path);
+    NSLog(@"请求接口：%@%@", url, path);
     
     if (!_isConnectInternet && _hasCheckNetwork) {
         
@@ -61,8 +57,6 @@ static dispatch_once_t onceToken;
         params = @{};
     }
     
-    
-
     //移除空value的字典键值、避免签名失败、服务器返回forbidden
     NSMutableDictionary *mutableParams = [params mutableCopy];
     
@@ -129,8 +123,6 @@ static dispatch_once_t onceToken;
 
 #pragma mark 上传图片
 - (void)uploadImageWithPath:(NSString *)path photos:(NSArray *)photos name:(NSString *)name params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
-    
-    path = [[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] lowercaseString];
     
     NSLog(@"请求接口：%@", path);
     

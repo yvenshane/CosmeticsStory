@@ -216,11 +216,11 @@
 		2CBA516D2282B4DB00EF003C /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51542282B4DB00EF003C /* YYTextWeakProxy.m */; };
 		2CBA51722282BFB300EF003C /* VENBindingPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51702282BFB300EF003C /* VENBindingPhoneViewController.m */; };
 		2CBA51732282BFB300EF003C /* VENBindingPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51712282BFB300EF003C /* VENBindingPhoneViewController.xib */; };
-		2CBA51762282C4D800EF003C /* VENAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA51742282C4D800EF003C /* VENAboutUsViewController.m */; };
 		2CBA517A228401DA00EF003C /* VENMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA5178228401DA00EF003C /* VENMineTableViewCell.m */; };
 		2CBA517B228401DA00EF003C /* VENMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */; };
 		2CBA51802284095700EF003C /* VENMineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */; };
 		2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */; };
+		2CE57C4022944BC800792248 /* VENBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -642,14 +642,14 @@
 		2CBA516F2282BFB300EF003C /* VENBindingPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENBindingPhoneViewController.h; sourceTree = "<group>"; };
 		2CBA51702282BFB300EF003C /* VENBindingPhoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENBindingPhoneViewController.m; sourceTree = "<group>"; };
 		2CBA51712282BFB300EF003C /* VENBindingPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENBindingPhoneViewController.xib; sourceTree = "<group>"; };
-		2CBA51742282C4D800EF003C /* VENAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENAboutUsViewController.m; sourceTree = "<group>"; };
-		2CBA51752282C4D800EF003C /* VENAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENAboutUsViewController.h; sourceTree = "<group>"; };
 		2CBA5177228401DA00EF003C /* VENMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMineTableViewCell.h; sourceTree = "<group>"; };
 		2CBA5178228401DA00EF003C /* VENMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMineTableViewCell.m; sourceTree = "<group>"; };
 		2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMineTableViewCell.xib; sourceTree = "<group>"; };
 		2CBA517E2284095700EF003C /* VENMineTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMineTableHeaderView.h; sourceTree = "<group>"; };
 		2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMineTableHeaderView.m; sourceTree = "<group>"; };
 		2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMineTableHeaderView.xib; sourceTree = "<group>"; };
+		2CE57C3E22944BC800792248 /* VENBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENBaseWebViewController.h; sourceTree = "<group>"; };
+		2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENBaseWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1624,6 +1624,8 @@
 				2C88657D2281381400B21E2D /* VENNavigationController.m */,
 				2C88657E2281381400B21E2D /* VENTabBarController.h */,
 				2C88657B2281381400B21E2D /* VENTabBarController.m */,
+				2CE57C3E22944BC800792248 /* VENBaseWebViewController.h */,
+				2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1711,8 +1713,6 @@
 				2C73D0102281DC1800C4872F /* Register */,
 				2C9EDC4F228189800072C547 /* ResetPassword */,
 				2CBA516E2282BF9200EF003C /* BindingPhone */,
-				2CBA51752282C4D800EF003C /* VENAboutUsViewController.h */,
-				2CBA51742282C4D800EF003C /* VENAboutUsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2111,6 +2111,7 @@
 				2CBA51582282B4DB00EF003C /* YYTextContainerView.m in Sources */,
 				2C8865D52281381400B21E2D /* IQNSArray+Sort.m in Sources */,
 				2CBA51652282B4DB00EF003C /* YYTextRubyAnnotation.m in Sources */,
+				2CE57C4022944BC800792248 /* VENBaseWebViewController.m in Sources */,
 				2C8865C12281381400B21E2D /* JXCategoryNumberView.m in Sources */,
 				2C8865F52281381400B21E2D /* SDWebImageDownloader.m in Sources */,
 				2C8865ED2281381400B21E2D /* SDCollectionViewCell.m in Sources */,
@@ -2158,7 +2159,6 @@
 				2C8865CC2281381400B21E2D /* YYClassInfo.m in Sources */,
 				2C8865962281381400B21E2D /* LGPhotoPickerImageView.m in Sources */,
 				2CBA51672282B4DB00EF003C /* NSParagraphStyle+YYText.m in Sources */,
-				2CBA51762282C4D800EF003C /* VENAboutUsViewController.m in Sources */,
 				2C73D00E2281DC1300C4872F /* VENRegisterPageViewController.m in Sources */,
 				2C8865A02281381400B21E2D /* MJRefreshBackNormalFooter.m in Sources */,
 				2C88641B2281307D00B21E2D /* AppDelegate.m in Sources */,

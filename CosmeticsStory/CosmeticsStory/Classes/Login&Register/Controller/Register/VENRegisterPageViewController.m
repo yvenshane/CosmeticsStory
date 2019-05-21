@@ -7,7 +7,7 @@
 //
 
 #import "VENRegisterPageViewController.h"
-#import "VENAboutUsViewController.h"
+#import "VENBaseWebViewController.h"
 
 @interface VENRegisterPageViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
@@ -63,14 +63,16 @@
     attributedString.yy_color = UIColorFromRGB(0x5E5E5E);
     [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“用户协议”"] color:COLOR_THEME backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
         
-        VENAboutUsViewController *vc = [[VENAboutUsViewController alloc] init];
+        VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
         vc.navigationItemTitle = @"用户协议";
-        vc.HTMLString = @"baidu.com";
         [self presentViewController:vc animated:YES completion:nil];
         
     }];
     [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“隐私政策”"] color:COLOR_THEME backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
         
+        VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
+        vc.navigationItemTitle = @"隐私政策";
+        [self presentViewController:vc animated:YES completion:nil];
     }];
     
     YYLabel *contentLabel = [[YYLabel alloc] initWithFrame:CGRectMake(38 + 16 + 8, 495.5 - 44, kMainScreenWidth - 38 - 16 - 8 - 37, 16)];

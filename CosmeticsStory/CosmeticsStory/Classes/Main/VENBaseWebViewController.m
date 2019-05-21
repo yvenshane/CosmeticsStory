@@ -1,22 +1,23 @@
 //
-//  VENAboutUsViewController.m
-//  CiLuNetwork
+//  VENBaseWebViewController.m
+//  CosmeticsStory
 //
-//  Created by YVEN on 2019/1/29.
-//  Copyright © 2019年 Hefei Haiba Network Technology Co., Ltd. All rights reserved.
+//  Created by YVEN on 2019/5/21.
+//  Copyright © 2019 Hefei Haiba Network Technology Co., Ltd. All rights reserved.
 //
 
-#import "VENAboutUsViewController.h"
+#import "VENBaseWebViewController.h"
 
-@interface VENAboutUsViewController () <UITableViewDelegate, UIWebViewDelegate>
+@interface VENBaseWebViewController () <UITableViewDelegate, UIWebViewDelegate>
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
-@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, assign) CGFloat height;
 
 @end
 
 static NSString *const cellIdentifier = @"cellIdentifier";
-@implementation VENAboutUsViewController
+@implementation VENBaseWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,14 +40,15 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     CGFloat y = self.isPush ? 0 : kStatusBarAndNavigationBarHeight;
     
-    self.tableView.frame = CGRectMake(0, y, kMainScreenWidth, kMainScreenHeight - kStatusBarHeight);
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:self.tableView];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, y, kMainScreenWidth, kMainScreenHeight - kStatusBarHeight) style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:tableView];
     
     UIView *headerView = [[UIView alloc] init];
     headerView.backgroundColor = [UIColor whiteColor];
-    self.tableView.tableHeaderView = headerView;
+    tableView.tableHeaderView = headerView;
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 1)];
     webView.delegate = self;
@@ -55,6 +57,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [webView loadHTMLString:self.HTMLString baseURL:nil];
     [headerView addSubview:webView];
     
+    self.tableView = tableView;
     self.headerView = headerView;
 }
 
