@@ -14,6 +14,8 @@
 		2C4F47A722880C3F008F48CE /* VENPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A622880C3F008F48CE /* VENPickerView.m */; };
 		2C4F47AA22884AC1008F48CE /* VENDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A922884AC1008F48CE /* VENDatePickerView.m */; };
 		2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47AC228854C2008F48CE /* VENListPickerView.m */; };
+		2C4F8B8D2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F8B8B2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.m */; };
+		2C4F8B8E2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4F8B8C2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib */; };
 		2C710EC6228515B600DAC826 /* VENDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C710EC5228515B600DAC826 /* VENDataViewController.m */; };
 		2C710ECA2285177D00DAC826 /* VENDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C710EC82285177D00DAC826 /* VENDataTableViewCell.m */; };
 		2C710ECB2285177D00DAC826 /* VENDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C710EC92285177D00DAC826 /* VENDataTableViewCell.xib */; };
@@ -254,6 +256,9 @@
 		2C4F47A922884AC1008F48CE /* VENDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENDatePickerView.m; sourceTree = "<group>"; };
 		2C4F47AB228854C2008F48CE /* VENListPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENListPickerView.h; sourceTree = "<group>"; };
 		2C4F47AC228854C2008F48CE /* VENListPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENListPickerView.m; sourceTree = "<group>"; };
+		2C4F8B8A2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchCompositionTableViewCell.h; sourceTree = "<group>"; };
+		2C4F8B8B2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchCompositionTableViewCell.m; sourceTree = "<group>"; };
+		2C4F8B8C2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENHomePageSearchCompositionTableViewCell.xib; sourceTree = "<group>"; };
 		2C710EC4228515B600DAC826 /* VENDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENDataViewController.h; sourceTree = "<group>"; };
 		2C710EC5228515B600DAC826 /* VENDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENDataViewController.m; sourceTree = "<group>"; };
 		2C710EC72285177D00DAC826 /* VENDataTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENDataTableViewCell.h; sourceTree = "<group>"; };
@@ -802,6 +807,25 @@
 				2CB5C65322885A1C009F1ABC /* VENListPickerViewCell.xib */,
 			);
 			path = PickerView;
+			sourceTree = "<group>";
+		};
+		2C4F8B882296F23300154BB9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C77229458AE00792248 /* VENHomePageSearchCompositionViewController.h */,
+				2CE57C78229458AE00792248 /* VENHomePageSearchCompositionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C4F8B892296F23E00154BB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C4F8B8A2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.h */,
+				2C4F8B8B2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.m */,
+				2C4F8B8C2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C710EBF2285143100DAC826 /* Main */ = {
@@ -2207,8 +2231,8 @@
 		2CE57C722294586F00792248 /* Composition */ = {
 			isa = PBXGroup;
 			children = (
-				2CE57C77229458AE00792248 /* VENHomePageSearchCompositionViewController.h */,
-				2CE57C78229458AE00792248 /* VENHomePageSearchCompositionViewController.m */,
+				2C4F8B892296F23E00154BB9 /* View */,
+				2C4F8B882296F23300154BB9 /* Controller */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -2295,6 +2319,7 @@
 				2C8864232281307E00B21E2D /* Assets.xcassets in Resources */,
 				2C8865D32281381400B21E2D /* IQKeyboardManager.bundle in Resources */,
 				2C88659A2281381400B21E2D /* MJRefresh.bundle in Resources */,
+				2C4F8B8E2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib in Resources */,
 				2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */,
 				2CB5C65522885A1C009F1ABC /* VENListPickerViewCell.xib in Resources */,
 			);
@@ -2499,6 +2524,7 @@
 				2C8865D92281381400B21E2D /* IQUIViewController+Additions.m in Sources */,
 				2CBA51572282B4DB00EF003C /* YYTextMagnifier.m in Sources */,
 				2C8865BE2281381400B21E2D /* JXCategoryImageView.m in Sources */,
+				2C4F8B8D2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.m in Sources */,
 				2CE57C6B229455D500792248 /* MASLayoutConstraint.m in Sources */,
 				2CE57C7C2294DEDD00792248 /* VENHomePageSearchResultsViewController.m in Sources */,
 				2C8865B42281381400B21E2D /* JXCategoryIndicatorView.m in Sources */,
