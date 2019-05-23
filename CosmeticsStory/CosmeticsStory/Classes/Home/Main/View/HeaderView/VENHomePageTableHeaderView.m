@@ -146,7 +146,7 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
 - (void)pagerView:(TYCyclePagerView *)pageView didScrollFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
     //    _pageControl.currentPage = toIndex;
     //[_pageControl setCurrentPage:newIndex animate:YES];
-    NSLog(@"%ld ->  %ld",fromIndex,toIndex);
+//    NSLog(@"%ld ->  %ld",fromIndex,toIndex);
 }
 
 /*

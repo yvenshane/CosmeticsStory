@@ -11,6 +11,7 @@
 #import "VENHomePageTableHeaderView.h"
 #import "VENHomePageTableFooterView.h"
 #import "VENHomePageTableViewPopularRecommendCell.h"
+#import "VENHomePageSearchViewController.h"
 
 @interface VENHomePageViewController () <UITextFieldDelegate>
 
@@ -28,9 +29,9 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
     // nav 黑线
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
@@ -42,8 +43,8 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     
     self.navigationController.navigationBar.barTintColor = COLOR_THEME;
     
-    VENInitialPageViewController *vc = [[VENInitialPageViewController alloc] init];
-    [self presentViewController:vc animated:NO completion:nil];
+//    VENInitialPageViewController *vc = [[VENInitialPageViewController alloc] init];
+//    [self presentViewController:vc animated:NO completion:nil];
     
     [self setupSearchView];
     
@@ -109,6 +110,13 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     searchTextField.leftView = leftView;
     searchTextField.leftViewMode = UITextFieldViewModeAlways;
     self.navigationItem.titleView = searchTextField;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    VENHomePageSearchViewController *vc = [[VENHomePageSearchViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    return NO;
 }
 
 /*

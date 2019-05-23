@@ -220,7 +220,24 @@
 		2CBA517B228401DA00EF003C /* VENMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */; };
 		2CBA51802284095700EF003C /* VENMineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */; };
 		2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */; };
+		2CD5BF2A22959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */; };
+		2CD5BF302295A37000AAE422 /* VENChipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5BF2F2295A37000AAE422 /* VENChipView.m */; };
 		2CE57C4022944BC800792248 /* VENBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */; };
+		2CE57C4822944DF100792248 /* VENHomePageSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C4722944DF100792248 /* VENHomePageSearchViewController.m */; };
+		2CE57C4B2294555F00792248 /* VENBaseCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C4A2294555F00792248 /* VENBaseCategoryView.m */; };
+		2CE57C67229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C4F229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		2CE57C68229455D500792248 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C58229455D500792248 /* ViewController+MASAdditions.m */; };
+		2CE57C69229455D500792248 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C5C229455D500792248 /* MASCompositeConstraint.m */; };
+		2CE57C6A229455D500792248 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C5D229455D500792248 /* MASConstraintMaker.m */; };
+		2CE57C6B229455D500792248 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C5E229455D500792248 /* MASLayoutConstraint.m */; };
+		2CE57C6C229455D500792248 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C5F229455D500792248 /* NSArray+MASAdditions.m */; };
+		2CE57C6D229455D500792248 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C60229455D500792248 /* View+MASAdditions.m */; };
+		2CE57C6E229455D500792248 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C63229455D500792248 /* MASConstraint.m */; };
+		2CE57C6F229455D500792248 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C65229455D500792248 /* MASViewConstraint.m */; };
+		2CE57C70229455D500792248 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C66229455D500792248 /* MASViewAttribute.m */; };
+		2CE57C762294589800792248 /* VENHomePageSearchProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C752294589800792248 /* VENHomePageSearchProductViewController.m */; };
+		2CE57C79229458AE00792248 /* VENHomePageSearchCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C78229458AE00792248 /* VENHomePageSearchCompositionViewController.m */; };
+		2CE57C7C2294DEDD00792248 /* VENHomePageSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C7B2294DEDD00792248 /* VENHomePageSearchResultsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -648,8 +665,47 @@
 		2CBA517E2284095700EF003C /* VENMineTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMineTableHeaderView.h; sourceTree = "<group>"; };
 		2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMineTableHeaderView.m; sourceTree = "<group>"; };
 		2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMineTableHeaderView.xib; sourceTree = "<group>"; };
+		2CD5BF2822959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchProductHeaderFooterView.h; sourceTree = "<group>"; };
+		2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchProductHeaderFooterView.m; sourceTree = "<group>"; };
+		2CD5BF2E2295A37000AAE422 /* VENChipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENChipView.h; sourceTree = "<group>"; };
+		2CD5BF2F2295A37000AAE422 /* VENChipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENChipView.m; sourceTree = "<group>"; };
 		2CE57C3E22944BC800792248 /* VENBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENBaseWebViewController.h; sourceTree = "<group>"; };
 		2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENBaseWebViewController.m; sourceTree = "<group>"; };
+		2CE57C4622944DF100792248 /* VENHomePageSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchViewController.h; sourceTree = "<group>"; };
+		2CE57C4722944DF100792248 /* VENHomePageSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchViewController.m; sourceTree = "<group>"; };
+		2CE57C492294555F00792248 /* VENBaseCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENBaseCategoryView.h; sourceTree = "<group>"; };
+		2CE57C4A2294555F00792248 /* VENBaseCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENBaseCategoryView.m; sourceTree = "<group>"; };
+		2CE57C4E229455D500792248 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		2CE57C4F229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		2CE57C50229455D500792248 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		2CE57C51229455D500792248 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		2CE57C52229455D500792248 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		2CE57C53229455D500792248 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		2CE57C54229455D500792248 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		2CE57C55229455D500792248 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		2CE57C56229455D500792248 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		2CE57C57229455D500792248 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		2CE57C58229455D500792248 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		2CE57C59229455D500792248 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		2CE57C5A229455D500792248 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		2CE57C5B229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		2CE57C5C229455D500792248 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		2CE57C5D229455D500792248 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		2CE57C5E229455D500792248 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		2CE57C5F229455D500792248 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		2CE57C60229455D500792248 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		2CE57C61229455D500792248 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		2CE57C62229455D500792248 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		2CE57C63229455D500792248 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		2CE57C64229455D500792248 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		2CE57C65229455D500792248 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		2CE57C66229455D500792248 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		2CE57C742294589800792248 /* VENHomePageSearchProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchProductViewController.h; sourceTree = "<group>"; };
+		2CE57C752294589800792248 /* VENHomePageSearchProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchProductViewController.m; sourceTree = "<group>"; };
+		2CE57C77229458AE00792248 /* VENHomePageSearchCompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchCompositionViewController.h; sourceTree = "<group>"; };
+		2CE57C78229458AE00792248 /* VENHomePageSearchCompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchCompositionViewController.m; sourceTree = "<group>"; };
+		2CE57C7A2294DEDD00792248 /* VENHomePageSearchResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchResultsViewController.h; sourceTree = "<group>"; };
+		2CE57C7B2294DEDD00792248 /* VENHomePageSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchResultsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -926,6 +982,7 @@
 		2C8864312281381300B21E2D /* ThirdPartyFramework */ = {
 			isa = PBXGroup;
 			children = (
+				2CE57C4C229455D500792248 /* Masonry */,
 				2C806BDE228B9A9C00F24C75 /* TYCyclePagerView */,
 				2CBA51212282B4DB00EF003C /* YYText */,
 				2C8864322281381300B21E2D /* LGPhotoBrowser */,
@@ -1610,6 +1667,9 @@
 				2C886607228159A300B21E2D /* MBProgressHUD+VEN.m */,
 				2C88660922816A7100B21E2D /* VENEmptyClass.h */,
 				2C88660A22816A7100B21E2D /* VENEmptyClass.m */,
+				2CD5BF2D2295A32F00AAE422 /* ChipView */,
+				2CD5BF2C2295A06000AAE422 /* CategoryView */,
+				2CD5BF2B2295A04C00AAE422 /* WebView */,
 				2C4F47A422880C17008F48CE /* PickerView */,
 			);
 			path = SharedManager;
@@ -1624,8 +1684,6 @@
 				2C88657D2281381400B21E2D /* VENNavigationController.m */,
 				2C88657E2281381400B21E2D /* VENTabBarController.h */,
 				2C88657B2281381400B21E2D /* VENTabBarController.m */,
-				2CE57C3E22944BC800792248 /* VENBaseWebViewController.h */,
-				2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1763,9 +1821,8 @@
 		2C88661C22816E8E00B21E2D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2C88661E22816E8E00B21E2D /* Model */,
-				2C88661F22816E8E00B21E2D /* View */,
-				2C88661D22816E8E00B21E2D /* Controller */,
+				2CE57C4122944DB200792248 /* Main */,
+				2CE57C4222944DBF00792248 /* Search */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2007,6 +2064,164 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2CD5BF2622959DEF00AAE422 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CD5BF2822959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.h */,
+				2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CD5BF2722959E0A00AAE422 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C742294589800792248 /* VENHomePageSearchProductViewController.h */,
+				2CE57C752294589800792248 /* VENHomePageSearchProductViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CD5BF2B2295A04C00AAE422 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C3E22944BC800792248 /* VENBaseWebViewController.h */,
+				2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		2CD5BF2C2295A06000AAE422 /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C492294555F00792248 /* VENBaseCategoryView.h */,
+				2CE57C4A2294555F00792248 /* VENBaseCategoryView.m */,
+			);
+			path = CategoryView;
+			sourceTree = "<group>";
+		};
+		2CD5BF2D2295A32F00AAE422 /* ChipView */ = {
+			isa = PBXGroup;
+			children = (
+				2CD5BF2E2295A37000AAE422 /* VENChipView.h */,
+				2CD5BF2F2295A37000AAE422 /* VENChipView.m */,
+			);
+			path = ChipView;
+			sourceTree = "<group>";
+		};
+		2CE57C4122944DB200792248 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2C88661E22816E8E00B21E2D /* Model */,
+				2C88661F22816E8E00B21E2D /* View */,
+				2C88661D22816E8E00B21E2D /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2CE57C4222944DBF00792248 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C71229457CE00792248 /* Main */,
+				2CE57C732294587700792248 /* Product */,
+				2CE57C722294586F00792248 /* Composition */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2CE57C4322944DCB00792248 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C4622944DF100792248 /* VENHomePageSearchViewController.h */,
+				2CE57C4722944DF100792248 /* VENHomePageSearchViewController.m */,
+				2CE57C7A2294DEDD00792248 /* VENHomePageSearchResultsViewController.h */,
+				2CE57C7B2294DEDD00792248 /* VENHomePageSearchResultsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CE57C4422944DD100792248 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CE57C4522944DD500792248 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CE57C4C229455D500792248 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C4D229455D500792248 /* Masonry */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		2CE57C4D229455D500792248 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C4E229455D500792248 /* MASCompositeConstraint.h */,
+				2CE57C4F229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				2CE57C50229455D500792248 /* MASConstraint+Private.h */,
+				2CE57C51229455D500792248 /* MASLayoutConstraint.h */,
+				2CE57C52229455D500792248 /* NSArray+MASShorthandAdditions.h */,
+				2CE57C53229455D500792248 /* MASConstraintMaker.h */,
+				2CE57C54229455D500792248 /* View+MASAdditions.h */,
+				2CE57C55229455D500792248 /* NSArray+MASAdditions.h */,
+				2CE57C56229455D500792248 /* MASUtilities.h */,
+				2CE57C57229455D500792248 /* MASViewAttribute.h */,
+				2CE57C58229455D500792248 /* ViewController+MASAdditions.m */,
+				2CE57C59229455D500792248 /* MASViewConstraint.h */,
+				2CE57C5A229455D500792248 /* MASConstraint.h */,
+				2CE57C5B229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				2CE57C5C229455D500792248 /* MASCompositeConstraint.m */,
+				2CE57C5D229455D500792248 /* MASConstraintMaker.m */,
+				2CE57C5E229455D500792248 /* MASLayoutConstraint.m */,
+				2CE57C5F229455D500792248 /* NSArray+MASAdditions.m */,
+				2CE57C60229455D500792248 /* View+MASAdditions.m */,
+				2CE57C61229455D500792248 /* View+MASShorthandAdditions.h */,
+				2CE57C62229455D500792248 /* Masonry.h */,
+				2CE57C63229455D500792248 /* MASConstraint.m */,
+				2CE57C64229455D500792248 /* ViewController+MASAdditions.h */,
+				2CE57C65229455D500792248 /* MASViewConstraint.m */,
+				2CE57C66229455D500792248 /* MASViewAttribute.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		2CE57C71229457CE00792248 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C4522944DD500792248 /* Model */,
+				2CE57C4422944DD100792248 /* View */,
+				2CE57C4322944DCB00792248 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2CE57C722294586F00792248 /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C77229458AE00792248 /* VENHomePageSearchCompositionViewController.h */,
+				2CE57C78229458AE00792248 /* VENHomePageSearchCompositionViewController.m */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		2CE57C732294587700792248 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				2CD5BF2622959DEF00AAE422 /* View */,
+				2CD5BF2722959E0A00AAE422 /* Controller */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2095,6 +2310,7 @@
 				2C8865812281381400B21E2D /* LGPhotoPickerBrowserViewController.m in Sources */,
 				2C8865F12281381400B21E2D /* TAAbstractDotView.m in Sources */,
 				2C8865872281381400B21E2D /* ZLCameraViewController.m in Sources */,
+				2CE57C6D229455D500792248 /* View+MASAdditions.m in Sources */,
 				2C8865942281381400B21E2D /* LGPhotoPickerCollectionView.m in Sources */,
 				2C8865FC2281381400B21E2D /* NSData+ImageContentType.m in Sources */,
 				2CBA516C2282B4DB00EF003C /* YYTextAsyncLayer.m in Sources */,
@@ -2106,6 +2322,7 @@
 				2C8865FA2281381400B21E2D /* SDImageCache.m in Sources */,
 				2C8865922281381400B21E2D /* LGPhotoPickerFooterCollectionReusableView.m in Sources */,
 				2C8865DA2281381400B21E2D /* IQKeyboardReturnKeyHandler.m in Sources */,
+				2CE57C4822944DF100792248 /* VENHomePageSearchViewController.m in Sources */,
 				2C8865F82281381400B21E2D /* SDWebImageCompat.m in Sources */,
 				2C8865C62281381400B21E2D /* JXCategoryCollectionView.m in Sources */,
 				2CBA51582282B4DB00EF003C /* YYTextContainerView.m in Sources */,
@@ -2117,6 +2334,7 @@
 				2C8865ED2281381400B21E2D /* SDCollectionViewCell.m in Sources */,
 				2C8865AE2281381400B21E2D /* JXCategoryIndicatorImageView.m in Sources */,
 				2C88662B2281702500B21E2D /* VENMineViewController.m in Sources */,
+				2CD5BF302295A37000AAE422 /* VENChipView.m in Sources */,
 				2CB5C65C22890338009F1ABC /* VENSettingViewController.m in Sources */,
 				2C8865E72281381400B21E2D /* AFURLRequestSerialization.m in Sources */,
 				2C8865982281381400B21E2D /* UIScrollView+MJRefresh.m in Sources */,
@@ -2134,6 +2352,8 @@
 				2C8865AB2281381400B21E2D /* MJRefreshComponent.m in Sources */,
 				2C8865F22281381400B21E2D /* SDWebImageManager.m in Sources */,
 				2C8865F02281381400B21E2D /* TAAnimatedDotView.m in Sources */,
+				2CE57C69229455D500792248 /* MASCompositeConstraint.m in Sources */,
+				2CE57C4B2294555F00792248 /* VENBaseCategoryView.m in Sources */,
 				2C8865AC2281381400B21E2D /* JXCategoryIndicatorLineView.m in Sources */,
 				2C8865C32281381400B21E2D /* JXCategoryNumberCellModel.m in Sources */,
 				2C8865A22281381400B21E2D /* MJRefreshAutoGifFooter.m in Sources */,
@@ -2165,10 +2385,12 @@
 				2C8865D12281381400B21E2D /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2C80A9F0228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.m in Sources */,
 				2C8865E12281381400B21E2D /* UIWebView+AFNetworking.m in Sources */,
+				2CE57C70229455D500792248 /* MASViewAttribute.m in Sources */,
 				2CBA517A228401DA00EF003C /* VENMineTableViewCell.m in Sources */,
 				2CB5C65422885A1C009F1ABC /* VENListPickerViewCell.m in Sources */,
 				2C8865FD2281381400B21E2D /* UIImageView+WebCache.m in Sources */,
 				2C8865D82281381400B21E2D /* IQUIView+Hierarchy.m in Sources */,
+				2CE57C6C229455D500792248 /* NSArray+MASAdditions.m in Sources */,
 				2C80A9EB228CFBE500249CB4 /* VENHomePageTableHeaderView.m in Sources */,
 				2C8865F92281381400B21E2D /* SDWebImagePrefetcher.m in Sources */,
 				2C8865C92281381400B21E2D /* JXCategoryBaseCell.m in Sources */,
@@ -2186,6 +2408,7 @@
 				2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */,
 				2C8865B72281381400B21E2D /* JXCategoryDotCellModel.m in Sources */,
 				2C8865DE2281381400B21E2D /* UIImageView+AFNetworking.m in Sources */,
+				2CE57C6F229455D500792248 /* MASViewConstraint.m in Sources */,
 				2C8865E42281381400B21E2D /* AFURLResponseSerialization.m in Sources */,
 				2CBA51602282B4DB00EF003C /* YYLabel.m in Sources */,
 				2C8865CA2281381400B21E2D /* JXCategoryBaseCellModel.m in Sources */,
@@ -2215,6 +2438,7 @@
 				2C007BC422895FBC002509D5 /* VENModifyPasswordViewController.m in Sources */,
 				2CBA51722282BFB300EF003C /* VENBindingPhoneViewController.m in Sources */,
 				2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */,
+				2CE57C67229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				2C88662222816FAB00B21E2D /* VENHomePageViewController.m in Sources */,
 				2CBA51622282B4DB00EF003C /* YYTextParser.m in Sources */,
 				2C8865C52281381400B21E2D /* JXCategoryFactory.m in Sources */,
@@ -2236,6 +2460,7 @@
 				2C8865C42281381400B21E2D /* JXCategoryListVCContainerView.m in Sources */,
 				2C8865AF2281381400B21E2D /* JXCategoryIndicatorBallView.m in Sources */,
 				2C8865832281381400B21E2D /* LGPhotoPickerCustomToolBarView.m in Sources */,
+				2CE57C762294589800792248 /* VENHomePageSearchProductViewController.m in Sources */,
 				2CBA516B2282B4DB00EF003C /* UIView+YYText.m in Sources */,
 				2C9EDC53228189AD0072C547 /* VENResetPasswordViewController.m in Sources */,
 				2C8865B62281381400B21E2D /* JXCategoryDotView.m in Sources */,
@@ -2252,6 +2477,7 @@
 				2C8865932281381400B21E2D /* LGPhotoPickerCollectionViewCell.m in Sources */,
 				2CBA515F2282B4DB00EF003C /* YYTextDebugOption.m in Sources */,
 				2C8865912281381400B21E2D /* LGPhotoPickerAssetsViewController.m in Sources */,
+				2CE57C79229458AE00792248 /* VENHomePageSearchCompositionViewController.m in Sources */,
 				2C88657F2281381400B21E2D /* LGPhotoRect.m in Sources */,
 				2C8865E92281381400B21E2D /* AFSecurityPolicy.m in Sources */,
 				2C88659B2281381400B21E2D /* UIScrollView+MJExtension.m in Sources */,
@@ -2273,20 +2499,26 @@
 				2C8865D92281381400B21E2D /* IQUIViewController+Additions.m in Sources */,
 				2CBA51572282B4DB00EF003C /* YYTextMagnifier.m in Sources */,
 				2C8865BE2281381400B21E2D /* JXCategoryImageView.m in Sources */,
+				2CE57C6B229455D500792248 /* MASLayoutConstraint.m in Sources */,
+				2CE57C7C2294DEDD00792248 /* VENHomePageSearchResultsViewController.m in Sources */,
 				2C8865B42281381400B21E2D /* JXCategoryIndicatorView.m in Sources */,
 				2C8865A82281381400B21E2D /* MJRefreshHeader.m in Sources */,
+				2CE57C68229455D500792248 /* ViewController+MASAdditions.m in Sources */,
 				2CBA516A2282B4DB00EF003C /* YYTextTransaction.m in Sources */,
 				2C8865842281381400B21E2D /* LGPhotoPickerBrowserPhotoView.m in Sources */,
+				2CD5BF2A22959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m in Sources */,
 				2C88658E2281381400B21E2D /* LGPhotoAssets.m in Sources */,
 				2C8865EC2281381400B21E2D /* UIView+SDExtension.m in Sources */,
 				2C8865822281381400B21E2D /* LGPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				2C8865C02281381400B21E2D /* JXCategoryImageCellModel.m in Sources */,
 				2C8865AD2281381400B21E2D /* JXCategoryIndicatorTriangleView.m in Sources */,
+				2CE57C6A229455D500792248 /* MASConstraintMaker.m in Sources */,
 				2C8865A72281381400B21E2D /* MJRefreshFooter.m in Sources */,
 				2CBA515D2282B4DB00EF003C /* YYTextSelectionView.m in Sources */,
 				2CBA51642282B4DB00EF003C /* YYTextArchiver.m in Sources */,
 				2CBA515E2282B4DB00EF003C /* YYTextKeyboardManager.m in Sources */,
 				2C8865B22281381400B21E2D /* JXCategoryIndicatorCellModel.m in Sources */,
+				2CE57C6E229455D500792248 /* MASConstraint.m in Sources */,
 				2C8865D72281381400B21E2D /* IQUIScrollView+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
