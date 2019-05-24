@@ -32,11 +32,18 @@
         titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [self addSubview:titleLabel];
         
+        UIButton *deleteButton = [[UIButton alloc] init];
+        [deleteButton setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
+        [deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        deleteButton.hidden = YES;
+        [self addSubview:deleteButton];
+        
         VENChipView *chipView = [[VENChipView alloc] init];
         [self addSubview:chipView];
         
         _lineView = lineView;
         _titleLabel = titleLabel;
+        _deleteButton = deleteButton;
         _chipView = chipView;
     }
     return self;
@@ -55,7 +62,14 @@
     
     self.lineView.frame = CGRectMake(0, 0, kMainScreenWidth, 10);
     self.titleLabel.frame = CGRectMake(15, 13.5 + 10, kMainScreenWidth - 30, 17);
+    self.deleteButton.frame = CGRectMake(kMainScreenWidth - 15 - 20, 10 + 12, 20, 20);
     self.chipView.frame = CGRectMake(0, 13.5 + 10 + 17 + 13.5, kMainScreenWidth, self.chipView.height);
+}
+
+- (void)deleteButtonClick {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"SearchResults"];
+    self.headerFooterViewBlock(@"");
 }
 
 /*
