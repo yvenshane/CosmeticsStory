@@ -35,6 +35,7 @@
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
         button.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         ViewRadius(button, 15.0f);
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         
         CGFloat height = 30;
@@ -61,6 +62,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+}
+
+- (void)buttonClick:(UIButton *)button {
+    self.chipViewBlock(button.titleLabel.text);
 }
 
 /*

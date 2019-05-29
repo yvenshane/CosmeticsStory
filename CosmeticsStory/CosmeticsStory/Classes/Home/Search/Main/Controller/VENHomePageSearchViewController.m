@@ -27,6 +27,14 @@
     
     [self setupSearchView];
     [self setupUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter:) name:@"pushSearchResultPage" object:nil];
+}
+
+- (void)notificationCenter:(NSNotification *)noti {
+    VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];
+    vc.keyWords = noti.userInfo[@"keyword"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -186,7 +194,9 @@
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSMutableArray *tempMuArr = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"SearchResults"]];
-        [tempMuArr addObject:textField.text];
+        if (![tempMuArr containsObject:textField.text]) {
+            [tempMuArr addObject:textField.text];
+        }
         [userDefaults setObject:tempMuArr forKey:@"SearchResults"];
         
         VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];

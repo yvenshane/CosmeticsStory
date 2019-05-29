@@ -11,6 +11,8 @@
 		2C007BCB22896285002509D5 /* VENMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C007BCA22896285002509D5 /* VENMessageViewController.m */; };
 		2C007BCF228962AC002509D5 /* VENMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C007BCD228962AC002509D5 /* VENMessageTableViewCell.m */; };
 		2C007BD0228962AC002509D5 /* VENMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C007BCE228962AC002509D5 /* VENMessageTableViewCell.xib */; };
+		2C4DC879229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DC877229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m */; };
+		2C4DC87A229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4DC878229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib */; };
 		2C4F47A722880C3F008F48CE /* VENPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A622880C3F008F48CE /* VENPickerView.m */; };
 		2C4F47AA22884AC1008F48CE /* VENDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A922884AC1008F48CE /* VENDatePickerView.m */; };
 		2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47AC228854C2008F48CE /* VENListPickerView.m */; };
@@ -224,6 +226,10 @@
 		2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */; };
 		2CD5BF2A22959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */; };
 		2CD5BF302295A37000AAE422 /* VENChipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5BF2F2295A37000AAE422 /* VENChipView.m */; };
+		2CDF742A22978F3B000EFFF1 /* VENExpansionPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF742922978F3B000EFFF1 /* VENExpansionPanelView.m */; };
+		2CE20C86229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE20C84229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.m */; };
+		2CE20C87229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE20C85229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.xib */; };
+		2CE20C8B229BCCCC00949CC8 /* VENPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE20C8A229BCCCC00949CC8 /* VENPopupView.m */; };
 		2CE57C4022944BC800792248 /* VENBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */; };
 		2CE57C4822944DF100792248 /* VENHomePageSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C4722944DF100792248 /* VENHomePageSearchViewController.m */; };
 		2CE57C4B2294555F00792248 /* VENBaseCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57C4A2294555F00792248 /* VENBaseCategoryView.m */; };
@@ -250,6 +256,9 @@
 		2C007BCC228962AC002509D5 /* VENMessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMessageTableViewCell.h; sourceTree = "<group>"; };
 		2C007BCD228962AC002509D5 /* VENMessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMessageTableViewCell.m; sourceTree = "<group>"; };
 		2C007BCE228962AC002509D5 /* VENMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMessageTableViewCell.xib; sourceTree = "<group>"; };
+		2C4DC876229D1C5A004396C9 /* VENPopupViewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENPopupViewCollectionViewCell.h; sourceTree = "<group>"; };
+		2C4DC877229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENPopupViewCollectionViewCell.m; sourceTree = "<group>"; };
+		2C4DC878229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENPopupViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C4F47A522880C3F008F48CE /* VENPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENPickerView.h; sourceTree = "<group>"; };
 		2C4F47A622880C3F008F48CE /* VENPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENPickerView.m; sourceTree = "<group>"; };
 		2C4F47A822884AC1008F48CE /* VENDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENDatePickerView.h; sourceTree = "<group>"; };
@@ -674,6 +683,13 @@
 		2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchProductHeaderFooterView.m; sourceTree = "<group>"; };
 		2CD5BF2E2295A37000AAE422 /* VENChipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENChipView.h; sourceTree = "<group>"; };
 		2CD5BF2F2295A37000AAE422 /* VENChipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENChipView.m; sourceTree = "<group>"; };
+		2CDF742822978F3B000EFFF1 /* VENExpansionPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENExpansionPanelView.h; sourceTree = "<group>"; };
+		2CDF742922978F3B000EFFF1 /* VENExpansionPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENExpansionPanelView.m; sourceTree = "<group>"; };
+		2CE20C83229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchResultsTableViewCell.h; sourceTree = "<group>"; };
+		2CE20C84229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchResultsTableViewCell.m; sourceTree = "<group>"; };
+		2CE20C85229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENHomePageSearchResultsTableViewCell.xib; sourceTree = "<group>"; };
+		2CE20C89229BCCCC00949CC8 /* VENPopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENPopupView.h; sourceTree = "<group>"; };
+		2CE20C8A229BCCCC00949CC8 /* VENPopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENPopupView.m; sourceTree = "<group>"; };
 		2CE57C3E22944BC800792248 /* VENBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENBaseWebViewController.h; sourceTree = "<group>"; };
 		2CE57C3F22944BC800792248 /* VENBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENBaseWebViewController.m; sourceTree = "<group>"; };
 		2CE57C4622944DF100792248 /* VENHomePageSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchViewController.h; sourceTree = "<group>"; };
@@ -1691,6 +1707,8 @@
 				2C886607228159A300B21E2D /* MBProgressHUD+VEN.m */,
 				2C88660922816A7100B21E2D /* VENEmptyClass.h */,
 				2C88660A22816A7100B21E2D /* VENEmptyClass.m */,
+				2CE20C88229BCCAF00949CC8 /* PopupView */,
+				2CDF742722978F03000EFFF1 /* ExpansionPanelView */,
 				2CD5BF2D2295A32F00AAE422 /* ChipView */,
 				2CD5BF2C2295A06000AAE422 /* CategoryView */,
 				2CD5BF2B2295A04C00AAE422 /* WebView */,
@@ -2133,6 +2151,55 @@
 			path = ChipView;
 			sourceTree = "<group>";
 		};
+		2CDF742422978E18000EFFF1 /* SearchResultsPage */ = {
+			isa = PBXGroup;
+			children = (
+				2CDF742622978E25000EFFF1 /* View */,
+				2CDF742522978E20000EFFF1 /* Controller */,
+			);
+			path = SearchResultsPage;
+			sourceTree = "<group>";
+		};
+		2CDF742522978E20000EFFF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CE57C7A2294DEDD00792248 /* VENHomePageSearchResultsViewController.h */,
+				2CE57C7B2294DEDD00792248 /* VENHomePageSearchResultsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CDF742622978E25000EFFF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CE20C83229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.h */,
+				2CE20C84229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.m */,
+				2CE20C85229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CDF742722978F03000EFFF1 /* ExpansionPanelView */ = {
+			isa = PBXGroup;
+			children = (
+				2CDF742822978F3B000EFFF1 /* VENExpansionPanelView.h */,
+				2CDF742922978F3B000EFFF1 /* VENExpansionPanelView.m */,
+			);
+			path = ExpansionPanelView;
+			sourceTree = "<group>";
+		};
+		2CE20C88229BCCAF00949CC8 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				2CE20C89229BCCCC00949CC8 /* VENPopupView.h */,
+				2CE20C8A229BCCCC00949CC8 /* VENPopupView.m */,
+				2C4DC876229D1C5A004396C9 /* VENPopupViewCollectionViewCell.h */,
+				2C4DC877229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m */,
+				2C4DC878229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib */,
+			);
+			path = PopupView;
+			sourceTree = "<group>";
+		};
 		2CE57C4122944DB200792248 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -2147,6 +2214,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE57C71229457CE00792248 /* Main */,
+				2CDF742422978E18000EFFF1 /* SearchResultsPage */,
 				2CE57C732294587700792248 /* Product */,
 				2CE57C722294586F00792248 /* Composition */,
 			);
@@ -2158,8 +2226,6 @@
 			children = (
 				2CE57C4622944DF100792248 /* VENHomePageSearchViewController.h */,
 				2CE57C4722944DF100792248 /* VENHomePageSearchViewController.m */,
-				2CE57C7A2294DEDD00792248 /* VENHomePageSearchResultsViewController.h */,
-				2CE57C7B2294DEDD00792248 /* VENHomePageSearchResultsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2311,6 +2377,7 @@
 				2C8864262281307E00B21E2D /* LaunchScreen.storyboard in Resources */,
 				2C80AA09228EAA4200249CB4 /* VENWaterfallFlowViewCollectionViewCell.xib in Resources */,
 				2C9EDC4E22817CCE0072C547 /* VENLoginPageViewController.xib in Resources */,
+				2CE20C87229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.xib in Resources */,
 				2CB5C66C22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib in Resources */,
 				2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */,
 				2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */,
@@ -2322,6 +2389,7 @@
 				2C4F8B8E2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib in Resources */,
 				2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */,
 				2CB5C65522885A1C009F1ABC /* VENListPickerViewCell.xib in Resources */,
+				2C4DC87A229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2384,6 +2452,7 @@
 				2C8865A22281381400B21E2D /* MJRefreshAutoGifFooter.m in Sources */,
 				2C88659D2281381400B21E2D /* UIView+MJExtension.m in Sources */,
 				2CB5C664228909A4009F1ABC /* VENChangePhoneNumberViewController.m in Sources */,
+				2CDF742A22978F3B000EFFF1 /* VENExpansionPanelView.m in Sources */,
 				2C8865A12281381400B21E2D /* MJRefreshAutoStateFooter.m in Sources */,
 				2C8865DC2281381400B21E2D /* UIRefreshControl+AFNetworking.m in Sources */,
 				2C8865C22281381400B21E2D /* JXCategoryNumberCell.m in Sources */,
@@ -2425,12 +2494,14 @@
 				2C8865CD2281381400B21E2D /* IQTextView.m in Sources */,
 				2C8865FE2281381400B21E2D /* UIView+WebCacheOperation.m in Sources */,
 				2C8866032281381400B21E2D /* VENBaseViewController.m in Sources */,
+				2C4DC879229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m in Sources */,
 				2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */,
 				2CBA51612282B4DB00EF003C /* YYTextRunDelegate.m in Sources */,
 				2C806BEB228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m in Sources */,
 				2C8865F72281381400B21E2D /* UIImage+MultiFormat.m in Sources */,
 				2C8865F32281381400B21E2D /* SDWebImageDecoder.m in Sources */,
 				2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */,
+				2CE20C86229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.m in Sources */,
 				2C8865B72281381400B21E2D /* JXCategoryDotCellModel.m in Sources */,
 				2C8865DE2281381400B21E2D /* UIImageView+AFNetworking.m in Sources */,
 				2CE57C6F229455D500792248 /* MASViewConstraint.m in Sources */,
@@ -2465,6 +2536,7 @@
 				2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */,
 				2CE57C67229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				2C88662222816FAB00B21E2D /* VENHomePageViewController.m in Sources */,
+				2CE20C8B229BCCCC00949CC8 /* VENPopupView.m in Sources */,
 				2CBA51622282B4DB00EF003C /* YYTextParser.m in Sources */,
 				2C8865C52281381400B21E2D /* JXCategoryFactory.m in Sources */,
 				2C8865862281381400B21E2D /* LGPhotoPickerBrowserPhotoImageView.m in Sources */,

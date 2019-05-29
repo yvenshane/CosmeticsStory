@@ -39,6 +39,17 @@
         [self addSubview:deleteButton];
         
         VENChipView *chipView = [[VENChipView alloc] init];
+        chipView.chipViewBlock = ^(NSString *str) {
+            
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSMutableArray *tempMuArr = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"SearchResults"]];
+            if (![tempMuArr containsObject:str]) {
+                [tempMuArr addObject:str];
+            }
+            [userDefaults setObject:tempMuArr forKey:@"SearchResults"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pushSearchResultPage" object:nil userInfo:@{@"keyword" : str}];
+        };
         [self addSubview:chipView];
         
         _lineView = lineView;
@@ -69,7 +80,7 @@
 - (void)deleteButtonClick {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:@"SearchResults"];
-    self.headerFooterViewBlock(@"");
+    self.headerFooterViewDeleteBlock(@"");
 }
 
 /*

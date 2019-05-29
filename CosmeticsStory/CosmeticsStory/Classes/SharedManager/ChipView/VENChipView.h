@@ -10,10 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^chipViewBlock)(CGFloat);
+typedef void (^chipViewBlock)(NSString *);
 @interface VENChipView : UIView
 @property (nonatomic, copy) NSArray *chipArr;
 @property (nonatomic, assign) CGFloat height;
+@property (nonatomic, copy) chipViewBlock chipViewBlock;
 
 @end
 

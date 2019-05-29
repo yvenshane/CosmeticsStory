@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^headerFooterViewBlock)(NSString *);
+typedef void (^headerFooterViewDeleteBlock)(NSString *);
 @interface VENHomePageSearchProductHeaderFooterView : UIView
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSArray *chipArr;
 @property (nonatomic, strong) UIButton *deleteButton;
-@property (nonatomic, copy) headerFooterViewBlock headerFooterViewBlock;
+@property (nonatomic, copy) headerFooterViewDeleteBlock headerFooterViewDeleteBlock;
 
 @end
 

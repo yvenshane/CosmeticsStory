@@ -41,9 +41,10 @@
         headerView.title = @"搜索记录";
         headerView.chipArr = [self.userDefaults objectForKey:@"SearchResults"];
         headerView.deleteButton.hidden = NO;
-        headerView.headerFooterViewBlock = ^(NSString *str) {
+        headerView.headerFooterViewDeleteBlock = ^(NSString *str) {
             [self.tableView reloadData];
         };
+        
         return headerView;
     }
 }
