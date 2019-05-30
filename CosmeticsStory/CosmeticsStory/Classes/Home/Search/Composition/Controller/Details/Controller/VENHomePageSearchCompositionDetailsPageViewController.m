@@ -71,7 +71,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     return CGFLOAT_MIN;
 }
 
-#pragma mark -
+#pragma mark - BottomToolBar
 - (void)setupBottomToolBar {
     UIView *bottomToolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 48 - (kTabBarHeight - 49), kMainScreenWidth, 48)];
     bottomToolBarView.backgroundColor = [UIColor whiteColor];

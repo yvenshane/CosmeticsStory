@@ -206,14 +206,14 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
 - (void)showLoading:(BOOL)isShow {
     if (isShow) {
         //显示loading
-        [MBProgressHUD showLoading];
+//        [MBProgressHUD showLoading];
     }
 }
 
 - (void)hideLoading:(BOOL)isShow {
     if (isShow) {
         //隐藏正在显示的loading
-        [MBProgressHUD hideLoading];
+//        [MBProgressHUD hideLoading];
     }
 }
 

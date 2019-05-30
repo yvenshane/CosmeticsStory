@@ -42,4 +42,17 @@
     return NO;
 }
 
++ (BOOL)isEmptyDictionary:(NSDictionary *)dict {
+    if (!dict) {
+        return YES;
+    }
+    if ([dict isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if (!dict.count) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

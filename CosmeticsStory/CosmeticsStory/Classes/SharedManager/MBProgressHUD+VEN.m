@@ -14,26 +14,11 @@
     UIView *view = [[UIApplication sharedApplication] keyWindow];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.labelText = text;
+    hud.detailsLabelText = text;
+    hud.detailsLabelFont = [UIFont systemFontOfSize:16.0f];
     hud.mode = MBProgressHUDModeText;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:2.0f];
-}
-
-+ (void)showLoading {
-    UIView *view = [[UIApplication sharedApplication] keyWindow];
-    
-    [self hideHUDForView:view animated:YES];
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:2.0f];
-}
-
-+ (void)hideLoading {
-    UIView *view = [[UIApplication sharedApplication] keyWindow];
-    
-    [self hideHUDForView:view animated:YES];
+    [hud hide:YES afterDelay:3.0f];
 }
 
 @end

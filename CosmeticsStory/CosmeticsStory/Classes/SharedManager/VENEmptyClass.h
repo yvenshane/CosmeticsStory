@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VENEmptyClass : NSObject
 + (BOOL)isEmptyString:(NSString *)string;
 + (BOOL)isEmptyArray:(NSArray *)array;
++ (BOOL)isEmptyDictionary:(NSDictionary *)dict;
 
 @end
 
