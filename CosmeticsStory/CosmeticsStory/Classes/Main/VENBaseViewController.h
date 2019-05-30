@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+- (void)setupNavigationItemLeftBarButtonItem;
+@property (nonatomic, assign) BOOL isPresent;
+
 @end
 
 NS_ASSUME_NONNULL_END

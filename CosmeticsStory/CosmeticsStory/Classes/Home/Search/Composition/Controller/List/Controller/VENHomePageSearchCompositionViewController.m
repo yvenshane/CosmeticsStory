@@ -8,6 +8,7 @@
 
 #import "VENHomePageSearchCompositionViewController.h"
 #import "VENHomePageSearchCompositionTableViewCell.h"
+#import "VENHomePageSearchCompositionDetailsPageViewController.h"
 
 @interface VENHomePageSearchCompositionViewController ()
 
@@ -38,7 +39,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        VENHomePageSearchCompositionDetailsPageViewController *vc = [[VENHomePageSearchCompositionDetailsPageViewController alloc] init];
+        VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    });
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

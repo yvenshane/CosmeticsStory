@@ -62,7 +62,11 @@
 }
 
 - (void)backButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.isPresent) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - dealloc
