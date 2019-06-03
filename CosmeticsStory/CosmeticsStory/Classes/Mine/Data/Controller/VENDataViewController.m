@@ -10,10 +10,16 @@
 #import "VENDataTableViewCell.h"
 #import "VENDatePickerView.h"
 #import "VENListPickerView.h"
+#import "VENDataPageModel.h"
 
 @interface VENDataViewController ()
 @property (nonatomic, copy) NSString *tempString;
 @property (nonatomic, copy) NSString *tempString2;
+
+@property (nonatomic, copy) NSArray *label_constellationArr;
+@property (nonatomic, copy) NSArray *label_occupationArr;
+@property (nonatomic, copy) NSArray *label_skinArr;
+@property (nonatomic, strong) VENDataPageModel *userInfoModel;
 
 @end
 
@@ -30,6 +36,19 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [self.view addSubview:self.tableView];
     
     [self setupSaveButton];
+    
+    [self loadDataSource];
+}
+
+- (void)loadDataSource {
+    [[VENApiManager sharedManager] userInfoWithSuccessBlock:^(id  _Nonnull responseObject) {
+        self.label_constellationArr = responseObject[@"label_constellation"];
+        self.label_occupationArr = responseObject[@"label_occupation"];
+        self.label_skinArr = responseObject[@"label_skin"];
+        self.userInfoModel = responseObject[@"userInfo"];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -55,15 +74,16 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             cell.titleLabel.text = @"头像";
+            [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.userInfoModel.avatar] placeholderImage:[UIImage imageNamed:@"icon_touxiang2"]];
             cell.descriptionTextField.userInteractionEnabled = NO;
         } else if (indexPath.row == 1) {
             cell.titleLabel.text = @"昵称";
             cell.descriptionTextField.userInteractionEnabled = YES;
-            cell.descriptionTextField.text = @"";
+            cell.descriptionTextField.text = self.userInfoModel.name;
         } else {
             cell.titleLabel.text = @"帐号";
             cell.descriptionTextField.userInteractionEnabled = YES;
-            cell.descriptionTextField.text = @"";
+            cell.descriptionTextField.text = self.userInfoModel.id;
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
@@ -121,9 +141,35 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
-        
+        if (indexPath.row == 0) {
+            [self.view endEditing:YES];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                
+                UIAlertAction *appropriateAction = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                UIAlertAction *undeterminedAction = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    
+                }];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                
+                [alert addAction:appropriateAction];
+                [alert addAction:undeterminedAction];
+                [alert addAction:cancelAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            });
+        }
     } else if (indexPath.section == 1) {
+        [self.view endEditing:YES];
+        
         if (indexPath.row == 0) {
             VENDatePickerView *datePickerView = [[VENDatePickerView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight)];
             datePickerView.title = @"出生日期";
@@ -188,7 +234,30 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)saveButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    VENDataTableViewCell *iconCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    VENDataTableViewCell *nameCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    VENDataTableViewCell *birthdayCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    
+    NSDictionary *parameters = @{@"name" : nameCell.descriptionTextField.text,
+                                 @"birthday" : birthdayCell.descriptionTextField.text
+                                 };
+    
+    [[VENNetworkingManager shareManager] uploadImageWithUrlString:@"member/modifyUserInfo" parameters:parameters images:@[iconCell.iconImageView.image] keyName:@"avatar" successBlock:^(id responseObject) {
+        
+        
+        if (self.isPresent) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    
+
 }
 
 - (NSString *)getAgeWithString:(NSString *)string {

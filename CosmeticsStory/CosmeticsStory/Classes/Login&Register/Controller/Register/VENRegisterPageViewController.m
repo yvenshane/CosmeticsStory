@@ -44,6 +44,20 @@
     [self setupNavigationItemLeftBarButtonItem];
 }
 
+#pragma mark - 提交
+- (IBAction)submitButtonClick:(id)sender {
+    if (self.selectedButton.selected == NO) {
+        [MBProgressHUD showText:@"请阅读并同意“用户协议“和“隐私政策“"];
+        return;
+    }
+    
+    [[VENApiManager sharedManager] registerWithTel:self.phoneNumberTextField.text code:self.verificationCodeTextField.text password:self.newwPasswordTextField.text passwords:self.confirmPasswordTextField.text];
+}
+
+- (IBAction)selectedButtonClick:(UIButton *)button {
+    button.selected = !button.selected;
+}
+
 - (void)setupNavigationItemLeftBarButtonItem {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);

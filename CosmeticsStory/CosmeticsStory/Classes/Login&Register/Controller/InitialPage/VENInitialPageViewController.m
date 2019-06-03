@@ -22,8 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.bigImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
-    
     self.loginButton.layer.cornerRadius = 24.0f;
     self.loginButton.layer.masksToBounds = YES;
 }

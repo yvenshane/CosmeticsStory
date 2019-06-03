@@ -37,7 +37,10 @@
 
 #pragma mark - 登录
 - (IBAction)loginButtonClick:(id)sender {
-    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    [[VENApiManager sharedManager] loginWithTel:self.phoneNumberTextField.text password:self.passwordTextField.text];
+    
+//    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - 忘记密码

@@ -13,12 +13,15 @@
 + (void)showText:(NSString *)text {
     UIView *view = [[UIApplication sharedApplication] keyWindow];
     
+    [self hideHUDForView:view animated:YES];
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.detailsLabelText = text;
     hud.detailsLabelFont = [UIFont systemFontOfSize:16.0f];
     hud.mode = MBProgressHUDModeText;
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:3.0f];
+    hud.userInteractionEnabled = NO;
 }
 
 @end
