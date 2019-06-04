@@ -33,6 +33,10 @@
     self.loginButton.layer.masksToBounds = YES;
     
     [self setupNavigationItemLeftBarButtonItem];
+    
+    
+    self.phoneNumberTextField.text = @"15305532222";
+    self.passwordTextField.text = @"111111";
 }
 
 #pragma mark - 登录
@@ -40,7 +44,7 @@
     
     [[VENApiManager sharedManager] loginWithTel:self.phoneNumberTextField.text password:self.passwordTextField.text];
     
-//    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - 忘记密码

@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *tel;
 @property (nonatomic, copy) NSString *wx_unique;
 
+@property (nonatomic, assign) BOOL selected;
+
 @end
 
 NS_ASSUME_NONNULL_END

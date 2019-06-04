@@ -61,7 +61,7 @@ static const CGFloat kDatePickerHeight = 216;
 - (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        _dateFormatter.dateFormat = @"yyyy年MM月dd日";
+        _dateFormatter.dateFormat = @"yyyy-MM-dd";
     }
     return _dateFormatter;
 }

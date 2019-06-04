@@ -57,7 +57,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 NSLog(@"%@", responseObject);
                 
                 if ([responseObject[@"status"] integerValue] == 200) {
-                    
+                    [MBProgressHUD showText:responseObject[@"message"]];
                 } else {
                     [[VENNetworkResponseCodeManager sharedManager] initWithResponse:responseObject];
                     return;
@@ -79,7 +79,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 NSLog(@"%@", responseObject);
                 
                 if ([responseObject[@"status"] integerValue] == 200) {
-                    
+                    [MBProgressHUD showText:responseObject[@"message"]];
                 } else {
                     [[VENNetworkResponseCodeManager sharedManager] initWithResponse:responseObject];
                     return;
@@ -127,7 +127,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
         NSLog(@"%@", responseObject);
         
         if ([responseObject[@"status"] integerValue] == 200) {
-            
+            [MBProgressHUD showText:responseObject[@"message"]];
         } else {
             [[VENNetworkResponseCodeManager sharedManager] initWithResponse:responseObject];
             return;

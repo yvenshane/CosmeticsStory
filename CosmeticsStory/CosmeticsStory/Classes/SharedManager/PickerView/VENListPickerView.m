@@ -8,11 +8,15 @@
 
 #import "VENListPickerView.h"
 #import "VENListPickerViewCell.h"
+#import "VENDataPageModel.h"
 
 @interface VENListPickerView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) VENDataPageModel *model;
+
 @end
 
+static const NSInteger kRowMaxCount = 5;
 static const CGFloat kToolBarHeight = 48;
 static NSString *const cellIdentifier = @"cellIdentifier";
 @implementation VENListPickerView
@@ -34,7 +38,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.tableView.frame = CGRectMake(0, kToolBarHeight, kMainScreenWidth, self.dataSourceArr.count * 58);
+    CGFloat height = self.dataSourceArr.count > kRowMaxCount ? kRowMaxCount * 58 : self.dataSourceArr.count * 58;
+    self.viewHeight = height;
+    self.tableView.frame = CGRectMake(0, kToolBarHeight, kMainScreenWidth, height);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -44,17 +50,34 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENListPickerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = self.dataSourceArr[indexPath.row];
+    
+    VENDataPageModel *model = self.dataSourceArr[indexPath.row];
+    cell.titleLabel.text = model.name;
+    cell.titleLabel.textColor = model.selected ? COLOR_THEME : UIColorFromRGB(0x333333);
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    for (VENDataPageModel *model in self.dataSourceArr) {
+        model.selected = NO;
+    }
     
+    VENDataPageModel *model = self.dataSourceArr[indexPath.row];
+    model.selected = YES;
+    [tableView reloadData];
+    
+    self.model = model;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 58.0f;
+}
+
+- (void)confirmButtonClick {
+    self.listPickerViewBlock(self.model);
+    
+    [self hidden];
 }
 
 /*

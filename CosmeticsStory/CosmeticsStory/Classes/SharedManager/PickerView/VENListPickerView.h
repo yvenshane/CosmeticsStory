@@ -7,11 +7,14 @@
 //
 
 #import "VENPickerView.h"
+@class VENDataPageModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^listPickerViewBlock)(VENDataPageModel *);
 @interface VENListPickerView : VENPickerView
 @property (nonatomic, copy) NSArray *dataSourceArr;
+@property (nonatomic, copy) listPickerViewBlock listPickerViewBlock;
 
 @end
 

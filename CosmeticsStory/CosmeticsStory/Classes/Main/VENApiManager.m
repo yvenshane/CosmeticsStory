@@ -56,10 +56,15 @@
         NSArray *label_skinArr = [NSArray yy_modelArrayWithClass:[VENDataPageModel class] json:content[@"label_skin"]];
         VENDataPageModel *userInfoModel = [VENDataPageModel yy_modelWithJSON:content[@"userInfo"]];
         
+        NSArray *genderArr = @[@{@"id" : @"1", @"name" : @"男"},
+                               @{@"id" : @"2", @"name" : @"女"}];
+        genderArr = [NSArray yy_modelArrayWithClass:[VENDataPageModel class] json:genderArr];
+        
         NSDictionary *dict = @{@"label_constellation" : label_constellationArr,
                                @"label_occupation" : label_occupationArr,
                                @"label_skin" : label_skinArr,
-                               @"userInfo" : userInfoModel};
+                               @"userInfo" : userInfoModel,
+                               @"label_gender" : genderArr};
         
         successBlock(dict);
     } failureBlock:^(NSError * _Nonnull error) {
