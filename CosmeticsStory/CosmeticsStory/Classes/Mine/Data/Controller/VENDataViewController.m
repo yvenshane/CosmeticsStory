@@ -46,7 +46,6 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [self.view addSubview:self.tableView];
     
     [self setupSaveButton];
-    
     [self loadDataSource];
 }
 
@@ -448,21 +447,17 @@ static NSString *const cellIdentifier = @"cellIdentifier";
                                  @"skin_texture_id" : skin_id,
                                  @"sex" : gender};
     
-    [[VENNetworkingManager shareManager] uploadImageWithUrlString:@"member/modifyUserInfo" parameters:parameters images:@[iconCell.iconImageView.image] keyName:@"avatar" successBlock:^(id responseObject) {
-        
-        if (self.isPresent) {
-            UIViewController *vc = self;
-            while (vc.presentingViewController) {
-                vc = vc.presentingViewController;
-            }
-            [vc dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            [self.navigationController popViewControllerAnimated:YES];
+    [[VENApiManager sharedManager] modifyUserInfoWithParameters:parameters images:@[iconCell.iconImageView.image] keyName:@"avatar"];
+    
+    if (self.isPresent) {
+        UIViewController *vc = self;
+        while (vc.presentingViewController) {
+            vc = vc.presentingViewController;
         }
-        
-    } failureBlock:^(NSError *error) {
-        
-    }];
+        [vc dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (NSString *)getAgeWithString:(NSString *)string {

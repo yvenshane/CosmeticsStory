@@ -15,10 +15,13 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 
 + (instancetype)sharedManager;
 
-- (void)registerWithTel:(NSString *)tel code:(NSString *)code password:(NSString *)password passwords:(NSString *)passwords;
-- (void)loginWithTel:(NSString *)tel password:(NSString *)password;
+- (void)registerWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+- (void)agreementWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+
+- (void)loginWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+- (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName;
 
 @end
 

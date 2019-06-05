@@ -47,14 +47,23 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     
     NSLog(@"请求参数：%@", parameters);
     
-    // HEADER
-    //        [self.requestSerializer setValue: forHTTPHeaderField:];
+    // 取出存放的 cookies 设置 cookie
+    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithFile:CookieStoragePath];
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in cookies){
+        [cookieStorage setCookie:cookie];
+        NSLog(@"%@, %@", cookie.name, cookie.value);
+    }
     
     switch (type) {
         case HttpRequestTypePOST: {
             [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 NSLog(@"%@", responseObject);
+                
+                // 存储 cookies
+                NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+                [NSKeyedArchiver archiveRootObject:cookies toFile:CookieStoragePath];
                 
                 if ([responseObject[@"status"] integerValue] == 200) {
                     [MBProgressHUD showText:responseObject[@"message"]];

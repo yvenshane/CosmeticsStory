@@ -41,10 +41,11 @@
 
 #pragma mark - 登录
 - (IBAction)loginButtonClick:(id)sender {
-    
-    [[VENApiManager sharedManager] loginWithTel:self.phoneNumberTextField.text password:self.passwordTextField.text];
-    
-    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
+                                 @"password" : self.passwordTextField.text};
+    [[VENApiManager sharedManager] loginWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+       [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 #pragma mark - 忘记密码

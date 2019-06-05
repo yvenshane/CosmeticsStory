@@ -20,35 +20,29 @@
     return instance;
 }
 
-- (void)registerWithTel:(NSString *)tel code:(NSString *)code password:(NSString *)password passwords:(NSString *)passwords {
-    
-    NSDictionary *parameters = @{@"tel" : tel,
-                                 @"code" : code,
-                                 @"password" : password,
-                                 @"passwords" : passwords};
-    
-    [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/register" parameters:parameters successBlock:^(id  _Nonnull responseObject) {
+- (void)registerWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"login/register" parameters:parameters successBlock:^(id responseObject) {
         
-        
-    } failureBlock:^(NSError * _Nonnull error) {
-        
+        successBlock(responseObject);
     }];
 }
 
-- (void)loginWithTel:(NSString *)tel password:(NSString *)password {
-    NSDictionary *parameters = @{@"tel" : tel,
-                                 @"password" : password};
- 
-    [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/login" parameters:parameters successBlock:^(id  _Nonnull responseObject) {
+- (void)agreementWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"login/Agreement" parameters:parameters successBlock:^(id responseObject) {
+        NSString *content = responseObject[@"content"];
+        successBlock(content);
+    }];
+}
+
+- (void)loginWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"login/login" parameters:parameters successBlock:^(id responseObject) {
         
-    } failureBlock:^(NSError * _Nonnull error) {
-        
+        successBlock(responseObject);
     }];
 }
 
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
-    [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"member/userInfo" parameters:nil successBlock:^(id  _Nonnull responseObject) {
-        
+    [self postWithUrlString:@"member/userInfo" parameters:nil successBlock:^(id responseObject) {
         NSDictionary *content = responseObject[@"content"];
         
         NSArray *label_constellationArr = [NSArray yy_modelArrayWithClass:[VENDataPageModel class] json:content[@"label_constellation"]];
@@ -67,9 +61,27 @@
                                @"label_gender" : genderArr};
         
         successBlock(dict);
+    }];
+}
+
+- (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName {
+    [[VENNetworkingManager shareManager] uploadImageWithUrlString:@"member/modifyUserInfo" parameters:parameters images:images keyName:keyName successBlock:^(id responseObject) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - POST
+- (void)postWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:urlString parameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        
+        successBlock(responseObject);
     } failureBlock:^(NSError * _Nonnull error) {
         
     }];
 }
+
+
 
 @end

@@ -17,7 +17,8 @@ typedef void (^HTTPRequestFailedBlock)(NSError *error);
 
 @interface VENNetworkingManager : AFHTTPSessionManager
 + (instancetype)shareManager;
+
 - (void)requestWithType:(HttpRequestType)type urlString:(NSString *)urlString parameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock failureBlock:(HTTPRequestFailedBlock)failureBlock;
-- (void)uploadImageWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock  failureBlock:(HTTPRequestFailedBlock)failureBlock;
+- (void)uploadImageWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock failureBlock:(HTTPRequestFailedBlock)failureBlock;
 
 @end

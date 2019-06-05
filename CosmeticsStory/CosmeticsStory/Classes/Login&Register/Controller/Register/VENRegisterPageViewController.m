@@ -51,7 +51,13 @@
         return;
     }
     
-    [[VENApiManager sharedManager] registerWithTel:self.phoneNumberTextField.text code:self.verificationCodeTextField.text password:self.newwPasswordTextField.text passwords:self.confirmPasswordTextField.text];
+    NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
+                                 @"code" : self.verificationCodeTextField.text,
+                                 @"password" : self.newwPasswordTextField.text,
+                                 @"passwords" : self.confirmPasswordTextField.text};
+    [[VENApiManager sharedManager] registerWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        
+    }];
 }
 
 - (IBAction)selectedButtonClick:(UIButton *)button {
@@ -76,17 +82,21 @@
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
     attributedString.yy_color = UIColorFromRGB(0x5E5E5E);
     [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“用户协议”"] color:COLOR_THEME backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-        
-        VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
-        vc.navigationItemTitle = @"用户协议";
-        [self presentViewController:vc animated:YES completion:nil];
-        
+        [[VENApiManager sharedManager] agreementWithParameters:@{@"type" : @"1"} successBlock:^(id  _Nonnull responseObject) {
+            VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
+            vc.navigationItemTitle = @"用户协议";
+            vc.HTMLString = responseObject;
+            [self presentViewController:vc animated:YES completion:nil];
+        }];
     }];
     [attributedString yy_setTextHighlightRange:[str rangeOfString:@"“隐私政策”"] color:COLOR_THEME backgroundColor:UIColorMake(246, 246, 246) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
         
-        VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
-        vc.navigationItemTitle = @"隐私政策";
-        [self presentViewController:vc animated:YES completion:nil];
+        [[VENApiManager sharedManager] agreementWithParameters:@{@"type" : @"2"} successBlock:^(id  _Nonnull responseObject) {
+            VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
+            vc.navigationItemTitle = @"隐私政策";
+            vc.HTMLString = responseObject;
+            [self presentViewController:vc animated:YES completion:nil];
+        }];
     }];
     
     YYLabel *contentLabel = [[YYLabel alloc] initWithFrame:CGRectMake(38 + 16 + 8, 495.5 - 44, kMainScreenWidth - 38 - 16 - 8 - 37, 16)];
