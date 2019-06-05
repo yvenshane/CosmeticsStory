@@ -43,7 +43,15 @@
 
 #pragma mark - 提交
 - (IBAction)commitButtonClick:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
+                                 @"code" : self.verificationCodeTextField.text,
+                                 @"password" : self.newwPasswordTextField.text,
+                                 @"passwords" : self.confirmPasswordTextField.text};
+    
+    [[VENApiManager sharedManager] resetPasswordWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+           [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 - (void)setupNavigationItemLeftBarButtonItem {

@@ -41,6 +41,15 @@
     }];
 }
 
+- (void)resetPasswordWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"login/data_getinfoPassword" parameters:parameters successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
+    }];
+}
+
+
+
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/userInfo" parameters:nil successBlock:^(id responseObject) {
         NSDictionary *content = responseObject[@"content"];
