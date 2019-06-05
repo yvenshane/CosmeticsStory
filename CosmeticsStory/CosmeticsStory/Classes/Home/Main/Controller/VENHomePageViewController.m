@@ -43,8 +43,10 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     
     self.navigationController.navigationBar.barTintColor = COLOR_THEME;
     
-    VENInitialPageViewController *vc = [[VENInitialPageViewController alloc] init];
-    [self presentViewController:vc animated:NO completion:nil];
+    if (![[VENUserStatusManager sharedManager] isLogin]) {
+        VENInitialPageViewController *vc = [[VENInitialPageViewController alloc] init];
+        [self presentViewController:vc animated:NO completion:nil];
+    }
     
     [self setupSearchView];
     

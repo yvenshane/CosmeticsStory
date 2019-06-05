@@ -108,7 +108,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)logoutButtonClick {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LOGIN"];
     [self.navigationController popViewControllerAnimated:YES];
+    
+    NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
 }
 
 /*

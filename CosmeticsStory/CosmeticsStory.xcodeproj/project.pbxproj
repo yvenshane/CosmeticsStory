@@ -161,6 +161,7 @@
 		2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C88662E228177E000B21E2D /* VENInitialPageViewController.xib */; };
 		2C8ADA4222A0D0A30022A234 /* VENNetworkResponseCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8ADA4122A0D0A30022A234 /* VENNetworkResponseCodeManager.m */; };
 		2C8ADA4522A117770022A234 /* VENDataPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8ADA4422A117770022A234 /* VENDataPageModel.m */; };
+		2C93092B22A7A3750057A27B /* VENUserStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93092A22A7A3750057A27B /* VENUserStatusManager.m */; };
 		2C9EDC4D22817CCE0072C547 /* VENLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EDC4B22817CCE0072C547 /* VENLoginPageViewController.m */; };
 		2C9EDC4E22817CCE0072C547 /* VENLoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EDC4C22817CCE0072C547 /* VENLoginPageViewController.xib */; };
 		2C9EDC53228189AD0072C547 /* VENResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EDC51228189AD0072C547 /* VENResetPasswordViewController.m */; };
@@ -543,6 +544,8 @@
 		2C8ADA4422A117770022A234 /* VENDataPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENDataPageModel.m; sourceTree = "<group>"; };
 		2C8ADACE22A4A5370022A234 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		2C8ADAD022A4A53D0022A234 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		2C93092922A7A3750057A27B /* VENUserStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENUserStatusManager.h; sourceTree = "<group>"; };
+		2C93092A22A7A3750057A27B /* VENUserStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENUserStatusManager.m; sourceTree = "<group>"; };
 		2C9EDC4A22817CCE0072C547 /* VENLoginPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENLoginPageViewController.h; sourceTree = "<group>"; };
 		2C9EDC4B22817CCE0072C547 /* VENLoginPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENLoginPageViewController.m; sourceTree = "<group>"; };
 		2C9EDC4C22817CCE0072C547 /* VENLoginPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENLoginPageViewController.xib; sourceTree = "<group>"; };
@@ -1508,6 +1511,8 @@
 			isa = PBXGroup;
 			children = (
 				2C8ADA3F22A0D02A0022A234 /* Network */,
+				2C93092922A7A3750057A27B /* VENUserStatusManager.h */,
+				2C93092A22A7A3750057A27B /* VENUserStatusManager.m */,
 				2C8865742281381400B21E2D /* VENNetworkTool.h */,
 				2C8865772281381400B21E2D /* VENNetworkTool.m */,
 				2C886606228159A300B21E2D /* MBProgressHUD+VEN.h */,
@@ -2400,6 +2405,7 @@
 				2C8865CB2281381400B21E2D /* NSObject+YYModel.m in Sources */,
 				2C9EDC4D22817CCE0072C547 /* VENLoginPageViewController.m in Sources */,
 				2C8865D42281381400B21E2D /* IQKeyboardManager.m in Sources */,
+				2C93092B22A7A3750057A27B /* VENUserStatusManager.m in Sources */,
 				2C88662522816FF300B21E2D /* VENClassifyViewController.m in Sources */,
 				2C80AA122292F6AC00249CB4 /* XRWaterfallLayout.m in Sources */,
 				2C8865E22281381400B21E2D /* AFAutoPurgingImageCache.m in Sources */,

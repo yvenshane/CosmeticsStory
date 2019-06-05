@@ -44,7 +44,11 @@
     NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
                                  @"password" : self.passwordTextField.text};
     [[VENApiManager sharedManager] loginWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+        NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
     }];
 }
 
