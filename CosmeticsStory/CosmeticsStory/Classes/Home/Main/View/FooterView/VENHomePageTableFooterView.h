@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VENHomePageTableFooterView : UIView
+@property (nonatomic, copy) NSArray *goodsNewsListArr;
+@property (nonatomic, assign) CGFloat footerViewHeight;
 
 @end
 

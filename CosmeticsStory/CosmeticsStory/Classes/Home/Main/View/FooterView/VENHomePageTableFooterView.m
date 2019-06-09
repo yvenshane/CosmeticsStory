@@ -12,7 +12,6 @@
 @interface VENHomePageTableFooterView ()
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIView *lineView2;
 @property (nonatomic, strong) VENWaterfallFlowView *waterfallFlowView;
 
 @end
@@ -34,19 +33,20 @@
         titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
         [self addSubview:titleLabel];
         
-        UIView *lineView2 = [[UIView alloc] init];
-        lineView2.backgroundColor = UIColorFromRGB(0xF8F8F8);
-        [self addSubview:lineView2];
-        
         VENWaterfallFlowView *waterfallFlowView = [[VENWaterfallFlowView alloc] init];
         [self addSubview:waterfallFlowView];
         
         _lineView = lineView;
         _titleLabel = titleLabel;
-        _lineView2 = lineView2;
         _waterfallFlowView = waterfallFlowView;
     }
     return self;
+}
+
+- (void)setGoodsNewsListArr:(NSArray *)goodsNewsListArr {
+    _goodsNewsListArr = goodsNewsListArr;
+    
+    _waterfallFlowView.goodsNewsListArr = goodsNewsListArr;
 }
 
 - (void)layoutSubviews {
@@ -54,8 +54,7 @@
     
     self.lineView.frame = CGRectMake(0, 0, kMainScreenWidth, 10);
     self.titleLabel.frame = CGRectMake(15, 10, kMainScreenWidth - 30, 65);
-    self.lineView2.frame = CGRectMake(0, 75, kMainScreenWidth, 10);
-    self.waterfallFlowView.frame = CGRectMake(0, 86, kMainScreenWidth, 500);
+    self.waterfallFlowView.frame = CGRectMake(0, 75, kMainScreenWidth, self.footerViewHeight + 75);
 }
 
 /*

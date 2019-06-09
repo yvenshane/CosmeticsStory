@@ -6,7 +6,7 @@
 //
 
 #import "VENNetworkingManager.h"
-#import "VENNetworkResponseCodeManager.h"
+#import "VENLoginPageViewController.h"
 
 static id instance;
 static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
@@ -47,12 +47,14 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     
     NSLog(@"请求参数：%@", parameters);
     
-    // 取出存放的 cookies 设置 cookie
-    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithFile:CookieStoragePath];
-    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in cookies){
-        [cookieStorage setCookie:cookie];
-        NSLog(@"%@, %@", cookie.name, cookie.value);
+    if ([[VENUserStatusManager sharedManager] isLogin]) {
+        // 取出存放的 cookies 设置 cookie
+        NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithFile:CookieStoragePath];
+        NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (NSHTTPCookie *cookie in cookies){
+            [cookieStorage setCookie:cookie];
+            NSLog(@"%@, %@", cookie.name, cookie.value);
+        }
     }
     
     switch (type) {
@@ -65,11 +67,16 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
                 [NSKeyedArchiver archiveRootObject:cookies toFile:CookieStoragePath];
                 
-                if ([responseObject[@"status"] integerValue] == 200) {
-                    [MBProgressHUD showText:responseObject[@"message"]];
-                } else {
-                    [[VENNetworkResponseCodeManager sharedManager] initWithResponse:responseObject];
+                if ([responseObject[@"status"] integerValue] == 203) { // 未登录
+                    VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+                    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                    [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
                     return;
+                } else if ([responseObject[@"status"] integerValue] == 202) {
+                    [MBProgressHUD showText:responseObject[@"message"]];
+                    return;
+                } else {
+                    [MBProgressHUD showText:responseObject[@"message"]];
                 }
                 
                 if (successBlock) successBlock(responseObject);
@@ -86,13 +93,6 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
             [self GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 NSLog(@"%@", responseObject);
-                
-                if ([responseObject[@"status"] integerValue] == 200) {
-                    [MBProgressHUD showText:responseObject[@"message"]];
-                } else {
-                    [[VENNetworkResponseCodeManager sharedManager] initWithResponse:responseObject];
-                    return;
-                }
                 
                 if (successBlock) successBlock(responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -135,11 +135,20 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
         
         NSLog(@"%@", responseObject);
         
-        if ([responseObject[@"status"] integerValue] == 200) {
-            [MBProgressHUD showText:responseObject[@"message"]];
-        } else {
-            [[VENNetworkResponseCodeManager sharedManager] initWithResponse:responseObject];
+        // 存储 cookies
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+        [NSKeyedArchiver archiveRootObject:cookies toFile:CookieStoragePath];
+        
+        if ([responseObject[@"status"] integerValue] == 203) { // 未登录
+            VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
             return;
+        } else if ([responseObject[@"status"] integerValue] == 202) {
+            [MBProgressHUD showText:responseObject[@"message"]];
+            return;
+        } else {
+            [MBProgressHUD showText:responseObject[@"message"]];
         }
         
         if (successBlock) successBlock(responseObject);
@@ -188,6 +197,47 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     }
     
     return resultImage;
+}
+
+#pragma mark - 获取当前屏幕显示的rootViewController
+- (UIViewController *)getCurrentTopVC {
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal) {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows) {
+            if (tmpWin.windowLevel == UIWindowLevelNormal) {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return [self getTopViewController:result];
+}
+
+- (UIViewController *)getTopViewController:(UIViewController *)viewController {
+    if ([viewController isKindOfClass:[UITabBarController class]]) {
+        return [self getTopViewController:[(UITabBarController *)viewController selectedViewController]];
+        
+    } else if ([viewController isKindOfClass:[UINavigationController class]]) {
+        return [self getTopViewController:[(UINavigationController *)viewController topViewController]];
+        
+    } else if (viewController.presentedViewController) {
+        return [self getTopViewController:viewController.presentedViewController];
+        
+    } else {
+        return viewController;
+    }
 }
 
 @end

@@ -12,8 +12,18 @@
 #import "VENHomePageTableFooterView.h"
 #import "VENHomePageTableViewPopularRecommendCell.h"
 #import "VENHomePageSearchViewController.h"
+#import "VENHomePageModel.h"
+#import "VENHomePageCouponViewController.h"
+#import "VENHomePageFindViewController.h"
 
 @interface VENHomePageViewController () <UITextFieldDelegate>
+@property (nonatomic, copy) NSArray *bannerListArr;
+@property (nonatomic, copy) NSArray *catListArr;
+@property (nonatomic, copy) NSArray *recommendListArr;
+@property (nonatomic, copy) NSArray *goodsNewsListArr;
+
+@property (nonatomic, assign) CGFloat footerViewHeight;
+@property (nonatomic, assign) BOOL isRefresh;
 
 @end
 
@@ -24,14 +34,16 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    self.navigationController.navigationBar.barTintColor = COLOR_THEME;
     // nav 黑线
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     // nav 黑线
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
@@ -40,8 +52,6 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.navigationController.navigationBar.barTintColor = COLOR_THEME;
     
     if (![[VENUserStatusManager sharedManager] isLogin]) {
         VENInitialPageViewController *vc = [[VENInitialPageViewController alloc] init];
@@ -53,16 +63,55 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     [self.tableView registerNib:[UINib nibWithNibName:@"VENHomePageTableViewPopularRecommendCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
 //    [self.tableView registerNib:[UINib nibWithNibName:@"VENHomePageTableViewPopularRecommendCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadDataSource];
+    }];
+    
     [self.view addSubview:self.tableView];
+    
+    [self loadDataSource];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter:) name:@"HEIGHT" object:nil];
+}
+
+- (void)notificationCenter:(NSNotification *)noti {
+    self.footerViewHeight = [noti.userInfo[@"height"] floatValue];
+    
+    if (self.footerViewHeight > 10) {
+        if (!self.isRefresh) {
+            [self.tableView reloadData];
+            self.isRefresh = YES;
+        }
+    }
+}
+
+- (void)loadDataSource {
+    
+    self.isRefresh = NO;
+    
+    [[VENApiManager sharedManager] homePageWithSuccessBlock:^(id  _Nonnull responseObject) {
+        
+        [self.tableView.mj_header endRefreshing];
+        
+        self.bannerListArr = responseObject[@"bannerList"];
+        self.catListArr = responseObject[@"catList"];
+        self.recommendListArr = responseObject[@"recommendList"];
+        self.goodsNewsListArr = responseObject[@"goodsNewsList"];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.recommendListArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageTableViewPopularRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.iconImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+    VENHomePageModel *model = self.recommendListArr[indexPath.section];
+    cell.model = model;
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -78,6 +127,21 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENHomePageTableHeaderView *headerView = [[VENHomePageTableHeaderView alloc] init];
+    headerView.bannerListArr = self.bannerListArr;
+    headerView.catListArr = self.catListArr;
+    headerView.homePageTableHeaderViewBlock = ^(NSString *str) {
+        
+        if ([str isEqualToString:@"coupon"]) {
+            VENHomePageCouponViewController *vc = [[VENHomePageCouponViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if ([str isEqualToString:@"find"]) {
+            VENHomePageFindViewController *vc = [[VENHomePageFindViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    };
+    
     return headerView;
 }
 
@@ -87,11 +151,14 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     VENHomePageTableFooterView *footerView = [[VENHomePageTableFooterView alloc] init];
+    footerView.goodsNewsListArr = self.goodsNewsListArr;
+    footerView.footerViewHeight = self.footerViewHeight;
+    
     return footerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 500;
+    return self.footerViewHeight + 75;
 }
 
 #pragma mark - 顶部搜索框

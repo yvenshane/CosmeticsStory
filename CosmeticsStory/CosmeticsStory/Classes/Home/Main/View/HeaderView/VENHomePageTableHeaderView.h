@@ -10,7 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^homePageTableHeaderViewBlock)(NSString *);
 @interface VENHomePageTableHeaderView : UIView
+@property (nonatomic, copy) NSArray *bannerListArr;
+@property (nonatomic, copy) NSArray *catListArr;
+
+@property (nonatomic, copy) homePageTableHeaderViewBlock homePageTableHeaderViewBlock;
 
 @end
 

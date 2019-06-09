@@ -10,6 +10,7 @@
 #import "VENHomePageBannerCollectionViewCell.h"
 #import "VENHomePageHeaderViewButton.h"
 #import "VENHomePageHeaderViewScrollView.h"
+#import "VENHomePageModel.h"
 
 @interface VENHomePageTableHeaderView () <TYCyclePagerViewDelegate, TYCyclePagerViewDataSource, VENHomePageHeaderViewScrollViewDelegate>
 @property (nonatomic, strong) UIImageView *bannerBackgroundView;
@@ -46,32 +47,21 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
         [self addSubview:pagerView];
         
         TYPageControl *pageControl = [[TYPageControl alloc] init];
-        pageControl.numberOfPages = 5;
         pageControl.pageIndicatorSize = CGSizeMake(8, 8);
         pageControl.currentPageIndicatorSize = CGSizeMake(8, 8);
         pageControl.pageIndicatorTintColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.31];
         [pagerView addSubview:pageControl];
         
-        // 图文按钮
-        NSMutableArray *views = [NSMutableArray array];
-        
-        for (int i = 0; i < 10; i++) {
-            VENHomePageHeaderViewButton *btn = [[VENHomePageHeaderViewButton alloc] initWithFrame:CGRectZero setTitle:@"143223" setImageName:@"" setButtonImageWidth:30.0f setImageTitleSpace:5.0f setButtonTitleLabelFontSize:11.0f];
-            [views addObject:btn];
-        }
-        
-        VENHomePageHeaderViewScrollView *scrollView = [[VENHomePageHeaderViewScrollView alloc] initWithFrame:CGRectMake(0, kMainScreenHeight / (667.0 / 140.0) + 10, kMainScreenWidth, 111) viewsArray:views maxCount:5 lineMaxCount:5 pageControlIsShow:YES];
-        scrollView.delegate = self;
-        [self addSubview:scrollView];
-        
         // 优惠券
         UIButton *couponButton = [[UIButton alloc] init];
         [couponButton setImage:[UIImage imageNamed:@"icon_coupon"] forState:UIControlStateNormal];
+        [couponButton addTarget:self action:@selector(couponButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:couponButton];
         
-        // 优惠券
+        // 发现
         UIButton *findButton = [[UIButton alloc] init];
         [findButton setImage:[UIImage imageNamed:@"icon_find"] forState:UIControlStateNormal];
+        [findButton addTarget:self action:@selector(findButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:findButton];
         
         // 分割线
@@ -89,7 +79,6 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
         _bannerBackgroundView = bannerBackgroundView;
         _pagerView = pagerView;
         _pageControl = pageControl;
-        _scrollView = scrollView;
         _couponButton = couponButton;
         _findButton = findButton;
         _lineView = lineView;
@@ -107,8 +96,6 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
     self.pageControl.frame = CGRectMake(0, kMainScreenHeight / (667.0 / 140.0) - 8 - 10, kMainScreenWidth, 8);
     y = kMainScreenHeight / (667.0 / 140.0) + 10;
     
-
-    
     y = y + 111;
     CGFloat buttonWidth = (kMainScreenWidth - 15 * 3) / 2;
     self.couponButton.frame = CGRectMake(15, y, buttonWidth, 76);
@@ -121,15 +108,50 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
 
 - (void)buttonUpInsideWithView:(UIButton *)btn withIndex:(NSInteger)index withView:(VENHomePageHeaderViewScrollView *)view {
     
+    NSLog(@"%ld", (long)index);
+}
+
+- (void)setCatListArr:(NSArray *)catListArr {
+    _catListArr = catListArr;
+    
+    if ([VENEmptyClass isEmptyArray:catListArr]) {
+        return;
+    }
+    
+    // 图文按钮
+    NSMutableArray *views = [NSMutableArray array];
+    
+    for (int i = 0; i < catListArr.count; i++) {
+        
+        VENHomePageModel *model = catListArr[i];
+        
+        VENHomePageHeaderViewButton *btn = [[VENHomePageHeaderViewButton alloc] initWithFrame:CGRectZero setTitle:model.cat_name setImageName:model.cat_image setButtonImageWidth:30.0f setImageTitleSpace:5.0f setButtonTitleLabelFontSize:11.0f];
+        [views addObject:btn];
+    }
+    
+    VENHomePageHeaderViewScrollView *scrollView = [[VENHomePageHeaderViewScrollView alloc] initWithFrame:CGRectMake(0, kMainScreenHeight / (667.0 / 140.0) + 10, kMainScreenWidth, 111) viewsArray:views maxCount:5 lineMaxCount:5 pageControlIsShow:YES];
+    scrollView.delegate = self;
+    [self addSubview:scrollView];
+    
+    _scrollView = scrollView;
+}
+
+- (void)setBannerListArr:(NSArray *)bannerListArr {
+    _bannerListArr = bannerListArr;
+    
+    self.pageControl.numberOfPages = bannerListArr.count;
 }
 
 #pragma mark - TYCyclePagerViewDataSource
 - (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {
-    return 5;
+    return self.bannerListArr.count;
 }
 
 - (UICollectionViewCell *)pagerView:(TYCyclePagerView *)pagerView cellForItemAtIndex:(NSInteger)index {
     VENHomePageBannerCollectionViewCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:bannerCellIdentifier forIndex:index];
+    VENHomePageModel *model = self.bannerListArr[index];
+    [cell.bannerImageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    cell.bannerImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     return cell;
 }
@@ -144,9 +166,17 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
 }
 
 - (void)pagerView:(TYCyclePagerView *)pageView didScrollFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
-    //    _pageControl.currentPage = toIndex;
-    //[_pageControl setCurrentPage:newIndex animate:YES];
-//    NSLog(@"%ld ->  %ld",fromIndex,toIndex);
+    _pageControl.currentPage = toIndex;
+    NSLog(@"%ld ->  %ld",fromIndex,toIndex);
+}
+
+#pragma mark - 优惠券/发现
+- (void)couponButtonClick {
+    self.homePageTableHeaderViewBlock(@"coupon");
+}
+
+- (void)findButtonClick {
+    self.homePageTableHeaderViewBlock(@"find");
 }
 
 /*

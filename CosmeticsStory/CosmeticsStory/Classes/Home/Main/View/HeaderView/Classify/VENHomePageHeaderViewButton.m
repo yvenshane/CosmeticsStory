@@ -45,7 +45,7 @@
     self.buttonImage = [[UIImageView alloc] initWithFrame:CGRectZero];
 //    self.buttonImage.image = [UIImage imageNamed:self.imageName];
     
-    self.buttonImage.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+//    self.buttonImage.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
     
     [self.buttonImage sd_setImageWithURL:[NSURL URLWithString:self.imageName] placeholderImage:[UIImage imageNamed:@""]];
     

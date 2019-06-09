@@ -159,9 +159,14 @@
 		2C88662B2281702500B21E2D /* VENMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88662A2281702500B21E2D /* VENMineViewController.m */; };
 		2C88662F228177E000B21E2D /* VENInitialPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88662D228177E000B21E2D /* VENInitialPageViewController.m */; };
 		2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C88662E228177E000B21E2D /* VENInitialPageViewController.xib */; };
-		2C8ADA4222A0D0A30022A234 /* VENNetworkResponseCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8ADA4122A0D0A30022A234 /* VENNetworkResponseCodeManager.m */; };
 		2C8ADA4522A117770022A234 /* VENDataPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8ADA4422A117770022A234 /* VENDataPageModel.m */; };
 		2C93092B22A7A3750057A27B /* VENUserStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93092A22A7A3750057A27B /* VENUserStatusManager.m */; };
+		2C93092E22A7A8E40057A27B /* VENHomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93092D22A7A8E40057A27B /* VENHomePageModel.m */; };
+		2C93093122A816490057A27B /* VENHomePageCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93093022A816490057A27B /* VENHomePageCouponViewController.m */; };
+		2C93093A22A817EF0057A27B /* VENHomePageFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93093922A817EF0057A27B /* VENHomePageFindViewController.m */; };
+		2C93094022A8A7730057A27B /* VENHomePageCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93093E22A8A7730057A27B /* VENHomePageCouponTableViewCell.m */; };
+		2C93094122A8A7730057A27B /* VENHomePageCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C93093F22A8A7730057A27B /* VENHomePageCouponTableViewCell.xib */; };
+		2C93094422A8AE080057A27B /* VENHomePageCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93094322A8AE080057A27B /* VENHomePageCouponModel.m */; };
 		2C9EDC4D22817CCE0072C547 /* VENLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EDC4B22817CCE0072C547 /* VENLoginPageViewController.m */; };
 		2C9EDC4E22817CCE0072C547 /* VENLoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EDC4C22817CCE0072C547 /* VENLoginPageViewController.xib */; };
 		2C9EDC53228189AD0072C547 /* VENResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EDC51228189AD0072C547 /* VENResetPasswordViewController.m */; };
@@ -538,14 +543,23 @@
 		2C88662C228177E000B21E2D /* VENInitialPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENInitialPageViewController.h; sourceTree = "<group>"; };
 		2C88662D228177E000B21E2D /* VENInitialPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENInitialPageViewController.m; sourceTree = "<group>"; };
 		2C88662E228177E000B21E2D /* VENInitialPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENInitialPageViewController.xib; sourceTree = "<group>"; };
-		2C8ADA4022A0D0A30022A234 /* VENNetworkResponseCodeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENNetworkResponseCodeManager.h; sourceTree = "<group>"; };
-		2C8ADA4122A0D0A30022A234 /* VENNetworkResponseCodeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENNetworkResponseCodeManager.m; sourceTree = "<group>"; };
 		2C8ADA4322A117770022A234 /* VENDataPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENDataPageModel.h; sourceTree = "<group>"; };
 		2C8ADA4422A117770022A234 /* VENDataPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENDataPageModel.m; sourceTree = "<group>"; };
 		2C8ADACE22A4A5370022A234 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		2C8ADAD022A4A53D0022A234 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		2C93092922A7A3750057A27B /* VENUserStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENUserStatusManager.h; sourceTree = "<group>"; };
 		2C93092A22A7A3750057A27B /* VENUserStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENUserStatusManager.m; sourceTree = "<group>"; };
+		2C93092C22A7A8E40057A27B /* VENHomePageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageModel.h; sourceTree = "<group>"; };
+		2C93092D22A7A8E40057A27B /* VENHomePageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageModel.m; sourceTree = "<group>"; };
+		2C93092F22A816490057A27B /* VENHomePageCouponViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageCouponViewController.h; sourceTree = "<group>"; };
+		2C93093022A816490057A27B /* VENHomePageCouponViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageCouponViewController.m; sourceTree = "<group>"; };
+		2C93093822A817EF0057A27B /* VENHomePageFindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageFindViewController.h; sourceTree = "<group>"; };
+		2C93093922A817EF0057A27B /* VENHomePageFindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageFindViewController.m; sourceTree = "<group>"; };
+		2C93093D22A8A7730057A27B /* VENHomePageCouponTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageCouponTableViewCell.h; sourceTree = "<group>"; };
+		2C93093E22A8A7730057A27B /* VENHomePageCouponTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageCouponTableViewCell.m; sourceTree = "<group>"; };
+		2C93093F22A8A7730057A27B /* VENHomePageCouponTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENHomePageCouponTableViewCell.xib; sourceTree = "<group>"; };
+		2C93094222A8AE080057A27B /* VENHomePageCouponModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageCouponModel.h; sourceTree = "<group>"; };
+		2C93094322A8AE080057A27B /* VENHomePageCouponModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageCouponModel.m; sourceTree = "<group>"; };
 		2C9EDC4A22817CCE0072C547 /* VENLoginPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENLoginPageViewController.h; sourceTree = "<group>"; };
 		2C9EDC4B22817CCE0072C547 /* VENLoginPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENLoginPageViewController.m; sourceTree = "<group>"; };
 		2C9EDC4C22817CCE0072C547 /* VENLoginPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENLoginPageViewController.xib; sourceTree = "<group>"; };
@@ -1679,6 +1693,8 @@
 			children = (
 				2CE57C4122944DB200792248 /* Main */,
 				2CE57C4222944DBF00792248 /* Search */,
+				2C93093222A816520057A27B /* Coupon */,
+				2C93093622A817CB0057A27B /* Find */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1695,6 +1711,8 @@
 		2C88661E22816E8E00B21E2D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C93092C22A7A8E40057A27B /* VENHomePageModel.h */,
+				2C93092D22A7A8E40057A27B /* VENHomePageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1714,8 +1732,6 @@
 			children = (
 				2CA0F51A229FDF6100518EDA /* VENNetworkingManager.h */,
 				2CA0F51B229FDF6100518EDA /* VENNetworkingManager.m */,
-				2C8ADA4022A0D0A30022A234 /* VENNetworkResponseCodeManager.h */,
-				2C8ADA4122A0D0A30022A234 /* VENNetworkResponseCodeManager.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1727,6 +1743,77 @@
 				2C8ADACE22A4A5370022A234 /* Photos.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C93093222A816520057A27B /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				2C93093522A816770057A27B /* Model */,
+				2C93093422A816710057A27B /* View */,
+				2C93093322A8166B0057A27B /* Controller */,
+			);
+			path = Coupon;
+			sourceTree = "<group>";
+		};
+		2C93093322A8166B0057A27B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C93092F22A816490057A27B /* VENHomePageCouponViewController.h */,
+				2C93093022A816490057A27B /* VENHomePageCouponViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C93093422A816710057A27B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C93093D22A8A7730057A27B /* VENHomePageCouponTableViewCell.h */,
+				2C93093E22A8A7730057A27B /* VENHomePageCouponTableViewCell.m */,
+				2C93093F22A8A7730057A27B /* VENHomePageCouponTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C93093522A816770057A27B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C93094222A8AE080057A27B /* VENHomePageCouponModel.h */,
+				2C93094322A8AE080057A27B /* VENHomePageCouponModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C93093622A817CB0057A27B /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				2C93093C22A817F50057A27B /* Model */,
+				2C93093B22A817F20057A27B /* View */,
+				2C93093722A817DE0057A27B /* Controller */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		2C93093722A817DE0057A27B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C93093822A817EF0057A27B /* VENHomePageFindViewController.h */,
+				2C93093922A817EF0057A27B /* VENHomePageFindViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C93093B22A817F20057A27B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C93093C22A817F50057A27B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2C9EDC4822817C880072C547 /* InitialPage */ = {
@@ -2271,6 +2358,7 @@
 				2CB5C66C22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib in Resources */,
 				2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */,
 				2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */,
+				2C93094122A8A7730057A27B /* VENHomePageCouponTableViewCell.xib in Resources */,
 				2C710ECB2285177D00DAC826 /* VENDataTableViewCell.xib in Resources */,
 				2C80A9F1228D0B5800249CB4 /* VENHomePageTableViewPopularRecommendCell.xib in Resources */,
 				2C8864232281307E00B21E2D /* Assets.xcassets in Resources */,
@@ -2295,6 +2383,7 @@
 				2C8865F12281381400B21E2D /* TAAbstractDotView.m in Sources */,
 				2CE57C6D229455D500792248 /* View+MASAdditions.m in Sources */,
 				2CA0F51F22A0B9A000518EDA /* VENApiManager.m in Sources */,
+				2C93093122A816490057A27B /* VENHomePageCouponViewController.m in Sources */,
 				2C8865FC2281381400B21E2D /* NSData+ImageContentType.m in Sources */,
 				2CBA516C2282B4DB00EF003C /* YYTextAsyncLayer.m in Sources */,
 				2C8865A42281381400B21E2D /* MJRefreshNormalHeader.m in Sources */,
@@ -2378,6 +2467,8 @@
 				2C8865FE2281381400B21E2D /* UIView+WebCacheOperation.m in Sources */,
 				2C8866032281381400B21E2D /* VENBaseViewController.m in Sources */,
 				2C4DC879229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m in Sources */,
+				2C93092E22A7A8E40057A27B /* VENHomePageModel.m in Sources */,
+				2C93093A22A817EF0057A27B /* VENHomePageFindViewController.m in Sources */,
 				2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */,
 				2CBA51612282B4DB00EF003C /* YYTextRunDelegate.m in Sources */,
 				2C806BEB228B9C7000F24C75 /* VENHomePageBannerCollectionViewCell.m in Sources */,
@@ -2394,7 +2485,6 @@
 				2C4F47AA22884AC1008F48CE /* VENDatePickerView.m in Sources */,
 				2CBA51562282B4DB00EF003C /* YYTextView.m in Sources */,
 				2CA0F50A229E26FA00518EDA /* VENHomePageSearchCompositionDetailsPageViewController.m in Sources */,
-				2C8ADA4222A0D0A30022A234 /* VENNetworkResponseCodeManager.m in Sources */,
 				2C8866022281381400B21E2D /* VENNetworkTool.m in Sources */,
 				2C88659E2281381400B21E2D /* MJRefreshBackGifFooter.m in Sources */,
 				2C8865B12281381400B21E2D /* JXCategoryIndicatorBackgroundView.m in Sources */,
@@ -2476,12 +2566,14 @@
 				2CE57C6B229455D500792248 /* MASLayoutConstraint.m in Sources */,
 				2CE57C7C2294DEDD00792248 /* VENHomePageSearchResultsViewController.m in Sources */,
 				2C8865B42281381400B21E2D /* JXCategoryIndicatorView.m in Sources */,
+				2C93094022A8A7730057A27B /* VENHomePageCouponTableViewCell.m in Sources */,
 				2C8865A82281381400B21E2D /* MJRefreshHeader.m in Sources */,
 				2CE57C68229455D500792248 /* ViewController+MASAdditions.m in Sources */,
 				2CBA516A2282B4DB00EF003C /* YYTextTransaction.m in Sources */,
 				2CD5BF2A22959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m in Sources */,
 				2C8ADA4522A117770022A234 /* VENDataPageModel.m in Sources */,
 				2C8865EC2281381400B21E2D /* UIView+SDExtension.m in Sources */,
+				2C93094422A8AE080057A27B /* VENHomePageCouponModel.m in Sources */,
 				2C8865C02281381400B21E2D /* JXCategoryImageCellModel.m in Sources */,
 				2C8865AD2281381400B21E2D /* JXCategoryIndicatorTriangleView.m in Sources */,
 				2CE57C6A229455D500792248 /* MASConstraintMaker.m in Sources */,

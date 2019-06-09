@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VENWaterfallFlowView : UIView
+@property (nonatomic, copy) NSArray *goodsNewsListArr;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 

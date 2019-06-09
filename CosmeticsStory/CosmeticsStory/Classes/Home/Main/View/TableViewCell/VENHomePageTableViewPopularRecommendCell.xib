@@ -33,15 +33,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozy-XQ-8kg">
-                        <rect key="frame" x="130" y="45" width="80" height="12"/>
+                        <rect key="frame" x="130" y="45" width="84" height="12"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="dUq-bZ-D4K"/>
+                            <constraint firstAttribute="width" constant="84" id="dUq-bZ-D4K"/>
                             <constraint firstAttribute="height" constant="12" id="oKR-gW-i0Q"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUW-z8-PFX">
-                        <rect key="frame" x="220" y="43.5" width="85" height="15"/>
+                        <rect key="frame" x="224" y="43.5" width="81" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                 <outlet property="iconImageView" destination="EMo-E4-0Pe" id="2NP-YZ-bZR"/>
                 <outlet property="numberLabel" destination="cUW-z8-PFX" id="aPw-iN-oh6"/>
                 <outlet property="priceLabel" destination="YmC-uD-l8F" id="MAa-ET-ChC"/>
-                <outlet property="starView" destination="H2p-sc-9uM" id="Xh2-lb-2Vr"/>
+                <outlet property="starView" destination="ozy-XQ-8kg" id="eQO-EO-hcA"/>
                 <outlet property="titleLabel" destination="J5W-Bk-HQu" id="F6i-s7-8Xb"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="177.45535714285714"/>
