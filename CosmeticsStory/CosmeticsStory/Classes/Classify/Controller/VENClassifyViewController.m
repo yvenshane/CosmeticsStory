@@ -10,10 +10,17 @@
 #import "VENClassifyCollectionViewCell.h"
 #import "VENClassifyCollectionViewCell2.h"
 #import "VENClassifyCollectionReusableView.h"
+#import "VENClassifyPageModel.h"
 
 @interface VENClassifyViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@property (nonatomic, strong) UIImageView *backgroundVieww;
 @property (nonatomic, strong) UICollectionView *collectionVieww;
 @property (nonatomic, strong) UICollectionView *collectionVieww2;
+@property (nonatomic, copy) NSString *titleLabelText;
+
+@property (nonatomic, copy) NSArray *catArr;
+@property (nonatomic, copy) NSArray *contentArr;
+
 
 @end
 
@@ -42,32 +49,80 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
     
     [self setupHeaderView];
     [self setupContentView];
+    
+    [self loadDataSource];
+}
+
+- (void)loadDataSource {
+    [[VENApiManager sharedManager] classifyPageWithSuccessBlock:^(id  _Nonnull responseObject) {
+        self.catArr = responseObject[@"cat"];
+        
+        [self.backgroundVieww sd_setImageWithURL:[NSURL URLWithString:responseObject[@"image"]]];
+        [self.collectionVieww reloadData];
+        
+        VENClassifyPageModel *model = self.catArr[0];
+        [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : model.cat_id} successBlock:^(id  _Nonnull responseObject) {
+            
+            self.contentArr = responseObject[@"content"];
+            self.titleLabelText = model.cat_name;
+            
+           [self.collectionVieww2 reloadData];
+        }];
+    }];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return collectionView.tag == 998 ? 10 : 12;
+    return collectionView.tag == 998 ? self.catArr.count : self.contentArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == 998) {
         VENClassifyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-        cell.iconImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+        VENClassifyPageModel *model = self.catArr[indexPath.row];
+        
+        [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.cat_image]];
+        cell.titleLabel.text = model.cat_name;
+        
         return cell;
     } else {
         VENClassifyCollectionViewCell2 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier2 forIndexPath:indexPath];
-        cell.iconImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+        VENClassifyPageModel *model = self.contentArr[indexPath.row];
+        
+        [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.cat_image]];
+        cell.titleLabel.text = model.cat_name;
+        
         return cell;
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    if (collectionView.tag == 998) {
+        VENClassifyPageModel *model = self.catArr[indexPath.row];
+        
+        if (![self.titleLabelText isEqualToString:model.cat_name]) {
+            [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : model.cat_id} successBlock:^(id  _Nonnull responseObject) {
+                
+                self.contentArr = responseObject[@"content"];
+                self.titleLabelText = model.cat_name;
+                
+                [self.collectionVieww2 reloadData];
+            }];
+        }
+        
+    } else {
+        VENClassifyPageModel *model = self.contentArr[indexPath.row];
+        
+        NSLog(@"%@", model.cat_name);
+    }
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     if (collectionView.tag == 999) {
-            VENClassifyCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:cellIdentifier3 forIndexPath:indexPath];
+        VENClassifyCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:cellIdentifier3 forIndexPath:indexPath];
+        
+        headerView.titleLabel.text = self.titleLabelText;
+        
         return headerView;
     }
     return nil;
@@ -97,7 +152,6 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
 
 - (void)setupHeaderView {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 140)];
-    imageView.image = [UIImage imageNamed:@"icon_header"];
     [self.view addSubview:imageView];
     
     CGFloat width = (kMainScreenWidth - 40 - 24) / 4.5;
@@ -116,6 +170,7 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
     collectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:collectionView];
     
+    _backgroundVieww = imageView;
     _collectionVieww = collectionView;
 }
 

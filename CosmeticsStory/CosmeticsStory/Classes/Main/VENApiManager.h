@@ -24,6 +24,9 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)couponListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 - (void)goodsNewsListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
+- (void)classifyPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+- (void)classifyPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 - (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName;
 

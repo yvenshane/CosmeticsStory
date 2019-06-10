@@ -11,6 +11,7 @@
 #import "VENDataPageModel.h"
 #import "VENHomePageModel.h"
 #import "VENHomePageCouponModel.h"
+#import "VENClassifyPageModel.h"
 
 @implementation VENApiManager
 
@@ -23,6 +24,7 @@
     return instance;
 }
 
+#pragma mark - login and register
 - (void)registerWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"login/register" parameters:parameters successBlock:^(id responseObject) {
         
@@ -58,8 +60,7 @@
     }];
 }
 
-
-
+#pragma mark - home page
 - (void)homePageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/index" parameters:nil successBlock:^(id responseObject) {
         
@@ -99,11 +100,29 @@
     }];
 }
 
+#pragma mark - classify page
+- (void)classifyPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/goodsCat" parameters:nil successBlock:^(id responseObject) {
+        
+        NSDictionary *content = responseObject[@"content"];
+        
+        NSArray *catArr = [NSArray yy_modelArrayWithClass:[VENClassifyPageModel class] json:content[@"cat"]];
+       
+        NSDictionary *dict = @{@"cat" : catArr,
+                               @"image" : content[@"image"]};
+        successBlock(dict);
+    }];
+}
 
+- (void)classifyPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/goodsCatLowerLevel" parameters:parameters successBlock:^(id responseObject) {
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENClassifyPageModel class] json:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : contentArr});
+    }];
+}
 
-
-
-
+#pragma mark - mine page
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/userInfo" parameters:nil successBlock:^(id responseObject) {
         NSDictionary *content = responseObject[@"content"];
