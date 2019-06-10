@@ -94,7 +94,7 @@
     [self postWithUrlString:@"base/goodsNewsList" parameters:parameters successBlock:^(id responseObject) {
         
         NSDictionary *content = responseObject[@"content"];
-        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageCouponModel class] json:content];
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageModel class] json:content];
         
         successBlock(contentArr);
     }];
