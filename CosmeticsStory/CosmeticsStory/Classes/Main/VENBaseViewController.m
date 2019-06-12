@@ -27,6 +27,9 @@
     if ([self.navigationController.viewControllers indexOfObject:self] > 0) {
         [self setupNavigationItemLeftBarButtonItem];
     }
+    
+    // 解决 自定义 View 高度少 64/88 问题
+    self.view.autoresizesSubviews = NO;
 }
 
 #pragma mark - TableView

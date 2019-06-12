@@ -10,6 +10,7 @@
 #import "VENWaterfallFlowViewCollectionViewCell.h"
 #import "XRWaterfallLayout.h"
 #import "VENHomePageModel.h"
+#import "VENHomePageFindDetailViewController.h"
 
 @interface VENHomePageFindViewController () <UICollectionViewDataSource, UICollectionViewDelegate, XRWaterfallLayoutDelegate>
 @property (nonatomic, strong) UICollectionView *collectionVieww;
@@ -85,8 +86,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageModel *model = self.contentMuArr[indexPath.row];
     
-    NSLog(@"%ld  -- %@", (long)indexPath.row, model.id);
-    
+    VENHomePageFindDetailViewController *vc = [[VENHomePageFindDetailViewController alloc] init];
+    vc.goods_id = model.id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)waterfallLayout:(XRWaterfallLayout *)waterfallLayout itemHeightForWidth:(CGFloat)itemWidth atIndexPath:(NSIndexPath *)indexPath {

@@ -46,7 +46,12 @@
     [[VENApiManager sharedManager] loginWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
         
         [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
-       [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+       
+        UIViewController *vc = self;
+        while (vc.presentingViewController) {
+            vc = vc.presentingViewController;
+        }
+        [vc dismissViewControllerAnimated:YES completion:nil];
 
         NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
     }];

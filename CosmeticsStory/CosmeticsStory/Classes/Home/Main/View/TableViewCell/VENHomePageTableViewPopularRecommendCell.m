@@ -24,8 +24,7 @@
     self.numberLabel.text = model.fraction;
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：%@", model.price];
     
-    
-    [self showStarsWithNumber:@"4.2"];
+    [self showStarsWithNumber:model.fraction];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -12,6 +12,7 @@
 #import "VENHomePageModel.h"
 #import "VENHomePageCouponModel.h"
 #import "VENClassifyPageModel.h"
+#import "VENHomePageFindDetailModel.h"
 
 @implementation VENApiManager
 
@@ -97,6 +98,28 @@
         NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageModel class] json:content];
         
         successBlock(contentArr);
+    }];
+}
+
+- (void)findPageDetailWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/goodsNewsInfo" parameters:parameters successBlock:^(id responseObject) {
+
+        NSDictionary *content = responseObject[@"content"];
+        
+        VENHomePageFindDetailModel *contentModel = [VENHomePageFindDetailModel yy_modelWithJSON:content];
+        VENHomePageFindDetailModel *goodsInfoModel = [VENHomePageFindDetailModel yy_modelWithJSON:content[@"goodsInfo"]];
+        
+        NSDictionary *dict = @{@"content" : contentModel,
+                               @"goodsInfo" : goodsInfoModel};
+        successBlock(dict);
+    }];
+}
+
+- (void)goodsNewsCollectionWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    
+    [self postWithUrlString:@"member/goodsNewsCollection" parameters:parameters successBlock:^(id responseObject) {
+        
+       successBlock(responseObject);
     }];
 }
 
