@@ -192,16 +192,21 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (![VENEmptyClass isEmptyString:textField.text]) {
         
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSMutableArray *tempMuArr = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"SearchResults"]];
-        if (![tempMuArr containsObject:textField.text]) {
-            [tempMuArr addObject:textField.text];
+        if (self.pageIdx == 0) {
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSMutableArray *tempMuArr = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"SearchResults"]];
+            if (![tempMuArr containsObject:textField.text]) {
+                [tempMuArr addObject:textField.text];
+            }
+            [userDefaults setObject:tempMuArr forKey:@"SearchResults"];
+            
+            VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];
+            vc.keyWords = textField.text;
+            [self presentViewController:vc animated:YES completion:nil];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LOAD_DATASOURCE" object:nil userInfo:@{@"keyword" : textField.text}];
+            [self.view endEditing:YES];
         }
-        [userDefaults setObject:tempMuArr forKey:@"SearchResults"];
-        
-        VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];
-        vc.keyWords = textField.text;
-        [self presentViewController:vc animated:YES completion:nil];
     }
     return YES;
 }

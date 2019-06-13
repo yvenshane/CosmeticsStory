@@ -14,6 +14,7 @@
 #import "VENClassifyPageModel.h"
 #import "VENHomePageFindDetailModel.h"
 #import "VENHomePageSearchResultsModel.h"
+#import "VENHomePageSearchCompositionModel.h"
 
 @implementation VENApiManager
 
@@ -148,6 +149,15 @@
     [self postWithUrlString:@"base/label" parameters:nil successBlock:^(id responseObject) {
         
         successBlock(responseObject);
+    }];
+}
+
+- (void)searchPageCompositionListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/ingredientsList" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchCompositionModel class] json:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : contentArr});
     }];
 }
 

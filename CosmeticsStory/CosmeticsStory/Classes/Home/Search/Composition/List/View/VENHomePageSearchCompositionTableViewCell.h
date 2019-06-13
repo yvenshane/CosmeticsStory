@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class VENHomePageSearchCompositionModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *starView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (nonatomic, strong) VENHomePageSearchCompositionModel *model;
 
 @end
 

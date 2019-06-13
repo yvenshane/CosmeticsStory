@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VENHomePageSearchCompositionDetailsPageViewController : VENBaseViewController
+@property (nonatomic, copy) NSString *ingredients_id;
 
 @end
 

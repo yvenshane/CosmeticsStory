@@ -30,6 +30,7 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)searchPagePopularTagsWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 - (void)searchPageProductListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 - (void)searchPageProductListLabelWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+- (void)searchPageCompositionListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 - (void)classifyPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 - (void)classifyPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
