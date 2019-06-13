@@ -10,6 +10,7 @@
 #import "VENExpansionPanelView.h"
 #import "VENHomePageSearchResultsTableViewCell.h"
 #import "VENPopupView.h"
+#import "VENHomePageSearchResultsModel.h"
 
 @interface VENHomePageSearchResultsViewController ()
 @property (nonatomic, strong) UIView *topView;
@@ -19,10 +20,18 @@
 @property (nonatomic, strong) NSMutableArray *buttonSelectedMuArr;
 @property (nonatomic, copy) NSDictionary *selectedItem;
 
-@property (nonatomic, strong) NSMutableArray *comprehensiveMuArr;
-@property (nonatomic, strong) NSMutableArray *useMuArr;
-@property (nonatomic, strong) NSMutableArray *efficacyMuArr;
-@property (nonatomic, strong) NSMutableArray *priceMuArr;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *contentMuArr;
+
+@property (nonatomic, copy) NSArray *label_comprehensiveArr;
+@property (nonatomic, copy) NSArray *label_effectArr;
+@property (nonatomic, copy) NSArray *label_priceArr;
+@property (nonatomic, copy) NSArray *label_purposeArr;
+
+@property (nonatomic, copy) NSString *label_purpose;
+@property (nonatomic, copy) NSString *label_effect;
+@property (nonatomic, copy) NSString *label_price;
+@property (nonatomic, copy) NSString *label_comprehensive;
 
 @end
 
@@ -45,17 +54,78 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [self.tableView registerNib:[UINib nibWithNibName:@"VENHomePageSearchResultsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight + self.expansionPanelViewHeight, kMainScreenWidth, self.popupViewHeight);
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadDataSourceWithPage:@"1"];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self loadDataSourceWithPage:[NSString stringWithFormat:@"%ld", ++self.page]];
+    }];
+    
     [self.view addSubview:self.tableView];
+    
+    [self loadDataSourceWithPage:@"1"];
+    
+    [self loadLabel];
+}
+
+- (void)loadLabel {
+    [[VENApiManager sharedManager] searchPageProductListLabelWithSuccessBlock:^(id  _Nonnull responseObject) {
+        self.label_comprehensiveArr = responseObject[@"content"][@"label_comprehensive"];
+        self.label_effectArr = responseObject[@"content"][@"label_effect"];
+        self.label_priceArr = responseObject[@"content"][@"label_price"];
+        self.label_purposeArr = responseObject[@"content"][@"label_purpose"];
+    }];
+}
+
+- (void)loadDataSourceWithPage:(NSString *)page {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{@"start" : page,
+                                                                                      @"size" : @"10",
+                                                                                      @"goods_name" : self.keyWords}];
+    
+    if (![VENEmptyClass isEmptyString:self.label_purpose]) {
+        [parameters setObject:self.label_purpose forKey:@"label_purpose"];
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.label_effect]) {
+        [parameters setObject:self.label_effect forKey:@"label_effect"];
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.label_price]) {
+        [parameters setObject:self.label_price forKey:@"label_price"];
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.label_comprehensive]) {
+        [parameters setObject:self.label_comprehensive forKey:@"label_comprehensive"];
+    }
+    
+    [[VENApiManager sharedManager] searchPageProductListWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+       
+        if ([page integerValue] == 1) {
+            [self.tableView.mj_header endRefreshing];
+            
+            self.contentMuArr = [NSMutableArray arrayWithArray:responseObject[@"content"]];
+            
+            self.page = 1;
+        } else {
+            [self.tableView.mj_footer endRefreshing];
+            
+            [self.contentMuArr addObjectsFromArray:responseObject[@"content"]];
+        }
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.contentMuArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageSearchResultsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.iconImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.model = self.contentMuArr[indexPath.row];
     
     return cell;
 }
@@ -175,16 +245,16 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         if (button.tag == 0) {
             popupView.isTableView = YES;
-            popupView.dataSourceArr = self.comprehensiveMuArr;
+            popupView.dataSourceArr = self.label_comprehensiveArr;
         } else if (button.tag == 1) {
             popupView.isCollectionView = YES;
-            popupView.dataSourceArr = self.useMuArr;
+            popupView.dataSourceArr = self.label_purposeArr;
         } else if (button.tag == 2) {
             popupView.isCollectionView = YES;
-            popupView.dataSourceArr = self.efficacyMuArr;
+            popupView.dataSourceArr = self.label_effectArr;
         } else {
             popupView.isTableView = YES;
-            popupView.dataSourceArr = self.priceMuArr;
+            popupView.dataSourceArr = self.label_priceArr;
         }
         
         popupView.selectedItem = self.selectedItem;
@@ -196,6 +266,23 @@ static NSString *const cellIdentifier = @"cellIdentifier";
             self.selectedItem = dict;
             [weakSelf.buttonSelectedMuArr removeAllObjects];
             [weakSelf hidden];
+            
+            self.label_comprehensive = @"";
+            self.label_purpose = @"";
+            self.label_effect = @"";
+            self.label_price = @"";
+            
+            if (button.tag == 0) {
+                self.label_comprehensive = dict[@"id"];
+            } else if (button.tag == 1) {
+                self.label_purpose = dict[@"id"];
+            } else if (button.tag == 2) {
+                self.label_effect = dict[@"id"];
+            } else {
+                self.label_price = dict[@"id"];
+            }
+            
+            [self loadDataSourceWithPage:@"1"];
             
             [weakSelf.tableView reloadData];
         };
@@ -213,85 +300,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     return _buttonSelectedMuArr;
 }
 
-- (NSMutableArray *)comprehensiveMuArr {
-    if (!_comprehensiveMuArr) {
-        _comprehensiveMuArr = [NSMutableArray arrayWithArray:@[@{@"id" : @"1", @"name" : @"A"},
-                                                               @{@"id" : @"2", @"name" : @"B"},
-                                                               @{@"id" : @"3", @"name" : @"C"},
-                                                               @{@"id" : @"4", @"name" : @"D"},
-                                                               @{@"id" : @"5", @"name" : @"E"},
-                                                               @{@"id" : @"6", @"name" : @"F"},
-                                                               @{@"id" : @"7", @"name" : @"G"},
-                                                               @{@"id" : @"8", @"name" : @"H"},
-                                                               @{@"id" : @"9", @"name" : @"I"},
-                                                               @{@"id" : @"10", @"name" : @"J"},
-                                                               @{@"id" : @"11", @"name" : @"K"},
-                                                               @{@"id" : @"12", @"name" : @"L"},
-                                                               @{@"id" : @"13", @"name" : @"M"}]];
-    }
-    return _comprehensiveMuArr;
-}
-
-- (NSMutableArray *)useMuArr {
-    if (!_useMuArr) {
-        _useMuArr = [NSMutableArray arrayWithArray:@[@{@"id" : @"1", @"name" : @"A2"},
-                                                               @{@"id" : @"2", @"name" : @"B2"},
-                                                               @{@"id" : @"3", @"name" : @"C2"},
-                                                               @{@"id" : @"4", @"name" : @"D2"},
-                                                               @{@"id" : @"5", @"name" : @"E2"},
-                                                               @{@"id" : @"6", @"name" : @"F2"},
-                                                               @{@"id" : @"7", @"name" : @"G2"},
-                                                               @{@"id" : @"8", @"name" : @"H2"},
-                                                               @{@"id" : @"9", @"name" : @"I2"},
-                                                               @{@"id" : @"10", @"name" : @"J2"},
-                                                               @{@"id" : @"11", @"name" : @"K2"},
-                                                               @{@"id" : @"12", @"name" : @"L2"},
-                                                               @{@"id" : @"13", @"name" : @"M2"}]];
-    }
-    return _useMuArr;
-}
-
-- (NSMutableArray *)efficacyMuArr {
-    if (!_efficacyMuArr) {
-        _efficacyMuArr = [NSMutableArray arrayWithArray:@[@{@"id" : @"1", @"name" : @"A3"},
-                                                          @{@"id" : @"2", @"name" : @"B3"},
-                                                          @{@"id" : @"3", @"name" : @"C3"},
-                                                          @{@"id" : @"4", @"name" : @"D3"},
-                                                          @{@"id" : @"5", @"name" : @"E3"},
-                                                          @{@"id" : @"6", @"name" : @"F3"},
-                                                          @{@"id" : @"7", @"name" : @"G3"},
-                                                          @{@"id" : @"8", @"name" : @"H3"},
-                                                          @{@"id" : @"9", @"name" : @"I3"},
-                                                          @{@"id" : @"10", @"name" : @"3J"},
-                                                          @{@"id" : @"11", @"name" : @"3K"},
-                                                          @{@"id" : @"12", @"name" : @"3L"},
-                                                          @{@"id" : @"13", @"name" : @"3M"}]];
-    }
-    return _efficacyMuArr;
-}
-
-- (NSMutableArray *)priceMuArr {
-    if (!_priceMuArr) {
-        _priceMuArr = [NSMutableArray arrayWithArray:@[@{@"id" : @"1", @"name" : @"A4"},
-                                                       @{@"id" : @"2", @"name" : @"B4"},
-                                                       @{@"id" : @"3", @"name" : @"C4"},
-                                                       @{@"id" : @"4", @"name" : @"D4"},
-                                                       @{@"id" : @"5", @"name" : @"E4"},
-                                                       @{@"id" : @"6", @"name" : @"F4"},
-                                                       @{@"id" : @"7", @"name" : @"G4"},
-                                                       @{@"id" : @"8", @"name" : @"H4"},
-                                                       @{@"id" : @"9", @"name" : @"I4"},
-                                                       @{@"id" : @"10", @"name" : @"4J"},
-                                                       @{@"id" : @"11", @"name" : @"4K"},
-                                                       @{@"id" : @"12", @"name" : @"4L"},
-                                                       @{@"id" : @"13", @"name" : @"4M"}]];
-    }
-    return _priceMuArr;
-}
-
 - (NSDictionary *)selectedItem {
     if (!_selectedItem) {
-        _selectedItem = self.comprehensiveMuArr[0];
+        _selectedItem = self.label_comprehensiveArr[0];
     }
     return _selectedItem;
 }

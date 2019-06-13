@@ -14,6 +14,8 @@
 @property (nonatomic, assign) CGFloat footerViewHeight;
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 
+@property (nonatomic, copy) NSArray *contentArr;
+
 @end
 
 @implementation VENHomePageSearchProductViewController
@@ -25,6 +27,16 @@
     self.tableView.dataSource = nil;
     self.tableView.backgroundColor = UIColorFromRGB(0xF8F8F8);
     [self.view addSubview:self.tableView];
+    
+    [self loadDataSource];
+}
+
+- (void)loadDataSource {
+    [[VENApiManager sharedManager] searchPagePopularTagsWithSuccessBlock:^(id  _Nonnull responseObject) {
+        self.contentArr = responseObject[@"content"];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -60,13 +72,13 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     VENHomePageSearchProductHeaderFooterView *footerView = [[VENHomePageSearchProductHeaderFooterView alloc] init];
     footerView.title = @"热门搜索";
-    footerView.chipArr = @[@"123", @"132123", @"123123", @"123", @"123", @"13123", @"131223", @"123", @"131223", @"123", @"123", @"123", @"121233"];
+    footerView.chipArr = self.contentArr;
 
     return footerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return [self getHeightWithChipArr:@[@"123", @"132123", @"123123", @"123", @"123", @"13123", @"131223", @"123", @"131223", @"123", @"123", @"123", @"121233"]] + 13.5 + 10 + 17 + 13.5;
+    return [self getHeightWithChipArr:self.contentArr] + 13.5 + 10 + 17 + 13.5;
 }
 
 - (CGFloat)getHeightWithChipArr:(NSArray *)arr {

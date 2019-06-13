@@ -225,6 +225,7 @@
 		2CC9783622AFAB8700268891 /* VENHomePageFindDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9783522AFAB8700268891 /* VENHomePageFindDetailModel.m */; };
 		2CC9784222B08EC800268891 /* VENHomePageFindDetailBottomToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9784122B08EC800268891 /* VENHomePageFindDetailBottomToolBarView.m */; };
 		2CC9784422B08ED200268891 /* VENHomePageFindDetailBottomToolBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9784322B08ED200268891 /* VENHomePageFindDetailBottomToolBarView.xib */; };
+		2CC9784C22B0E91500268891 /* VENHomePageSearchResultsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9784B22B0E91500268891 /* VENHomePageSearchResultsModel.m */; };
 		2CD5BF2A22959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */; };
 		2CD5BF302295A37000AAE422 /* VENChipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5BF2F2295A37000AAE422 /* VENChipView.m */; };
 		2CDF742A22978F3B000EFFF1 /* VENExpansionPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF742922978F3B000EFFF1 /* VENExpansionPanelView.m */; };
@@ -675,6 +676,8 @@
 		2CC9784022B08EC800268891 /* VENHomePageFindDetailBottomToolBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageFindDetailBottomToolBarView.h; sourceTree = "<group>"; };
 		2CC9784122B08EC800268891 /* VENHomePageFindDetailBottomToolBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageFindDetailBottomToolBarView.m; sourceTree = "<group>"; };
 		2CC9784322B08ED200268891 /* VENHomePageFindDetailBottomToolBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENHomePageFindDetailBottomToolBarView.xib; sourceTree = "<group>"; };
+		2CC9784A22B0E91500268891 /* VENHomePageSearchResultsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchResultsModel.h; sourceTree = "<group>"; };
+		2CC9784B22B0E91500268891 /* VENHomePageSearchResultsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchResultsModel.m; sourceTree = "<group>"; };
 		2CD5BF2822959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageSearchProductHeaderFooterView.h; sourceTree = "<group>"; };
 		2CD5BF2922959E5800AAE422 /* VENHomePageSearchProductHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageSearchProductHeaderFooterView.m; sourceTree = "<group>"; };
 		2CD5BF2E2295A37000AAE422 /* VENChipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENChipView.h; sourceTree = "<group>"; };
@@ -2169,6 +2172,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2CC9784922B0E90700268891 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CC9784A22B0E91500268891 /* VENHomePageSearchResultsModel.h */,
+				2CC9784B22B0E91500268891 /* VENHomePageSearchResultsModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2CD5BF2622959DEF00AAE422 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2217,6 +2229,7 @@
 		2CDF742422978E18000EFFF1 /* SearchResultsPage */ = {
 			isa = PBXGroup;
 			children = (
+				2CC9784922B0E90700268891 /* Model */,
 				2CDF742622978E25000EFFF1 /* View */,
 				2CDF742522978E20000EFFF1 /* Controller */,
 			);
@@ -2470,6 +2483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CC9784C22B0E91500268891 /* VENHomePageSearchResultsModel.m in Sources */,
 				2CA0F515229E6C0700518EDA /* VENCommentTableViewCell.m in Sources */,
 				2C8865F12281381400B21E2D /* TAAbstractDotView.m in Sources */,
 				2CE57C6D229455D500792248 /* View+MASAdditions.m in Sources */,

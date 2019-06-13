@@ -13,6 +13,7 @@
 #import "VENHomePageCouponModel.h"
 #import "VENClassifyPageModel.h"
 #import "VENHomePageFindDetailModel.h"
+#import "VENHomePageSearchResultsModel.h"
 
 @implementation VENApiManager
 
@@ -115,11 +116,38 @@
     }];
 }
 
+#pragma mark - collection
 - (void)goodsNewsCollectionWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
     
     [self postWithUrlString:@"member/goodsNewsCollection" parameters:parameters successBlock:^(id responseObject) {
         
        successBlock(responseObject);
+    }];
+}
+
+#pragma mark - search
+- (void)searchPagePopularTagsWithSuccessBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/labelSearch" parameters:nil successBlock:^(id responseObject) {
+        
+        NSArray *contentArr = responseObject[@"content"];
+        
+        successBlock(@{@"content" : contentArr});
+    }];
+}
+
+- (void)searchPageProductListWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/goodsList" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchResultsModel class] json:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : contentArr});
+    }];
+}
+
+- (void)searchPageProductListLabelWithSuccessBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/label" parameters:nil successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
     }];
 }
 

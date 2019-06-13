@@ -13,6 +13,9 @@
 @property (nonatomic, strong) UIView *bottomLineView;
 @property (nonatomic, strong) NSMutableArray <UIButton *> *buttonSelectedMuArr;
 
+@property (nonatomic, assign) CGFloat labelX;
+@property (nonatomic, assign) CGFloat labelWidth;
+
 @end
 
 @implementation VENExpansionPanelView
@@ -67,6 +70,15 @@
                         if ([label isKindOfClass:[UILabel class]]) {
                             if (button.tag != 0) {
                                 label.text = noti.userInfo[@"name"];
+                                
+                                CGFloat buttonWidth = self.bounds.size.width / self.widgetMuArr.count;
+                                CGFloat labelWidth = [label sizeThatFits:CGSizeMake(CGFLOAT_MAX, 17.0f)].width;
+                                CGFloat labelX = buttonWidth / 2 - (labelWidth + 6 + 7) / 2;
+                                CGFloat labelY = self.bounds.size.height / 2 - 17 / 2;
+                                label.frame = CGRectMake(labelX, labelY, labelWidth, 17.0f);
+                                
+                                self.labelX = labelX;
+                                self.labelWidth = labelWidth;
                             }
                             label.textColor = COLOR_THEME;
                             [self.buttonSelectedMuArr removeAllObjects];
@@ -75,6 +87,10 @@
                     for (UIImageView *imageView in button.subviews) {
                         if ([imageView isKindOfClass:[UIImageView class]]) {
                             imageView.image = [UIImage imageNamed:@"icon_pop_sel"];
+                            
+                            if (button.tag != 0) {
+                               imageView.frame = CGRectMake(self.labelX + self.labelWidth + 6, self.bounds.size.height / 2 - 4 / 2, 7, 4);
+                            }
                         }
                     }
                 }
