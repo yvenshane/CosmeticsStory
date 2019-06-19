@@ -11,6 +11,7 @@
 #import "VENClassifyCollectionViewCell2.h"
 #import "VENClassifyCollectionReusableView.h"
 #import "VENClassifyPageModel.h"
+#import "VENProductListViewController.h"
 
 @interface VENClassifyViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UIImageView *backgroundVieww;
@@ -112,7 +113,11 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
     } else {
         VENClassifyPageModel *model = self.contentArr[indexPath.row];
         
-        NSLog(@"%@", model.cat_name);
+        VENProductListViewController *vc = [[VENProductListViewController alloc] init];
+        vc.cat_id = model.cat_id;
+        vc.cat_name = model.cat_name;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
