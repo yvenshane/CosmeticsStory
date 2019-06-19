@@ -9,8 +9,14 @@
 #import "VENHomePageSearchCompositionDetailsPageViewController.h"
 #import "VENHomePageSearchCompositionDetailsPageTableHeaderView.h"
 #import "VENCommentTableViewCell.h"
+#import "VENHomePageSearchCompositionDetailsPageModel.h"
+#import "VENHomePageSearchCompositionDetailsPageReleaseCommentViewController.h"
+#import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
+#import "VENHomePageSearchCompositionDetailCommentDetailPageViewController.h"
 
 @interface VENHomePageSearchCompositionDetailsPageViewController ()
+@property (nonatomic, strong) VENHomePageSearchCompositionDetailsPageModel *model;
+@property (nonatomic, strong) NSMutableArray *commentMuArr;
 
 @end
 
@@ -27,39 +33,68 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"VENCommentTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - 48  - (kTabBarHeight - 49));
+    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 48  - (kTabBarHeight - 49));
     [self.view addSubview:self.tableView];
     
     [self setupBottomToolBar];
+    
+    [self loadDataSource];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCommentData) name:@"Refresh_Composition_Detail_Page" object:nil];
+}
+
+- (void)loadDataSource {
+    [[VENApiManager sharedManager] searchPageCompositionDetailWithParameters:@{@"ingredients_id" : self.ingredients_id} successBlock:^(id  _Nonnull responseObject) {
+        
+        self.model = responseObject[@"content"];
+        
+        [self loadCommentData];
+    }];
+}
+
+- (void)loadCommentData {
+    [[VENApiManager sharedManager] searchPageCompositionDetailCommentListWithParameters:@{@"ingredients_id" : self.ingredients_id} successBlock:^(id  _Nonnull responseObject) {
+        
+        self.commentMuArr = responseObject[@"content"];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.commentMuArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell.iconImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+    cell.model = self.commentMuArr[indexPath.row];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    VENHomePageSearchCompositionDetailsPageCommentModel *model = self.commentMuArr[indexPath.row];
+    
+    VENHomePageSearchCompositionDetailCommentDetailPageViewController *vc = [[VENHomePageSearchCompositionDetailCommentDetailPageViewController alloc] init];
+    vc.id = model.id;
+    vc.name = self.model.name;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 325;
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 300;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENHomePageSearchCompositionDetailsPageTableHeaderView *headerView = [[UINib nibWithNibName:@"VENHomePageSearchCompositionDetailsPageTableHeaderView" bundle:nil] instantiateWithOwner:nil options:nil].lastObject;
+    headerView.model = self.model;
+    
     return headerView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
     return 500;
 }
 
@@ -102,12 +137,19 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (void)likeButtonClick:(UIButton *)button {
     
+    NSLog(@"收藏");
     
+//    UIView *backgroundView = [[UIView alloc] init];
+//    backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
+//    [[UIApplication sharedApplication].keyWindow addSubview:backgroundView];
 }
 
 - (void)addButtonClick:(UIButton *)button {
-    
-    
+    VENHomePageSearchCompositionDetailsPageReleaseCommentViewController *vc = [[VENHomePageSearchCompositionDetailsPageReleaseCommentViewController alloc] init];
+    vc.titleText = self.model.name;
+    vc.ingredients_id = self.ingredients_id;
+    VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)shareButtonClick:(UIButton *)button {

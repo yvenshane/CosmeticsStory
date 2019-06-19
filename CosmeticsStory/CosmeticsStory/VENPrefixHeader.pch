@@ -25,6 +25,7 @@
 #import "TYCyclePagerView.h"
 #import "TYPageControl.h"
 #import "Masonry.h"
+#import "IQKeyboardManager.h"
 
 #import "VENNetworkTool.h"
 #import "MBProgressHUD+VEN.h"

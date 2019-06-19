@@ -15,6 +15,8 @@
 #import "VENHomePageFindDetailModel.h"
 #import "VENHomePageSearchResultsModel.h"
 #import "VENHomePageSearchCompositionModel.h"
+#import "VENHomePageSearchCompositionDetailsPageModel.h"
+#import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
 
 @implementation VENApiManager
 
@@ -42,7 +44,7 @@
     }];
 }
 
-- (void)loginWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)loginWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"login/login" parameters:parameters successBlock:^(id responseObject) {
         if ([responseObject[@"status"] integerValue] == 400) {
             VENDataViewController *vc = [[VENDataViewController alloc] init];
@@ -56,7 +58,7 @@
     }];
 }
 
-- (void)resetPasswordWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)resetPasswordWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"login/data_getinfoPassword" parameters:parameters successBlock:^(id responseObject) {
         
         successBlock(responseObject);
@@ -103,7 +105,7 @@
     }];
 }
 
-- (void)findPageDetailWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)findPageDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/goodsNewsInfo" parameters:parameters successBlock:^(id responseObject) {
 
         NSDictionary *content = responseObject[@"content"];
@@ -118,7 +120,7 @@
 }
 
 #pragma mark - collection
-- (void)goodsNewsCollectionWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)goodsNewsCollectionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     
     [self postWithUrlString:@"member/goodsNewsCollection" parameters:parameters successBlock:^(id responseObject) {
         
@@ -127,7 +129,7 @@
 }
 
 #pragma mark - search
-- (void)searchPagePopularTagsWithSuccessBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)searchPagePopularTagsWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/labelSearch" parameters:nil successBlock:^(id responseObject) {
         
         NSArray *contentArr = responseObject[@"content"];
@@ -136,7 +138,7 @@
     }];
 }
 
-- (void)searchPageProductListWithParameters:(NSDictionary *)parameters successBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)searchPageProductListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/goodsList" parameters:parameters successBlock:^(id responseObject) {
         
         NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchResultsModel class] json:responseObject[@"content"]];
@@ -145,7 +147,7 @@
     }];
 }
 
-- (void)searchPageProductListLabelWithSuccessBlock:(nonnull HTTPRequestSuccessBlock)successBlock {
+- (void)searchPageProductListLabelWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/label" parameters:nil successBlock:^(id responseObject) {
         
         successBlock(responseObject);
@@ -158,6 +160,52 @@
         NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchCompositionModel class] json:responseObject[@"content"]];
         
         successBlock(@{@"content" : contentArr});
+    }];
+}
+
+- (void)searchPageCompositionDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/ingredientsInfo" parameters:parameters successBlock:^(id responseObject) {
+        
+        VENHomePageSearchCompositionDetailsPageModel *model = [VENHomePageSearchCompositionDetailsPageModel yy_modelWithJSON:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : model});
+    }];
+}
+
+- (void)searchPageCompositionDetailCommentListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/ingredientsCommentList" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchCompositionDetailsPageCommentModel class] json:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : contentArr});
+    }];
+}
+
+- (void)searchPageCompositionDetailCommentDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/ingredientsCommentInfo" parameters:parameters successBlock:^(id responseObject) {
+        
+        VENHomePageSearchCompositionDetailsPageCommentModel *model = [VENHomePageSearchCompositionDetailsPageCommentModel yy_modelWithJSON:responseObject[@"content"]];
+        
+        NSArray *replyArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchCompositionDetailsPageCommentModel class] json:model.list];
+        
+        successBlock(@{@"content" : model,
+                       @"replyArr" : replyArr});
+    }];
+}
+
+- (void)releaseCommentWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [[VENNetworkingManager shareManager] uploadImageWithUrlString:@"member/comment_ingredients" parameters:parameters images:images keyName:keyName successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
+    } failureBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (void)praiseCommentWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/commentPraise" parameters:parameters successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
     }];
 }
 
@@ -207,7 +255,7 @@
     }];
 }
 
-- (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName {
+- (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock {
     [[VENNetworkingManager shareManager] uploadImageWithUrlString:@"member/modifyUserInfo" parameters:parameters images:images keyName:keyName successBlock:^(id responseObject) {
         
     } failureBlock:^(NSError *error) {

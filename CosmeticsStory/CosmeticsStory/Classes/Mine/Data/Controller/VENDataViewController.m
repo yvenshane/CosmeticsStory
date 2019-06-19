@@ -447,17 +447,18 @@ static NSString *const cellIdentifier = @"cellIdentifier";
                                  @"skin_texture_id" : skin_id,
                                  @"sex" : gender};
     
-    [[VENApiManager sharedManager] modifyUserInfoWithParameters:parameters images:@[iconCell.iconImageView.image] keyName:@"avatar"];
-    
-    if (self.isPresent) {
-        UIViewController *vc = self;
-        while (vc.presentingViewController) {
-            vc = vc.presentingViewController;
+    [[VENApiManager sharedManager] modifyUserInfoWithParameters:parameters images:@[iconCell.iconImageView.image] keyName:@"avatar" successBlock:^(id  _Nonnull responseObject) {
+        
+        if (self.isPresent) {
+            UIViewController *vc = self;
+            while (vc.presentingViewController) {
+                vc = vc.presentingViewController;
+            }
+            [vc dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
         }
-        [vc dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    }];
 }
 
 - (NSString *)getAgeWithString:(NSString *)string {

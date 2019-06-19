@@ -119,16 +119,20 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     
     [self POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-        for (UIImage *image in images) {
-            NSData *imageData = UIImageJPEGRepresentation([self compressImage:image toByte:102400], 1);
+        for (NSInteger i = 0; i < images.count; i++) {
+            NSData *imageData = UIImageJPEGRepresentation([self compressImage:images[i] toByte:102400], 1);
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"yyyyMMddHHmmss"];
+            [formatter setDateFormat:@"yyyyMMddHHmmssSSS"];
             NSString *fileName = [NSString  stringWithFormat:@"%@.jpg", [formatter stringFromDate:[NSDate date]]];
             
-            [formData appendPartWithFileData:imageData name:keyName fileName:fileName mimeType:@"image/jpg"];
-            
-            NSLog(@"photos：%@-%@", keyName, image);
+            if (images.count == 0) {
+                [formData appendPartWithFileData:imageData name:keyName fileName:fileName mimeType:@"image/jpeg"];
+                NSLog(@"key : %@ - value : %@", keyName, images[i]);
+            } else {
+                [formData appendPartWithFileData:imageData name:@"images[]" fileName:fileName mimeType:@"image/jpeg"];
+                NSLog(@"key : images[%ld] - value : %@ - name : %@", (long)i, images[i], fileName);
+            }
         }
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

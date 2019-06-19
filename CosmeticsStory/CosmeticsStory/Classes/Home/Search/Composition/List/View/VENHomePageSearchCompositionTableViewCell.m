@@ -42,13 +42,13 @@
     
     for (NSInteger i = 0; i < [number integerValue]; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star4"];
+        imageView.image = [UIImage imageNamed:@"icon_star2"];
         [self.starView addSubview:imageView];
     }
     
     if ([number floatValue] > [[NSString stringWithFormat:@"%ld", (long)[number integerValue]] floatValue]) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([number integerValue] * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star3"];
+        imageView.image = [UIImage imageNamed:@"icon_star1"];
         [self.starView addSubview:imageView];
     }
 }
