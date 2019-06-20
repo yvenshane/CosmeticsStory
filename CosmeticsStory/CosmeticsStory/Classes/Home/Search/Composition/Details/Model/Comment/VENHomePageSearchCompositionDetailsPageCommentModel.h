@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSArray *images;
-@property (nonatomic, copy) NSString *ingredients_id;
 @property (nonatomic, copy) NSArray *list;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *pid;
@@ -26,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *userPraise;
 @property (nonatomic, copy) NSString *userSkin;
 @property (nonatomic, copy) NSString *secondLevelTotal;
+
+@property (nonatomic, copy) NSString *ingredients_id;
+@property (nonatomic, copy) NSString *goods_id;
 
 @end
 

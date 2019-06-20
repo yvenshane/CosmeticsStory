@@ -11,6 +11,7 @@
 #import "VENHomePageSearchResultsTableViewCell.h"
 #import "VENPopupView.h"
 #import "VENHomePageSearchResultsModel.h"
+#import "VENProductDetailViewController.h"
 
 @interface VENProductListViewController ()
 //@property (nonatomic, strong) UIView *topView;
@@ -133,6 +134,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    VENHomePageSearchResultsModel *model = self.contentMuArr[indexPath.row];
+    
+    VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
+    vc.goods_id = model.goods_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,9 +161,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     return CGFLOAT_MIN;
 }
 
-#pragma mark - 搜索栏
+#pragma mark - 工具栏
 - (void)setupTopView {
-    // 工具栏
     VENExpansionPanelView *expansionPanelView = [[VENExpansionPanelView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, self.expansionPanelViewHeight)];
     expansionPanelView.widgetMuArr = [NSMutableArray arrayWithArray:@[@"综合", @"用途", @"功效", @"价格"]];
     expansionPanelView.expansionPanelViewBlock = ^(UIButton * button) {

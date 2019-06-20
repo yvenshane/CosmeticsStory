@@ -42,6 +42,14 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)searchPageProductListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 搜索 产品列表页 顶部标签
 - (void)searchPageProductListLabelWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+// 搜索 产品详情页
+- (void)searchPageProductDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 搜索 产品详情页 评论列表
+- (void)searchPageProductDetailCommentListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 搜索 产品详情页 评论详情页
+- (void)searchPageProductDetailCommentDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 搜索 产品详情页 发布评论/回复
+- (void)releaseProductCommentWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 // 搜索 成分列表页
 - (void)searchPageCompositionListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
@@ -53,7 +61,7 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)searchPageCompositionDetailCommentDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 // 搜索 成分详情页 发布评论/回复
-- (void)releaseCommentWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
+- (void)releaseCompositionCommentWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 搜索 成分详情页 点赞
 - (void)praiseCommentWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
@@ -61,6 +69,7 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)classifyPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 // 分类 二级列表
 - (void)classifyPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+
 
 // 我的 资料
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;

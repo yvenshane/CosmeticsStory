@@ -1,29 +1,31 @@
 //
-//  VENHomePageSearchCompositionDetailsPageReleaseCommentViewController.m
+//  VENProductDetailsPageReleaseCommentViewController.m
 //  CosmeticsStory
 //
-//  Created by YVEN on 2019/6/13.
+//  Created by YVEN on 2019/6/20.
 //  Copyright © 2019 Hefei Haiba Network Technology Co., Ltd. All rights reserved.
 //
 
-#import "VENHomePageSearchCompositionDetailsPageReleaseCommentViewController.h"
+#import "VENProductDetailsPageReleaseCommentViewController.h"
 
-@interface VENHomePageSearchCompositionDetailsPageReleaseCommentViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface VENProductDetailsPageReleaseCommentViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIButton *addImageButton;
 @property (nonatomic, strong) UIButton *addImageButton2;
 @property (nonatomic, strong) UIButton *addImageButton3;
 
 @property (nonatomic, strong) NSMutableArray *imagesMuArr;
 
+@property (nonatomic, copy) NSString *grade;
+
 @end
 
-@implementation VENHomePageSearchCompositionDetailsPageReleaseCommentViewController
+@implementation VENProductDetailsPageReleaseCommentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"成分评价";
+    self.navigationItem.title = @"产品评价";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     self.isPresent = YES;
@@ -33,11 +35,23 @@
     
     self.titleLabel.text = self.titleText;
     
+    // 添加图片
     UIButton *addImageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     [addImageButton setImage:[UIImage imageNamed:@"icon_addImage"] forState:UIControlStateNormal];
     [addImageButton addTarget:self action:@selector(addImageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.addView addSubview:addImageButton];
     _addImageButton = addImageButton;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    self.grade = @"5";
 }
 
 - (void)addImageButtonClick:(UIButton *)button {
@@ -85,13 +99,14 @@
 
 - (IBAction)sendButtonClick:(id)sender {
     if (self.contentTextView.text.length > 0) {
-        NSDictionary *parameters = @{@"ingredients_id" : self.ingredients_id,
-                                     @"content" : self.contentTextView.text};
-        [[VENApiManager sharedManager] releaseCompositionCommentWithParameters:parameters images:self.imagesMuArr keyName:@"images" successBlock:^(id  _Nonnull responseObject) {
+        NSDictionary *parameters = @{@"goods_id" : self.goods_id,
+                                     @"content" : self.contentTextView.text,
+                                     @"grade" : self.grade};
+        [[VENApiManager sharedManager] releaseProductCommentWithParameters:parameters images:self.imagesMuArr keyName:@"images" successBlock:^(id  _Nonnull responseObject) {
             
             [self dismissViewControllerAnimated:YES completion:nil];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Composition_Detail_Page" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil];
         }];
     }
 }
@@ -137,7 +152,7 @@
         [self.addImageButton3 setImage:tempImage forState:UIControlStateNormal];
     }
     
-
+    
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

@@ -12,7 +12,7 @@
 #import "VENHomePageSearchCompositionDetailsPageModel.h"
 #import "VENHomePageSearchCompositionDetailsPageReleaseCommentViewController.h"
 #import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
-#import "VENHomePageSearchCompositionDetailCommentDetailPageViewController.h"
+#import "VENCommentDetailPageViewController.h"
 
 @interface VENHomePageSearchCompositionDetailsPageViewController ()
 @property (nonatomic, strong) VENHomePageSearchCompositionDetailsPageModel *model;
@@ -77,9 +77,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     VENHomePageSearchCompositionDetailsPageCommentModel *model = self.commentMuArr[indexPath.row];
     
-    VENHomePageSearchCompositionDetailCommentDetailPageViewController *vc = [[VENHomePageSearchCompositionDetailCommentDetailPageViewController alloc] init];
+    VENCommentDetailPageViewController *vc = [[VENCommentDetailPageViewController alloc] init];
     vc.id = model.id;
     vc.name = self.model.name;
+    vc.type = @"composition";
     [self.navigationController pushViewController:vc animated:YES];
 }
 

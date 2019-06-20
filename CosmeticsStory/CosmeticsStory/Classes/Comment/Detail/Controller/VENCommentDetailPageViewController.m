@@ -6,12 +6,12 @@
 //  Copyright © 2019 Hefei Haiba Network Technology Co., Ltd. All rights reserved.
 //
 
-#import "VENHomePageSearchCompositionDetailCommentDetailPageViewController.h"
+#import "VENCommentDetailPageViewController.h"
 #import "VENCommentTableViewCell.h"
 #import "VENHomePageSearchCompositionDetailCommentDetailPageHeaderView.h"
 #import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
 
-@interface VENHomePageSearchCompositionDetailCommentDetailPageViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface VENCommentDetailPageViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *replyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
@@ -22,7 +22,7 @@
 @end
 
 static NSString *const cellIdentifier = @"cellIdentifier";
-@implementation VENHomePageSearchCompositionDetailCommentDetailPageViewController
+@implementation VENCommentDetailPageViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -60,15 +60,27 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)loadDataSource {
-    [[VENApiManager sharedManager] searchPageCompositionDetailCommentDetailWithParameters:@{@"id" : self.id} successBlock:^(id  _Nonnull responseObject) {
-        
-        self.model = responseObject[@"content"];
-        self.replyMuArr = [NSMutableArray arrayWithArray:responseObject[@"replyArr"]];
-        
-        self.replyTextField.placeholder = [NSString stringWithFormat:@"回复%@", self.model.name];
-        
-        [self.tableView reloadData];
-    }];
+    if ([self.type isEqualToString:@"composition"]) {
+        [[VENApiManager sharedManager] searchPageCompositionDetailCommentDetailWithParameters:@{@"id" : self.id} successBlock:^(id  _Nonnull responseObject) {
+            
+            self.model = responseObject[@"content"];
+            self.replyMuArr = [NSMutableArray arrayWithArray:responseObject[@"replyArr"]];
+            
+            self.replyTextField.placeholder = [NSString stringWithFormat:@"回复%@", self.model.name];
+            
+            [self.tableView reloadData];
+        }];
+    } else if ([self.type isEqualToString:@"product"]) {
+        [[VENApiManager sharedManager] searchPageProductDetailCommentDetailWithParameters:@{@"id" : self.id} successBlock:^(id  _Nonnull responseObject) {
+            
+            self.model = responseObject[@"content"];
+            self.replyMuArr = [NSMutableArray arrayWithArray:responseObject[@"replyArr"]];
+            
+            self.replyTextField.placeholder = [NSString stringWithFormat:@"回复%@", self.model.name];
+            
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -132,17 +144,31 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 #pragma mark - 评论
 - (IBAction)commentButtonClick:(id)sender {
     if (self.replyTextField.text.length > 0) {
-        NSDictionary *parameters = @{@"ingredients_id" : self.model.ingredients_id,
-                                     @"content" : self.replyTextField.text,
-                                     @"pid" : self.model.id};
-        [[VENApiManager sharedManager] releaseCommentWithParameters:parameters images:@[] keyName:@"" successBlock:^(id  _Nonnull responseObject) {
-            
-            self.replyTextField.text = @"";
-            [self.view endEditing:YES];
-            [self loadDataSource];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Composition_Detail_Page" object:nil];
-        }];
+        if ([self.type isEqualToString:@"composition"]) {
+            NSDictionary *parameters = @{@"ingredients_id" : self.model.ingredients_id,
+                                         @"content" : self.replyTextField.text,
+                                         @"pid" : self.model.id};
+            [[VENApiManager sharedManager] releaseCompositionCommentWithParameters:parameters images:@[] keyName:@"" successBlock:^(id  _Nonnull responseObject) {
+                
+                self.replyTextField.text = @"";
+                [self.view endEditing:YES];
+                [self loadDataSource];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Composition_Detail_Page" object:nil];
+            }];
+        } else if ([self.type isEqualToString:@"product"]) {
+            NSDictionary *parameters = @{@"goods_id" : self.model.goods_id,
+                                         @"content" : self.replyTextField.text,
+                                         @"pid" : self.model.id};
+            [[VENApiManager sharedManager] releaseProductCommentWithParameters:parameters images:@[] keyName:@"" successBlock:^(id  _Nonnull responseObject) {
+                
+                self.replyTextField.text = @"";
+                [self.view endEditing:YES];
+                [self loadDataSource];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil];
+            }];
+        }
     }
 }
 

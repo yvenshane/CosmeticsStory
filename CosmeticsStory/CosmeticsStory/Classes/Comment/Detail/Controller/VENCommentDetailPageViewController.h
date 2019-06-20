@@ -10,9 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VENHomePageSearchCompositionDetailCommentDetailPageViewController : UIViewController
+@interface VENCommentDetailPageViewController : UIViewController
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *type;
 
 @property (weak, nonatomic) IBOutlet UIButton *backgroundButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewBottomLayoutConstraint;
