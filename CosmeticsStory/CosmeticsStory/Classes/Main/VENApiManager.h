@@ -50,6 +50,10 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)searchPageProductDetailCommentDetailWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 搜索 产品详情页 发布评论/回复
 - (void)releaseProductCommentWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 搜索 产品详情页 纠错
+- (void)searchPageProductDetailJiuCuoPageErrorTypeWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+// 搜索 产品详情页 纠错提交
+- (void)searchPageProductDetailJiuCuoPageCommitWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 // 搜索 成分列表页
 - (void)searchPageCompositionListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;

@@ -52,6 +52,8 @@
 		2C710ECB2285177D00DAC826 /* VENDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C710EC92285177D00DAC826 /* VENDataTableViewCell.xib */; };
 		2C73D00E2281DC1300C4872F /* VENRegisterPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C73D00C2281DC1300C4872F /* VENRegisterPageViewController.m */; };
 		2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D00D2281DC1300C4872F /* VENRegisterPageViewController.xib */; };
+		2C7A7F9622BC726100B402C6 /* VENProductDetailJiuCuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9422BC726100B402C6 /* VENProductDetailJiuCuoViewController.m */; };
+		2C7A7F9722BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */; };
 		2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE1228B9A9C00F24C75 /* TYPageControl.m */; };
 		2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */; };
 		2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */; };
@@ -350,6 +352,9 @@
 		2C73D00B2281DC1300C4872F /* VENRegisterPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENRegisterPageViewController.h; sourceTree = "<group>"; };
 		2C73D00C2281DC1300C4872F /* VENRegisterPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENRegisterPageViewController.m; sourceTree = "<group>"; };
 		2C73D00D2281DC1300C4872F /* VENRegisterPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENRegisterPageViewController.xib; sourceTree = "<group>"; };
+		2C7A7F9322BC726100B402C6 /* VENProductDetailJiuCuoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENProductDetailJiuCuoViewController.h; sourceTree = "<group>"; };
+		2C7A7F9422BC726100B402C6 /* VENProductDetailJiuCuoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENProductDetailJiuCuoViewController.m; sourceTree = "<group>"; };
+		2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENProductDetailJiuCuoViewController.xib; sourceTree = "<group>"; };
 		2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
 		2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
 		2C806BE1228B9A9C00F24C75 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
@@ -1101,6 +1106,16 @@
 				2C73D00D2281DC1300C4872F /* VENRegisterPageViewController.xib */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		2C7A7F9222BC723800B402C6 /* Jiucuo */ = {
+			isa = PBXGroup;
+			children = (
+				2C7A7F9322BC726100B402C6 /* VENProductDetailJiuCuoViewController.h */,
+				2C7A7F9422BC726100B402C6 /* VENProductDetailJiuCuoViewController.m */,
+				2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */,
+			);
+			path = Jiucuo;
 			sourceTree = "<group>";
 		};
 		2C806BDE228B9A9C00F24C75 /* TYCyclePagerView */ = {
@@ -2202,6 +2217,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2F1A0622BB34D70094E4B7 /* Main */,
+				2C7A7F9222BC723800B402C6 /* Jiucuo */,
 				2C3BBEA122BB844700A4A389 /* BrandStory */,
 				2C2F1A0722BB35690094E4B7 /* ReleaseComment */,
 			);
@@ -2782,6 +2798,7 @@
 				2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */,
 				2C2F1A0C22BB37370094E4B7 /* VENProductDetailsPageReleaseCommentViewController.xib in Resources */,
 				2CB5C65522885A1C009F1ABC /* VENListPickerViewCell.xib in Resources */,
+				2C7A7F9722BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib in Resources */,
 				2C3BBEA622BB849D00A4A389 /* VENProductDetailBrandStoryViewController.xib in Resources */,
 				2C20694E22B72CC200498AE2 /* VENCommentDetailPageViewController.xib in Resources */,
 				2C4DC87A229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib in Resources */,
@@ -2929,6 +2946,7 @@
 				2CA7F72222BA2BB600250D95 /* VENProductDetailViewController.m in Sources */,
 				2C2F1A0522BB28680094E4B7 /* VENProductDetailModel.m in Sources */,
 				2C80AA122292F6AC00249CB4 /* XRWaterfallLayout.m in Sources */,
+				2C7A7F9622BC726100B402C6 /* VENProductDetailJiuCuoViewController.m in Sources */,
 				2C8865E22281381400B21E2D /* AFAutoPurgingImageCache.m in Sources */,
 				2C8865AA2281381400B21E2D /* MJRefreshAutoFooter.m in Sources */,
 				2C8865A62281381400B21E2D /* MJRefreshGifHeader.m in Sources */,

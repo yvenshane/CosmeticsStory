@@ -187,6 +187,23 @@
     }];
 }
 
+- (void)searchPageProductDetailJiuCuoPageErrorTypeWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+    
+    [self postWithUrlString:@"member/errorType" parameters:nil successBlock:^(id responseObject) {
+        
+        successBlock(responseObject[@"content"]);
+    }];
+}
+
+- (void)searchPageProductDetailJiuCuoPageCommitWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/errorCorrection" parameters:parameters successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
+    }];
+}
+
+
+
 - (void)searchPageProductListLabelWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/label" parameters:nil successBlock:^(id responseObject) {
         

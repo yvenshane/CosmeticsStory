@@ -19,6 +19,7 @@
 #import "VENProductDetailPageFooterView.h"
 #import "VENBaseWebViewController.h"
 #import "VENProductDetailBrandStoryViewController.h"
+#import "VENProductDetailJiuCuoViewController.h"
 
 @interface VENProductDetailViewController ()
 @property (nonatomic, strong) VENProductDetailModel *model;
@@ -315,7 +316,11 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 }
 
 - (void)jiucuoButtonClick {
-    
+    VENProductDetailJiuCuoViewController *vc = [[VENProductDetailJiuCuoViewController alloc] init];
+    vc.cnName = self.model.goods_name_ch;
+    vc.enName = self.model.goods_name_en;
+    vc.ingredients_id = self.model.goods_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
