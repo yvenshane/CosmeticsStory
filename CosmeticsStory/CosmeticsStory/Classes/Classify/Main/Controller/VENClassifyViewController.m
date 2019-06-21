@@ -52,6 +52,21 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
     [self setupContentView];
     
     [self loadDataSource];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter2:) name:@"Image_Button" object:nil];
+}
+
+// 图文
+- (void)notificationCenter2:(NSNotification *)noti {
+    NSDictionary *dict = noti.userInfo;
+    
+    [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : dict[@"cat_id"]} successBlock:^(id  _Nonnull responseObject) {
+        
+        self.contentArr = responseObject[@"content"];
+        self.titleLabelText = dict[@"cat_name"];
+        
+        [self.collectionVieww2 reloadData];
+    }];
 }
 
 - (void)loadDataSource {

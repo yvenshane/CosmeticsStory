@@ -11,6 +11,7 @@
 #import "VENHomePageSearchResultsTableViewCell.h"
 #import "VENPopupView.h"
 #import "VENHomePageSearchResultsModel.h"
+#import "VENProductDetailViewController.h"
 
 @interface VENHomePageSearchResultsViewController ()
 @property (nonatomic, strong) UIView *topView;
@@ -131,7 +132,13 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VENHomePageSearchResultsModel *model = self.contentMuArr[indexPath.row];
     
+    VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
+    vc.goods_id = model.goods_id;
+    vc.isPresents = YES;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

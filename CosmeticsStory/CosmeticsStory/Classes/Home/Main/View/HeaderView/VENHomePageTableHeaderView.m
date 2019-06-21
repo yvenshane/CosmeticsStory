@@ -108,7 +108,9 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
 
 - (void)buttonUpInsideWithView:(UIButton *)btn withIndex:(NSInteger)index withView:(VENHomePageHeaderViewScrollView *)view {
     
-    NSLog(@"%ld", (long)index);
+    VENHomePageModel *model = self.catListArr[index];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Image_Button" object:nil userInfo:@{@"cat_id" : model.cat_id, @"cat_name" : model.cat_name}];
 }
 
 - (void)setCatListArr:(NSArray *)catListArr {
@@ -165,18 +167,19 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
     return layout;
 }
 
-- (void)pagerView:(TYCyclePagerView *)pageView didScrollFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
-    _pageControl.currentPage = toIndex;
-    NSLog(@"%ld ->  %ld",fromIndex,toIndex);
+- (void)pagerView:(TYCyclePagerView *)pageView didSelectedItemCell:(__kindof UICollectionViewCell *)cell atIndex:(NSInteger)index {
+    
+    VENHomePageModel *model = self.bannerListArr[index];
+    self.homePageTableHeaderViewBlock(@"banner", model.goods_id);
 }
 
 #pragma mark - 优惠券/发现
 - (void)couponButtonClick {
-    self.homePageTableHeaderViewBlock(@"coupon");
+    self.homePageTableHeaderViewBlock(@"coupon", @"");
 }
 
 - (void)findButtonClick {
-    self.homePageTableHeaderViewBlock(@"find");
+    self.homePageTableHeaderViewBlock(@"find", @"");
 }
 
 /*

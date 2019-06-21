@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VENProductDetailViewController : VENBaseViewController
 @property (nonatomic, copy) NSString *goods_id;
+@property (nonatomic, assign) BOOL isPresents;
 
 @end
 

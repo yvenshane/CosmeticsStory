@@ -76,8 +76,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageModel *model = self.goodsNewsListArr[indexPath.row];
     
-    NSLog(@"%ld  -- %@", (long)indexPath.row, model.id);
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Find_Detail_Page" object:nil userInfo:@{@"goods_id" : model.id}];
 }
 
 - (CGFloat)waterfallLayout:(XRWaterfallLayout *)waterfallLayout itemHeightForWidth:(CGFloat)itemWidth atIndexPath:(NSIndexPath *)indexPath {

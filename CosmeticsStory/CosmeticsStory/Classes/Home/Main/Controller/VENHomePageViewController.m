@@ -15,6 +15,8 @@
 #import "VENHomePageModel.h"
 #import "VENHomePageCouponViewController.h"
 #import "VENHomePageFindViewController.h"
+#import "VENProductDetailViewController.h"
+#import "VENHomePageFindDetailViewController.h"
 
 @interface VENHomePageViewController () <UITextFieldDelegate>
 @property (nonatomic, copy) NSArray *bannerListArr;
@@ -58,6 +60,8 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
         [self presentViewController:vc animated:NO completion:nil];
     }
     
+    self.view.autoresizesSubviews = YES;
+    
     [self setupSearchView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"VENHomePageTableViewPopularRecommendCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
@@ -73,8 +77,11 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     [self loadDataSource];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter:) name:@"HEIGHT" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter1:) name:@"Find_Detail_Page" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter2:) name:@"Image_Button" object:nil];
 }
 
+// 发现高度
 - (void)notificationCenter:(NSNotification *)noti {
     self.footerViewHeight = [noti.userInfo[@"height"] floatValue];
     
@@ -84,6 +91,24 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
             self.isRefresh = YES;
         }
     }
+}
+
+// 发现
+- (void)notificationCenter1:(NSNotification *)noti {
+    
+    NSDictionary *dict = noti.userInfo;
+    
+    VENHomePageFindDetailViewController *vc = [[VENHomePageFindDetailViewController alloc] init];
+    vc.goods_id = dict[@"goods_id"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+// 图文
+- (void)notificationCenter2:(NSNotification *)noti {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.tabBarController.selectedIndex = 1;
+    });
 }
 
 - (void)loadDataSource {
@@ -118,7 +143,12 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VENHomePageModel *model = self.recommendListArr[indexPath.section];
     
+    VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
+    vc.goods_id = model.goods_id;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,7 +159,7 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     VENHomePageTableHeaderView *headerView = [[VENHomePageTableHeaderView alloc] init];
     headerView.bannerListArr = self.bannerListArr;
     headerView.catListArr = self.catListArr;
-    headerView.homePageTableHeaderViewBlock = ^(NSString *str) {
+    headerView.homePageTableHeaderViewBlock = ^(NSString *str, NSString *goods_id) {
         
         if ([str isEqualToString:@"coupon"]) {
             VENHomePageCouponViewController *vc = [[VENHomePageCouponViewController alloc] init];
@@ -137,6 +167,11 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
             [self.navigationController pushViewController:vc animated:YES];
         } else if ([str isEqualToString:@"find"]) {
             VENHomePageFindViewController *vc = [[VENHomePageFindViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if ([str isEqualToString:@"banner"]) {
+            VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
+            vc.goods_id = goods_id;
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }

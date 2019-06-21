@@ -51,9 +51,17 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCommentData) name:@"Refresh_Product_Detail_Page" object:nil];
     
+    if (self.isPresents) {
+        self.isPresent = YES;
+        [self setupNavigationItemLeftBarButtonItem];
+        
+        self.tableView.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 48  - (kTabBarHeight - 49));
+    }
+    
     self.type = 1;
     
     [self setupBottomToolBar];
+    [self setupNavigationItemRightBarButtonItem];
     
     [self loadDataSource];
 }
@@ -202,6 +210,10 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     bottomToolBarView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomToolBarView];
     
+    if (self.isPresents) {
+        bottomToolBarView.frame = CGRectMake(0, kMainScreenHeight - 48 - (kTabBarHeight - 49), kMainScreenWidth, 48);
+    }
+    
     CGFloat width = kMainScreenWidth / 3;
     UIButton *likeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, 48)];
     [likeButton setTitle:@"  收藏" forState:UIControlStateNormal];
@@ -287,6 +299,25 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     vc.goods_brand = self.model.goods_brand;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - navigation right button
+- (void)setupNavigationItemRightBarButtonItem {
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+    [button setImage:[UIImage imageNamed:@"icon_jiucuo"] forState:UIControlStateNormal];
+    [button setTitle:@"  纠错" forState:UIControlStateNormal];
+    [button setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [button addTarget:self action:@selector(jiucuoButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = barButton;
+}
+
+- (void)jiucuoButtonClick {
+    
+}
+
 
 /*
 #pragma mark - Navigation
