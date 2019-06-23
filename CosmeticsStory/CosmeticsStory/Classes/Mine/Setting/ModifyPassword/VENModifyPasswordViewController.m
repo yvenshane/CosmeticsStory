@@ -53,10 +53,6 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 48;
 }
@@ -90,7 +86,17 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)saveButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
+    VENChangePhoneNumberTableViewCell *passwordCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    VENChangePhoneNumberTableViewCell *passwordCell2 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    VENChangePhoneNumberTableViewCell *passwordCell3 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    NSDictionary *parameters = @{@"password1" : passwordCell.contentTextField.text,
+                                 @"password2" : passwordCell2.contentTextField.text,
+                                 @"password3" : passwordCell3.contentTextField.text};
+    
+    [[VENApiManager sharedManager] modifyPasswordWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 /*

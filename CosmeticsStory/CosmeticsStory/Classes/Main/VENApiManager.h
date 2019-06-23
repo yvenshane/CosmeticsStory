@@ -83,6 +83,8 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 
 // 我的 设置/更换手机
 - (void)changePhoneNumberWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 设置/修改密码
+- (void)modifyPasswordWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 

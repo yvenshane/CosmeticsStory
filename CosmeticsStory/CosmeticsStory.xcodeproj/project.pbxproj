@@ -818,26 +818,10 @@
 		2C007BBF22895F7A002509D5 /* ModifyPassword */ = {
 			isa = PBXGroup;
 			children = (
-				2C007BC022895F9E002509D5 /* Model */,
-				2C007BC122895FA2002509D5 /* Controller */,
-			);
-			path = ModifyPassword;
-			sourceTree = "<group>";
-		};
-		2C007BC022895F9E002509D5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2C007BC122895FA2002509D5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
 				2C007BC222895FBC002509D5 /* VENModifyPasswordViewController.h */,
 				2C007BC322895FBC002509D5 /* VENModifyPasswordViewController.m */,
 			);
-			path = Controller;
+			path = ModifyPassword;
 			sourceTree = "<group>";
 		};
 		2C007BC52289623A002509D5 /* Messgae */ = {
@@ -2283,27 +2267,11 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		2CB5C658228902CD009F1ABC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2CB5C659228902E5009F1ABC /* Controller */ = {
+		2CB5C65D228908E1009F1ABC /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				2CB5C65A22890338009F1ABC /* VENSettingViewController.h */,
 				2CB5C65B22890338009F1ABC /* VENSettingViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		2CB5C65D228908E1009F1ABC /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				2CB5C658228902CD009F1ABC /* Model */,
-				2CB5C659228902E5009F1ABC /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2311,7 +2279,6 @@
 		2CB5C65E228908EF009F1ABC /* ChangePhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
-				2CB5C66622890D12009F1ABC /* Model */,
 				2CB5C66722890D16009F1ABC /* View */,
 				2CB5C66522890D09009F1ABC /* Controller */,
 			);
@@ -2325,13 +2292,6 @@
 				2CB5C663228909A4009F1ABC /* VENChangePhoneNumberViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		2CB5C66622890D12009F1ABC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		2CB5C66722890D16009F1ABC /* View */ = {
