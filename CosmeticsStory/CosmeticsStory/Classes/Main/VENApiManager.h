@@ -17,6 +17,8 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 
 // 注册
 - (void)registerWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 获取验证码
+- (void)getVerificationCodeWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 用户协议 隐私政策
 - (void)agreementWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 登录
@@ -74,11 +76,13 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 // 分类 二级列表
 - (void)classifyPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
-
 // 我的 资料
 - (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 // 我的 资料 保存
 - (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
+
+// 我的 设置/更换手机
+- (void)changePhoneNumberWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 

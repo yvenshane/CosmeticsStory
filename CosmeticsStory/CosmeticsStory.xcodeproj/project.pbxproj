@@ -54,6 +54,7 @@
 		2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D00D2281DC1300C4872F /* VENRegisterPageViewController.xib */; };
 		2C7A7F9622BC726100B402C6 /* VENProductDetailJiuCuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9422BC726100B402C6 /* VENProductDetailJiuCuoViewController.m */; };
 		2C7A7F9722BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */; };
+		2C7A7F9B22BF97F400B402C6 /* VENVerificationCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */; };
 		2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE1228B9A9C00F24C75 /* TYPageControl.m */; };
 		2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */; };
 		2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */; };
@@ -355,6 +356,8 @@
 		2C7A7F9322BC726100B402C6 /* VENProductDetailJiuCuoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENProductDetailJiuCuoViewController.h; sourceTree = "<group>"; };
 		2C7A7F9422BC726100B402C6 /* VENProductDetailJiuCuoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENProductDetailJiuCuoViewController.m; sourceTree = "<group>"; };
 		2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENProductDetailJiuCuoViewController.xib; sourceTree = "<group>"; };
+		2C7A7F9922BF97F400B402C6 /* VENVerificationCodeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENVerificationCodeButton.h; sourceTree = "<group>"; };
+		2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENVerificationCodeButton.m; sourceTree = "<group>"; };
 		2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
 		2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
 		2C806BE1228B9A9C00F24C75 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
@@ -1118,6 +1121,15 @@
 			path = Jiucuo;
 			sourceTree = "<group>";
 		};
+		2C7A7F9822BF97B900B402C6 /* VerificationCodeButton */ = {
+			isa = PBXGroup;
+			children = (
+				2C7A7F9922BF97F400B402C6 /* VENVerificationCodeButton.h */,
+				2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */,
+			);
+			path = VerificationCodeButton;
+			sourceTree = "<group>";
+		};
 		2C806BDE228B9A9C00F24C75 /* TYCyclePagerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1787,6 +1799,7 @@
 				2CD5BF2D2295A32F00AAE422 /* ChipView */,
 				2CD5BF2C2295A06000AAE422 /* CategoryView */,
 				2CD5BF2B2295A04C00AAE422 /* WebView */,
+				2C7A7F9822BF97B900B402C6 /* VerificationCodeButton */,
 				2C4F47A422880C17008F48CE /* PickerView */,
 			);
 			path = SharedManager;
@@ -2861,6 +2874,7 @@
 				2C8865F02281381400B21E2D /* TAAnimatedDotView.m in Sources */,
 				2CE57C69229455D500792248 /* MASCompositeConstraint.m in Sources */,
 				2CE57C4B2294555F00792248 /* VENBaseCategoryView.m in Sources */,
+				2C7A7F9B22BF97F400B402C6 /* VENVerificationCodeButton.m in Sources */,
 				2CC9782E22AF941400268891 /* VENHomePageFindDetailViewController.m in Sources */,
 				2C8865AC2281381400B21E2D /* JXCategoryIndicatorLineView.m in Sources */,
 				2C8865C32281381400B21E2D /* JXCategoryNumberCellModel.m in Sources */,

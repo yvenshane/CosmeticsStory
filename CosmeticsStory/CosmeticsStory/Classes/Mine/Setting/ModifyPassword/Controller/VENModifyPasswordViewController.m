@@ -36,7 +36,6 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     VENChangePhoneNumberTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.getVerificationCodeButton.hidden = YES;
     cell.contentTextFieldRightLayoutConstraint.constant = 15.0f;
     cell.contentTextField.secureTextEntry = YES;
     

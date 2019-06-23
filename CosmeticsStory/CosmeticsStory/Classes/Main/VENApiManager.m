@@ -38,6 +38,13 @@
     }];
 }
 
+- (void)getVerificationCodeWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"login/sendMsg" parameters:parameters successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
+    }];
+}
+
 - (void)agreementWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"login/Agreement" parameters:parameters successBlock:^(id responseObject) {
         NSString *content = responseObject[@"content"];
@@ -317,6 +324,13 @@
         
     } failureBlock:^(NSError *error) {
         
+    }];
+}
+
+- (void)changePhoneNumberWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/editTel" parameters:parameters successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
     }];
 }
 

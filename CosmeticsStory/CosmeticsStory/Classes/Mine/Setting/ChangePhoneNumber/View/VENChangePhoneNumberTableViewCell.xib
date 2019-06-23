@@ -29,28 +29,15 @@
                         <rect key="frame" x="66" y="0.0" width="239" height="64.5"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU9-nE-Fz4">
-                        <rect key="frame" x="215" y="16.5" width="90" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="2kD-jB-bEk"/>
-                            <constraint firstAttribute="height" constant="32" id="tYS-sE-yEL"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="获取验证码">
-                            <color key="titleColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Syn-lb-BLQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3Rp-NK-Q8B"/>
                     <constraint firstItem="dm9-SD-1d9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3bb-v1-vgS"/>
-                    <constraint firstAttribute="trailing" secondItem="VU9-nE-Fz4" secondAttribute="trailing" constant="15" id="6sc-W3-ifl"/>
                     <constraint firstAttribute="trailing" secondItem="dm9-SD-1d9" secondAttribute="trailing" constant="15" id="G8a-78-7y5"/>
                     <constraint firstItem="Syn-lb-BLQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="O4g-no-wVJ"/>
                     <constraint firstAttribute="bottom" secondItem="dm9-SD-1d9" secondAttribute="bottom" id="TOM-ld-wfz"/>
-                    <constraint firstItem="VU9-nE-Fz4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mAz-3M-lJd"/>
                     <constraint firstItem="dm9-SD-1d9" firstAttribute="leading" secondItem="Syn-lb-BLQ" secondAttribute="trailing" constant="15" id="sdO-fM-KP5"/>
                 </constraints>
             </tableViewCellContentView>
@@ -58,7 +45,6 @@
             <connections>
                 <outlet property="contentTextField" destination="dm9-SD-1d9" id="RTz-eu-lum"/>
                 <outlet property="contentTextFieldRightLayoutConstraint" destination="G8a-78-7y5" id="mFf-r7-qAK"/>
-                <outlet property="getVerificationCodeButton" destination="VU9-nE-Fz4" id="qgs-z1-ZL0"/>
                 <outlet property="titleLabel" destination="Syn-lb-BLQ" id="nmw-YD-lcR"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="157.70089285714286"/>

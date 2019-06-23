@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VENChangePhoneNumberTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
-@property (weak, nonatomic) IBOutlet UIButton *getVerificationCodeButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextFieldRightLayoutConstraint;
 
 @end

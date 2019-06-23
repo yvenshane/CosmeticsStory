@@ -8,6 +8,7 @@
 
 #import "VENChangePhoneNumberViewController.h"
 #import "VENChangePhoneNumberTableViewCell.h"
+#import "VENVerificationCodeButton.h"
 
 @interface VENChangePhoneNumberViewController ()
 
@@ -39,20 +40,26 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     if (indexPath.row == 0) {
         cell.titleLabel.text = @"手机号码";
         cell.contentTextField.placeholder = @"请输入手机号码";
-        cell.getVerificationCodeButton.hidden = YES;
         cell.contentTextFieldRightLayoutConstraint.constant = 15.0f;
     } else {
         cell.titleLabel.text = @"验证码    ";
         cell.contentTextField.placeholder = @"请输入验证码";
-        cell.getVerificationCodeButton.hidden = NO;
         cell.contentTextFieldRightLayoutConstraint.constant = 120.0f;
+
+        VENVerificationCodeButton *verificationCodeButton = [[VENVerificationCodeButton alloc] initWithFrame:CGRectMake(kMainScreenWidth - 90 - 15, 48 / 2 - 32 / 2, 90, 32)];
+        [verificationCodeButton addTarget:self action:@selector(getVerificationCodeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:verificationCodeButton];
     }
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)getVerificationCodeButtonClick:(VENVerificationCodeButton *)button {
+     VENChangePhoneNumberTableViewCell *phoneCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
+    [[VENApiManager sharedManager] getVerificationCodeWithParameters:@{@"tel" : phoneCell.contentTextField.text} successBlock:^(id  _Nonnull responseObject) {
+        [button countingDownWithCount:60];
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,7 +95,16 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)saveButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    VENChangePhoneNumberTableViewCell *phoneCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    VENChangePhoneNumberTableViewCell *codeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
+    NSDictionary *parameters = @{@"tel" : phoneCell.contentTextField.text,
+                                 @"code" : codeCell.contentTextField.text};
+    
+    [[VENApiManager sharedManager] changePhoneNumberWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 /*

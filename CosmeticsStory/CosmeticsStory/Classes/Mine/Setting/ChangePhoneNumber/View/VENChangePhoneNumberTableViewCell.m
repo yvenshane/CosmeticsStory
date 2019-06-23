@@ -13,8 +13,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
-    ViewBorderRadius(self.getVerificationCodeButton, 3.0f, 1.0f, COLOR_THEME);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
