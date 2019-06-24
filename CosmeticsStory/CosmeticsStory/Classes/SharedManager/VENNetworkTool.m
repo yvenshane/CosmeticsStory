@@ -71,22 +71,16 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     
     switch (method) {
         case HTTPMethodGet:{
-            [self showLoading:isShow];
             [self GET:path parameters:mutableParams progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-                [self hideLoading:isShow];
                 NSLog(@"%@", responseObject);
                 success(responseObject);
             } failure:^(NSURLSessionTask *operation, NSError *error) {
-                [self hideLoading:isShow];
                 failure(error);
             }];
             break;
         }
         case HTTPMethodPost:{
-            [self showLoading:isShow];
             [self POST:path parameters:mutableParams progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-                [self hideLoading:isShow];
-                
                 NSLog(@"%@", responseObject);
                 
                 if (![responseObject[@"message"] isEqualToString:@"请求成功"]) {
@@ -96,7 +90,6 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 
                 success(responseObject);
             } failure:^(NSURLSessionTask *operation, NSError *error) {
-                [self hideLoading:isShow];
                 failure(error);
                 
                 NSLog(@"%@", error);
@@ -201,20 +194,6 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     
     [mgr startMonitoring];
     
-}
-
-- (void)showLoading:(BOOL)isShow {
-    if (isShow) {
-        //显示loading
-//        [MBProgressHUD showLoading];
-    }
-}
-
-- (void)hideLoading:(BOOL)isShow {
-    if (isShow) {
-        //隐藏正在显示的loading
-//        [MBProgressHUD hideLoading];
-    }
 }
 
 - (UIViewController *)findCurrentViewController {

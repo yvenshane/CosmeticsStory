@@ -85,6 +85,10 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)changePhoneNumberWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 我的 设置/修改密码
 - (void)modifyPasswordWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 消息 列表页
+- (void)myMessageListPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 消息 详情页
+- (void)myMessageDetailPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 

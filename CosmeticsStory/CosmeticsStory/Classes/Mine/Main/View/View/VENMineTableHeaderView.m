@@ -7,15 +7,17 @@
 //
 
 #import "VENMineTableHeaderView.h"
+#import "VENDataPageModel.h"
 
 @implementation VENMineTableHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setModel:(VENDataPageModel *)model {
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"icon_touxiang"]];
+    self.nameLabel.text = model.name;
+    self.phoneLabel.text = [NSString stringWithFormat:@"账号：%@", model.id];
 }
-*/
 
+- (void)drawRect:(CGRect)rect {
+    ViewRadius(self.iconImageView, 30.0f);
+}
 @end

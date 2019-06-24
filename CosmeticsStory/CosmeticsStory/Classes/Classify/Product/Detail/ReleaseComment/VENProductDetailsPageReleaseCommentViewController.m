@@ -97,7 +97,7 @@
     }
 }
 
-- (IBAction)sendButtonClick:(id)sender {
+- (IBAction)sendButtonClick:(UIButton *)button {
     if (self.contentTextView.text.length > 0) {
         NSDictionary *parameters = @{@"goods_id" : self.goods_id,
                                      @"content" : self.contentTextView.text,

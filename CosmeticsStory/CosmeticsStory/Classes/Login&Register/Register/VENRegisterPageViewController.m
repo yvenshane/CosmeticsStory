@@ -8,13 +8,14 @@
 
 #import "VENRegisterPageViewController.h"
 #import "VENBaseWebViewController.h"
+#import "VENRegisterPageViewController.h"
+#import "VENVerificationCodeButton.h"
 
 @interface VENRegisterPageViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *verificationCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *newwPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *getVerificationCodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commitButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectedButton;
 
@@ -35,13 +36,18 @@
     self.commitButton.layer.cornerRadius = 24.0f;
     self.commitButton.layer.masksToBounds = YES;
     
-    self.getVerificationCodeButton.layer.cornerRadius = 3.0f;
-    self.getVerificationCodeButton.layer.masksToBounds = YES;
-    self.getVerificationCodeButton.layer.borderWidth = 1.0f;
-    self.getVerificationCodeButton.layer.borderColor = COLOR_THEME.CGColor;
+    VENVerificationCodeButton *button = [[VENVerificationCodeButton alloc] initWithFrame:CGRectMake(kMainScreenWidth - 37 - 80, 161 + 32 / 2, 80, 32)];
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
     
     [self setupWidget];
     [self setupNavigationItemLeftBarButtonItem];
+}
+
+- (void)buttonClick:(VENVerificationCodeButton *)button {
+    [[VENApiManager sharedManager] getVerificationCodeWithParameters:@{@"tel" : self.phoneNumberTextField.text} successBlock:^(id  _Nonnull responseObject) {
+        [button countingDownWithCount:60];
+    }];
 }
 
 #pragma mark - 提交

@@ -18,6 +18,7 @@
 #import "VENHomePageSearchCompositionDetailsPageModel.h"
 #import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
 #import "VENProductDetailModel.h"
+#import "VENMessageModel.h"
 
 @implementation VENApiManager
 
@@ -322,6 +323,7 @@
 - (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock {
     [[VENNetworkingManager shareManager] uploadImageWithUrlString:@"member/modifyUserInfo" parameters:parameters images:images keyName:keyName successBlock:^(id responseObject) {
         
+        successBlock(responseObject);
     } failureBlock:^(NSError *error) {
         
     }];
@@ -337,6 +339,21 @@
 - (void)modifyPasswordWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/editPassword" parameters:parameters successBlock:^(id responseObject) {
         
+        successBlock(responseObject);
+    }];
+}
+
+- (void)myMessageListPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/myNews" parameters:nil successBlock:^(id responseObject) {
+        
+        NSArray *arr = [NSArray yy_modelArrayWithClass:[VENMessageModel class] json:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : arr});
+    }];
+}
+
+- (void)myMessageDetailPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/myNewsInfo" parameters:parameters successBlock:^(id responseObject) {
         successBlock(responseObject);
     }];
 }

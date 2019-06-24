@@ -111,6 +111,8 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
 
 - (void)uploadImageWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock failureBlock:(HTTPRequestFailedBlock)failureBlock {
     
+    [MBProgressHUD addLoading];
+    
     NSLog(@"请求接口：%@%@", url, urlString);
     
     if (parameters == nil) parameters = @{};
@@ -126,7 +128,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
             [formatter setDateFormat:@"yyyyMMddHHmmssSSS"];
             NSString *fileName = [NSString  stringWithFormat:@"%@.jpg", [formatter stringFromDate:[NSDate date]]];
             
-            if (images.count == 0) {
+            if (images.count == 1) {
                 [formData appendPartWithFileData:imageData name:keyName fileName:fileName mimeType:@"image/jpeg"];
                 NSLog(@"key : %@ - value : %@", keyName, images[i]);
             } else {
@@ -136,6 +138,8 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
         }
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [MBProgressHUD removeLoading];
         
         NSLog(@"%@", responseObject);
         
@@ -157,6 +161,8 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
         
         if (successBlock) successBlock(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [MBProgressHUD removeLoading];
         
         NSLog(@"%@", error);
         if (failureBlock) failureBlock(error);

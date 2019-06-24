@@ -55,7 +55,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     NSDictionary *parameters = @{@"start" : page,
                                  @"size" : @"10",
-                                 @"name" : self.keyword};
+                                 @"name" : [VENEmptyClass isEmptyString:self.keyword] ? @"" : self.keyword};
     
     [[VENApiManager sharedManager] searchPageCompositionListWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
         if ([page integerValue] == 1) {

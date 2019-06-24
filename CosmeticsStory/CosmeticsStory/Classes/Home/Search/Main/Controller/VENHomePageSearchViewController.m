@@ -196,7 +196,12 @@
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             NSMutableArray *tempMuArr = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"SearchResults"]];
             if (![tempMuArr containsObject:textField.text]) {
-                [tempMuArr addObject:textField.text];
+                if (tempMuArr.count < 10) {
+                    [tempMuArr addObject:textField.text];
+                } else {
+                    [tempMuArr removeObjectAtIndex:0];
+                    [tempMuArr addObject:textField.text];
+                }
             }
             [userDefaults setObject:tempMuArr forKey:@"SearchResults"];
             

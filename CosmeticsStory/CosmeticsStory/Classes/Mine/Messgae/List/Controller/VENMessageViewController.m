@@ -8,9 +8,11 @@
 
 #import "VENMessageViewController.h"
 #import "VENMessageTableViewCell.h"
+#import "VENMessageModel.h"
+#import "VENBaseWebViewController.h"
 
 @interface VENMessageViewController ()
-
+@property (nonatomic, copy) NSArray *contentArr;
 @end
 
 static NSString *const cellIdentifier = @"cellIdentifier";
@@ -24,21 +26,47 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"VENMessageTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     [self.view addSubview:self.tableView];
+    
+    [self loadDataSource];
+}
+
+- (void)loadDataSource {
+    [[VENApiManager sharedManager] myMessageListPageWithSuccessBlock:^(id  _Nonnull responseObject) {
+        self.contentArr = responseObject[@"content"];
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.contentArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    VENMessageModel *model = self.contentArr[indexPath.row];
+    cell.titleLabel.text = model.title;
+    cell.dateLabel.text = model.addtime;
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VENMessageModel *model = self.contentArr[indexPath.row];
     
+    [[VENApiManager sharedManager] myMessageDetailPageWithParameters:@{@"id" : model.id} successBlock:^(id  _Nonnull responseObject) {
+        
+        VENBaseWebViewController *vc = [[VENBaseWebViewController alloc] init];
+        vc.navigationItemTitle = @"";
+        
+        NSString *title = [NSString stringWithFormat:@"<font size=4>%@</font>", responseObject[@"content"][@"title"]];
+        NSString *date = [NSString stringWithFormat:@"<font size=2 color=#999999>%@</font>", responseObject[@"content"][@"addtime"]];
+        
+        vc.HTMLString = [NSString stringWithFormat:@"%@<br><br>%@<br><br>%@", title, date, responseObject[@"content"][@"content"]];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

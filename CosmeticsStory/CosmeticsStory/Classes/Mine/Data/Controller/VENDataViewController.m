@@ -449,6 +449,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [[VENApiManager sharedManager] modifyUserInfoWithParameters:parameters images:@[iconCell.iconImageView.image] keyName:@"avatar" successBlock:^(id  _Nonnull responseObject) {
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
+        
         if (self.isPresent) {
             UIViewController *vc = self;
             while (vc.presentingViewController) {

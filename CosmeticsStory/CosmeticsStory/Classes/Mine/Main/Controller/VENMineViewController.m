@@ -12,13 +12,24 @@
 #import "VENDataViewController.h"
 #import "VENSettingViewController.h"
 #import "VENMessageViewController.h"
+#import "VENDataPageModel.h"
 
 @interface VENMineViewController ()
+@property (nonatomic, strong) VENDataPageModel *userInfoModel;
+@property (nonatomic, assign) BOOL isRefresh;
 
 @end
 
 static NSString *const cellIdentifier = @"cellIdentifier";
 @implementation VENMineViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.isRefresh) {
+        [self loadDataSource];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +40,31 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"VENMineTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     [self.view addSubview:self.tableView];
+    
+    [self loadDataSource];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter) name:@"Login_Out" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter2) name:@"Refresh_Mine_Page" object:nil];
+}
+
+- (void)notificationCenter {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.isRefresh = YES;
+        self.tabBarController.selectedIndex = 0;
+    });
+}
+
+- (void)notificationCenter2 {
+    [self loadDataSource];
+}
+
+- (void)loadDataSource {
+    [[VENApiManager sharedManager] userInfoWithSuccessBlock:^(id  _Nonnull responseObject) {
+        self.userInfoModel = responseObject[@"userInfo"];
+        
+        self.isRefresh = NO;
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -52,6 +88,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENMineTableHeaderView *headerView = [[NSBundle mainBundle] loadNibNamed:@"VENMineTableHeaderView" owner:nil options:nil].lastObject;
+    headerView.model = self.userInfoModel;
     
     [headerView.messageButton addTarget:self action:@selector(messageButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.dataButton addTarget:self action:@selector(dataButtonClick) forControlEvents:UIControlEventTouchUpInside];

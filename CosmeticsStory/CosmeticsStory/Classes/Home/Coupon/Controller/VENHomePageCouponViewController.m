@@ -80,7 +80,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageCouponModel *model = self.contentMuArr[indexPath.row];
     
-    NSLog(@"%@", model.id);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.url]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

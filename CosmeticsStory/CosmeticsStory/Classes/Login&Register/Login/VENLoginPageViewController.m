@@ -8,6 +8,7 @@
 
 #import "VENLoginPageViewController.h"
 #import "VENResetPasswordViewController.h"
+#import "VENRegisterPageViewController.h"
 #import "VENBindingPhoneViewController.h"
 
 @interface VENLoginPageViewController ()
@@ -35,7 +36,7 @@
     [self setupNavigationItemLeftBarButtonItem];
     
     
-    self.phoneNumberTextField.text = @"15305532222";
+    self.phoneNumberTextField.text = @"15305532355";
     self.passwordTextField.text = @"111111";
 }
 
@@ -60,6 +61,13 @@
 #pragma mark - 忘记密码
 - (IBAction)forgetPasswordButtonClick:(id)sender {
     VENResetPasswordViewController *vc = [[VENResetPasswordViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark - 注册
+- (IBAction)registerButtonClick:(id)sender {
+    VENRegisterPageViewController *vc = [[VENRegisterPageViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
 }

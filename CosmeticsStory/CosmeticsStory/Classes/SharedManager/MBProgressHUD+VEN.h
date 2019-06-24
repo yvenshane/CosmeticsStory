@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MBProgressHUD (VEN)
-
 + (void)showText:(NSString *)text;
++ (void)addLoading;
++ (void)removeLoading;
 
 @end
 

@@ -55,6 +55,7 @@
 		2C7A7F9622BC726100B402C6 /* VENProductDetailJiuCuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9422BC726100B402C6 /* VENProductDetailJiuCuoViewController.m */; };
 		2C7A7F9722BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */; };
 		2C7A7F9B22BF97F400B402C6 /* VENVerificationCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */; };
+		2C7A7F9E22C0696F00B402C6 /* VENMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9D22C0696E00B402C6 /* VENMessageModel.m */; };
 		2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE1228B9A9C00F24C75 /* TYPageControl.m */; };
 		2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */; };
 		2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */; };
@@ -358,6 +359,8 @@
 		2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENProductDetailJiuCuoViewController.xib; sourceTree = "<group>"; };
 		2C7A7F9922BF97F400B402C6 /* VENVerificationCodeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENVerificationCodeButton.h; sourceTree = "<group>"; };
 		2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENVerificationCodeButton.m; sourceTree = "<group>"; };
+		2C7A7F9C22C0696E00B402C6 /* VENMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMessageModel.h; sourceTree = "<group>"; };
+		2C7A7F9D22C0696E00B402C6 /* VENMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMessageModel.m; sourceTree = "<group>"; };
 		2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
 		2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
 		2C806BE1228B9A9C00F24C75 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
@@ -844,6 +847,8 @@
 		2C007BC722896263002509D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C7A7F9C22C0696E00B402C6 /* VENMessageModel.h */,
+				2C7A7F9D22C0696E00B402C6 /* VENMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1883,36 +1888,20 @@
 		2C88661522816E8D00B21E2D /* Login&Register */ = {
 			isa = PBXGroup;
 			children = (
-				2C88661722816E8D00B21E2D /* View */,
-				2C88661622816E8D00B21E2D /* Controller */,
-			);
-			path = "Login&Register";
-			sourceTree = "<group>";
-		};
-		2C88661622816E8D00B21E2D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
 				2C9EDC4822817C880072C547 /* InitialPage */,
 				2C9EDC4922817C9F0072C547 /* Login */,
 				2C73D0102281DC1800C4872F /* Register */,
 				2C9EDC4F228189800072C547 /* ResetPassword */,
 				2CBA516E2282BF9200EF003C /* BindingPhone */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		2C88661722816E8D00B21E2D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
+			path = "Login&Register";
 			sourceTree = "<group>";
 		};
 		2C88661822816E8E00B21E2D /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				2C007BC52289623A002509D5 /* Messgae */,
 				2C710EBF2285143100DAC826 /* Main */,
+				2C007BC52289623A002509D5 /* Messgae */,
 				2C710EC02285144900DAC826 /* Data */,
 				2CB5C6562289026A009F1ABC /* Setting */,
 			);
@@ -2964,6 +2953,7 @@
 				2C8865B62281381400B21E2D /* JXCategoryDotView.m in Sources */,
 				2C8865C82281381400B21E2D /* JXCategoryBaseView.m in Sources */,
 				2C8866042281381400B21E2D /* VENTabBarController.m in Sources */,
+				2C7A7F9E22C0696F00B402C6 /* VENMessageModel.m in Sources */,
 				2C20695222B786A500498AE2 /* VENHomePageSearchCompositionDetailCommentDetailPageHeaderView.m in Sources */,
 				2C20693222B1F55200498AE2 /* VENHomePageSearchCompositionDetailsPageModel.m in Sources */,
 				2C80A9FF228E94AC00249CB4 /* VENHomePageTableFooterView.m in Sources */,

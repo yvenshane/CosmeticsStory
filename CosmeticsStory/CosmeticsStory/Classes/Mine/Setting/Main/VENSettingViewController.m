@@ -123,6 +123,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LOGIN"];
     [self.navigationController popViewControllerAnimated:YES];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Login_Out" object:nil];
+    
     NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
 }
 
