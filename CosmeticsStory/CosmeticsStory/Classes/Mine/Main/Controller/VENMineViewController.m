@@ -13,10 +13,14 @@
 #import "VENSettingViewController.h"
 #import "VENMessageViewController.h"
 #import "VENDataPageModel.h"
+#import "VENCosmeticBagModel.h"
+#import "VENCosmeticBagPopupViewTwo.h"
 
 @interface VENMineViewController ()
 @property (nonatomic, strong) VENDataPageModel *userInfoModel;
 @property (nonatomic, assign) BOOL isRefresh;
+@property (nonatomic, strong) NSMutableArray *contentMuArr;
+@property (nonatomic, strong) VENCosmeticBagPopupViewTwo *popupView;
 
 @end
 
@@ -37,6 +41,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     self.navigationItem.title = @"我的";
     
+    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - kTabBarHeight);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"VENMineTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     [self.view addSubview:self.tableView];
@@ -45,6 +50,21 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter) name:@"Login_Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter2) name:@"Refresh_Mine_Page" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
+    NSDictionary *userInfoDict = notification.userInfo;
+    CGRect keyboardFrame = [[userInfoDict objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + 160;
+    
+    if (keyboardFrame.origin.y == kMainScreenHeight) {
+        self.popupView.frame = CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height);
+    } else {
+        self.popupView.frame = CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height, width, height);
+    }
 }
 
 - (void)notificationCenter {
@@ -62,23 +82,34 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [[VENApiManager sharedManager] userInfoWithSuccessBlock:^(id  _Nonnull responseObject) {
         self.userInfoModel = responseObject[@"userInfo"];
         
-        self.isRefresh = NO;
-        [self.tableView reloadData];
+        [[VENApiManager sharedManager] detailPageCosmeticBagListWithSuccessBlock:^(id  _Nonnull responseObject) {
+            self.contentMuArr = [NSMutableArray arrayWithArray:responseObject[@"content"]];
+            
+            self.isRefresh = NO;
+            [self.tableView reloadData];
+        }];
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.contentMuArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENMineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+    
+    VENCosmeticBagModel *model = self.contentMuArr[indexPath.row];
+    [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    cell.titleLabel.text = model.name;
+    cell.descriptionLabel.text = model.descriptionn;
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VENCosmeticBagModel *model = self.contentMuArr[indexPath.row];
+    
     
 }
 
@@ -94,11 +125,21 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [headerView.dataButton addTarget:self action:@selector(dataButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.settingButton addTarget:self action:@selector(settingButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
+    [headerView.addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
     return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 317.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] init];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 #pragma mark - 消息
@@ -120,6 +161,31 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     VENSettingViewController *vc = [[VENSettingViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 新增
+- (void)addButtonClick {
+    UIButton *backgroundButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight)];
+    backgroundButton.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
+    [[UIApplication sharedApplication].keyWindow addSubview:backgroundButton];
+    
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + 160;
+    
+    VENCosmeticBagPopupViewTwo *popupView = [[VENCosmeticBagPopupViewTwo alloc] initWithFrame:CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height)];
+    popupView.cosmeticBagPopupViewTwoBlock = ^(NSString *str) {
+        [backgroundButton removeFromSuperview];
+        
+        [self notificationCenter2];
+    };
+    [popupView.closeButton addTarget:self action:@selector(closeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [backgroundButton addSubview:popupView];
+    
+    _popupView = popupView;
+}
+
+- (void)closeButtonClick:(UIButton *)button {
+    [button.superview removeFromSuperview];
 }
 
 /*
