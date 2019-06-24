@@ -360,7 +360,7 @@
     }];
 }
 
-- (void)myCosmeticBagWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+- (void)detailPageCosmeticBagListWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/myCollectionCat" parameters:nil successBlock:^(id responseObject) {
         
         NSArray *arr = [NSArray yy_modelArrayWithClass:[VENCosmeticBagModel class] json:responseObject[@"content"]];
@@ -368,14 +368,14 @@
     }];
 }
 
-- (void)myCosmeticBagCollectionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+- (void)detailPageCosmeticBagCollectionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/collection" parameters:parameters successBlock:^(id responseObject) {
         
         successBlock(responseObject);
     }];
 }
 
-- (void)myCosmeticBagAdditionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+- (void)detailPageCosmeticBagAdditionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/addCollectionCat" parameters:parameters successBlock:^(id responseObject) {
         
         successBlock(responseObject);

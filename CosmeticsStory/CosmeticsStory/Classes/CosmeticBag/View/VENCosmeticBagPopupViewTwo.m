@@ -123,7 +123,7 @@
         NSDictionary *parameters = @{@"name" : self.textField.text,
                                      @"description" : self.textField2.text};
         
-        [[VENApiManager sharedManager] myCosmeticBagAdditionParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        [[VENApiManager sharedManager] detailPageCosmeticBagAdditionWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
             
             self.cosmeticBagPopupViewTwoBlock(@"");
         }];

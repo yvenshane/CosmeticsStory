@@ -148,7 +148,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
                                      @"class_id" : self.selectIndex,
                                      @"type" : @"2"};
         
-        [[VENApiManager sharedManager] myCosmeticBagCollectionParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        [[VENApiManager sharedManager] detailPageCosmeticBagCollectionWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Remove_PopupView" object:nil];
         }];
     }

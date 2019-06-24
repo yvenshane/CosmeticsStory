@@ -78,7 +78,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     VENCosmeticBagPopupViewTwo *popupView = [[VENCosmeticBagPopupViewTwo alloc] initWithFrame:CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height)];
     popupView.cosmeticBagPopupViewTwoBlock = ^(NSString *str) {
         [self.backgroundButton removeFromSuperview];
-        [[VENApiManager sharedManager] myCosmeticBagWithSuccessBlock:^(id  _Nonnull responseObject) {
+        [[VENApiManager sharedManager] detailPageCosmeticBagListWithSuccessBlock:^(id  _Nonnull responseObject) {
             [self setupPopupViewWithDataSource:[NSMutableArray arrayWithArray:responseObject[@"content"]]];
         }];
     };
@@ -200,13 +200,13 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         NSDictionary *parameters = @{@"gid" : self.ingredients_id,
                                      @"type" : @"2"};
         
-        [[VENApiManager sharedManager] myCosmeticBagCollectionParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        [[VENApiManager sharedManager] detailPageCosmeticBagCollectionWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
             
             self.model.userCollection = @"0";
             [self.likeButton setImage:[UIImage imageNamed:@"icon_like"] forState:UIControlStateNormal];
         }];
     } else {
-        [[VENApiManager sharedManager] myCosmeticBagWithSuccessBlock:^(id  _Nonnull responseObject) {
+        [[VENApiManager sharedManager] detailPageCosmeticBagListWithSuccessBlock:^(id  _Nonnull responseObject) {
             [self setupPopupViewWithDataSource:[NSMutableArray arrayWithArray:responseObject[@"content"]]];
         }];
     }

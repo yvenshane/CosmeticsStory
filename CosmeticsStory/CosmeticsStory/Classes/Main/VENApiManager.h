@@ -89,12 +89,14 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)myMessageListPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 // 我的 消息 详情页
 - (void)myMessageDetailPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
-// 我的 化妆包
-- (void)myCosmeticBagWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
-// 化妆包 收藏
-- (void)myCosmeticBagCollectionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
-// 化妆包 新增
-- (void)myCosmeticBagAdditionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+
+
+// 详情页 化妆包列表
+- (void)detailPageCosmeticBagListWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+// 详情页 化妆包 收藏
+- (void)detailPageCosmeticBagCollectionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 详情页 化妆包 新增
+- (void)detailPageCosmeticBagAdditionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 
