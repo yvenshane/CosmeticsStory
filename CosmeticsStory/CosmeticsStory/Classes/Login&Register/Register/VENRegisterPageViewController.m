@@ -10,6 +10,7 @@
 #import "VENBaseWebViewController.h"
 #import "VENRegisterPageViewController.h"
 #import "VENVerificationCodeButton.h"
+#import "VENDataViewController.h"
 
 @interface VENRegisterPageViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
@@ -56,13 +57,17 @@
         [MBProgressHUD showText:@"请阅读并同意“用户协议“和“隐私政策“"];
         return;
     }
-    
+
     NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
                                  @"code" : self.verificationCodeTextField.text,
                                  @"password" : self.newwPasswordTextField.text,
                                  @"passwords" : self.confirmPasswordTextField.text};
     [[VENApiManager sharedManager] registerWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
-        
+        [self dismissViewControllerAnimated:YES completion:^{
+            VENDataViewController *vc = [[VENDataViewController alloc] init];
+            vc.isPresent = YES;
+            [self presentViewController:vc animated:YES completion:nil];
+        }];
     }];
 }
 

@@ -19,6 +19,7 @@
 #import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
 #import "VENProductDetailModel.h"
 #import "VENMessageModel.h"
+#import "VENCosmeticBagModel.h"
 
 @implementation VENApiManager
 
@@ -40,6 +41,7 @@
 }
 
 - (void)getVerificationCodeWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [MBProgressHUD addLoading];
     [self postWithUrlString:@"login/sendMsg" parameters:parameters successBlock:^(id responseObject) {
         
         successBlock(responseObject);
@@ -354,6 +356,21 @@
 
 - (void)myMessageDetailPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"member/myNewsInfo" parameters:parameters successBlock:^(id responseObject) {
+        successBlock(responseObject);
+    }];
+}
+
+- (void)myCosmeticBagWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/myCollectionCat" parameters:nil successBlock:^(id responseObject) {
+        
+        NSArray *arr = [NSArray yy_modelArrayWithClass:[VENCosmeticBagModel class] json:responseObject[@"content"]];
+        successBlock(@{@"content" : arr});
+    }];
+}
+
+- (void)myCosmeticBagCollectionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/collection" parameters:parameters successBlock:^(id responseObject) {
+        
         successBlock(responseObject);
     }];
 }

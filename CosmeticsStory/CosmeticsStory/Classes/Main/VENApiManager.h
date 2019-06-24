@@ -89,6 +89,10 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)myMessageListPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 // 我的 消息 详情页
 - (void)myMessageDetailPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 化妆包
+- (void)myCosmeticBagWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+// 化妆包 收藏
+- (void)myCosmeticBagCollectionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 

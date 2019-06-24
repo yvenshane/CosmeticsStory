@@ -56,6 +56,10 @@
 		2C7A7F9722BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9522BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib */; };
 		2C7A7F9B22BF97F400B402C6 /* VENVerificationCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */; };
 		2C7A7F9E22C0696F00B402C6 /* VENMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7F9D22C0696E00B402C6 /* VENMessageModel.m */; };
+		2C7A7FA122C0B4E400B402C6 /* VENCosmeticBagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA022C0B4E400B402C6 /* VENCosmeticBagModel.m */; };
+		2C7A7FA422C0BD1700B402C6 /* VENCosmeticBagPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA322C0BD1700B402C6 /* VENCosmeticBagPopupView.m */; };
+		2C7A7FA822C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA622C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m */; };
+		2C7A7FA922C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA722C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib */; };
 		2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE1228B9A9C00F24C75 /* TYPageControl.m */; };
 		2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */; };
 		2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */; };
@@ -361,6 +365,13 @@
 		2C7A7F9A22BF97F400B402C6 /* VENVerificationCodeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENVerificationCodeButton.m; sourceTree = "<group>"; };
 		2C7A7F9C22C0696E00B402C6 /* VENMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMessageModel.h; sourceTree = "<group>"; };
 		2C7A7F9D22C0696E00B402C6 /* VENMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMessageModel.m; sourceTree = "<group>"; };
+		2C7A7F9F22C0B4E400B402C6 /* VENCosmeticBagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagModel.h; sourceTree = "<group>"; };
+		2C7A7FA022C0B4E400B402C6 /* VENCosmeticBagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagModel.m; sourceTree = "<group>"; };
+		2C7A7FA222C0BD1700B402C6 /* VENCosmeticBagPopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagPopupView.h; sourceTree = "<group>"; };
+		2C7A7FA322C0BD1700B402C6 /* VENCosmeticBagPopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagPopupView.m; sourceTree = "<group>"; };
+		2C7A7FA522C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagPopupViewTableViewCell.h; sourceTree = "<group>"; };
+		2C7A7FA622C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagPopupViewTableViewCell.m; sourceTree = "<group>"; };
+		2C7A7FA722C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENCosmeticBagPopupViewTableViewCell.xib; sourceTree = "<group>"; };
 		2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
 		2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
 		2C806BE1228B9A9C00F24C75 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
@@ -1831,6 +1842,8 @@
 		2C88660F22816E8D00B21E2D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C7A7F9F22C0B4E400B402C6 /* VENCosmeticBagModel.h */,
+				2C7A7FA022C0B4E400B402C6 /* VENCosmeticBagModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1838,6 +1851,11 @@
 		2C88661022816E8D00B21E2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C7A7FA222C0BD1700B402C6 /* VENCosmeticBagPopupView.h */,
+				2C7A7FA322C0BD1700B402C6 /* VENCosmeticBagPopupView.m */,
+				2C7A7FA522C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.h */,
+				2C7A7FA622C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m */,
+				2C7A7FA722C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2754,6 +2772,7 @@
 				2C8865D32281381400B21E2D /* IQKeyboardManager.bundle in Resources */,
 				2C2F1A0222BB239C0094E4B7 /* VENProductDetailTableViewCellOne.xib in Resources */,
 				2C2F1A1722BB64910094E4B7 /* VENProductDetailTableViewCellThree.xib in Resources */,
+				2C7A7FA922C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib in Resources */,
 				2C88659A2281381400B21E2D /* MJRefresh.bundle in Resources */,
 				2CA0F510229E314B00518EDA /* VENHomePageSearchCompositionDetailsPageTableHeaderView.xib in Resources */,
 				2C4F8B8E2296F25A00154BB9 /* VENHomePageSearchCompositionTableViewCell.xib in Resources */,
@@ -2823,6 +2842,7 @@
 				2C8865F02281381400B21E2D /* TAAnimatedDotView.m in Sources */,
 				2CE57C69229455D500792248 /* MASCompositeConstraint.m in Sources */,
 				2CE57C4B2294555F00792248 /* VENBaseCategoryView.m in Sources */,
+				2C7A7FA422C0BD1700B402C6 /* VENCosmeticBagPopupView.m in Sources */,
 				2C7A7F9B22BF97F400B402C6 /* VENVerificationCodeButton.m in Sources */,
 				2CC9782E22AF941400268891 /* VENHomePageFindDetailViewController.m in Sources */,
 				2C8865AC2281381400B21E2D /* JXCategoryIndicatorLineView.m in Sources */,
@@ -2865,6 +2885,7 @@
 				2C80A9EB228CFBE500249CB4 /* VENHomePageTableHeaderView.m in Sources */,
 				2C8865F92281381400B21E2D /* SDWebImagePrefetcher.m in Sources */,
 				2C8865C92281381400B21E2D /* JXCategoryBaseCell.m in Sources */,
+				2C7A7FA822C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m in Sources */,
 				2C8865D22281381400B21E2D /* IQPreviousNextView.m in Sources */,
 				2C8865A32281381400B21E2D /* MJRefreshAutoNormalFooter.m in Sources */,
 				2CBA516D2282B4DB00EF003C /* YYTextWeakProxy.m in Sources */,
@@ -2925,6 +2946,7 @@
 				2C88662222816FAB00B21E2D /* VENHomePageViewController.m in Sources */,
 				2CE20C8B229BCCCC00949CC8 /* VENPopupView.m in Sources */,
 				2CBA51622282B4DB00EF003C /* YYTextParser.m in Sources */,
+				2C7A7FA122C0B4E400B402C6 /* VENCosmeticBagModel.m in Sources */,
 				2CA7F71F22BA19AC00250D95 /* VENProductListViewController.m in Sources */,
 				2CA0F50E229E307A00518EDA /* VENHomePageSearchCompositionDetailsPageTableHeaderView.m in Sources */,
 				2C8865C52281381400B21E2D /* JXCategoryFactory.m in Sources */,

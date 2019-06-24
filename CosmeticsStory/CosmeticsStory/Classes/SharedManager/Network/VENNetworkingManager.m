@@ -60,6 +60,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
     switch (type) {
         case HttpRequestTypePOST: {
             [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [MBProgressHUD removeLoading];
                 
                 NSLog(@"%@", responseObject);
                 
@@ -81,7 +82,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 
                 if (successBlock) successBlock(responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                
+                [MBProgressHUD removeLoading];
                 NSLog(@"%@", error);
                 if (failureBlock) failureBlock(error);
             }];
