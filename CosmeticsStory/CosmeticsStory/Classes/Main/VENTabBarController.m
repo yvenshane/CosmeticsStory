@@ -7,6 +7,7 @@
 
 #import "VENTabBarController.h"
 #import "VENNavigationController.h"
+#import "VENLoginPageViewController.h"
 
 @interface VENTabBarController () <UITabBarControllerDelegate>
 
@@ -25,6 +26,7 @@
     
     self.viewControllers = @[vc1, vc2, vc3, vc4];
     
+    self.delegate = self;
     self.tabBar.tintColor = COLOR_THEME;
     self.tabBar.translucent = NO;
 }
@@ -53,6 +55,23 @@
     VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
     
     return nav;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if (![[VENUserStatusManager sharedManager] isLogin]) {
+        if ([viewController.tabBarItem.title isEqualToString:@"化妆包"] || [viewController.tabBarItem.title isEqualToString:@"我的"]) {
+            VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nav animated:YES completion:nil];
+            return NO;
+        }
+    } else {
+        if ([viewController.tabBarItem.title isEqualToString:@"化妆包"]) {
+            tabBarController.selectedIndex = 3;
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

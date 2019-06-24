@@ -110,7 +110,11 @@ static NSString *const bannerCellIdentifier = @"bannerCellIdentifier";
     
     VENHomePageModel *model = self.catListArr[index];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Image_Button" object:nil userInfo:@{@"cat_id" : model.cat_id, @"cat_name" : model.cat_name}];
+    NSDictionary *dict = @{@"cat_id" : model.cat_id,
+                           @"cat_name" : model.cat_name};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Image_Button" object:nil userInfo:dict];
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"Image_Button"];
 }
 
 - (void)setCatListArr:(NSArray *)catListArr {

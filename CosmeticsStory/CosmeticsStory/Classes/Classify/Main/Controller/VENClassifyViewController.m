@@ -60,10 +60,14 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
 - (void)notificationCenter2:(NSNotification *)noti {
     NSDictionary *dict = noti.userInfo;
     
-    [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : dict[@"cat_id"]} successBlock:^(id  _Nonnull responseObject) {
+    [self loadDataWithParameters:@{@"cat_id" : dict[@"cat_id"]} andSetTitleLabelWithString:dict[@"cat_name"]];
+}
+
+- (void)loadDataWithParameters:(NSDictionary *)parameters andSetTitleLabelWithString:(NSString *)str {
+    [[VENApiManager sharedManager] classifyPageWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
         
         self.contentArr = responseObject[@"content"];
-        self.titleLabelText = dict[@"cat_name"];
+        self.titleLabelText = str;
         
         [self.collectionVieww2 reloadData];
     }];
@@ -76,14 +80,21 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
         [self.backgroundVieww sd_setImageWithURL:[NSURL URLWithString:responseObject[@"image"]]];
         [self.collectionVieww reloadData];
         
-        VENClassifyPageModel *model = self.catArr[0];
-        [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : model.cat_id} successBlock:^(id  _Nonnull responseObject) {
-            
-            self.contentArr = responseObject[@"content"];
-            self.titleLabelText = model.cat_name;
-            
-           [self.collectionVieww2 reloadData];
-        }];
+        // 解决第一次点击 分类不显示问题
+        NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"Image_Button"];
+        if (![VENEmptyClass isEmptyDictionary:dict]) {
+            [self loadDataWithParameters:@{@"cat_id" : dict[@"cat_id"]} andSetTitleLabelWithString:dict[@"cat_name"]];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Image_Button"];
+        } else {
+            VENClassifyPageModel *model = self.catArr[0];
+            [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : model.cat_id} successBlock:^(id  _Nonnull responseObject) {
+                
+                self.contentArr = responseObject[@"content"];
+                self.titleLabelText = model.cat_name;
+                
+                [self.collectionVieww2 reloadData];
+            }];
+        }
     }];
 }
 
