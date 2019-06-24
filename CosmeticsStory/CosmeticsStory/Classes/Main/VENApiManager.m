@@ -375,6 +375,13 @@
     }];
 }
 
+- (void)myCosmeticBagAdditionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/addCollectionCat" parameters:parameters successBlock:^(id responseObject) {
+        
+        successBlock(responseObject);
+    }];
+}
+
 #pragma mark - POST
 - (void)postWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:urlString parameters:parameters successBlock:^(id  _Nonnull responseObject) {

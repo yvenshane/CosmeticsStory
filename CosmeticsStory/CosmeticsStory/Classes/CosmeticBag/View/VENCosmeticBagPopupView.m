@@ -53,7 +53,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         [addButton setTitle:@"+ 新建护肤方案" forState:UIControlStateNormal];
         [addButton setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
         addButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-//        [addButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:addButton];
         
         UIView *lineView3 = [[UIView alloc] init];
@@ -136,15 +136,22 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     return 75;
 }
 
+#pragma mark - 新建方案
+- (void)addButtonClick {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Add_PopupView" object:nil];
+}
+
+#pragma mark - 确定
 - (void)determineButtonClick {
-    
-    NSDictionary *parameters = @{@"gid" : self.ingredients_id,
-                                 @"class_id" : self.selectIndex,
-                                 @"type" : @"2"};
-    
-    [[VENApiManager sharedManager] myCosmeticBagCollectionParameters:parameters successBlock:^(id  _Nonnull responseObject) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Remove_PopupView" object:nil];
-    }];
+    if (![VENEmptyClass isEmptyString:self.selectIndex]) {
+        NSDictionary *parameters = @{@"gid" : self.ingredients_id,
+                                     @"class_id" : self.selectIndex,
+                                     @"type" : @"2"};
+        
+        [[VENApiManager sharedManager] myCosmeticBagCollectionParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Remove_PopupView" object:nil];
+        }];
+    }
 }
 
 /*

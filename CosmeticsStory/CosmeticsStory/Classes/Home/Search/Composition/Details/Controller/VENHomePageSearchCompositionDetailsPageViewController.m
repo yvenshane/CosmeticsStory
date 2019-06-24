@@ -14,12 +14,14 @@
 #import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
 #import "VENCommentDetailPageViewController.h"
 #import "VENCosmeticBagPopupView.h"
+#import "VENCosmeticBagPopupViewTwo.h"
 
 @interface VENHomePageSearchCompositionDetailsPageViewController ()
 @property (nonatomic, strong) VENHomePageSearchCompositionDetailsPageModel *model;
 @property (nonatomic, strong) NSMutableArray *commentMuArr;
 @property (nonatomic, strong) UIButton *backgroundButton;
 @property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) VENCosmeticBagPopupViewTwo *popupViewTwo;
 
 @end
 
@@ -45,6 +47,45 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCommentData) name:@"Refresh_Composition_Detail_Page" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removePopupView) name:@"Remove_PopupView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPopupView) name:@"Add_PopupView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
+    NSDictionary *userInfoDict = notification.userInfo;
+    CGRect keyboardFrame = [[userInfoDict objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + 160;
+    
+    if (keyboardFrame.origin.y == kMainScreenHeight) {
+        _popupViewTwo.frame = CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height);
+    } else {
+        _popupViewTwo.frame = CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height, width, height);
+    }
+}
+
+- (void)addPopupView {
+    [self.backgroundButton removeFromSuperview];
+    
+    UIButton *backgroundButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight)];
+    backgroundButton.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
+    [[UIApplication sharedApplication].keyWindow addSubview:backgroundButton];
+    _backgroundButton = backgroundButton;
+    
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + 160;
+    VENCosmeticBagPopupViewTwo *popupView = [[VENCosmeticBagPopupViewTwo alloc] initWithFrame:CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height)];
+    popupView.cosmeticBagPopupViewTwoBlock = ^(NSString *str) {
+        [self.backgroundButton removeFromSuperview];
+        [[VENApiManager sharedManager] myCosmeticBagWithSuccessBlock:^(id  _Nonnull responseObject) {
+            [self setupPopupViewWithDataSource:[NSMutableArray arrayWithArray:responseObject[@"content"]]];
+        }];
+    };
+    [popupView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [backgroundButton addSubview:popupView];
+    
+    _popupViewTwo = popupView;
 }
 
 - (void)removePopupView {

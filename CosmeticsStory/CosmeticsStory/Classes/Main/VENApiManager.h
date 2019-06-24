@@ -93,6 +93,8 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)myCosmeticBagWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 // 化妆包 收藏
 - (void)myCosmeticBagCollectionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 化妆包 新增
+- (void)myCosmeticBagAdditionParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 

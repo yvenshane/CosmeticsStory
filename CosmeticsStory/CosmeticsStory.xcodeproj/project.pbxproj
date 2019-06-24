@@ -60,6 +60,7 @@
 		2C7A7FA422C0BD1700B402C6 /* VENCosmeticBagPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA322C0BD1700B402C6 /* VENCosmeticBagPopupView.m */; };
 		2C7A7FA822C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA622C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m */; };
 		2C7A7FA922C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A7FA722C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib */; };
+		2C7A7FAC22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A7FAB22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.m */; };
 		2C806BE5228B9A9C00F24C75 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE1228B9A9C00F24C75 /* TYPageControl.m */; };
 		2C806BE6228B9A9C00F24C75 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE2228B9A9C00F24C75 /* TYCyclePagerView.m */; };
 		2C806BE7228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BE3228B9A9C00F24C75 /* TYCyclePagerTransformLayout.m */; };
@@ -372,6 +373,8 @@
 		2C7A7FA522C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagPopupViewTableViewCell.h; sourceTree = "<group>"; };
 		2C7A7FA622C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagPopupViewTableViewCell.m; sourceTree = "<group>"; };
 		2C7A7FA722C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENCosmeticBagPopupViewTableViewCell.xib; sourceTree = "<group>"; };
+		2C7A7FAA22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagPopupViewTwo.h; sourceTree = "<group>"; };
+		2C7A7FAB22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagPopupViewTwo.m; sourceTree = "<group>"; };
 		2C806BDF228B9A9C00F24C75 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
 		2C806BE0228B9A9C00F24C75 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
 		2C806BE1228B9A9C00F24C75 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
@@ -1856,6 +1859,8 @@
 				2C7A7FA522C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.h */,
 				2C7A7FA622C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.m */,
 				2C7A7FA722C0C2FD00B402C6 /* VENCosmeticBagPopupViewTableViewCell.xib */,
+				2C7A7FAA22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.h */,
+				2C7A7FAB22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2855,6 +2860,7 @@
 				2C8865A12281381400B21E2D /* MJRefreshAutoStateFooter.m in Sources */,
 				2C8865DC2281381400B21E2D /* UIRefreshControl+AFNetworking.m in Sources */,
 				2C8865C22281381400B21E2D /* JXCategoryNumberCell.m in Sources */,
+				2C7A7FAC22C105BF00B402C6 /* VENCosmeticBagPopupViewTwo.m in Sources */,
 				2C8865B92281381400B21E2D /* JXCategoryTitleImageCell.m in Sources */,
 				2CBA51632282B4DB00EF003C /* YYTextAttribute.m in Sources */,
 				2C8865EE2281381400B21E2D /* TADotView.m in Sources */,
