@@ -15,6 +15,8 @@
 #import "VENDataPageModel.h"
 #import "VENCosmeticBagModel.h"
 #import "VENCosmeticBagPopupViewTwo.h"
+#import "VENCosmeticBagDetailViewController.h"
+#import "VENFootprintViewController.h"
 
 @interface VENMineViewController ()
 @property (nonatomic, strong) VENDataPageModel *userInfoModel;
@@ -52,6 +54,14 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter) name:@"Login_Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter2) name:@"Refresh_Mine_Page" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter3) name:@"Push_To_Classify_Page" object:nil];
+    
+}
+
+- (void)notificationCenter3 {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.tabBarController.selectedIndex = 1;
+    });
 }
 
 - (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
@@ -111,7 +121,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VENCosmeticBagModel *model = self.contentMuArr[indexPath.row];
     
-    
+    VENCosmeticBagDetailViewController *vc = [[VENCosmeticBagDetailViewController alloc] init];
+    vc.name = model.name;
+    vc.id = model.id;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,6 +136,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     VENMineTableHeaderView *headerView = [[NSBundle mainBundle] loadNibNamed:@"VENMineTableHeaderView" owner:nil options:nil].lastObject;
     headerView.model = self.userInfoModel;
     
+    [headerView.footprintButton addTarget:self action:@selector(footprintButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.messageButton addTarget:self action:@selector(messageButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.dataButton addTarget:self action:@selector(dataButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headerView.settingButton addTarget:self action:@selector(settingButtonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -141,6 +156,13 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
+}
+
+#pragma mark - 足迹
+- (void)footprintButtonClick {
+    VENFootprintViewController *vc = [[VENFootprintViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 消息

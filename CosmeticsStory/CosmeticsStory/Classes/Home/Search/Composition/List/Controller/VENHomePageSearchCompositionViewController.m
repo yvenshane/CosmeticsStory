@@ -93,6 +93,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         VENHomePageSearchCompositionDetailsPageViewController *vc = [[VENHomePageSearchCompositionDetailsPageViewController alloc] init];
         vc.ingredients_id = model.ingredients_id;
+        vc.isPresent = YES;
         VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     });

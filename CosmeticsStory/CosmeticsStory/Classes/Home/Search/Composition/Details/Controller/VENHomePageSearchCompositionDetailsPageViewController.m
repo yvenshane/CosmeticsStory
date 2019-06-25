@@ -33,7 +33,6 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     // Do any additional setup after loading the view.
     
     [self setupNavigationItemLeftBarButtonItem];
-    self.isPresent = YES;
     self.navigationItem.title = @"成分详情";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"VENCommentTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
@@ -226,6 +225,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [popupView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     popupView.contentMuArr = dataSource;
     popupView.ingredients_id = self.ingredients_id;
+    popupView.isProduct = NO;
     
     [backgroundButton addSubview:popupView];
 }

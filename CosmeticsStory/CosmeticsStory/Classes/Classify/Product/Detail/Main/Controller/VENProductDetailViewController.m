@@ -20,12 +20,17 @@
 #import "VENBaseWebViewController.h"
 #import "VENProductDetailBrandStoryViewController.h"
 #import "VENProductDetailJiuCuoViewController.h"
+#import "VENCosmeticBagPopupView.h"
+#import "VENCosmeticBagPopupViewTwo.h"
 
 @interface VENProductDetailViewController ()
 @property (nonatomic, strong) VENProductDetailModel *model;
 @property (nonatomic, strong) NSMutableArray *commentMuArr;
 
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *backgroundButton;
+@property (nonatomic, strong) VENCosmeticBagPopupViewTwo *popupViewTwo;
 
 @end
 
@@ -51,6 +56,9 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     [self.view addSubview:self.tableView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCommentData) name:@"Refresh_Product_Detail_Page" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removePopupView) name:@"Remove_PopupView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPopupView) name:@"Add_PopupView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     if (self.isPresents) {
         self.isPresent = YES;
@@ -67,10 +75,59 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     [self loadDataSource];
 }
 
+- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
+    NSDictionary *userInfoDict = notification.userInfo;
+    CGRect keyboardFrame = [[userInfoDict objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + 160;
+    
+    if (keyboardFrame.origin.y == kMainScreenHeight) {
+        _popupViewTwo.frame = CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height);
+    } else {
+        _popupViewTwo.frame = CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height, width, height);
+    }
+}
+
+- (void)addPopupView {
+    [self.backgroundButton removeFromSuperview];
+    
+    UIButton *backgroundButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight)];
+    backgroundButton.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
+    [[UIApplication sharedApplication].keyWindow addSubview:backgroundButton];
+    _backgroundButton = backgroundButton;
+    
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + 160;
+    VENCosmeticBagPopupViewTwo *popupView = [[VENCosmeticBagPopupViewTwo alloc] initWithFrame:CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height)];
+    popupView.cosmeticBagPopupViewTwoBlock = ^(NSString *str) {
+        [self.backgroundButton removeFromSuperview];
+        [[VENApiManager sharedManager] detailPageCosmeticBagListWithSuccessBlock:^(id  _Nonnull responseObject) {
+            [self setupPopupViewWithDataSource:[NSMutableArray arrayWithArray:responseObject[@"content"]]];
+        }];
+    };
+    [popupView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [backgroundButton addSubview:popupView];
+    
+    _popupViewTwo = popupView;
+}
+
+- (void)removePopupView {
+    [self.backgroundButton removeFromSuperview];
+    self.model.userCollection = @"1";
+    [self.likeButton setImage:[UIImage imageNamed:@"icon_clo_sel"] forState:UIControlStateNormal];
+}
+
 - (void)loadDataSource {
     [[VENApiManager sharedManager] searchPageProductDetailWithParameters:@{@"goods_id" : self.goods_id} successBlock:^(id  _Nonnull responseObject) {
         
         self.model = responseObject[@"content"];
+        
+        if ([self.model.userCollection integerValue] == 1) {
+            [self.likeButton setImage:[UIImage imageNamed:@"icon_clo_sel"] forState:UIControlStateNormal];
+        } else {
+            [self.likeButton setImage:[UIImage imageNamed:@"icon_like"] forState:UIControlStateNormal];
+        }
         
         [self loadCommentData];
     }];
@@ -223,6 +280,7 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     likeButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [likeButton addTarget:self action:@selector(likeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [bottomToolBarView addSubview:likeButton];
+    _likeButton = likeButton;
     
     UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(width, 0, width, 48)];
     [addButton setImage:[UIImage imageNamed:@"icon_add"] forState:UIControlStateNormal];
@@ -239,13 +297,46 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 }
 
 - (void)likeButtonClick:(UIButton *)button {
-    
-    NSLog(@"收藏");
-    
-    //    UIView *backgroundView = [[UIView alloc] init];
-    //    backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
-    //    [[UIApplication sharedApplication].keyWindow addSubview:backgroundView];
+    if ([self.model.userCollection integerValue] == 1) {
+        NSDictionary *parameters = @{@"gid" : self.goods_id,
+                                     @"type" : @"1"};
+        
+        [[VENApiManager sharedManager] detailPageCosmeticBagCollectionWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+            
+            self.model.userCollection = @"0";
+            [self.likeButton setImage:[UIImage imageNamed:@"icon_like"] forState:UIControlStateNormal];
+        }];
+    } else {
+        [[VENApiManager sharedManager] detailPageCosmeticBagListWithSuccessBlock:^(id  _Nonnull responseObject) {
+            [self setupPopupViewWithDataSource:[NSMutableArray arrayWithArray:responseObject[@"content"]]];
+        }];
+    }
 }
+
+- (void)setupPopupViewWithDataSource:(NSMutableArray *)dataSource {
+    UIButton *backgroundButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight)];
+    backgroundButton.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
+    [[UIApplication sharedApplication].keyWindow addSubview:backgroundButton];
+    _backgroundButton = backgroundButton;
+    
+    CGFloat tableViewHeight = 75 * (dataSource.count > 4 ? 4 : dataSource.count);
+    CGFloat width = 300;
+    CGFloat height = 44 + 48 + tableViewHeight;
+    
+    VENCosmeticBagPopupView *popupView = [[VENCosmeticBagPopupView alloc] initWithFrame:CGRectMake(kMainScreenWidth / 2 - width / 2, kMainScreenHeight / 2 - height / 2, width, height)];
+    [popupView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    popupView.contentMuArr = dataSource;
+    popupView.ingredients_id = self.goods_id;
+    popupView.isProduct = YES;
+    
+    [backgroundButton addSubview:popupView];
+}
+
+- (void)closeButtonClick {
+    [self.backgroundButton removeFromSuperview];
+}
+
+
 
 - (void)addButtonClick:(UIButton *)button {
     VENProductDetailsPageReleaseCommentViewController *vc = [[VENProductDetailsPageReleaseCommentViewController alloc] init];

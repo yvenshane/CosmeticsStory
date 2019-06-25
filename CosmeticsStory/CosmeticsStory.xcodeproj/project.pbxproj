@@ -198,6 +198,10 @@
 		2C88662F228177E000B21E2D /* VENInitialPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88662D228177E000B21E2D /* VENInitialPageViewController.m */; };
 		2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C88662E228177E000B21E2D /* VENInitialPageViewController.xib */; };
 		2C8ADA4522A117770022A234 /* VENDataPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8ADA4422A117770022A234 /* VENDataPageModel.m */; };
+		2C8C17E522C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C17E422C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.m */; };
+		2C8C17EB22C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C17EA22C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.m */; };
+		2C8C17EE22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C17ED22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.m */; };
+		2C8C17F222C2145500FBE6F0 /* VENFootprintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C17F122C2145500FBE6F0 /* VENFootprintViewController.m */; };
 		2C93092B22A7A3750057A27B /* VENUserStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93092A22A7A3750057A27B /* VENUserStatusManager.m */; };
 		2C93092E22A7A8E40057A27B /* VENHomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93092D22A7A8E40057A27B /* VENHomePageModel.m */; };
 		2C93093122A816490057A27B /* VENHomePageCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C93093022A816490057A27B /* VENHomePageCouponViewController.m */; };
@@ -656,6 +660,14 @@
 		2C8ADA4422A117770022A234 /* VENDataPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENDataPageModel.m; sourceTree = "<group>"; };
 		2C8ADACE22A4A5370022A234 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		2C8ADAD022A4A53D0022A234 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		2C8C17E322C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagDetailViewController.h; sourceTree = "<group>"; };
+		2C8C17E422C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagDetailViewController.m; sourceTree = "<group>"; };
+		2C8C17E922C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagDetailCompositionViewController.h; sourceTree = "<group>"; };
+		2C8C17EA22C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagDetailCompositionViewController.m; sourceTree = "<group>"; };
+		2C8C17EC22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENCosmeticBagDetailProductViewController.h; sourceTree = "<group>"; };
+		2C8C17ED22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENCosmeticBagDetailProductViewController.m; sourceTree = "<group>"; };
+		2C8C17F022C2145500FBE6F0 /* VENFootprintViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENFootprintViewController.h; sourceTree = "<group>"; };
+		2C8C17F122C2145500FBE6F0 /* VENFootprintViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENFootprintViewController.m; sourceTree = "<group>"; };
 		2C93092922A7A3750057A27B /* VENUserStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENUserStatusManager.h; sourceTree = "<group>"; };
 		2C93092A22A7A3750057A27B /* VENUserStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENUserStatusManager.m; sourceTree = "<group>"; };
 		2C93092C22A7A8E40057A27B /* VENHomePageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageModel.h; sourceTree = "<group>"; };
@@ -1826,9 +1838,8 @@
 		2C88660D22816E8D00B21E2D /* CosmeticBag */ = {
 			isa = PBXGroup;
 			children = (
-				2C88660F22816E8D00B21E2D /* Model */,
-				2C88661022816E8D00B21E2D /* View */,
-				2C88660E22816E8D00B21E2D /* Controller */,
+				2C8C17E022C1B28700FBE6F0 /* List */,
+				2C8C17E122C1B29100FBE6F0 /* Detail */,
 			);
 			path = CosmeticBag;
 			sourceTree = "<group>";
@@ -1924,6 +1935,7 @@
 			isa = PBXGroup;
 			children = (
 				2C710EBF2285143100DAC826 /* Main */,
+				2C8C17EF22C213BA00FBE6F0 /* Footprint */,
 				2C007BC52289623A002509D5 /* Messgae */,
 				2C710EC02285144900DAC826 /* Data */,
 				2CB5C6562289026A009F1ABC /* Setting */,
@@ -2011,6 +2023,70 @@
 				2C8ADACE22A4A5370022A234 /* Photos.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C8C17E022C1B28700FBE6F0 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2C88660F22816E8D00B21E2D /* Model */,
+				2C88661022816E8D00B21E2D /* View */,
+				2C88660E22816E8D00B21E2D /* Controller */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2C8C17E122C1B29100FBE6F0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C17E822C1BCC900FBE6F0 /* Main */,
+				2C8C17E622C1BC9F00FBE6F0 /* Product */,
+				2C8C17E722C1BCBC00FBE6F0 /* Composition */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		2C8C17E222C1B29900FBE6F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C17E322C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.h */,
+				2C8C17E422C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C8C17E622C1BC9F00FBE6F0 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C17EC22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.h */,
+				2C8C17ED22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.m */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		2C8C17E722C1BCBC00FBE6F0 /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C17E922C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.h */,
+				2C8C17EA22C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.m */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		2C8C17E822C1BCC900FBE6F0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C17E222C1B29900FBE6F0 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2C8C17EF22C213BA00FBE6F0 /* Footprint */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C17F022C2145500FBE6F0 /* VENFootprintViewController.h */,
+				2C8C17F122C2145500FBE6F0 /* VENFootprintViewController.m */,
+			);
+			path = Footprint;
 			sourceTree = "<group>";
 		};
 		2C93093222A816520057A27B /* Coupon */ = {
@@ -2871,6 +2947,7 @@
 				2C8865DF2281381400B21E2D /* UIButton+AFNetworking.m in Sources */,
 				2CC9783622AFAB8700268891 /* VENHomePageFindDetailModel.m in Sources */,
 				2C4F47A722880C3F008F48CE /* VENPickerView.m in Sources */,
+				2C8C17EE22C1BDF700FBE6F0 /* VENCosmeticBagDetailProductViewController.m in Sources */,
 				2C20693C22B24ABD00498AE2 /* VENHomePageSearchCompositionDetailsPageCommentModel.m in Sources */,
 				2C8865CC2281381400B21E2D /* YYClassInfo.m in Sources */,
 				2C2378A922ADDD2A00566458 /* VENClassifyCollectionViewCell2.m in Sources */,
@@ -2929,6 +3006,7 @@
 				2CBA515C2282B4DB00EF003C /* YYTextLine.m in Sources */,
 				2C8865CB2281381400B21E2D /* NSObject+YYModel.m in Sources */,
 				2C9EDC4D22817CCE0072C547 /* VENLoginPageViewController.m in Sources */,
+				2C8C17F222C2145500FBE6F0 /* VENFootprintViewController.m in Sources */,
 				2C2F1A1B22BB66D40094E4B7 /* VENProductDetailTableViewCellTwo.m in Sources */,
 				2C8865D42281381400B21E2D /* IQKeyboardManager.m in Sources */,
 				2C93092B22A7A3750057A27B /* VENUserStatusManager.m in Sources */,
@@ -2950,6 +3028,7 @@
 				2C4F47AD228854C2008F48CE /* VENListPickerView.m in Sources */,
 				2CE57C67229455D500792248 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				2C88662222816FAB00B21E2D /* VENHomePageViewController.m in Sources */,
+				2C8C17E522C1B35300FBE6F0 /* VENCosmeticBagDetailViewController.m in Sources */,
 				2CE20C8B229BCCCC00949CC8 /* VENPopupView.m in Sources */,
 				2CBA51622282B4DB00EF003C /* YYTextParser.m in Sources */,
 				2C7A7FA122C0B4E400B402C6 /* VENCosmeticBagModel.m in Sources */,
@@ -2959,6 +3038,7 @@
 				2C8865E82281381400B21E2D /* AFNetworkReachabilityManager.m in Sources */,
 				2C8865CF2281381400B21E2D /* IQTitleBarButtonItem.m in Sources */,
 				2CA7F72522BA3AFD00250D95 /* VENProductDetailPageHeaderView.m in Sources */,
+				2C8C17EB22C1BDE400FBE6F0 /* VENCosmeticBagDetailCompositionViewController.m in Sources */,
 				2C8865EF2281381400B21E2D /* TAPageControl.m in Sources */,
 				2C8865E32281381400B21E2D /* AFImageDownloader.m in Sources */,
 				2C80AA04228EA51800249CB4 /* VENWaterfallFlowView.m in Sources */,

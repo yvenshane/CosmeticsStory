@@ -146,7 +146,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     if (![VENEmptyClass isEmptyString:self.selectIndex]) {
         NSDictionary *parameters = @{@"gid" : self.ingredients_id,
                                      @"class_id" : self.selectIndex,
-                                     @"type" : @"2"};
+                                     @"type" : self.isProduct ? @"1" : @"2"};
         
         [[VENApiManager sharedManager] detailPageCosmeticBagCollectionWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Remove_PopupView" object:nil];

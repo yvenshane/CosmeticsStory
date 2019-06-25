@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) NSMutableArray *contentMuArr;
 @property (nonatomic, strong) NSString *ingredients_id;
+@property (nonatomic, assign) BOOL isProduct;
 
 @end
 

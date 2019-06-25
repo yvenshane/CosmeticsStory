@@ -382,6 +382,21 @@
     }];
 }
 
+- (void)myCosmeticBagDetailPageWithParameters:(NSDictionary *)parameters SuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/goodsCollectionList" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSString *descriptionn = responseObject[@"content"][@"catInfo"][@"descriptionn"];
+        NSArray *goodsListArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchResultsModel class] json:responseObject[@"content"][@"goodsList"]];
+        NSArray *ingredientsListArr = [NSArray yy_modelArrayWithClass:[VENHomePageSearchCompositionModel class] json:responseObject[@"content"][@"ingredientsList"]];
+        
+        NSDictionary *content = @{@"descriptionn" : descriptionn,
+                                  @"goodsList" : goodsListArr,
+                                  @"ingredientsList" : ingredientsListArr};
+        
+        successBlock(@{@"content" : content});
+    }];
+}
+
 #pragma mark - POST
 - (void)postWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
     [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:urlString parameters:parameters successBlock:^(id  _Nonnull responseObject) {

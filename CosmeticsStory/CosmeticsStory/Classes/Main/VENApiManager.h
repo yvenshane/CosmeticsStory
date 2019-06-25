@@ -97,6 +97,8 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 - (void)detailPageCosmeticBagCollectionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 详情页 化妆包 新增
 - (void)detailPageCosmeticBagAdditionWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 化妆包 详情页
+- (void)myCosmeticBagDetailPageWithParameters:(NSDictionary *)parameters SuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 
 @end
 
