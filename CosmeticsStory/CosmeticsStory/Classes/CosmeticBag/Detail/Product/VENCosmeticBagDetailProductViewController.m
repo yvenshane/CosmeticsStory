@@ -18,7 +18,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
  
-    self.tableView.backgroundColor = UIColorFromRGB(0xF8F8F8);
+    self.tableView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     [self.tableView registerNib:[UINib nibWithNibName:@"VENHomePageSearchResultsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - self.headerViewHeight - 44 - kStatusBarAndNavigationBarHeight);

@@ -260,6 +260,11 @@
 		2CBA517B228401DA00EF003C /* VENMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA5179228401DA00EF003C /* VENMineTableViewCell.xib */; };
 		2CBA51802284095700EF003C /* VENMineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */; };
 		2CBA51822284096C00EF003C /* VENMineTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */; };
+		2CBBE8AC22C237B50005E3CC /* VENFootprintCommentProductPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBE8AB22C237B50005E3CC /* VENFootprintCommentProductPageViewController.m */; };
+		2CBBE8AF22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBE8AE22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.m */; };
+		2CBBE8B522C242AC0005E3CC /* VENFootprintCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBE8B322C242AC0005E3CC /* VENFootprintCommentTableViewCell.m */; };
+		2CBBE8B622C242AC0005E3CC /* VENFootprintCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBBE8B422C242AC0005E3CC /* VENFootprintCommentTableViewCell.xib */; };
+		2CBBE8BA22C256390005E3CC /* VENFootprintCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBE8B922C256390005E3CC /* VENFootprintCommentModel.m */; };
 		2CC9782E22AF941400268891 /* VENHomePageFindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9782D22AF941400268891 /* VENHomePageFindDetailViewController.m */; };
 		2CC9783622AFAB8700268891 /* VENHomePageFindDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9783522AFAB8700268891 /* VENHomePageFindDetailModel.m */; };
 		2CC9784222B08EC800268891 /* VENHomePageFindDetailBottomToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9784122B08EC800268891 /* VENHomePageFindDetailBottomToolBarView.m */; };
@@ -774,6 +779,15 @@
 		2CBA517E2284095700EF003C /* VENMineTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENMineTableHeaderView.h; sourceTree = "<group>"; };
 		2CBA517F2284095700EF003C /* VENMineTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENMineTableHeaderView.m; sourceTree = "<group>"; };
 		2CBA51812284096C00EF003C /* VENMineTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENMineTableHeaderView.xib; sourceTree = "<group>"; };
+		2CBBE8AA22C237B50005E3CC /* VENFootprintCommentProductPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENFootprintCommentProductPageViewController.h; sourceTree = "<group>"; };
+		2CBBE8AB22C237B50005E3CC /* VENFootprintCommentProductPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENFootprintCommentProductPageViewController.m; sourceTree = "<group>"; };
+		2CBBE8AD22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENFootprintCommentCompositionPageViewController.h; sourceTree = "<group>"; };
+		2CBBE8AE22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENFootprintCommentCompositionPageViewController.m; sourceTree = "<group>"; };
+		2CBBE8B222C242AC0005E3CC /* VENFootprintCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENFootprintCommentTableViewCell.h; sourceTree = "<group>"; };
+		2CBBE8B322C242AC0005E3CC /* VENFootprintCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENFootprintCommentTableViewCell.m; sourceTree = "<group>"; };
+		2CBBE8B422C242AC0005E3CC /* VENFootprintCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENFootprintCommentTableViewCell.xib; sourceTree = "<group>"; };
+		2CBBE8B822C256390005E3CC /* VENFootprintCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENFootprintCommentModel.h; sourceTree = "<group>"; };
+		2CBBE8B922C256390005E3CC /* VENFootprintCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENFootprintCommentModel.m; sourceTree = "<group>"; };
 		2CC9782C22AF941400268891 /* VENHomePageFindDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageFindDetailViewController.h; sourceTree = "<group>"; };
 		2CC9782D22AF941400268891 /* VENHomePageFindDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENHomePageFindDetailViewController.m; sourceTree = "<group>"; };
 		2CC9783422AFAB8700268891 /* VENHomePageFindDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENHomePageFindDetailModel.h; sourceTree = "<group>"; };
@@ -2083,6 +2097,7 @@
 		2C8C17EF22C213BA00FBE6F0 /* Footprint */ = {
 			isa = PBXGroup;
 			children = (
+				2CBBE8A922C228260005E3CC /* Comment */,
 				2C8C17F022C2145500FBE6F0 /* VENFootprintViewController.h */,
 				2C8C17F122C2145500FBE6F0 /* VENFootprintViewController.m */,
 			);
@@ -2502,6 +2517,46 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2CBBE8A922C228260005E3CC /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				2CBBE8B722C2560C0005E3CC /* Model */,
+				2CBBE8B122C2428E0005E3CC /* View */,
+				2CBBE8B022C242840005E3CC /* Controller */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		2CBBE8B022C242840005E3CC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CBBE8AA22C237B50005E3CC /* VENFootprintCommentProductPageViewController.h */,
+				2CBBE8AB22C237B50005E3CC /* VENFootprintCommentProductPageViewController.m */,
+				2CBBE8AD22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.h */,
+				2CBBE8AE22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CBBE8B122C2428E0005E3CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CBBE8B222C242AC0005E3CC /* VENFootprintCommentTableViewCell.h */,
+				2CBBE8B322C242AC0005E3CC /* VENFootprintCommentTableViewCell.m */,
+				2CBBE8B422C242AC0005E3CC /* VENFootprintCommentTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CBBE8B722C2560C0005E3CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CBBE8B822C256390005E3CC /* VENFootprintCommentModel.h */,
+				2CBBE8B922C256390005E3CC /* VENFootprintCommentModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2CC9782722AF934D00268891 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -2863,6 +2918,7 @@
 				2C7A7F9722BC726100B402C6 /* VENProductDetailJiuCuoViewController.xib in Resources */,
 				2C3BBEA622BB849D00A4A389 /* VENProductDetailBrandStoryViewController.xib in Resources */,
 				2C20694E22B72CC200498AE2 /* VENCommentDetailPageViewController.xib in Resources */,
+				2CBBE8B622C242AC0005E3CC /* VENFootprintCommentTableViewCell.xib in Resources */,
 				2C4DC87A229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2941,6 +2997,7 @@
 				2CBA51632282B4DB00EF003C /* YYTextAttribute.m in Sources */,
 				2C8865EE2281381400B21E2D /* TADotView.m in Sources */,
 				2C8865D62281381400B21E2D /* IQUITextFieldView+Additions.m in Sources */,
+				2CBBE8B522C242AC0005E3CC /* VENFootprintCommentTableViewCell.m in Sources */,
 				2C8864292281307E00B21E2D /* main.m in Sources */,
 				2C8865A92281381400B21E2D /* MJRefreshBackFooter.m in Sources */,
 				2C007BCF228962AC002509D5 /* VENMessageTableViewCell.m in Sources */,
@@ -2996,6 +3053,7 @@
 				2C4F47AA22884AC1008F48CE /* VENDatePickerView.m in Sources */,
 				2CBA51562282B4DB00EF003C /* YYTextView.m in Sources */,
 				2CA0F50A229E26FA00518EDA /* VENHomePageSearchCompositionDetailsPageViewController.m in Sources */,
+				2CBBE8AF22C237E80005E3CC /* VENFootprintCommentCompositionPageViewController.m in Sources */,
 				2C8866022281381400B21E2D /* VENNetworkTool.m in Sources */,
 				2C88659E2281381400B21E2D /* MJRefreshBackGifFooter.m in Sources */,
 				2C8865B12281381400B21E2D /* JXCategoryIndicatorBackgroundView.m in Sources */,
@@ -3055,6 +3113,7 @@
 				2C8865AF2281381400B21E2D /* JXCategoryIndicatorBallView.m in Sources */,
 				2CE57C762294589800792248 /* VENHomePageSearchProductViewController.m in Sources */,
 				2CBA516B2282B4DB00EF003C /* UIView+YYText.m in Sources */,
+				2CBBE8BA22C256390005E3CC /* VENFootprintCommentModel.m in Sources */,
 				2C3BBEA522BB849D00A4A389 /* VENProductDetailBrandStoryViewController.m in Sources */,
 				2C9EDC53228189AD0072C547 /* VENResetPasswordViewController.m in Sources */,
 				2C20692D22B1E61B00498AE2 /* VENHomePageSearchCompositionModel.m in Sources */,
@@ -3068,6 +3127,7 @@
 				2C8865992281381400B21E2D /* MJRefreshConst.m in Sources */,
 				2C8865BC2281381400B21E2D /* JXCategoryTitleCell.m in Sources */,
 				2C8865B02281381400B21E2D /* JXCategoryIndicatorComponentView.m in Sources */,
+				2CBBE8AC22C237B50005E3CC /* VENFootprintCommentProductPageViewController.m in Sources */,
 				2C8865CE2281381400B21E2D /* IQToolbar.m in Sources */,
 				2C8865BD2281381400B21E2D /* JXCategoryTitleView.m in Sources */,
 				2CBA515F2282B4DB00EF003C /* YYTextDebugOption.m in Sources */,

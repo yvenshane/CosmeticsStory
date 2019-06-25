@@ -20,6 +20,7 @@
 #import "VENProductDetailModel.h"
 #import "VENMessageModel.h"
 #import "VENCosmeticBagModel.h"
+#import "VENFootprintCommentModel.h"
 
 @implementation VENApiManager
 
@@ -342,6 +343,36 @@
     [self postWithUrlString:@"member/editPassword" parameters:parameters successBlock:^(id responseObject) {
         
         successBlock(responseObject);
+    }];
+}
+
+- (void)myFootprintListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/myCollectionNews" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSDictionary *content = responseObject[@"content"];
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENHomePageModel class] json:content];
+        
+        successBlock(contentArr);
+    }];
+}
+
+- (void)myFootprintCommentProductPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/myCommentGoods" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSDictionary *content = responseObject[@"content"];
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENFootprintCommentModel class] json:content];
+        
+        successBlock(@{@"content" : contentArr});
+    }];
+}
+
+- (void)myFootprintCommentCompositionPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"member/myCommentIngredients" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSDictionary *content = responseObject[@"content"];
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENFootprintCommentModel class] json:content];
+        
+        successBlock(@{@"content" : contentArr});
     }];
 }
 

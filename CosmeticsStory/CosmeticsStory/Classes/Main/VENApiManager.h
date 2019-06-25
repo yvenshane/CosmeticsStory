@@ -76,20 +76,24 @@ typedef void (^HTTPRequestSuccessBlock)(id responseObject);
 // 分类 二级列表
 - (void)classifyPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
-// 我的 资料
-- (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
-// 我的 资料 保存
-- (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
-
-// 我的 设置/更换手机
-- (void)changePhoneNumberWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
-// 我的 设置/修改密码
-- (void)modifyPasswordWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 足迹 好文
+- (void)myFootprintListWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 足迹 评论/产品
+- (void)myFootprintCommentProductPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 足迹 评论/成分
+- (void)myFootprintCommentCompositionPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 // 我的 消息 列表页
 - (void)myMessageListPageWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
 // 我的 消息 详情页
 - (void)myMessageDetailPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
-
+// 我的 资料
+- (void)userInfoWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 资料 保存
+- (void)modifyUserInfoWithParameters:(NSDictionary *)parameters images:(NSArray *)images keyName:(NSString *)keyName successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 设置/更换手机
+- (void)changePhoneNumberWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
+// 我的 设置/修改密码
+- (void)modifyPasswordWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock;
 
 // 详情页 化妆包列表
 - (void)detailPageCosmeticBagListWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock;
