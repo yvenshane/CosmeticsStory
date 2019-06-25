@@ -48,11 +48,11 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
        
-        UIViewController *vc = self;
-        while (vc.presentingViewController) {
-            vc = vc.presentingViewController;
+        if ([self.pushType isEqualToString:@"initialPage"]) {
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
-        [vc dismissViewControllerAnimated:YES completion:nil];
 
         NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
     }];

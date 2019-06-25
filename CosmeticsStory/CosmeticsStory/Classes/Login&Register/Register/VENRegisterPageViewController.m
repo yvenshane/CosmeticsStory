@@ -63,11 +63,11 @@
                                  @"password" : self.newwPasswordTextField.text,
                                  @"passwords" : self.confirmPasswordTextField.text};
     [[VENApiManager sharedManager] registerWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            VENDataViewController *vc = [[VENDataViewController alloc] init];
-            vc.isPresent = YES;
-            [self presentViewController:vc animated:YES completion:nil];
-        }];
+        
+        VENDataViewController *vc = [[VENDataViewController alloc] init];
+        vc.pushType = @"register";
+        VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
     }];
 }
 

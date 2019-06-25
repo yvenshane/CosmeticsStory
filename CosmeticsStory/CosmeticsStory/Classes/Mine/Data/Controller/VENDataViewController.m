@@ -451,12 +451,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
         
-        if (self.isPresent) {
-            UIViewController *vc = self;
-            while (vc.presentingViewController) {
-                vc = vc.presentingViewController;
-            }
-            [vc dismissViewControllerAnimated:YES completion:nil];
+        if ([self.pushType isEqualToString:@"register"]) {
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        } else if ([self.pushType isEqualToString:@"login"]) {
+            [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             [self.navigationController popViewControllerAnimated:YES];
         }

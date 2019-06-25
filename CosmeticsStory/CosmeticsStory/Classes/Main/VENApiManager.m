@@ -60,7 +60,7 @@
     [self postWithUrlString:@"login/login" parameters:parameters successBlock:^(id responseObject) {
         if ([responseObject[@"status"] integerValue] == 400) {
             VENDataViewController *vc = [[VENDataViewController alloc] init];
-            vc.isPresent = YES;
+            vc.pushType = @"login";
             VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
             [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
             return;

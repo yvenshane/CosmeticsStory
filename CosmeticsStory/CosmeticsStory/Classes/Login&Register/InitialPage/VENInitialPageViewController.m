@@ -29,6 +29,7 @@
 #pragma mark - 登录
 - (IBAction)loginButtonClick:(id)sender {
     VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+    vc.pushType = @"initialPage";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
 }
