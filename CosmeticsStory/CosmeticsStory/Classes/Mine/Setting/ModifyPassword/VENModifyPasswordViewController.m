@@ -95,7 +95,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
                                  @"password3" : passwordCell3.contentTextField.text};
     
     [[VENApiManager sharedManager] modifyPasswordWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LOGIN"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Login_Out" object:nil];
     }];
 }
 

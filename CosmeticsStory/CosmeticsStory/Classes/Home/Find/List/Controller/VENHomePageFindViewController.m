@@ -74,8 +74,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     CGFloat imageHeight = [model.imageSize[@"1"] floatValue];
     
     if (imageWidth > width) {
+        imageHeight = imageHeight * (width / imageWidth);
         imageWidth = width;
-        imageHeight = imageHeight * (imageWidth / width );
     }
     
     cell.iconImageViewHeight.constant = imageHeight;
@@ -107,10 +107,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     CGFloat labelHeight = [label sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)].height;
     
     if (imageWidth > width) {
+        imageHeight = imageHeight * (width / imageWidth);
         imageWidth = width;
-        imageHeight = imageHeight * (imageWidth / width );
     }
-    
     
     return imageHeight + 10 + 12 + labelHeight + 6 + 15 + 12;
 }

@@ -20,6 +20,7 @@
 @property (nonatomic, strong) VENDataPageModel *userInfoModel;
 @property (nonatomic, assign) BOOL isRefresh;
 @property (nonatomic, strong) NSMutableArray *contentMuArr;
+@property (nonatomic, strong) UIButton *backgroundButton;
 @property (nonatomic, strong) VENCosmeticBagPopupViewTwo *popupView;
 
 @end
@@ -178,14 +179,15 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         [self notificationCenter2];
     };
-    [popupView.closeButton addTarget:self action:@selector(closeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [popupView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [backgroundButton addSubview:popupView];
     
     _popupView = popupView;
+    _backgroundButton = backgroundButton;
 }
 
-- (void)closeButtonClick:(UIButton *)button {
-    [button.superview removeFromSuperview];
+- (void)closeButtonClick {
+    [self.backgroundButton removeFromSuperview];
 }
 
 /*
