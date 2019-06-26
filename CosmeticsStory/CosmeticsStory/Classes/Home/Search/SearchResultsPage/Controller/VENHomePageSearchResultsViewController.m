@@ -251,16 +251,16 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         VENPopupView *popupView = [[VENPopupView alloc] init];
         
         if (button.tag == 0) {
-            popupView.isTableView = YES;
+            popupView.popupViewStyle = @"tableView";
             popupView.dataSourceArr = self.label_comprehensiveArr;
         } else if (button.tag == 1) {
-            popupView.isCollectionView = YES;
+            popupView.popupViewStyle = @"collectionView3";
             popupView.dataSourceArr = self.label_purposeArr;
         } else if (button.tag == 2) {
-            popupView.isCollectionView = YES;
+            popupView.popupViewStyle = @"collectionView3";
             popupView.dataSourceArr = self.label_effectArr;
         } else {
-            popupView.isTableView = YES;
+            popupView.popupViewStyle = @"tableView";
             popupView.dataSourceArr = self.label_priceArr;
         }
         

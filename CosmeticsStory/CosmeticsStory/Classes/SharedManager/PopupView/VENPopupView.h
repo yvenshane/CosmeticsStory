@@ -12,8 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^popupViewBlock)(NSDictionary *);
 @interface VENPopupView : UIView
-@property (nonatomic, assign) BOOL isTableView;
-@property (nonatomic, assign) BOOL isCollectionView;
+@property (nonatomic, copy) NSString *popupViewStyle;
 @property (nonatomic, copy) NSArray *dataSourceArr;
 @property (nonatomic, copy) popupViewBlock popupViewBlock;
 @property (nonatomic, copy) NSDictionary *selectedItem;

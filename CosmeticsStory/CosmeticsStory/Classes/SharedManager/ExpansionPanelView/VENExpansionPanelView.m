@@ -50,6 +50,20 @@
                         if (button.tag == i) {
                             label.text = self.widgetMuArr[i];
                             label.textColor = UIColorFromRGB(0x333333);
+                            
+                            CGFloat buttonWidth = [self.expansionPanelViewStyle isEqualToString:@"AllComposition"] ? (self.bounds.size.width - 50 ) / self.widgetMuArr.count : self.bounds.size.width / self.widgetMuArr.count;
+                            CGFloat labelWidth = [label sizeThatFits:CGSizeMake(CGFLOAT_MAX, 17.0f)].width;
+                            CGFloat labelX = buttonWidth / 2 - (labelWidth + 6 + 7) / 2;
+                            CGFloat labelY = button.bounds.size.height / 2 - 17 / 2;
+                            label.frame = CGRectMake(labelX, labelY, labelWidth, 17.0f);
+                            
+                            self.labelX = labelX;
+                            self.labelWidth = labelWidth;
+                            
+                            if ([self.expansionPanelViewStyle isEqualToString:@"AllComposition"]) {
+                                button.backgroundColor = UIColorFromRGB(0xF5F5F5);
+                                ViewBorderRadius(button, 4, 1, [UIColor whiteColor]);
+                            }
                         }
                     }
                 }
@@ -57,6 +71,7 @@
             for (UIImageView *imageView in button.subviews) {
                 if ([imageView isKindOfClass:[UIImageView class]]) {
                     imageView.image = [UIImage imageNamed:@"icon_pop"];
+                    imageView.frame = CGRectMake(self.labelX + self.labelWidth + 6, button.bounds.size.height / 2 - 4 / 2, 7, 4);
                 }
             }
         }
@@ -71,26 +86,29 @@
                             if (button.tag != 0) {
                                 label.text = noti.userInfo[@"name"];
                                 
-                                CGFloat buttonWidth = self.bounds.size.width / self.widgetMuArr.count;
+                                CGFloat buttonWidth = [self.expansionPanelViewStyle isEqualToString:@"AllComposition"] ? (self.bounds.size.width - 50 ) / self.widgetMuArr.count : self.bounds.size.width / self.widgetMuArr.count;
                                 CGFloat labelWidth = [label sizeThatFits:CGSizeMake(CGFLOAT_MAX, 17.0f)].width;
                                 CGFloat labelX = buttonWidth / 2 - (labelWidth + 6 + 7) / 2;
-                                CGFloat labelY = self.bounds.size.height / 2 - 17 / 2;
+                                CGFloat labelY = button.bounds.size.height / 2 - 17 / 2;
                                 label.frame = CGRectMake(labelX, labelY, labelWidth, 17.0f);
                                 
                                 self.labelX = labelX;
                                 self.labelWidth = labelWidth;
                             }
                             label.textColor = COLOR_THEME;
+
+                            if ([self.expansionPanelViewStyle isEqualToString:@"AllComposition"]) {
+                                button.backgroundColor = [UIColor whiteColor];
+                                ViewBorderRadius(button, 4, 1, COLOR_THEME);
+                            }
+
                             [self.buttonSelectedMuArr removeAllObjects];
                         }
                     }
                     for (UIImageView *imageView in button.subviews) {
                         if ([imageView isKindOfClass:[UIImageView class]]) {
                             imageView.image = [UIImage imageNamed:@"icon_pop_sel"];
-                            
-                            if (button.tag != 0) {
-                               imageView.frame = CGRectMake(self.labelX + self.labelWidth + 6, self.bounds.size.height / 2 - 4 / 2, 7, 4);
-                            }
+                            imageView.frame = CGRectMake(self.labelX + self.labelWidth + 6, button.bounds.size.height / 2 - 4 / 2, 7, 4);
                         }
                     }
                 }
@@ -102,13 +120,27 @@
 - (void)setWidgetMuArr:(NSMutableArray *)widgetMuArr {
     _widgetMuArr = widgetMuArr;
     
-    CGFloat buttonWidth = self.bounds.size.width / widgetMuArr.count;
-    
     for (NSInteger i = 0; i < widgetMuArr.count; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * buttonWidth, 1, buttonWidth, self.bounds.size.height - 2)];
+        UIButton *button = [[UIButton alloc] init];
+        
+        if ([self.expansionPanelViewStyle isEqualToString:@"AllComposition"]) {
+            button.frame = CGRectMake(i * (10 + (self.bounds.size.width - 50 ) / widgetMuArr.count) + 15, 7, (self.bounds.size.width - 50 ) / widgetMuArr.count, 30);
+        } else {
+            button.frame = CGRectMake(i * (self.bounds.size.width / widgetMuArr.count), 1, self.bounds.size.width / widgetMuArr.count, self.bounds.size.height - 2);
+        }
+        
         button.tag = i;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
+        
+        if ([self.expansionPanelViewStyle isEqualToString:@"AllComposition"]) {
+            if (i == 0) {
+                ViewBorderRadius(button, 4, 1, COLOR_THEME);
+            } else {
+                ViewRadius(button, 4);
+                button.backgroundColor = UIColorFromRGB(0xF5F5F5);
+            }
+        }
         
         UILabel *label = [[UILabel alloc] init];
         label.text = widgetMuArr[i];
@@ -118,11 +150,11 @@
         CGFloat labelWidth = [label sizeThatFits:CGSizeMake(CGFLOAT_MAX, 17.0f)].width;
         [button addSubview:label];
         
-        CGFloat labelX = buttonWidth / 2 - (labelWidth + 6 + 7) / 2;
-        CGFloat labelY = self.bounds.size.height / 2 - 17 / 2;
+        CGFloat labelX = button.bounds.size.width / 2 - (labelWidth + 6 + 7) / 2;
+        CGFloat labelY = button.bounds.size.height / 2 - 17 / 2;
         label.frame = CGRectMake(labelX, labelY, labelWidth, 17.0f);
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(labelX + labelWidth + 6, self.bounds.size.height / 2 - 4 / 2, 7, 4)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(labelX + labelWidth + 6,  button.bounds.size.height / 2 - 4 / 2, 7, 4)];
         imageView.image = [UIImage imageNamed:i == 0 ? @"icon_pop_sel" : @"icon_pop"];
         [button addSubview:imageView];
     }

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VENPopupViewCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titileLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *choiseImageView;
 
 @end
 

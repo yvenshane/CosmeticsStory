@@ -22,6 +22,7 @@
 #import "VENProductDetailJiuCuoViewController.h"
 #import "VENCosmeticBagPopupView.h"
 #import "VENCosmeticBagPopupViewTwo.h"
+#import "VENProductDetailPageAllCompositionViewController.h"
 
 @interface VENProductDetailViewController ()
 @property (nonatomic, strong) VENProductDetailModel *model;
@@ -383,7 +384,9 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 }
 
 - (void)cellTwoMoreInformationButtonClick {
-    
+    VENProductDetailPageAllCompositionViewController *vc = [[VENProductDetailPageAllCompositionViewController alloc] init];
+    vc.goods_id = self.goods_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)cellThreeMoreInformationButtonClick {

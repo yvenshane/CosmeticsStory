@@ -13,33 +13,46 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="VENPopupViewCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
+            <rect key="frame" x="0.0" y="0.0" width="319" height="68"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
+                <rect key="frame" x="0.0" y="0.0" width="319" height="68"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYR-fk-Pbi">
-                        <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="68"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_choise" translatesAutoresizingMaskIntoConstraints="NO" id="TtG-Ak-g0A">
+                        <rect key="frame" x="288" y="28.5" width="16" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="Jv8-kO-TAg"/>
+                            <constraint firstAttribute="width" constant="16" id="aTx-X3-r8b"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="rYR-fk-Pbi" secondAttribute="bottom" id="8Q0-gJ-x3I"/>
+                <constraint firstAttribute="trailing" secondItem="TtG-Ak-g0A" secondAttribute="trailing" constant="15" id="TSu-iU-9b4"/>
+                <constraint firstItem="TtG-Ak-g0A" firstAttribute="centerY" secondItem="rYR-fk-Pbi" secondAttribute="centerY" id="Tc5-8r-Mun"/>
                 <constraint firstItem="rYR-fk-Pbi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hvy-rO-8XX"/>
                 <constraint firstItem="rYR-fk-Pbi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mKT-Fu-gB2"/>
                 <constraint firstAttribute="trailing" secondItem="rYR-fk-Pbi" secondAttribute="trailing" id="oPc-Ke-mQr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
-            <size key="customSize" width="126" height="34"/>
+            <size key="customSize" width="319" height="68"/>
             <connections>
+                <outlet property="choiseImageView" destination="TtG-Ak-g0A" id="ZWg-1U-pxu"/>
                 <outlet property="titileLabel" destination="rYR-fk-Pbi" id="Rl9-hC-fDB"/>
             </connections>
-            <point key="canvasLocation" x="4.3478260869565224" y="107.14285714285714"/>
+            <point key="canvasLocation" x="144.20289855072465" y="118.52678571428571"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icon_choise" width="16" height="11"/>
+    </resources>
 </document>

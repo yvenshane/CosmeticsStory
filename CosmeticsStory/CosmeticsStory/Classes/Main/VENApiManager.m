@@ -21,6 +21,7 @@
 #import "VENMessageModel.h"
 #import "VENCosmeticBagModel.h"
 #import "VENFootprintCommentModel.h"
+#import "VENProductDetailPageAllCompositionModel.h"
 
 @implementation VENApiManager
 
@@ -213,7 +214,21 @@
     }];
 }
 
+- (void)searchPageProductDetailAllCompositionPageLabelWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/ingredientScreenCondition" parameters:nil successBlock:^(id responseObject) {
+        
+        successBlock(responseObject[@"content"]);
+    }];
+}
 
+- (void)searchPageProductDetailAllCompositionPageWithParameters:(NSDictionary *)parameters successBlock:(HTTPRequestSuccessBlock)successBlock {
+    [self postWithUrlString:@"base/ingredientAnalysis" parameters:parameters successBlock:^(id responseObject) {
+        
+        NSArray *contentArr = [NSArray yy_modelArrayWithClass:[VENProductDetailPageAllCompositionModel class] json:responseObject[@"content"]];
+        
+        successBlock(@{@"content" : contentArr});
+    }];
+}
 
 - (void)searchPageProductListLabelWithSuccessBlock:(HTTPRequestSuccessBlock)successBlock {
     [self postWithUrlString:@"base/label" parameters:nil successBlock:^(id responseObject) {

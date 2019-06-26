@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^expansionPanelViewBlock)(UIButton *);
 @interface VENExpansionPanelView : UIView
+@property (nonatomic, copy) NSString *expansionPanelViewStyle;
 @property (nonatomic, strong) NSMutableArray *widgetMuArr;
 @property (nonatomic, copy) expansionPanelViewBlock expansionPanelViewBlock;
 
