@@ -57,6 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *descriptionn;
 
+@property (nonatomic, copy) NSDictionary *share;
+
 @end
 
 NS_ASSUME_NONNULL_END

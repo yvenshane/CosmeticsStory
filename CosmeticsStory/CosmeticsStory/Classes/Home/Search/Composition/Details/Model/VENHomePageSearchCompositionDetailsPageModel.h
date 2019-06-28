@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *userCollection;
 @property (nonatomic, copy) NSArray *label;
 @property (nonatomic, copy) NSString *active_ingredients_name;
+@property (nonatomic, copy) NSDictionary *share;
 
 @end
 

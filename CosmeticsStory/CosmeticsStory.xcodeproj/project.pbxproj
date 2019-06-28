@@ -40,6 +40,16 @@
 		2C2F1A1C22BB66D40094E4B7 /* VENProductDetailTableViewCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F1A1A22BB66D40094E4B7 /* VENProductDetailTableViewCellTwo.xib */; };
 		2C3BBEA522BB849D00A4A389 /* VENProductDetailBrandStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BBEA322BB849D00A4A389 /* VENProductDetailBrandStoryViewController.m */; };
 		2C3BBEA622BB849D00A4A389 /* VENProductDetailBrandStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BBEA422BB849D00A4A389 /* VENProductDetailBrandStoryViewController.xib */; };
+		2C47CD7822C4C64E0038E680 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C47CD6B22C4C64E0038E680 /* UMSocialSDKResources.bundle */; };
+		2C47CD7922C4C64E0038E680 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD6C22C4C64E0038E680 /* UShareUI.framework */; };
+		2C47CD7A22C4C64E0038E680 /* UMShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD6D22C4C64E0038E680 /* UMShare.framework */; };
+		2C47CD7B22C4C64E0038E680 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD7022C4C64E0038E680 /* libSocialWeChat.a */; };
+		2C47CD7C22C4C64E0038E680 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD7322C4C64E0038E680 /* libSocialSina.a */; };
+		2C47CD7D22C4C64E0038E680 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD7722C4C64E0038E680 /* libSocialQQ.a */; };
+		2C47CD7F22C4C68F0038E680 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD7E22C4C68F0038E680 /* libsqlite3.tbd */; };
+		2C47CD8122C4C6980038E680 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD8022C4C6980038E680 /* CoreGraphics.framework */; };
+		2C47CD8222C4C6C80038E680 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8ADACE22A4A5370022A234 /* Photos.framework */; };
+		2C47CD8422C4CBED0038E680 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C47CD8322C4CBED0038E680 /* UMCommon.framework */; };
 		2C4DC879229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DC877229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m */; };
 		2C4DC87A229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4DC878229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib */; };
 		2C4F47A722880C3F008F48CE /* VENPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F47A622880C3F008F48CE /* VENPickerView.m */; };
@@ -354,6 +364,19 @@
 		2C3BBEA222BB849D00A4A389 /* VENProductDetailBrandStoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENProductDetailBrandStoryViewController.h; sourceTree = "<group>"; };
 		2C3BBEA322BB849D00A4A389 /* VENProductDetailBrandStoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENProductDetailBrandStoryViewController.m; sourceTree = "<group>"; };
 		2C3BBEA422BB849D00A4A389 /* VENProductDetailBrandStoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENProductDetailBrandStoryViewController.xib; sourceTree = "<group>"; };
+		2C47CD6B22C4C64E0038E680 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		2C47CD6C22C4C64E0038E680 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		2C47CD6D22C4C64E0038E680 /* UMShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMShare.framework; sourceTree = "<group>"; };
+		2C47CD7022C4C64E0038E680 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		2C47CD7122C4C64E0038E680 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		2C47CD7322C4C64E0038E680 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		2C47CD7422C4C64E0038E680 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		2C47CD7622C4C64E0038E680 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		2C47CD7722C4C64E0038E680 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		2C47CD7E22C4C68F0038E680 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2C47CD8022C4C6980038E680 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C47CD8322C4CBED0038E680 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
+		2C47CD8522C5AC190038E680 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2C4DC876229D1C5A004396C9 /* VENPopupViewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENPopupViewCollectionViewCell.h; sourceTree = "<group>"; };
 		2C4DC877229D1C5A004396C9 /* VENPopupViewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENPopupViewCollectionViewCell.m; sourceTree = "<group>"; };
 		2C4DC878229D1C5A004396C9 /* VENPopupViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENPopupViewCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -868,6 +891,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C47CD8222C4C6C80038E680 /* Photos.framework in Frameworks */,
+				2C47CD8122C4C6980038E680 /* CoreGraphics.framework in Frameworks */,
+				2C47CD7F22C4C68F0038E680 /* libsqlite3.tbd in Frameworks */,
+				2C47CD8422C4CBED0038E680 /* UMCommon.framework in Frameworks */,
+				2C47CD7D22C4C64E0038E680 /* libSocialQQ.a in Frameworks */,
+				2C47CD7A22C4C64E0038E680 /* UMShare.framework in Frameworks */,
+				2C47CD7B22C4C64E0038E680 /* libSocialWeChat.a in Frameworks */,
+				2C47CD7922C4C64E0038E680 /* UShareUI.framework in Frameworks */,
+				2C47CD7C22C4C64E0038E680 /* libSocialSina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1070,6 +1102,63 @@
 				2C3BBEA422BB849D00A4A389 /* VENProductDetailBrandStoryViewController.xib */,
 			);
 			path = BrandStory;
+			sourceTree = "<group>";
+		};
+		2C47CD6922C4C64E0038E680 /* share_ios_6.9.5 */ = {
+			isa = PBXGroup;
+			children = (
+				2C47CD8322C4CBED0038E680 /* UMCommon.framework */,
+				2C47CD6A22C4C64E0038E680 /* UMSocialUI */,
+				2C47CD6D22C4C64E0038E680 /* UMShare.framework */,
+				2C47CD6E22C4C64E0038E680 /* SocialLibraries */,
+			);
+			path = share_ios_6.9.5;
+			sourceTree = "<group>";
+		};
+		2C47CD6A22C4C64E0038E680 /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				2C47CD6B22C4C64E0038E680 /* UMSocialSDKResources.bundle */,
+				2C47CD6C22C4C64E0038E680 /* UShareUI.framework */,
+			);
+			path = UMSocialUI;
+			sourceTree = "<group>";
+		};
+		2C47CD6E22C4C64E0038E680 /* SocialLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				2C47CD6F22C4C64E0038E680 /* WeChat */,
+				2C47CD7222C4C64E0038E680 /* Sina */,
+				2C47CD7522C4C64E0038E680 /* QQ */,
+			);
+			path = SocialLibraries;
+			sourceTree = "<group>";
+		};
+		2C47CD6F22C4C64E0038E680 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				2C47CD7022C4C64E0038E680 /* libSocialWeChat.a */,
+				2C47CD7122C4C64E0038E680 /* UMSocialWechatHandler.h */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		2C47CD7222C4C64E0038E680 /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				2C47CD7322C4C64E0038E680 /* libSocialSina.a */,
+				2C47CD7422C4C64E0038E680 /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
+		2C47CD7522C4C64E0038E680 /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				2C47CD7622C4C64E0038E680 /* UMSocialQQHandler.h */,
+				2C47CD7722C4C64E0038E680 /* libSocialQQ.a */,
+			);
+			path = QQ;
 			sourceTree = "<group>";
 		};
 		2C4F47A422880C17008F48CE /* PickerView */ = {
@@ -1309,6 +1398,7 @@
 		2C8864182281307D00B21E2D /* CosmeticsStory */ = {
 			isa = PBXGroup;
 			children = (
+				2C47CD6922C4C64E0038E680 /* share_ios_6.9.5 */,
 				2C8864302281381300B21E2D /* Classes */,
 				2C8864192281307D00B21E2D /* AppDelegate.h */,
 				2C88641A2281307D00B21E2D /* AppDelegate.m */,
@@ -2090,6 +2180,9 @@
 		2C8ADACD22A4A5370022A234 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C47CD8522C5AC190038E680 /* SystemConfiguration.framework */,
+				2C47CD8022C4C6980038E680 /* CoreGraphics.framework */,
+				2C47CD7E22C4C68F0038E680 /* libsqlite3.tbd */,
 				2C8ADAD022A4A53D0022A234 /* PhotosUI.framework */,
 				2C8ADACE22A4A5370022A234 /* Photos.framework */,
 			);
@@ -2954,6 +3047,7 @@
 				2C9EDC4E22817CCE0072C547 /* VENLoginPageViewController.xib in Resources */,
 				2CE20C87229B901E00949CC8 /* VENHomePageSearchResultsTableViewCell.xib in Resources */,
 				2CB5C66C22890D42009F1ABC /* VENChangePhoneNumberTableViewCell.xib in Resources */,
+				2C47CD7822C4C64E0038E680 /* UMSocialSDKResources.bundle in Resources */,
 				2C886630228177E000B21E2D /* VENInitialPageViewController.xib in Resources */,
 				2C7EE84C22C3496B00548466 /* VENProductDetailPageAllCompositionTableHeaderView.xib in Resources */,
 				2C73D00F2281DC1300C4872F /* VENRegisterPageViewController.xib in Resources */,
@@ -3374,6 +3468,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T28DA8AL2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/UMSocialUI",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CosmeticsStory/VENPrefixHeader.pch";
 				INFOPLIST_FILE = CosmeticsStory/Info.plist;
@@ -3382,6 +3481,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/SocialLibraries/QQ",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+				);
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahaiba.CosmeticsStory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3396,6 +3506,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T28DA8AL2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/UMSocialUI",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CosmeticsStory/VENPrefixHeader.pch";
 				INFOPLIST_FILE = CosmeticsStory/Info.plist;
@@ -3404,6 +3519,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/CosmeticsStory/share_ios_6.9.5/SocialLibraries/QQ",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+				);
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahaiba.CosmeticsStory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

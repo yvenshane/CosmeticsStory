@@ -15,6 +15,7 @@
 #import "VENCommentDetailPageViewController.h"
 #import "VENCosmeticBagPopupView.h"
 #import "VENCosmeticBagPopupViewTwo.h"
+#import <UShareUI/UShareUI.h>
 
 @interface VENHomePageSearchCompositionDetailsPageViewController ()
 @property (nonatomic, strong) VENHomePageSearchCompositionDetailsPageModel *model;
@@ -243,8 +244,36 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)shareButtonClick:(UIButton *)button {
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        [self shareWebPageToPlatformType:platformType];
+    }];
+}
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType {
     
+    NSString *title = self.model.share[@"title"];
+    NSString *descriptionn = self.model.share[@"descriptionn"];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.share[@"img"]]];
+    NSString *url = self.model.share[@"url"];
     
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //创建网页内容对象
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:descriptionn thumImage:imageView.image];
+    //设置网页地址
+    shareObject.webpageUrl = url;
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    //调用分享接口
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession), @(UMSocialPlatformType_WechatTimeLine), @(UMSocialPlatformType_QQ), @(UMSocialPlatformType_Sina)]];
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
 }
 
 /*

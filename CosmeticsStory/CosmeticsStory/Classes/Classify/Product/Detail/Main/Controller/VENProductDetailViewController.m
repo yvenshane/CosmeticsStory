@@ -23,6 +23,7 @@
 #import "VENCosmeticBagPopupView.h"
 #import "VENCosmeticBagPopupViewTwo.h"
 #import "VENProductDetailPageAllCompositionViewController.h"
+#import <UShareUI/UShareUI.h>
 
 @interface VENProductDetailViewController ()
 @property (nonatomic, strong) VENProductDetailModel *model;
@@ -348,8 +349,36 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 }
 
 - (void)shareButtonClick:(UIButton *)button {
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession), @(UMSocialPlatformType_WechatTimeLine), @(UMSocialPlatformType_QQ), @(UMSocialPlatformType_Sina)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        [self shareWebPageToPlatformType:platformType];
+    }];
+}
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType {
     
+    NSString *title = self.model.share[@"title"];
+    NSString *descriptionn = self.model.share[@"descriptionn"];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.share[@"img"]]];
+    NSString *url = self.model.share[@"url"];
     
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //创建网页内容对象
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:descriptionn thumImage:imageView.image];
+    //设置网页地址
+    shareObject.webpageUrl = url;
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
 }
 
 #pragma mark - cell click
@@ -416,7 +445,6 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     vc.ingredients_id = self.model.goods_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 /*
 #pragma mark - Navigation
