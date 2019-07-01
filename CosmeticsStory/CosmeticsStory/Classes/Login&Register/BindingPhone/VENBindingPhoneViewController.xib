@@ -12,13 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VENBindingPhoneViewController">
             <connections>
-                <outlet property="commitButton" destination="BWX-x3-cuh" id="Xmd-Kn-uSQ"/>
-                <outlet property="confirmPasswordTextField" destination="A4q-8a-PoL" id="xsf-u7-Fvz"/>
-                <outlet property="getVerificationCodeButton" destination="Pgz-I7-6Bu" id="XiM-hL-bRF"/>
-                <outlet property="newwPasswordTextField" destination="rV2-SN-u0d" id="AsK-VJ-vGf"/>
-                <outlet property="phoneNumberTextField" destination="5XA-fn-gZn" id="8Dq-wf-dXG"/>
-                <outlet property="selectedButton" destination="xL4-6f-D1R" id="7Ep-Vd-y4C"/>
-                <outlet property="verificationCodeTextField" destination="qxd-s9-eRU" id="QaV-xJ-kC4"/>
+                <outlet property="commitButton" destination="BWX-x3-cuh" id="VJ2-ci-zPP"/>
+                <outlet property="confirmPasswordTextField" destination="A4q-8a-PoL" id="6zj-NF-ALL"/>
+                <outlet property="newwPasswordTextField" destination="rV2-SN-u0d" id="ei3-dW-bOJ"/>
+                <outlet property="phoneNumberTextField" destination="5XA-fn-gZn" id="5LQ-WJ-XGA"/>
+                <outlet property="selectedButton" destination="xL4-6f-D1R" id="6TQ-mq-QdC"/>
+                <outlet property="verificationCodeTextField" destination="qxd-s9-eRU" id="2Lt-Og-iXQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -112,19 +111,11 @@
                     <state key="normal" title="提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="commitButtonClick:" destination="-1" eventType="touchUpInside" id="acp-ue-AvV"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-I7-6Bu">
-                    <rect key="frame" x="297" y="222.5" width="80" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="CNs-cg-cbg"/>
-                        <constraint firstAttribute="width" constant="80" id="Ph0-TK-2i9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="获取验证码">
-                        <color key="titleColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xL4-6f-D1R">
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xL4-6f-D1R">
                     <rect key="frame" x="38" y="495.5" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="dtg-w9-EeC"/>
@@ -152,9 +143,7 @@
                 <constraint firstItem="0T5-Qp-jNV" firstAttribute="trailing" secondItem="5XA-fn-gZn" secondAttribute="trailing" id="Fws-6s-Cxq"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5XA-fn-gZn" secondAttribute="trailing" constant="37" id="GKE-h4-jsj"/>
                 <constraint firstItem="xL4-6f-D1R" firstAttribute="top" secondItem="BWX-x3-cuh" secondAttribute="bottom" constant="21" id="LaC-zf-PYc"/>
-                <constraint firstItem="Pgz-I7-6Bu" firstAttribute="centerY" secondItem="qxd-s9-eRU" secondAttribute="centerY" id="PxF-Ha-ehj"/>
                 <constraint firstItem="5XA-fn-gZn" firstAttribute="top" secondItem="w9C-i1-IWo" secondAttribute="bottom" constant="43" id="RjK-BN-7Lq"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Pgz-I7-6Bu" secondAttribute="trailing" constant="37" id="UCF-fm-sUl"/>
                 <constraint firstItem="BWX-x3-cuh" firstAttribute="top" secondItem="JrZ-qr-nu8" secondAttribute="bottom" constant="35" id="UFZ-QX-PdQ"/>
                 <constraint firstItem="qxd-s9-eRU" firstAttribute="top" secondItem="0T5-Qp-jNV" secondAttribute="bottom" id="WMM-yU-xMZ"/>
                 <constraint firstItem="JrZ-qr-nu8" firstAttribute="top" secondItem="A4q-8a-PoL" secondAttribute="bottom" id="XOR-f7-3h2"/>

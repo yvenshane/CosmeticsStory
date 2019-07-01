@@ -7,6 +7,8 @@
 //
 
 #import "VENBindingPhoneViewController.h"
+#import "VENVerificationCodeButton.h"
+#import "VENDataViewController.h"
 
 @interface VENBindingPhoneViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *commitButton;
@@ -14,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *verificationCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *newwPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *getVerificationCodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectedButton;
 
 @end
@@ -34,13 +35,18 @@
     self.commitButton.layer.cornerRadius = 24.0f;
     self.commitButton.layer.masksToBounds = YES;
     
-    self.getVerificationCodeButton.layer.cornerRadius = 3.0f;
-    self.getVerificationCodeButton.layer.masksToBounds = YES;
-    self.getVerificationCodeButton.layer.borderWidth = 1.0f;
-    self.getVerificationCodeButton.layer.borderColor = COLOR_THEME.CGColor;
+    VENVerificationCodeButton *button = [[VENVerificationCodeButton alloc] initWithFrame:CGRectMake(kMainScreenWidth - 37 - 80, 161 + 32 / 2, 80, 32)];
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
     
     [self setupWidget];
     [self setupNavigationItemLeftBarButtonItem];
+}
+
+- (void)buttonClick:(VENVerificationCodeButton *)button {
+    [[VENApiManager sharedManager] getVerificationCodeWithParameters:@{@"tel" : self.phoneNumberTextField.text} successBlock:^(id  _Nonnull responseObject) {
+        [button countingDownWithCount:60];
+    }];
 }
 
 - (void)setupNavigationItemLeftBarButtonItem {
@@ -70,6 +76,37 @@
     YYLabel *contentLabel = [[YYLabel alloc] initWithFrame:CGRectMake(38 + 16 + 8, 495.5 - 44, kMainScreenWidth - 38 - 16 - 8 - 37, 16)];
     contentLabel.attributedText = attributedString;
     [self.view addSubview:contentLabel];
+}
+
+- (IBAction)commitButtonClick:(id)sender {
+    if (self.selectedButton.selected == NO) {
+        [MBProgressHUD showText:@"请阅读并同意“用户协议“和“隐私政策“"];
+        return;
+    }
+    
+    NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
+                                 @"code" : self.verificationCodeTextField.text,
+                                 @"password" : self.newwPasswordTextField.text,
+                                 @"passwords" : self.confirmPasswordTextField.text,
+                                 @"platform" : self.platform,
+                                 @"unique" : self.unique};
+    
+    [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/submitComplete" parameters:parameters successBlock:^(id responseObject) {
+        
+        if ([responseObject[@"status"] integerValue] == 200) {
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
+        } else if ([responseObject[@"status"] integerValue] == 400) {
+            VENDataViewController *vc = [[VENDataViewController alloc] init];
+            vc.pushType = @"register";
+            VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
 }
 
 /*

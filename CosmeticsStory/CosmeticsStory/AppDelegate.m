@@ -80,7 +80,7 @@
      </dict>
      */
     //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
-    
+    [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
 }
 
 - (void)configUSharePlatforms {
@@ -97,7 +97,7 @@
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"101678415"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
     
     /* 设置新浪的appKey和appSecret */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"220538648"  appSecret:@"9c4693dba8d2d610a7a3ec3cfb493350" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 }
 
 // 支持所有iOS系统

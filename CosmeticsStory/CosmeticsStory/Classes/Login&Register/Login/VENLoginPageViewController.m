@@ -10,6 +10,8 @@
 #import "VENResetPasswordViewController.h"
 #import "VENRegisterPageViewController.h"
 #import "VENBindingPhoneViewController.h"
+#import <UMShare/UMShare.h>
+#import "VENDataViewController.h"
 
 @interface VENLoginPageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -74,16 +76,71 @@
 
 #pragma mark - 微信登录
 - (IBAction)wechatButtonClick:(id)sender {
-    VENBindingPhoneViewController *vc = [[VENBindingPhoneViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
+    [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
 }
 
 #pragma mark - QQ 登录
 - (IBAction)qqButtonClick:(id)sender {
-    
+    [self getUserInfoForPlatform:UMSocialPlatformType_QQ];
 }
 
+- (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType {
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:nil completion:^(id result, NSError *error) {
+        
+        
+        UMSocialUserInfoResponse *resp = result;
+        // 第三方登录数据(为空表示平台未提供)
+        // 授权数据
+        NSLog(@" uid: %@", resp.uid);
+        NSLog(@" openid: %@", resp.openid);
+        NSLog(@" accessToken: %@", resp.accessToken);
+        NSLog(@" refreshToken: %@", resp.refreshToken);
+        NSLog(@" expiration: %@", resp.expiration);
+        NSLog(@" unionId: %@", resp.unionId);
+        // 用户数据
+        NSLog(@" name: %@", resp.name);
+        NSLog(@" iconurl: %@", resp.iconurl);
+        NSLog(@" gender: %@", resp.unionGender);
+        // 第三方平台SDK原始数据
+        NSLog(@" originalResponse: %@", resp.originalResponse);
+        
+        
+        NSString *platform = @"";
+        if (platformType == UMSocialPlatformType_WechatSession) {
+            platform = @"Wechat";
+        } else if (platformType == UMSocialPlatformType_QQ) {
+            platform = @"QQ";
+        }
+        
+        [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/submitOtherLogin" parameters:@{@"platform" : platform, @"unique" : resp.uid} successBlock:^(id responseObject) {
+            
+            if ([responseObject[@"status"] integerValue] == 205) {
+                VENBindingPhoneViewController *vc = [[VENBindingPhoneViewController alloc] init];
+                vc.platform = platform;
+                vc.unique = resp.uid;
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nav animated:YES completion:nil];
+            } else if ([responseObject[@"status"] integerValue] == 200) {
+                
+                [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                
+                if ([self.pushType isEqualToString:@"initialPage"]) {
+                    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            } else if ([responseObject[@"status"] integerValue] == 400) {
+                VENDataViewController *vc = [[VENDataViewController alloc] init];
+                vc.pushType = @"login";
+                VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nav animated:YES completion:nil];
+            }
+
+        } failureBlock:^(NSError *error) {
+            
+        }];
+    }];
+}
 
 - (void)setupNavigationItemLeftBarButtonItem {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
