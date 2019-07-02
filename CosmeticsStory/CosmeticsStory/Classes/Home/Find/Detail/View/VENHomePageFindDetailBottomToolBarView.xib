@@ -87,7 +87,10 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sP7-AC-kiE">
-                    <rect key="frame" x="0.0" y="131" width="417" height="47"/>
+                    <rect key="frame" x="0.0" y="130" width="417" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="ZyH-Ye-QTC"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="  收藏" image="icon_clo">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,7 +98,7 @@
                     <state key="selected" image="icon_clo_sel"/>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="giQ-Jc-6pm">
-                    <rect key="frame" x="0.0" y="126" width="417" height="5"/>
+                    <rect key="frame" x="0.0" y="125" width="417" height="5"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="5" id="zfh-Gn-kdV"/>
@@ -108,7 +111,6 @@
                 <constraint firstItem="xMX-JE-f9h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PhO-ql-ZvU"/>
                 <constraint firstAttribute="trailing" secondItem="xMX-JE-f9h" secondAttribute="trailing" id="QaR-ek-aLI"/>
                 <constraint firstAttribute="trailing" secondItem="sP7-AC-kiE" secondAttribute="trailing" id="Raw-6W-EA3"/>
-                <constraint firstItem="giQ-Jc-6pm" firstAttribute="top" secondItem="xMX-JE-f9h" secondAttribute="bottom" id="ZQW-3H-gQ3"/>
                 <constraint firstAttribute="trailing" secondItem="giQ-Jc-6pm" secondAttribute="trailing" id="e3H-ia-dac"/>
                 <constraint firstItem="xMX-JE-f9h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fwm-nM-TjK"/>
                 <constraint firstItem="sP7-AC-kiE" firstAttribute="top" secondItem="giQ-Jc-6pm" secondAttribute="bottom" id="gF7-sE-eb5"/>

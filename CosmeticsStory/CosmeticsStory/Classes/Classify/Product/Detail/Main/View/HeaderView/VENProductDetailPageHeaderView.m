@@ -22,6 +22,12 @@
 - (void)setModel:(VENProductDetailModel *)model {
     _model = model;
     
+    
+    self.iconImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconImageViewClick)];
+    [self.iconImageView addGestureRecognizer:tap];
+    
+    
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image]];
     self.nameLabel.text = model.goods_name_ch;
     self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", model.goods_name_en];
@@ -103,6 +109,48 @@
 
 - (IBAction)buttonClick:(UIButton *)button {
     self.headerViewBlock(button.tag);
+}
+
+#pragma mark - 图片点击放大
+- (void)iconImageViewClick {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    UIButton *backgroundButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight)];
+    backgroundButton.backgroundColor = [UIColor blackColor];
+    [backgroundButton addTarget:self action:@selector(backgroundButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [window addSubview:backgroundButton];
+    
+    UIImageView *backgroundImageView = [[UIImageView alloc] init];
+    [backgroundImageView sd_setImageWithURL:[NSURL URLWithString:self.model.goods_image]];
+    [backgroundButton addSubview:backgroundImageView];
+    
+    CGFloat imageWidth = backgroundImageView.image.size.width;
+    CGFloat imageHeight = backgroundImageView.image.size.height;
+    
+    if (imageWidth > kMainScreenWidth) {
+        imageHeight = imageHeight * kMainScreenWidth / imageWidth;
+        imageWidth = kMainScreenWidth;
+    } else if (imageWidth < kMainScreenWidth) {
+        
+    }
+    
+    backgroundImageView.frame = CGRectMake(kMainScreenWidth / 2 - imageWidth / 2, kMainScreenHeight / 2 - imageHeight / 2, imageWidth, imageHeight);
+    
+    [self shakeToShow:backgroundButton];
+}
+
+- (void)shakeToShow:(UIView*)aView {
+    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    animation.duration = 0.1;
+    NSMutableArray *values = [NSMutableArray array];
+    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1.0)]];
+    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
+    animation.values = values;
+    [aView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)backgroundButtonClick:(UIButton *)button {
+    [button removeFromSuperview];
 }
 
 @end

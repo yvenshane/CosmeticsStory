@@ -126,8 +126,15 @@
         VENHomePageFindDetailModel *contentModel = [VENHomePageFindDetailModel yy_modelWithJSON:content];
         VENHomePageFindDetailModel *goodsInfoModel = [VENHomePageFindDetailModel yy_modelWithJSON:content[@"goodsInfo"]];
         
-        NSDictionary *dict = @{@"content" : contentModel,
-                               @"goodsInfo" : goodsInfoModel};
+        NSDictionary *dict = @{};
+        
+        if (!goodsInfoModel) {
+            dict = @{@"content" : contentModel};
+        } else {
+            dict = @{@"content" : contentModel,
+                     @"goodsInfo" : goodsInfoModel};
+        }
+        
         successBlock(dict);
     }];
 }

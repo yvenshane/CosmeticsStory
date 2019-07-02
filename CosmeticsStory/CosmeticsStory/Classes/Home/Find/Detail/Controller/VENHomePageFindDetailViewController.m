@@ -63,7 +63,7 @@
     if (!_bottomToolBar) {
         _bottomToolBar = [[NSBundle mainBundle] loadNibNamed:@"VENHomePageFindDetailBottomToolBarView" owner:nil options:nil].lastObject;
         
-        if (self.goodsInfoModel == nil) {
+        if (!self.goodsInfoModel) {
             _bottomToolBar.productDetailView.hidden = YES;
             _bottomToolBar.frame = CGRectMake(0, kMainScreenHeight - kStatusBarAndNavigationBarHeight - (48 + 5) - (kTabBarHeight - 49), kMainScreenWidth, 48 + 5);
         } else {
@@ -116,7 +116,15 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 178 - (kTabBarHeight - 49))];
+        
+        _webView = [[UIWebView alloc] init];
+                    
+        if (!self.goodsInfoModel) {
+            _webView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 53 - (kTabBarHeight - 49));
+        } else {
+            _webView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 178 - (kTabBarHeight - 49));
+        }
+        
         _webView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:_webView];
     }
