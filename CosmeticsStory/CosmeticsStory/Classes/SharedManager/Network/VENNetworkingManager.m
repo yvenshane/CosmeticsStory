@@ -70,6 +70,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 
                 if ([responseObject[@"status"] integerValue] == 203) { // 未登录
                     VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+                    vc.pushType = @"nologin";
                     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
                     [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
                     return;
@@ -150,6 +151,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
         
         if ([responseObject[@"status"] integerValue] == 203) { // 未登录
             VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+            vc.pushType = @"nologin";
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
             [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
             return;

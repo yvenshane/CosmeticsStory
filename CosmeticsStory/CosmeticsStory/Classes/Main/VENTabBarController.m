@@ -61,6 +61,7 @@
     if (![[VENUserStatusManager sharedManager] isLogin]) {
         if ([viewController.tabBarItem.title isEqualToString:@"化妆包"] || [viewController.tabBarItem.title isEqualToString:@"我的"]) {
             VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+            vc.pushType = @"nologin";
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
             [self presentViewController:nav animated:YES completion:nil];
             return NO;

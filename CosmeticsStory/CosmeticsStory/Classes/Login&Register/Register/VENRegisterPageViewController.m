@@ -65,7 +65,12 @@
     [[VENApiManager sharedManager] registerWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
         
         VENDataViewController *vc = [[VENDataViewController alloc] init];
-        vc.pushType = @"register";
+        vc.pushType = self.pushType;
+        
+        NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
+                                     @"password" : self.newwPasswordTextField.text};
+        vc.parameters = parameters;
+        
         VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     }];

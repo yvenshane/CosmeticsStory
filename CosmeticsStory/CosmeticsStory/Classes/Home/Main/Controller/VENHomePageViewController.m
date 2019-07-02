@@ -134,7 +134,7 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageTableViewPopularRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    VENHomePageModel *model = self.recommendListArr[indexPath.section];
+    VENHomePageModel *model = self.recommendListArr[indexPath.row];
     cell.model = model;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -143,7 +143,7 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VENHomePageModel *model = self.recommendListArr[indexPath.section];
+    VENHomePageModel *model = self.recommendListArr[indexPath.row];
     
     VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
     vc.goods_id = model.goods_id;

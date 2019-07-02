@@ -107,6 +107,8 @@
 
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil];
         }];
+    } else {
+        [MBProgressHUD showText:@"请输入文字"];
     }
 }
 

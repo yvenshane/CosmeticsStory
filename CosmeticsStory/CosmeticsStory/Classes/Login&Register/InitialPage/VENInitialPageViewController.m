@@ -37,6 +37,7 @@
 #pragma mark - 注册
 - (IBAction)registerButtonClick:(id)sender {
     VENRegisterPageViewController *vc = [[VENRegisterPageViewController alloc] init];
+    vc.pushType = @"initialPage";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
 }

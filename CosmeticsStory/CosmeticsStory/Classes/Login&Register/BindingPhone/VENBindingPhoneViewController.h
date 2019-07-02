@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VENBindingPhoneViewController : UIViewController
 @property (nonatomic, copy) NSString *platform;
 @property (nonatomic, copy) NSString *unique;
+@property (nonatomic, copy) NSString *pushType;
 
 @end
 

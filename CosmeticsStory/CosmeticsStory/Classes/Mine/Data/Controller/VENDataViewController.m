@@ -451,10 +451,22 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
         
-        if ([self.pushType isEqualToString:@"register"]) {
-            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        if (![VENEmptyClass isEmptyDictionary:self.parameters]) {
+            [[VENApiManager sharedManager] loginWithParameters:self.parameters successBlock:^(id  _Nonnull responseObject) {
+                
+                [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
+            }];
+        }
+        
+        if ([self.pushType isEqualToString:@"initialPage"]) {
+            [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        } else if ([self.pushType isEqualToString:@"register"]) {
+            [self.presentingViewController.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         } else if ([self.pushType isEqualToString:@"login"]) {
             [self dismissViewControllerAnimated:YES completion:nil];
+        } else if ([self.pushType isEqualToString:@"nologin"]) {
+            [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         } else {
             [self.navigationController popViewControllerAnimated:YES];
         }

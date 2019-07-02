@@ -95,11 +95,22 @@
         
         if ([responseObject[@"status"] integerValue] == 200) {
             [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
-            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+            if ([self.pushType isEqualToString:@"initialPage"]) {
+                [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            }
+            
             NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
         } else if ([responseObject[@"status"] integerValue] == 400) {
             VENDataViewController *vc = [[VENDataViewController alloc] init];
             vc.pushType = @"register";
+            
+            NSDictionary *parameters = @{@"tel" : self.phoneNumberTextField.text,
+                                         @"password" : self.newwPasswordTextField.text};
+            vc.parameters = parameters;
+            
             VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
             [self presentViewController:nav animated:YES completion:nil];
         }

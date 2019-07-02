@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VENDataViewController : VENBaseViewController
 @property (nonatomic, copy) NSString *pushType;
+@property (nonatomic, copy) NSDictionary *parameters;
 
 @end
 
