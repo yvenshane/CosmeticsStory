@@ -15,7 +15,7 @@
                 <outlet property="addView" destination="pet-1e-BpB" id="pPP-z3-tEe"/>
                 <outlet property="contentTextView" destination="RKc-0i-Hgp" id="ov4-Os-Gid"/>
                 <outlet property="sendButton" destination="iLU-4t-qqv" id="0Vh-xB-Qmy"/>
-                <outlet property="starsView" destination="1HR-8Y-B6u" id="7ak-ay-xqb"/>
+                <outlet property="starView" destination="1HR-8Y-B6u" id="m6G-69-yMe"/>
                 <outlet property="titleLabel" destination="3DN-Pp-pyk" id="tbO-uU-Dfx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -99,17 +99,18 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HR-8Y-B6u">
-                    <rect key="frame" x="15" y="156" width="384" height="24"/>
+                    <rect key="frame" x="7" y="142" width="184" height="58"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="GWq-Ay-YRY"/>
+                        <constraint firstAttribute="height" constant="58" id="GWq-Ay-YRY"/>
+                        <constraint firstAttribute="width" constant="184" id="kxJ-ti-FDh"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="NhG-aV-cBT" secondAttribute="trailing" id="1TB-nd-Mie"/>
-                <constraint firstItem="1HR-8Y-B6u" firstAttribute="top" secondItem="Iod-aa-VMe" secondAttribute="bottom" constant="22" id="8eu-Ae-CWU"/>
+                <constraint firstItem="1HR-8Y-B6u" firstAttribute="top" secondItem="Iod-aa-VMe" secondAttribute="bottom" constant="8" id="8eu-Ae-CWU"/>
                 <constraint firstItem="co5-AV-jhX" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="98c-2x-uSt"/>
                 <constraint firstItem="co5-AV-jhX" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="DSk-db-hHW"/>
                 <constraint firstItem="3DN-Pp-pyk" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="14" id="Dmf-vd-AdP"/>
@@ -121,10 +122,9 @@
                 <constraint firstItem="NhG-aV-cBT" firstAttribute="top" secondItem="3DN-Pp-pyk" secondAttribute="bottom" constant="13" id="TTW-AO-NhE"/>
                 <constraint firstItem="Iod-aa-VMe" firstAttribute="top" secondItem="NhG-aV-cBT" secondAttribute="bottom" constant="14" id="UgH-pS-Gfh"/>
                 <constraint firstItem="3DN-Pp-pyk" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="YBq-Bx-J7a"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="1HR-8Y-B6u" secondAttribute="trailing" constant="15" id="dkc-zf-3DV"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Iod-aa-VMe" secondAttribute="trailing" constant="15" id="hAK-hO-KdO"/>
                 <constraint firstItem="iLU-4t-qqv" firstAttribute="top" secondItem="co5-AV-jhX" secondAttribute="bottom" constant="20" id="hsw-3E-mVh"/>
-                <constraint firstItem="1HR-8Y-B6u" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="qcL-St-jqA"/>
+                <constraint firstItem="1HR-8Y-B6u" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="7" id="qcL-St-jqA"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="3DN-Pp-pyk" secondAttribute="trailing" constant="15" id="t6K-We-Bfl"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="iLU-4t-qqv" secondAttribute="trailing" constant="15" id="xU9-Sv-g0D"/>
                 <constraint firstItem="NhG-aV-cBT" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xxQ-Vz-2cy"/>

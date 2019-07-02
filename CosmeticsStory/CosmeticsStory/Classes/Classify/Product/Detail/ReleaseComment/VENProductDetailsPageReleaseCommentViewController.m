@@ -14,8 +14,7 @@
 @property (nonatomic, strong) UIButton *addImageButton3;
 
 @property (nonatomic, strong) NSMutableArray *imagesMuArr;
-
-@property (nonatomic, copy) NSString *grade;
+@property (nonatomic, strong) NSMutableArray <UIButton *> *starButtonsMuArr;
 
 @end
 
@@ -42,16 +41,7 @@
     [self.addView addSubview:addImageButton];
     _addImageButton = addImageButton;
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    self.grade = @"5";
+    [self setupStarView];
 }
 
 - (void)addImageButtonClick:(UIButton *)button {
@@ -99,13 +89,22 @@
 
 - (IBAction)sendButtonClick:(UIButton *)button {
     if (self.contentTextView.text.length > 0) {
+        
+        
+        NSInteger grade = 0;
+        for (UIButton *button in self.starButtonsMuArr) {
+            if (button.selected == YES) {
+                grade++;
+            }
+        }
+        
         NSDictionary *parameters = @{@"goods_id" : self.goods_id,
                                      @"content" : self.contentTextView.text,
-                                     @"grade" : self.grade};
+                                     @"grade" : [NSString stringWithFormat:@"%ld", grade]};
         [[VENApiManager sharedManager] releaseProductCommentWithParameters:parameters images:self.imagesMuArr keyName:@"images" successBlock:^(id  _Nonnull responseObject) {
-            
+
             [self dismissViewControllerAnimated:YES completion:nil];
-            
+
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil];
         }];
     }
@@ -166,6 +165,39 @@
         _imagesMuArr = [NSMutableArray array];
     }
     return _imagesMuArr;
+}
+
+- (void)setupStarView {
+    for (NSInteger i = 0; i < 5; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * 40, 0, 40, 40)];
+        [button setImage:[UIImage imageNamed:@"icon_star7"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"icon_star6"] forState:UIControlStateSelected];
+        button.tag = i;
+        button.selected = YES;
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.starView addSubview:button];
+        [self.starButtonsMuArr addObject:button];
+        
+    }
+}
+
+- (void)buttonClick:(UIButton *)button {
+    for (UIButton *button2 in self.starButtonsMuArr) {
+        button2.selected = NO;
+    }
+    
+    for (NSInteger i = 0; i < button.tag; i++) {
+        self.starButtonsMuArr[i].selected = YES;
+    }
+    
+    button.selected = !button.selected;
+}
+
+- (NSMutableArray *)starButtonsMuArr {
+    if (!_starButtonsMuArr) {
+        _starButtonsMuArr = [NSMutableArray array];
+    }
+    return _starButtonsMuArr;
 }
 
 /*

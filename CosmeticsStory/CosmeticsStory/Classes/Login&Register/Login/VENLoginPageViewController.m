@@ -36,10 +36,6 @@
     self.loginButton.layer.masksToBounds = YES;
     
     [self setupNavigationItemLeftBarButtonItem];
-    
-    
-    self.phoneNumberTextField.text = @"15305532355";
-    self.passwordTextField.text = @"111111";
 }
 
 #pragma mark - 登录

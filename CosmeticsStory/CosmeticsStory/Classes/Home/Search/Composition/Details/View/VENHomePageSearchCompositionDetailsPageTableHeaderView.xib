@@ -258,7 +258,7 @@
                 <outlet property="enNameLabel" destination="5vs-8x-JY4" id="Mpg-H5-bht"/>
                 <outlet property="iconImageView" destination="Pse-R8-eQm" id="RUU-1E-8vm"/>
                 <outlet property="otherNameLabel" destination="EtC-cW-AKU" id="4FO-I0-0Qh"/>
-                <outlet property="starsView" destination="oIn-m0-bd6" id="ufF-Lq-hce"/>
+                <outlet property="starView" destination="oIn-m0-bd6" id="cl6-iT-3k6"/>
                 <outlet property="titleLabel" destination="JYu-sE-62c" id="VOZ-NN-fgJ"/>
             </connections>
             <point key="canvasLocation" x="128.2608695652174" y="-25.446428571428569"/>

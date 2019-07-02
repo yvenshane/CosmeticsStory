@@ -39,14 +39,16 @@
     }
     
     for (NSInteger i = 0; i < [number integerValue]; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star4"];
-        [self.starView addSubview:imageView];
+        if (i < 5) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
+            imageView.image = [UIImage imageNamed:@"icon_star4"];
+            [self.starView addSubview:imageView];
+        }
     }
     
-    if ([number floatValue] > [[NSString stringWithFormat:@"%ld", (long)[number integerValue]] floatValue]) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([number integerValue] * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star3"];
+    for (NSInteger i = 0; i < 5 - [number integerValue]; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i + [number integerValue]) * (12 + 6), 0, 12, 12)];
+        imageView.image = [UIImage imageNamed:@"icon_star5"];
         [self.starView addSubview:imageView];
     }
 }

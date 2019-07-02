@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VENProductDetailsPageReleaseCommentViewController : VENBaseViewController
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
-@property (weak, nonatomic) IBOutlet UIView *starsView;
+@property (weak, nonatomic) IBOutlet UIView *starView;
 @property (weak, nonatomic) IBOutlet UIView *addView;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 

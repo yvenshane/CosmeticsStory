@@ -222,6 +222,15 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         VENProductDetailPageHeaderView *headerView = [[UINib nibWithNibName:@"VENProductDetailPageHeaderView" bundle:nil] instantiateWithOwner:nil options:nil].lastObject;
+        
+        if ([VENEmptyClass isEmptyString:self.model.url]) {
+            headerView.urlImageView.hidden = YES;
+            headerView.buttonLayoutConstraintTop.constant = 359 - 189;
+        } else {
+            headerView.urlImageView.hidden = NO;
+            headerView.buttonLayoutConstraintTop.constant = 359;
+        }
+        
         headerView.model = self.model;
         headerView.type = self.type;
         
@@ -229,6 +238,8 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
             self.type = tag;
             [self.tableView reloadData];
         };
+        
+        [headerView.urlButton addTarget:self action:@selector(urlButtonClick) forControlEvents:UIControlEventTouchUpInside];
         
         return headerView;
     } else {
@@ -238,8 +249,20 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     }
 }
 
+#pragma maek - urlbutton click
+- (void)urlButtonClick {
+    if (![VENEmptyClass isEmptyString:self.model.url]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.model.url]];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
+        
+        if ([VENEmptyClass isEmptyString:self.model.url]) {
+            return 410 - 189;
+        }
+        
         return 410;
     } else {
         return 1;
@@ -412,9 +435,11 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 }
 
 - (void)cellTwoMoreInformationButtonClick {
-    VENProductDetailPageAllCompositionViewController *vc = [[VENProductDetailPageAllCompositionViewController alloc] init];
-    vc.goods_id = self.goods_id;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (![VENEmptyClass isEmptyArray:self.model.ingredientContent]) {
+        VENProductDetailPageAllCompositionViewController *vc = [[VENProductDetailPageAllCompositionViewController alloc] init];
+        vc.goods_id = self.goods_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)cellThreeMoreInformationButtonClick {

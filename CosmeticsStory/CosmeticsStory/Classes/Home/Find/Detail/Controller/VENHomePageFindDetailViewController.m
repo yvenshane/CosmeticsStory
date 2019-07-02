@@ -9,6 +9,7 @@
 #import "VENHomePageFindDetailViewController.h"
 #import "VENHomePageFindDetailModel.h"
 #import "VENHomePageFindDetailBottomToolBarView.h"
+#import "VENProductDetailViewController.h"
 
 @interface VENHomePageFindDetailViewController ()
 @property (nonatomic, strong) VENHomePageFindDetailModel *contentModel;
@@ -45,14 +46,31 @@
         [self.bottomToolBar.colButton setTitle:[NSString stringWithFormat:@"  收藏%@", self.contentModel.collectionCount] forState:UIControlStateNormal];
         self.bottomToolBar.colButton.selected = [self.contentModel.userCollection integerValue] == 0 ? NO : YES;
         
+        [self.bottomToolBar.productDetailButton addTarget:self action:@selector(productDetailButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        
         [self.webView loadHTMLString:self.contentModel.content baseURL:nil];
     }];
+}
+
+- (void)productDetailButtonClick {
+    VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
+    vc.goods_id = self.goodsInfoModel.goods_id;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (VENHomePageFindDetailBottomToolBarView *)bottomToolBar {
     if (!_bottomToolBar) {
         _bottomToolBar = [[NSBundle mainBundle] loadNibNamed:@"VENHomePageFindDetailBottomToolBarView" owner:nil options:nil].lastObject;
-        _bottomToolBar.frame = CGRectMake(0, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 178 - (kTabBarHeight - 49), kMainScreenWidth, 178);
+        
+        if (self.goodsInfoModel == nil) {
+            _bottomToolBar.productDetailView.hidden = YES;
+            _bottomToolBar.frame = CGRectMake(0, kMainScreenHeight - kStatusBarAndNavigationBarHeight - (48 + 5) - (kTabBarHeight - 49), kMainScreenWidth, 48 + 5);
+        } else {
+            _bottomToolBar.productDetailView.hidden = NO;
+            _bottomToolBar.frame = CGRectMake(0, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 178 - (kTabBarHeight - 49), kMainScreenWidth, 178);
+        }
+        
         _bottomToolBar.backgroundColor = [UIColor whiteColor];
         [_bottomToolBar.colButton addTarget:self action:@selector(colButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_bottomToolBar];
@@ -82,14 +100,16 @@
     }
     
     for (NSInteger i = 0; i < [number integerValue]; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star4"];
-        [self.bottomToolBar.starsView addSubview:imageView];
+        if (i < 5) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
+            imageView.image = [UIImage imageNamed:@"icon_star4"];
+            [self.bottomToolBar.starsView addSubview:imageView];
+        }
     }
     
-    if ([number floatValue] > [[NSString stringWithFormat:@"%ld", (long)[number integerValue]] floatValue]) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([number integerValue] * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star3"];
+    for (NSInteger i = 0; i < 5 - [number integerValue]; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i + [number integerValue]) * (12 + 6), 0, 12, 12)];
+        imageView.image = [UIImage imageNamed:@"icon_star5"];
         [self.bottomToolBar.starsView addSubview:imageView];
     }
 }

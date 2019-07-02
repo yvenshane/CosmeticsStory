@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *colButton;
+@property (weak, nonatomic) IBOutlet UIView *productDetailView;
+@property (weak, nonatomic) IBOutlet UIButton *productDetailButton;
 
 @end
 

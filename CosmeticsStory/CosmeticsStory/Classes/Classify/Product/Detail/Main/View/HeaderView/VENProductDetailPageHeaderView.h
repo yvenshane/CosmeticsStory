@@ -17,7 +17,7 @@ typedef void (^headerViewBlock)(NSInteger);
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *enNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UIView *starsView;
+@property (weak, nonatomic) IBOutlet UIView *starView;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView2;
@@ -30,6 +30,9 @@ typedef void (^headerViewBlock)(NSInteger);
 @property (nonatomic, strong) VENProductDetailModel *model;
 @property (nonatomic, assign) NSInteger type;
 @property (nonatomic, copy) headerViewBlock headerViewBlock;
+
+@property (weak, nonatomic) IBOutlet UIView *urlImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonLayoutConstraintTop;
 
 @end
 

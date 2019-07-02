@@ -26,11 +26,33 @@
     _model = model;
     
     self.titleLabel.text = model.name;
-    [self showStarsWithNumber:model.safety_factor];
+    
     if ([model.acne integerValue] == 0) {
         self.iconImageView.image = [UIImage imageNamed:@"icon_112962"];
     } else {
         self.iconImageView.image = [UIImage imageNamed:@"icon_112963"];
+    }
+    
+    if ([model.safety_factor isEqualToString:@"10"]) {
+        [self showStarsWithNumber:@"0.5"];
+    } else if ([model.safety_factor isEqualToString:@"9"]) {
+        [self showStarsWithNumber:@"1"];
+    } else if ([model.safety_factor isEqualToString:@"8"]) {
+        [self showStarsWithNumber:@"1.5"];
+    } else if ([model.safety_factor isEqualToString:@"7"]) {
+        [self showStarsWithNumber:@"2"];
+    } else if ([model.safety_factor isEqualToString:@"6"]) {
+        [self showStarsWithNumber:@"2.5"];
+    } else if ([model.safety_factor isEqualToString:@"5"]) {
+        [self showStarsWithNumber:@"3"];
+    } else if ([model.safety_factor isEqualToString:@"4"]) {
+        [self showStarsWithNumber:@"3.5"];
+    } else if ([model.safety_factor isEqualToString:@"3"]) {
+        [self showStarsWithNumber:@"4"];
+    } else if ([model.safety_factor isEqualToString:@"2"]) {
+        [self showStarsWithNumber:@"4.5"];
+    } else {
+        [self showStarsWithNumber:@"5"];
     }
 }
 
@@ -41,16 +63,35 @@
     }
     
     for (NSInteger i = 0; i < [number integerValue]; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star2"];
-        [self.starView addSubview:imageView];
+        if (i < 5) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * (12 + 6), 0, 12, 12)];
+            imageView.image = [UIImage imageNamed:@"icon_star2"];
+            [self.starView addSubview:imageView];
+        }
     }
     
-    if ([number floatValue] > [[NSString stringWithFormat:@"%ld", (long)[number integerValue]] floatValue]) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([number integerValue] * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star1"];
-        [self.starView addSubview:imageView];
+    if ([number floatValue] <= 5) {
+        if ([number floatValue] > [[NSString stringWithFormat:@"%ld", (long)[number integerValue]] floatValue]) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([number integerValue] * (12 + 6), 0, 12, 12)];
+            imageView.image = [UIImage imageNamed:@"icon_star1"];
+            [self.starView addSubview:imageView];
+        }
     }
+    
+    if ([number containsString:@".5"]) {
+        for (NSInteger i = 0; i < 5 - [number integerValue] - 1; i++) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i + [number integerValue] + 1) * (12 + 6), 0, 12, 12)];
+            imageView.image = [UIImage imageNamed:@"icon_star5"];
+            [self.starView addSubview:imageView];
+        }
+    } else {
+        for (NSInteger i = 0; i < 5 - [number integerValue]; i++) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i + [number integerValue]) * (12 + 6), 0, 12, 12)];
+            imageView.image = [UIImage imageNamed:@"icon_star5"];
+            [self.starView addSubview:imageView];
+        }
+    }
+    
 }
 
 
