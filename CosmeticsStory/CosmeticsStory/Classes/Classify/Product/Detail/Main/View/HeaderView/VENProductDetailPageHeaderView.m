@@ -130,8 +130,6 @@
     if (imageWidth > kMainScreenWidth) {
         imageHeight = imageHeight * kMainScreenWidth / imageWidth;
         imageWidth = kMainScreenWidth;
-    } else if (imageWidth < kMainScreenWidth) {
-        
     }
     
     backgroundImageView.frame = CGRectMake(kMainScreenWidth / 2 - imageWidth / 2, kMainScreenHeight / 2 - imageHeight / 2, imageWidth, imageHeight);

@@ -15,6 +15,7 @@
 #ifdef  __OBJC__  // 屏蔽C文件的宏,防止以下OC内容被导入C语言文件!
 
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 #import "SDCycleScrollView.h"
 #import "MBProgressHUD.h"
 #import "YYModel.h"
