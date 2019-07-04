@@ -56,6 +56,8 @@
     } else {
         [self showStarsWithNumber:@"5"];
     }
+    
+    self.commentLabel.text = [NSString stringWithFormat:@"评论（%@）", model.commentNumber];
 }
 
 - (void)showChipsWithArray:(NSArray *)arr {

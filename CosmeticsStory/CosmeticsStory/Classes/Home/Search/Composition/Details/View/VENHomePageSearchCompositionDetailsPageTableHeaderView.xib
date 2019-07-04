@@ -253,6 +253,7 @@
             <connections>
                 <outlet property="boolLabel" destination="ZmK-zG-YTb" id="1LB-Qk-mFB"/>
                 <outlet property="casLabel" destination="Kom-Ii-SRH" id="JbI-lJ-KFb"/>
+                <outlet property="commentLabel" destination="ncJ-61-rVc" id="JfZ-jV-ykn"/>
                 <outlet property="compositionLabel" destination="aqk-3s-G1X" id="4y0-ow-o0b"/>
                 <outlet property="descriptionLabel" destination="lhb-40-OLF" id="tNi-lc-2Gj"/>
                 <outlet property="enNameLabel" destination="5vs-8x-JY4" id="Mpg-H5-bht"/>

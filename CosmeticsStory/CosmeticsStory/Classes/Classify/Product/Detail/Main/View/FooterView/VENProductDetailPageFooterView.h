@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VENProductDetailPageFooterView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+@property (nonatomic, copy) NSString *commentNumber;
 
 @end
 

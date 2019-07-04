@@ -57,7 +57,7 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 48  - (kTabBarHeight - 49));
     [self.view addSubview:self.tableView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCommentData) name:@"Refresh_Product_Detail_Page" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCommentData:) name:@"Refresh_Product_Detail_Page" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removePopupView) name:@"Remove_PopupView" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPopupView) name:@"Add_PopupView" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
@@ -131,14 +131,18 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
             [self.likeButton setImage:[UIImage imageNamed:@"icon_like"] forState:UIControlStateNormal];
         }
         
-        [self loadCommentData];
+        [self loadCommentData:nil];
     }];
 }
 
-- (void)loadCommentData {
+- (void)loadCommentData:(NSNotification *)noti {
     [[VENApiManager sharedManager] searchPageProductDetailCommentListWithParameters:@{@"goods_id" : self.goods_id} successBlock:^(id  _Nonnull responseObject) {
         
         self.commentMuArr = responseObject[@"content"];
+        
+        if ([noti.userInfo[@"type"] isEqualToString:@"release"]) {
+            self.model.commentNumber = [NSString stringWithFormat:@"%ld", [self.model.commentNumber integerValue] + 1];
+        }
         
         [self.tableView reloadData];
     }];
@@ -188,11 +192,35 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     } else {
         VENCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.goodButton.tag = indexPath.row;
+        [cell.goodButton addTarget:self action:@selector(goodButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         cell.model = self.commentMuArr[indexPath.row];
         
         return cell;
     }
     return nil;
+}
+
+#pragma mark - 点赞
+- (void)goodButtonClick:(UIButton *)button {
+    
+    VENHomePageSearchCompositionDetailsPageCommentModel *model = self.commentMuArr[button.tag];
+    
+    NSDictionary *parameters = @{@"cid" : model.id,
+                                 @"type" : @"1"};
+    [[VENApiManager sharedManager] praiseCommentWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        
+        if (button.selected) {
+            model.userPraise = @"0";
+            model.praiseCount = [NSString stringWithFormat:@"%ld", [model.praiseCount integerValue] - 1];
+        } else {
+            model.userPraise = @"1";
+            model.praiseCount = [NSString stringWithFormat:@"%ld", [model.praiseCount integerValue] + 1];
+        }
+       
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -272,6 +300,7 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 0) {
         VENProductDetailPageFooterView *footerView = [[UINib nibWithNibName:@"VENProductDetailPageFooterView" bundle:nil] instantiateWithOwner:nil options:nil].lastObject;
+        footerView.commentNumber = self.model.commentNumber;
         
         return footerView;
     } else {

@@ -105,7 +105,7 @@
 
             [self dismissViewControllerAnimated:YES completion:nil];
 
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil userInfo:@{@"type" : @"release"}];
         }];
     } else {
         [MBProgressHUD showText:@"请输入文字"];

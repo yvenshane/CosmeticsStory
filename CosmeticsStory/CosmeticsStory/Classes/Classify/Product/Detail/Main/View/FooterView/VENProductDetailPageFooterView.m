@@ -10,6 +10,12 @@
 
 @implementation VENProductDetailPageFooterView
 
+- (void)setCommentNumber:(NSString *)commentNumber {
+    _commentNumber = commentNumber;
+    
+    self.commentLabel.text = [NSString stringWithFormat:@"评论（%@）", commentNumber];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

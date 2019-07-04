@@ -91,7 +91,7 @@
             
             [self dismissViewControllerAnimated:YES completion:nil];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Composition_Detail_Page" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Composition_Detail_Page" object:nil userInfo:@{@"type" : @"release"}];
         }];
     }
 }

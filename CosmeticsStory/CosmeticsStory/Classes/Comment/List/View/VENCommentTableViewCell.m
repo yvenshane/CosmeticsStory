@@ -9,11 +9,6 @@
 #import "VENCommentTableViewCell.h"
 #import "VENHomePageSearchCompositionDetailsPageCommentModel.h"
 
-@interface VENCommentTableViewCell ()
-@property (nonatomic, copy) NSString *id;
-
-@end
-
 @implementation VENCommentTableViewCell
 
 - (void)awakeFromNib {
@@ -30,9 +25,8 @@
 - (void)setModel:(VENHomePageSearchCompositionDetailsPageCommentModel *)model {
     _model = model;
     
-    self.id = model.id;
-    
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
+    ViewBorderRadius(self.iconImageView, 20.0f, 1, UIColorFromRGB(0xF5F5F5));
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"icon_touxiang"]];
     self.nameLabel.text = model.name;
     self.descriptionLabel.text = model.userSkin;
     self.goodButton.selected = [model.userPraise integerValue] == 0 ? NO : YES;
@@ -140,21 +134,5 @@
     
     self.dateLabel.text = model.addtime;
 }
-
-#pragma mark - 点赞
-- (IBAction)goodButtonClick:(UIButton *)button {
-    NSDictionary *parameters = @{@"cid" : self.id,
-                                 @"type" : @"2"};
-    [[VENApiManager sharedManager] praiseCommentWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
-        
-        if (button.selected) {
-            button.selected = NO;
-        } else {
-            button.selected = YES;
-        }
-        
-    }];
-}
-
 
 @end

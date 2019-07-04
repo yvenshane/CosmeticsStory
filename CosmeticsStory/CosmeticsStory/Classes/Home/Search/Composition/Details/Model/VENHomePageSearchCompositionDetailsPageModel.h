@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray *label;
 @property (nonatomic, copy) NSString *active_ingredients_name;
 @property (nonatomic, copy) NSDictionary *share;
+@property (nonatomic, copy) NSString *commentNumber;
 
 @end
 

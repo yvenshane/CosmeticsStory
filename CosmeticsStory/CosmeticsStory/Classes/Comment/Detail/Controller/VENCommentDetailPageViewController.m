@@ -90,10 +90,42 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VENCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.goodButton.tag = indexPath.row;
+    [cell.goodButton addTarget:self action:@selector(cellgoodButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.model = self.replyMuArr[indexPath.row];
     
     return cell;
 }
+
+#pragma mark - 二级点赞
+- (void)cellgoodButtonClick:(UIButton *)button {
+    
+    VENHomePageSearchCompositionDetailsPageCommentModel *model = self.replyMuArr[button.tag];
+    
+    NSString *type = @"";
+    if ([self.type isEqualToString:@"product"]) {
+        type = @"1";
+    } else if ([self.type isEqualToString:@"composition"]) {
+        type = @"2";
+    }
+    
+    NSDictionary *parameters = @{@"cid" : model.id,
+                                 @"type" : type};
+    [[VENApiManager sharedManager] praiseCommentWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        
+        if (button.selected) {
+            model.userPraise = @"0";
+            model.praiseCount = [NSString stringWithFormat:@"%ld", [model.praiseCount integerValue] - 1];
+        } else {
+            model.userPraise = @"1";
+            model.praiseCount = [NSString stringWithFormat:@"%ld", [model.praiseCount integerValue] + 1];
+        }
+        
+        [self.tableView reloadData];
+    }];
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -105,10 +137,44 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENHomePageSearchCompositionDetailCommentDetailPageHeaderView *headerView = [[UINib nibWithNibName:@"VENHomePageSearchCompositionDetailCommentDetailPageHeaderView" bundle:nil] instantiateWithOwner:nil options:nil].lastObject;
+    
+    [headerView.goodButton addTarget:self action:@selector(goodButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     headerView.model = self.model;
     headerView.name = self.name;
     
     return headerView;
+}
+
+#pragma mark - 点赞
+- (void)goodButtonClick:(UIButton *)button {
+    
+    NSString *type = @"";
+    if ([self.type isEqualToString:@"product"]) {
+        type = @"1";
+    } else if ([self.type isEqualToString:@"composition"]) {
+        type = @"2";
+    }
+    
+    NSDictionary *parameters = @{@"cid" : self.model.id,
+                                 @"type" : type};
+    [[VENApiManager sharedManager] praiseCommentWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+        
+        if (button.selected) {
+            self.model.userPraise = @"0";
+            self.model.praiseCount = [NSString stringWithFormat:@"%ld", [self.model.praiseCount integerValue] - 1];
+        } else {
+            self.model.userPraise = @"1";
+            self.model.praiseCount = [NSString stringWithFormat:@"%ld", [self.model.praiseCount integerValue] + 1];
+        }
+        
+        [self.tableView reloadData];
+        
+        if ([self.type isEqualToString:@"product"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Product_Detail_Page" object:nil];
+        } else if ([self.type isEqualToString:@"composition"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Composition_Detail_Page" object:nil];
+        }
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
