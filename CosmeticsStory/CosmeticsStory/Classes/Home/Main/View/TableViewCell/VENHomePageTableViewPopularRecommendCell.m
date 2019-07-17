@@ -21,7 +21,7 @@
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb]];
     self.titleLabel.text = model.goods_name;
-    self.numberLabel.text = model.fraction;
+    self.numberLabel.text = model.refraction;
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：%@", model.price];
     
     [self showStarsWithNumber:model.fraction];

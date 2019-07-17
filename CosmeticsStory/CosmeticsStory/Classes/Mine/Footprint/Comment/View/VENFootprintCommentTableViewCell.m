@@ -48,11 +48,18 @@
     for (UIView *subview in self.addImageView.subviews) {
         [subview removeFromSuperview];
     }
-    
-    for (NSInteger i = 0; i < model.images.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * 60 + i * 10, 0, 60, 60)];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.images[i]]];
-        [self.addImageView addSubview:imageView];
+    if (model.images.count > 0) {
+        self.addImageView.hidden = NO;
+        self.contentLabelLayoutConstranitBottom.constant = 79;
+        
+        for (NSInteger i = 0; i < model.images.count; i++) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * 60 + i * 10, 0, 60, 60)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.images[i]]];
+            [self.addImageView addSubview:imageView];
+        }
+    } else {
+        self.addImageView.hidden = YES;
+        self.contentLabelLayoutConstranitBottom.constant = 9;
     }
 }
 

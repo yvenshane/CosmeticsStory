@@ -32,6 +32,9 @@
 
 @property (nonatomic, copy) NSDictionary *selectedItem;
 
+@property (nonatomic, strong) UIView *navView;
+@property (nonatomic, assign) BOOL isShow;
+
 @end
 
 static const NSTimeInterval kAnimationDuration = 0.3;
@@ -256,6 +259,55 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         _selectedItem = self.totalArr[0];
     }
     return _selectedItem;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y > 82) {
+        if (!self.isShow) {
+            [self.view addSubview:self.navView];
+            self.isShow = YES;
+        }
+    } else {
+        if (self.isShow) {
+            [self.navView removeFromSuperview];
+            self.navView = nil;
+            self.isShow = NO;
+        }
+    }
+}
+
+- (UIView *)navView {
+    if (!_navView) {
+        _navView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, kMainScreenWidth, 38)];
+        _navView.backgroundColor = [UIColor whiteColor];
+        
+        CGFloat width = (kMainScreenWidth - 57 * 3) / 2;
+        for (NSInteger i = 0; i < 5; i++) {
+            UILabel *label = [[UILabel alloc] init];
+            label.textColor = UIColorFromRGB(0x999999);
+            label.font = [UIFont systemFontOfSize:12.0f];
+            label.textAlignment = NSTextAlignmentCenter;
+            [_navView addSubview:label];
+            
+            if (i == 0) {
+                label.text = @"成分名称";
+                label.frame = CGRectMake(0, 0, width, 38);
+            } else if (i == 1) {
+                label.text = @"安全指数";
+                label.frame = CGRectMake(width, 0, 57, 38);
+            } else if (i == 2) {
+                label.text = @"活性成分";
+                label.frame = CGRectMake(width + 57, 0, 57, 38);
+            } else if (i == 3) {
+                label.text = @"致痘风险";
+                label.frame = CGRectMake(width + 57 + 57, 0, 57, 38);
+            } else {
+                label.text = @"成分用途";
+                label.frame = CGRectMake(width + 57 + 57 + 57, 0, width, 38);
+            }
+        }
+    }
+    return _navView;
 }
 
 /*

@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *collectionCount;
 @property (nonatomic, copy) NSDictionary *imageSize;
 
+@property (nonatomic, copy) NSString *refraction;
+
 @end
 
 NS_ASSUME_NONNULL_END

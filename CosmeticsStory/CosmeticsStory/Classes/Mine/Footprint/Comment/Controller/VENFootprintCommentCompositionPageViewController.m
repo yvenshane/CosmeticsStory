@@ -9,6 +9,7 @@
 #import "VENFootprintCommentCompositionPageViewController.h"
 #import "VENFootprintCommentTableViewCell.h"
 #import "VENFootprintCommentModel.h"
+#import "VENHomePageSearchCompositionDetailsPageViewController.h"
 
 @interface VENFootprintCommentCompositionPageViewController ()
 @property (nonatomic, assign) NSInteger page;
@@ -75,7 +76,19 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     cell.isProduct = NO;
     cell.model = self.contentMuArr[indexPath.row];
     
+    cell.goodsButton.tag = indexPath.row;
+    [cell.goodsButton addTarget:self action:@selector(goodsButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
+}
+
+- (void)goodsButtonClick:(UIButton *)button {
+    
+    VENFootprintCommentModel *model = self.contentMuArr[button.tag];
+    
+    VENHomePageSearchCompositionDetailsPageViewController *vc = [[VENHomePageSearchCompositionDetailsPageViewController alloc] init];
+    vc.ingredients_id = model.ingredients_id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

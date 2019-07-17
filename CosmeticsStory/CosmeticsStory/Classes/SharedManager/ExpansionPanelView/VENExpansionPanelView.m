@@ -171,7 +171,6 @@
     [self.buttonSelectedMuArr addObject:button];
     
     self.expansionPanelViewBlock(button);
-    NSLog(@"%@", self.buttonSelectedMuArr);
 }
 
 - (NSMutableArray *)buttonSelectedMuArr {

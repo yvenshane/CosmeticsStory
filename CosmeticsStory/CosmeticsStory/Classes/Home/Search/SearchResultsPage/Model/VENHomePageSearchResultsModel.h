@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *goods_name;
 @property (nonatomic, copy) NSString *goods_thumb;
 @property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *refraction;
 
 @end
 

@@ -119,6 +119,12 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     return CGFLOAT_MIN;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 /*
 #pragma mark - Navigation
 

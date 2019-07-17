@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *addImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backgroundViewLayoutConstraintHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLayoutConstranitLeft;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentLabelLayoutConstranitBottom;
+@property (weak, nonatomic) IBOutlet UIButton *goodsButton;
 
 @property (nonatomic, assign) BOOL isProduct;
 @property (nonatomic, strong) VENFootprintCommentModel *model;

@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSDictionary *share;
 @property (nonatomic, copy) NSString *commentNumber;
 
+@property (nonatomic, copy) NSString *refraction;
+
 @end
 
 NS_ASSUME_NONNULL_END

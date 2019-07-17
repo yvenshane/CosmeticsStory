@@ -33,7 +33,7 @@
     self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", model.goods_name_en];
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：%@", model.price];
     [self showStarsWithNumber:model.fraction];
-    self.numberLabel.text = model.fraction;
+    self.numberLabel.text = model.refraction;
     [self showChipsWithArray:model.label_purpose];
     
     [self.iconImageView2 sd_setImageWithURL:[NSURL URLWithString:model.url_image]];
