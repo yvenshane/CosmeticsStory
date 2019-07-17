@@ -13,7 +13,7 @@
 #import "VENHomePageSearchResultsModel.h"
 #import "VENProductDetailViewController.h"
 
-@interface VENHomePageSearchResultsViewController ()
+@interface VENHomePageSearchResultsViewController () <UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) VENPopupView *popupView;
 @property (nonatomic, assign) CGFloat expansionPanelViewHeight;
@@ -293,11 +293,38 @@ static NSString *const cellIdentifier = @"cellIdentifier";
             
             [weakSelf.tableView reloadData];
         };
+        
+        
+        
+        popupView.tableView.userInteractionEnabled = YES;
+        popupView.backgroundView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)];
+        tapGestureRecognizer.delegate = self;
+        
+        [popupView.tableView addGestureRecognizer:tapGestureRecognizer];
+        [popupView.backgroundView addGestureRecognizer:tapGestureRecognizer];
+        
+        
+        
+        
         [self.view addSubview:popupView];
         [self.view bringSubviewToFront:self.topView];
         
         _popupView = popupView;
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer*)gestureRecognizer shouldReceiveTouch:(UITouch*)touch {
+    if ([NSStringFromClass([touch.view class])isEqual:@"UITableViewCellContentView"] || [touch.view isDescendantOfView:self.popupView.collectionView]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)tapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
+    [self.buttonSelectedMuArr removeAllObjects];
+    [self hidden];
 }
 
 - (NSMutableArray *)buttonSelectedMuArr {

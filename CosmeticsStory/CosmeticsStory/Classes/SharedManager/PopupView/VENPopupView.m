@@ -10,9 +10,6 @@
 #import "VENPopupViewCollectionViewCell.h"
 
 @interface VENPopupView () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIView *backgroundView;
 
 @end
 

@@ -17,6 +17,10 @@ typedef void (^popupViewBlock)(NSDictionary *);
 @property (nonatomic, copy) popupViewBlock popupViewBlock;
 @property (nonatomic, copy) NSDictionary *selectedItem;
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
 @end
 
 NS_ASSUME_NONNULL_END
