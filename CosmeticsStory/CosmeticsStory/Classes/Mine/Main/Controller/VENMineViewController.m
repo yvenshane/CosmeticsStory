@@ -56,6 +56,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCenter3) name:@"Push_To_Classify_Page" object:nil];
     
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadDataSource];
+    }];
 }
 
 - (void)notificationCenter3 {
@@ -92,6 +95,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)loadDataSource {
     [[VENApiManager sharedManager] userInfoWithSuccessBlock:^(id  _Nonnull responseObject) {
         self.userInfoModel = responseObject[@"userInfo"];
+        
+        [self.tableView.mj_header endRefreshing];
         
         [[VENApiManager sharedManager] detailPageCosmeticBagListWithSuccessBlock:^(id  _Nonnull responseObject) {
             self.contentMuArr = [NSMutableArray arrayWithArray:responseObject[@"content"]];

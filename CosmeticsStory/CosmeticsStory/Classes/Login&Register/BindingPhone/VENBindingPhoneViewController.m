@@ -95,7 +95,12 @@
         
         if ([responseObject[@"status"] integerValue] == 200) {
             [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
-
+            
+            NSDictionary *dict = @{@"type" : self.platform,
+                                   @"unique" : self.unique};
+            
+            [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"AutoLogin"];
+            
             if ([self.pushType isEqualToString:@"initialPage"]) {
                 [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             } else {

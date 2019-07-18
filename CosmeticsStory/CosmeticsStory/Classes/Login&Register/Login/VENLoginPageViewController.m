@@ -45,6 +45,11 @@
     [[VENApiManager sharedManager] loginWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
         
         [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+        
+        NSDictionary *dict = @{@"type" : @"login",
+                               @"tel" : self.phoneNumberTextField.text,
+                               @"password" : self.passwordTextField.text};
+        [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"AutoLogin"];
        
         if ([self.pushType isEqualToString:@"initialPage"]) {
             [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -121,6 +126,11 @@
             } else if ([responseObject[@"status"] integerValue] == 200) {
                 
                 [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                
+                NSDictionary *dict = @{@"type" : platform,
+                                       @"unique" : resp.uid};
+                
+                [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"AutoLogin"];
                 
                 if ([self.pushType isEqualToString:@"initialPage"]) {
                     [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];

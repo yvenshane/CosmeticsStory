@@ -121,6 +121,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (void)logoutButtonClick {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LOGIN"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"AutoLogin"];
     [self.navigationController popViewControllerAnimated:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Login_Out" object:nil];

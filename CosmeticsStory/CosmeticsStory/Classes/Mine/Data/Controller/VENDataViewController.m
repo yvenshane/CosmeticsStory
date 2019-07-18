@@ -455,6 +455,12 @@ static NSString *const cellIdentifier = @"cellIdentifier";
             [[VENApiManager sharedManager] loginWithParameters:self.parameters successBlock:^(id  _Nonnull responseObject) {
                 
                 [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                
+                NSDictionary *dict = @{@"type" : @"login",
+                                       @"tel" : self.parameters[@"tel"],
+                                       @"password" : self.parameters[@"password"]};
+                [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"AutoLogin"];
+                
                 NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
             }];
         }

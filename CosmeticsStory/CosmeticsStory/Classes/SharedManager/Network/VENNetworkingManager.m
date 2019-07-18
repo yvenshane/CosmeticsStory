@@ -69,10 +69,37 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                 [NSKeyedArchiver archiveRootObject:cookies toFile:CookieStoragePath];
                 
                 if ([responseObject[@"status"] integerValue] == 203) { // 未登录
-                    VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
-                    vc.pushType = @"nologin";
-                    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-                    [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
+                    
+                    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"AutoLogin"];
+                    
+                    if ([VENEmptyClass isEmptyDictionary:dict]) {
+                        VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+                        vc.pushType = @"nologin";
+                        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                        [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
+                    } else {
+                        if ([dict[@"type"] isEqualToString:@"login"]) {
+                            
+                            NSDictionary *parameters = @{@"tel" : dict[@"tel"],
+                                                         @"password" : dict[@"password"]};
+                            
+                            [[VENApiManager sharedManager] loginWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+                                
+                                [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                                
+                                NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
+                            }];
+                        } else {
+                            [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/submitOtherLogin" parameters:@{@"platform" : dict[@"type"], @"unique" : dict[@"unique"]} successBlock:^(id responseObject) {
+                                
+                                [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                                
+                            } failureBlock:^(NSError *error) {
+                                
+                            }];
+                        }
+                    }
+                    
                     return;
                 } else if ([responseObject[@"status"] integerValue] == 202) {
                     [MBProgressHUD showText:responseObject[@"message"]];
@@ -150,10 +177,39 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
         [NSKeyedArchiver archiveRootObject:cookies toFile:CookieStoragePath];
         
         if ([responseObject[@"status"] integerValue] == 203) { // 未登录
-            VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
-            vc.pushType = @"nologin";
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-            [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
+
+            NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"AutoLogin"];
+            
+            if ([VENEmptyClass isEmptyDictionary:dict]) {
+                VENLoginPageViewController *vc = [[VENLoginPageViewController alloc] init];
+                vc.pushType = @"nologin";
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                [[self getCurrentTopVC] presentViewController:nav animated:YES completion:nil];
+            } else {
+                
+                if ([dict[@"type"] isEqualToString:@"login"]) {
+                    
+                    NSDictionary *parameters = @{@"tel" : dict[@"tel"],
+                                                 @"password" : dict[@"password"]};
+                    
+                    [[VENApiManager sharedManager] loginWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
+                        
+                        [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                        
+                        NSLog(@"%d", [[VENUserStatusManager sharedManager] isLogin]);
+                    }];
+                } else {
+                    
+                    [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/submitOtherLogin" parameters:@{@"platform" : dict[@"type"], @"unique" : dict[@"unique"]} successBlock:^(id responseObject) {
+                        
+                        [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                        
+                    } failureBlock:^(NSError *error) {
+                        
+                    }];
+                }
+            }
+            
             return;
         } else if ([responseObject[@"status"] integerValue] == 202) {
             [MBProgressHUD showText:responseObject[@"message"]];

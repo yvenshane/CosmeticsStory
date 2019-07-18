@@ -98,6 +98,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         [self.navigationController popToRootViewControllerAnimated:YES];
         
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LOGIN"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"AutoLogin"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Login_Out" object:nil];
     }];
 }
