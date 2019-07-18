@@ -121,8 +121,8 @@
                         <constraint firstAttribute="height" constant="5" id="Fv4-em-vn0"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhb-40-OLF">
-                    <rect key="frame" x="15" y="336" width="371" height="84"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhb-40-OLF">
+                    <rect key="frame" x="15" y="336" width="371" height="47"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="H9x-6h-1xI"/>
                     </constraints>
@@ -188,6 +188,16 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="M5s-7u-nbE"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U04-ww-93f">
+                    <rect key="frame" x="0.0" y="383" width="401" height="57"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="57" id="J1y-zi-CvU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="更多">
+                        <color key="titleColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -213,6 +223,7 @@
                 <constraint firstItem="aqk-3s-G1X" firstAttribute="leading" secondItem="q0m-Ab-Znw" secondAttribute="trailing" constant="5" id="M5s-2H-FOq"/>
                 <constraint firstItem="Kom-Ii-SRH" firstAttribute="top" secondItem="EtC-cW-AKU" secondAttribute="bottom" constant="4" id="MPe-Fb-W30"/>
                 <constraint firstItem="5vs-8x-JY4" firstAttribute="top" secondItem="JYu-sE-62c" secondAttribute="bottom" constant="4" id="MiZ-5K-UNb"/>
+                <constraint firstItem="U04-ww-93f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="O0k-4b-AV4"/>
                 <constraint firstItem="7Ph-Oj-aoU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="OLI-Kd-dJd"/>
                 <constraint firstItem="ncJ-61-rVc" firstAttribute="top" secondItem="0sS-ir-gYy" secondAttribute="bottom" constant="13" id="Oek-K6-YuY"/>
                 <constraint firstItem="jSc-c6-7W2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OmF-Az-XXn"/>
@@ -224,12 +235,14 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jSc-c6-7W2" secondAttribute="trailing" id="WLl-z1-LeM"/>
                 <constraint firstItem="JvI-EK-2Li" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Yn1-gR-1gM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EtC-cW-AKU" secondAttribute="trailing" constant="15" id="ZyW-bH-c74"/>
+                <constraint firstItem="U04-ww-93f" firstAttribute="top" secondItem="lhb-40-OLF" secondAttribute="bottom" id="a87-nz-CFy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="U04-ww-93f" secondAttribute="trailing" id="aR2-ws-5Di"/>
                 <constraint firstItem="XBR-v0-bCp" firstAttribute="centerY" secondItem="1Vx-iF-kdx" secondAttribute="centerY" id="amQ-2i-OuG"/>
                 <constraint firstItem="Kom-Ii-SRH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="bze-AI-yZV"/>
-                <constraint firstItem="0sS-ir-gYy" firstAttribute="top" secondItem="lhb-40-OLF" secondAttribute="bottom" constant="20" id="cUk-6T-NYM"/>
                 <constraint firstItem="q0m-Ab-Znw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="dGS-RX-bdh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lhb-40-OLF" secondAttribute="trailing" constant="15" id="fXm-ru-GUh"/>
                 <constraint firstAttribute="bottom" secondItem="1Vx-iF-kdx" secondAttribute="bottom" constant="8" id="fsL-id-vcS"/>
+                <constraint firstItem="0sS-ir-gYy" firstAttribute="top" secondItem="U04-ww-93f" secondAttribute="bottom" id="h7E-AY-LTr"/>
                 <constraint firstItem="7Ph-Oj-aoU" firstAttribute="top" secondItem="jSc-c6-7W2" secondAttribute="bottom" constant="13" id="hZ4-CJ-TQk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ncJ-61-rVc" secondAttribute="trailing" constant="15" id="iGa-so-rFo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nC1-gE-7dV" secondAttribute="trailing" id="ij0-hh-yfL"/>
@@ -258,6 +271,8 @@
                 <outlet property="descriptionLabel" destination="lhb-40-OLF" id="tNi-lc-2Gj"/>
                 <outlet property="enNameLabel" destination="5vs-8x-JY4" id="Mpg-H5-bht"/>
                 <outlet property="iconImageView" destination="Pse-R8-eQm" id="RUU-1E-8vm"/>
+                <outlet property="moreButton" destination="U04-ww-93f" id="zGW-CP-hUt"/>
+                <outlet property="moreButtonLayoutConstraintHeight" destination="J1y-zi-CvU" id="UvQ-ab-VCz"/>
                 <outlet property="otherNameLabel" destination="EtC-cW-AKU" id="4FO-I0-0Qh"/>
                 <outlet property="starView" destination="oIn-m0-bd6" id="cl6-iT-3k6"/>
                 <outlet property="titleLabel" destination="JYu-sE-62c" id="VOZ-NN-fgJ"/>

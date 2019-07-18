@@ -226,7 +226,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)cancelButtonClick {
-    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (self.isPush) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark -  popupView

@@ -24,6 +24,7 @@
 #import "VENCosmeticBagPopupViewTwo.h"
 #import "VENProductDetailPageAllCompositionViewController.h"
 #import <UShareUI/UShareUI.h>
+#import "VENHomePageSearchResultsViewController.h"
 
 @interface VENProductDetailViewController ()
 @property (nonatomic, strong) VENProductDetailModel *model;
@@ -185,6 +186,7 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
             cell.goods_brand = self.model.goods_brand;
             
             [cell.moreInformationButton addTarget:self action:@selector(cellThreeMoreInformationButtonClick) forControlEvents:UIControlEventTouchUpInside];
+            [cell.searchButton addTarget:self action:@selector(searchButton) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }
@@ -200,6 +202,14 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
         return cell;
     }
     return nil;
+}
+
+#pragma mark - 搜索
+- (void)searchButton {
+    VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];
+    vc.isPush = YES;
+    vc.keyWords =  self.model.goods_brand[@"name_ch"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - 点赞

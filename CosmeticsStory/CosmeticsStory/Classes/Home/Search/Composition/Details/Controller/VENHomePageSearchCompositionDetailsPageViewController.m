@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UIButton *likeButton;
 @property (nonatomic, strong) VENCosmeticBagPopupViewTwo *popupViewTwo;
 
+@property (nonatomic, assign) BOOL isShow;
+
 @end
 
 static NSString *const cellIdentifier = @"cellIdentifier";
@@ -175,9 +177,18 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VENHomePageSearchCompositionDetailsPageTableHeaderView *headerView = [[UINib nibWithNibName:@"VENHomePageSearchCompositionDetailsPageTableHeaderView" bundle:nil] instantiateWithOwner:nil options:nil].lastObject;
+    
+    headerView.moreButton.selected = self.isShow;
     headerView.model = self.model;
     
+    [headerView.moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     return headerView;
+}
+
+- (void)moreButtonClick:(UIButton *)button {
+    self.isShow = YES;
+    [self.tableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {

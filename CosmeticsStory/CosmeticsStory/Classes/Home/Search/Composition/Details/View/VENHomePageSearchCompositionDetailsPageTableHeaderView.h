@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButtonLayoutConstraintHeight;
+
 @property (nonatomic, strong) VENHomePageSearchCompositionDetailsPageModel *model;
 
 @end

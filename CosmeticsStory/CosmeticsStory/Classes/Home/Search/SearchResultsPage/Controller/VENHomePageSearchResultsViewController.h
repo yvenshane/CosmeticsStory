@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VENHomePageSearchResultsViewController : VENBaseViewController
 @property (nonatomic, copy) NSString *keyWords;
+@property (nonatomic, assign) BOOL isPush;
 
 @end
 

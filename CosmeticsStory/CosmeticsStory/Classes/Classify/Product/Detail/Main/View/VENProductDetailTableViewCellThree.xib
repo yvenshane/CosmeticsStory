@@ -65,11 +65,15 @@
                             <color key="titleColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9r-HR-Fww">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="icl-De-ySd" secondAttribute="trailing" constant="36" id="17Z-Xd-xrG"/>
                     <constraint firstItem="EGM-0n-Zz5" firstAttribute="top" secondItem="qVU-0J-Heo" secondAttribute="bottom" constant="12" id="5mc-S9-DOU"/>
                     <constraint firstItem="IOE-li-bQc" firstAttribute="leading" secondItem="qVU-0J-Heo" secondAttribute="trailing" constant="15" id="FNs-aq-ILM"/>
+                    <constraint firstItem="EGM-0n-Zz5" firstAttribute="top" secondItem="v9r-HR-Fww" secondAttribute="bottom" constant="4" id="Gwa-zZ-XWq"/>
                     <constraint firstItem="EGM-0n-Zz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Ik6-hF-Eqy"/>
                     <constraint firstAttribute="trailing" secondItem="mDJ-ls-Oga" secondAttribute="trailing" constant="15" id="J95-Mf-WvS"/>
                     <constraint firstAttribute="trailing" secondItem="EGM-0n-Zz5" secondAttribute="trailing" constant="15" id="JXu-gN-nnl"/>
@@ -77,13 +81,16 @@
                     <constraint firstItem="icl-De-ySd" firstAttribute="leading" secondItem="qVU-0J-Heo" secondAttribute="trailing" constant="15" id="NyH-qc-ykf"/>
                     <constraint firstItem="qVU-0J-Heo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Oa2-t5-3d9"/>
                     <constraint firstItem="IOE-li-bQc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Q8V-kQ-XPv"/>
+                    <constraint firstItem="v9r-HR-Fww" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q9r-Xq-14q"/>
                     <constraint firstAttribute="bottom" secondItem="ujm-Dr-Q88" secondAttribute="bottom" id="SHj-yc-na0"/>
                     <constraint firstItem="icl-De-ySd" firstAttribute="top" secondItem="IOE-li-bQc" secondAttribute="bottom" constant="2" id="mGh-aF-qiP"/>
                     <constraint firstItem="ujm-Dr-Q88" firstAttribute="top" secondItem="EGM-0n-Zz5" secondAttribute="bottom" id="nL3-Dc-9Zr"/>
                     <constraint firstItem="ujm-Dr-Q88" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="t0x-K7-ajG"/>
                     <constraint firstItem="mDJ-ls-Oga" firstAttribute="centerY" secondItem="qVU-0J-Heo" secondAttribute="centerY" id="tGF-QF-dPD"/>
+                    <constraint firstAttribute="trailing" secondItem="v9r-HR-Fww" secondAttribute="trailing" id="vCK-9t-vTO"/>
                     <constraint firstAttribute="trailing" secondItem="IOE-li-bQc" secondAttribute="trailing" constant="36" id="xlj-I5-zrX"/>
                     <constraint firstAttribute="trailing" secondItem="ujm-Dr-Q88" secondAttribute="trailing" id="xmB-0q-NjN"/>
+                    <constraint firstItem="v9r-HR-Fww" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yog-R5-zZV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
@@ -93,6 +100,7 @@
                 <outlet property="iconImageView" destination="qVU-0J-Heo" id="BZk-yV-1NU"/>
                 <outlet property="moreInformationButton" destination="ujm-Dr-Q88" id="dXB-bx-JKs"/>
                 <outlet property="nameLabel" destination="IOE-li-bQc" id="xmS-TT-dPc"/>
+                <outlet property="searchButton" destination="v9r-HR-Fww" id="9O7-6X-cRA"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="203.57142857142856"/>
         </tableViewCell>

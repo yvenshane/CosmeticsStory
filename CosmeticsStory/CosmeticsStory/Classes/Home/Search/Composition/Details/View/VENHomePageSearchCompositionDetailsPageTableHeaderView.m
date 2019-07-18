@@ -35,6 +35,26 @@
     
     self.descriptionLabel.text = model.explain;
     
+    
+    if (!self.moreButton.selected) {
+        CGFloat height = [self.descriptionLabel sizeThatFits:CGSizeMake(kMainScreenWidth - 30, CGFLOAT_MAX)].height;
+        if (height > 140) {
+            self.moreButtonLayoutConstraintHeight.constant = 57.0f;
+            [self.moreButton setTitle:@"更多" forState:UIControlStateNormal];
+            self.moreButton.userInteractionEnabled = YES;
+        } else {
+            self.moreButtonLayoutConstraintHeight.constant = 20.0f;
+            [self.moreButton setTitle:@"" forState:UIControlStateNormal];
+            self.moreButton.userInteractionEnabled = NO;
+        }
+    } else {
+        self.descriptionLabel.numberOfLines = 0;
+        [self.moreButton setTitle:@"" forState:UIControlStateSelected];
+        self.moreButton.userInteractionEnabled = NO;
+        self.moreButtonLayoutConstraintHeight.constant = 20.0f;
+    }
+    
+    
     if ([model.safety_factor isEqualToString:@"10"]) {
         [self showStarsWithNumber:@"0.5"];
     } else if ([model.safety_factor isEqualToString:@"9"]) {

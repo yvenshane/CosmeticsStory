@@ -116,7 +116,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     VENCosmeticBagModel *model = self.contentMuArr[indexPath.row];
-    [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"icon_small"]];
     cell.titleLabel.text = model.name;
     cell.descriptionLabel.text = model.descriptionn;
     
