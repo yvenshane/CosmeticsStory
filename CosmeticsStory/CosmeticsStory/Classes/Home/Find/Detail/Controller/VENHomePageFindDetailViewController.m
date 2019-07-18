@@ -40,7 +40,7 @@
         self.bottomToolBar.titleLabel.text = self.goodsInfoModel.goods_name;
         [self.bottomToolBar.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.goodsInfoModel.goods_thumb]];
         self.bottomToolBar.numberLabel.text = self.goodsInfoModel.refraction;
-        self.bottomToolBar.priceLabel.text = [NSString stringWithFormat:@"参考价：%@", self.goodsInfoModel.price];
+        self.bottomToolBar.priceLabel.text = [NSString stringWithFormat:@"参考价：¥%@/%@", self.goodsInfoModel.price, self.goodsInfoModel.capacity];
         [self showStarsWithNumber:self.goodsInfoModel.fraction];
         
         [self.bottomToolBar.colButton setTitle:[NSString stringWithFormat:@"  收藏%@", self.contentModel.collectionCount] forState:UIControlStateNormal];

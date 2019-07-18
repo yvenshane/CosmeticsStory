@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *goods_name;
 @property (nonatomic, copy) NSString *goods_thumb;
 @property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *capacity;
 
 //@property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *title;
