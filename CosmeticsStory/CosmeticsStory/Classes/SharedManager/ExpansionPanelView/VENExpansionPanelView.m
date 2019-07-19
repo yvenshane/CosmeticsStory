@@ -150,13 +150,21 @@
         CGFloat labelWidth = [label sizeThatFits:CGSizeMake(CGFLOAT_MAX, 17.0f)].width;
         [button addSubview:label];
         
-        CGFloat labelX = button.bounds.size.width / 2 - (labelWidth + 6 + 7) / 2;
+        CGFloat labelX = 0;
+        if ([label.text isEqualToString:@"全成分表"]) {
+            labelX = button.bounds.size.width / 2 - labelWidth / 2;
+        } else {
+            labelX = button.bounds.size.width / 2 - (labelWidth + 6 + 7) / 2;
+        }
+        
         CGFloat labelY = button.bounds.size.height / 2 - 17 / 2;
         label.frame = CGRectMake(labelX, labelY, labelWidth, 17.0f);
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(labelX + labelWidth + 6,  button.bounds.size.height / 2 - 4 / 2, 7, 4)];
-        imageView.image = [UIImage imageNamed:i == 0 ? @"icon_pop_sel" : @"icon_pop"];
-        [button addSubview:imageView];
+        if (![label.text isEqualToString:@"全成分表"]) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(labelX + labelWidth + 6,  button.bounds.size.height / 2 - 4 / 2, 7, 4)];
+            imageView.image = [UIImage imageNamed:i == 0 ? @"icon_pop_sel" : @"icon_pop"];
+            [button addSubview:imageView];
+        }
     }
     
 }

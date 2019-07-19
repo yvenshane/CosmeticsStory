@@ -77,6 +77,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [[VENApiManager sharedManager] searchPageProductDetailAllCompositionPageWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
         
+        [MBProgressHUD removeLoading];
+        
         self.contentArr = responseObject[@"content"];
         [self.tableView reloadData];
     }];
@@ -142,22 +144,42 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     expansionPanelView.expansionPanelViewStyle = @"AllComposition";
     expansionPanelView.widgetMuArr = [NSMutableArray arrayWithArray:@[@"全成分表", @"安全指数", @"功效分类"]];
     expansionPanelView.expansionPanelViewBlock = ^(UIButton * button) {
-        if (![VENEmptyClass isEmptyArray:self.buttonSelectedMuArr]) {
-            for (UIButton *btn in self.buttonSelectedMuArr) {
-                [self.buttonSelectedMuArr removeAllObjects];
-                [self hidden];
-                if (button.tag != btn.tag) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        for (UILabel *label in button.subviews) {
+            if ([label isKindOfClass:[UILabel class]]) {
+                if ([label.text isEqualToString:@"全成分表"]) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdataTitle" object:nil userInfo:self.totalArr[0]];
+                    self.selectedItem = self.totalArr[0];
+                    [MBProgressHUD addLoading];
+                    
+                    [self.buttonSelectedMuArr removeAllObjects];
+                    [self hidden];
+                    
+                    self.total = self.totalArr[0][@"id"];
+                    [self loadDataSource];
+                    [self.tableView reloadData];
+                    
+                } else {
+                    if (![VENEmptyClass isEmptyArray:self.buttonSelectedMuArr]) {
+                        for (UIButton *btn in self.buttonSelectedMuArr) {
+                            [self.buttonSelectedMuArr removeAllObjects];
+                            [self hidden];
+                            if (button.tag != btn.tag) {
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [self.buttonSelectedMuArr addObject:button];
+                                    [self setupPopupViewWithButton:button];
+                                    [self show];
+                                });
+                            }
+                        }
+                    } else {
                         [self.buttonSelectedMuArr addObject:button];
                         [self setupPopupViewWithButton:button];
                         [self show];
-                    });
+                    }
                 }
             }
-        } else {
-            [self.buttonSelectedMuArr addObject:button];
-            [self setupPopupViewWithButton:button];
-            [self show];
         }
     };
     [headerView addSubview:expansionPanelView];
@@ -180,26 +202,6 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         [self.popupView removeFromSuperview];
         self.popupView = nil;
     }];
-}
-
-- (void)buttonClick:(UIButton *)button {
-    if (![VENEmptyClass isEmptyArray:self.buttonSelectedMuArr]) {
-        for (UIButton *btn in self.buttonSelectedMuArr) {
-            [self.buttonSelectedMuArr removeAllObjects];
-            [self hidden];
-            if (button.tag != btn.tag) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.buttonSelectedMuArr addObject:button];
-                    [self setupPopupViewWithButton:button];
-                    [self show];
-                });
-            }
-        }
-    } else {
-        [self.buttonSelectedMuArr addObject:button];
-        [self setupPopupViewWithButton:button];
-        [self show];
-    }
 }
 
 - (void)setupPopupViewWithButton:(UIButton *)button {
