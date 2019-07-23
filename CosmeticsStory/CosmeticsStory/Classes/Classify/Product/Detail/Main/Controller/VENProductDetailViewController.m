@@ -208,7 +208,7 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
 - (void)searchButton {
     VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];
     vc.isPush = YES;
-    vc.keyWords =  self.model.goods_brand[@"name_ch"];
+    vc.brand_id = self.model.goods_brand[@"id"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

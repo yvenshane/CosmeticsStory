@@ -82,8 +82,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (void)loadDataSourceWithPage:(NSString *)page {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{@"start" : page,
-                                                                                      @"size" : @"10",
-                                                                                      @"goods_name" : self.keyWords}];
+                                                                                      @"size" : @"10"}];
+    
+    if (![VENEmptyClass isEmptyString:self.keyWords]) {
+        [parameters setObject:self.label_purpose forKey:@"goods_name"];
+    }
     
     if (![VENEmptyClass isEmptyString:self.label_purpose]) {
         [parameters setObject:self.label_purpose forKey:@"label_purpose"];
@@ -99,6 +102,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     if (![VENEmptyClass isEmptyString:self.label_comprehensive]) {
         [parameters setObject:self.label_comprehensive forKey:@"label_comprehensive"];
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.brand_id]) {
+        [parameters setObject:self.brand_id forKey:@"brand_id"];
     }
     
     [[VENApiManager sharedManager] searchPageProductListWithParameters:parameters successBlock:^(id  _Nonnull responseObject) {
