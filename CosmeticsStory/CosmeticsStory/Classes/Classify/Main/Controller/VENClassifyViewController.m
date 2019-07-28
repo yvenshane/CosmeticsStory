@@ -60,6 +60,15 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
 - (void)notificationCenter2:(NSNotification *)noti {
     NSDictionary *dict = noti.userInfo;
     
+    for (VENClassifyPageModel *model in self.catArr) {
+        if ([model.cat_id isEqualToString:dict[@"cat_id"]]) {
+            model.isSelected = YES;
+        } else {
+            model.isSelected = NO;
+        }
+    }
+    [self.collectionVieww reloadData];
+    
     [self loadDataWithParameters:@{@"cat_id" : dict[@"cat_id"]} andSetTitleLabelWithString:dict[@"cat_name"]];
 }
 
@@ -77,12 +86,25 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
     [[VENApiManager sharedManager] classifyPageWithSuccessBlock:^(id  _Nonnull responseObject) {
         self.catArr = responseObject[@"cat"];
         
+        VENClassifyPageModel *model = self.catArr[0];
+        model.isSelected = YES;
+        
         [self.backgroundVieww sd_setImageWithURL:[NSURL URLWithString:responseObject[@"image"]]];
         [self.collectionVieww reloadData];
         
         // 解决第一次点击 分类不显示问题
         NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"Image_Button"];
         if (![VENEmptyClass isEmptyDictionary:dict]) {
+            
+            for (VENClassifyPageModel *model in self.catArr) {
+                if ([model.cat_id isEqualToString:dict[@"cat_id"]]) {
+                    model.isSelected = YES;
+                } else {
+                    model.isSelected = NO;
+                }
+            }
+            [self.collectionVieww reloadData];
+            
             [self loadDataWithParameters:@{@"cat_id" : dict[@"cat_id"]} andSetTitleLabelWithString:dict[@"cat_name"]];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Image_Button"];
         } else {
@@ -110,6 +132,14 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
         [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.cat_image]];
         cell.titleLabel.text = model.cat_name;
         
+        if (model.isSelected) {
+            cell.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:11.0f];
+            cell.titleLabel.textColor = [UIColor blackColor];
+        } else {
+            cell.titleLabel.font = [UIFont systemFontOfSize:11.0f];
+            cell.titleLabel.textColor = UIColorFromRGB(0x666666);
+        }
+        
         return cell;
     } else {
         VENClassifyCollectionViewCell2 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier2 forIndexPath:indexPath];
@@ -124,7 +154,13 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == 998) {
+        
+        for (VENClassifyPageModel *model in self.catArr) {
+            model.isSelected = NO;
+        }
+        
         VENClassifyPageModel *model = self.catArr[indexPath.row];
+        model.isSelected = YES;
         
         if (![self.titleLabelText isEqualToString:model.cat_name]) {
             [[VENApiManager sharedManager] classifyPageWithParameters:@{@"cat_id" : model.cat_id} successBlock:^(id  _Nonnull responseObject) {
@@ -132,6 +168,7 @@ static NSString *const cellIdentifier3 = @"cellIdentifier3";
                 self.contentArr = responseObject[@"content"];
                 self.titleLabelText = model.cat_name;
                 
+                [self.collectionVieww reloadData];
                 [self.collectionVieww2 reloadData];
             }];
         }
