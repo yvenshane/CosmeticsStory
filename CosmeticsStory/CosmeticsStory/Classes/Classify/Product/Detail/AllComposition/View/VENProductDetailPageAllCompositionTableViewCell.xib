@@ -26,7 +26,7 @@
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1D-mZ-S6p">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1D-mZ-S6p">
                         <rect key="frame" x="299" y="0.0" width="128" height="74.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,6 +158,7 @@
                 <outlet property="nameButton" destination="Yg0-Vg-4E8" id="XHv-Do-8Ed"/>
                 <outlet property="otherLabel" destination="G1D-mZ-S6p" id="i3O-rm-gzO"/>
                 <outlet property="safeLabel" destination="alW-cq-O08" id="0Yv-Jc-GGK"/>
+                <outlet property="safeLabelLayoutConstraintWidth" destination="sih-He-45X" id="cpp-bA-TXr"/>
             </connections>
             <point key="canvasLocation" x="215.21739130434784" y="160.37946428571428"/>
         </tableViewCell>

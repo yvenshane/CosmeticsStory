@@ -43,6 +43,16 @@
         self.safeLabel.backgroundColor = UIColorFromRGB(0xC03232);
     }
     
+    if (model.safety_factor.length == 3) {
+        self.safeLabelLayoutConstraintWidth.constant = 24.0f;
+    } else if (model.safety_factor.length == 4) {
+        self.safeLabelLayoutConstraintWidth.constant = 32.0f;
+    } else if (model.safety_factor.length == 5) {
+        self.safeLabelLayoutConstraintWidth.constant = 36.0f;
+    } else {
+        self.safeLabelLayoutConstraintWidth.constant = 18.0f;
+    }
+    
     self.imageView1.hidden = [model.active_ingredients integerValue] == 0 ? YES : NO;
     self.imageView2.hidden = [model.acne integerValue] == 0 ? YES : NO;
     

@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *otherLabel;
 
 @property (nonatomic, strong) VENProductDetailPageAllCompositionModel *model;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *safeLabelLayoutConstraintWidth;
 
 @end
 
