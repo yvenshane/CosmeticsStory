@@ -13,20 +13,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="KGk-i7-Jjw" customClass="VENProductDetailTableViewCellTwo">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+            <rect key="frame" x="0.0" y="0.0" width="336" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="336" height="143.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本商品成分来自该商品的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-Fw-NBk">
-                        <rect key="frame" x="15" y="12" width="135" height="14.5"/>
+                        <rect key="frame" x="75.5" y="12" width="135" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyN-Sx-Bwq">
-                        <rect key="frame" x="150" y="12" width="50" height="15"/>
+                        <rect key="frame" x="210.5" y="12" width="50" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="WDM-RZ-XFO"/>
                         </constraints>
@@ -34,7 +34,7 @@
                         <state key="normal" title="国产备案"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWC-kb-TtY">
-                        <rect key="frame" x="0.0" y="86.5" width="320" height="57"/>
+                        <rect key="frame" x="0.0" y="86.5" width="336" height="57"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="57" id="qLW-6E-XbQ"/>
                         </constraints>
@@ -44,7 +44,7 @@
                         </state>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dof-yl-pha">
-                        <rect key="frame" x="15" y="38.5" width="290" height="48"/>
+                        <rect key="frame" x="15" y="38.5" width="306" height="48"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="8PS-bn-sGM"/>
@@ -55,7 +55,6 @@
                     <constraint firstItem="ZWC-kb-TtY" firstAttribute="top" secondItem="dof-yl-pha" secondAttribute="bottom" id="7oy-Xz-Mlw"/>
                     <constraint firstItem="gMR-Fw-NBk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="B4K-V3-Gjh"/>
                     <constraint firstItem="FyN-Sx-Bwq" firstAttribute="leading" secondItem="gMR-Fw-NBk" secondAttribute="trailing" id="F9c-HG-dlk"/>
-                    <constraint firstItem="gMR-Fw-NBk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="IGw-99-VHY"/>
                     <constraint firstItem="dof-yl-pha" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38.5" id="Jhw-jy-ms2"/>
                     <constraint firstAttribute="bottom" secondItem="ZWC-kb-TtY" secondAttribute="bottom" id="cYr-ds-4DU"/>
                     <constraint firstItem="dof-yl-pha" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="gw2-Tq-VyQ"/>
@@ -63,6 +62,7 @@
                     <constraint firstAttribute="trailing" secondItem="ZWC-kb-TtY" secondAttribute="trailing" id="oOU-at-Ygi"/>
                     <constraint firstAttribute="trailing" secondItem="dof-yl-pha" secondAttribute="trailing" constant="15" id="ocg-Ao-4f5"/>
                     <constraint firstItem="ZWC-kb-TtY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="s5f-is-y8U"/>
+                    <constraint firstItem="gMR-Fw-NBk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-25" id="uJs-zA-eWj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
@@ -71,7 +71,7 @@
                 <outlet property="moreButton" destination="FyN-Sx-Bwq" id="eLD-5F-KcK"/>
                 <outlet property="moreInformationButton" destination="ZWC-kb-TtY" id="5qk-ZT-Tk0"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="184.15178571428569"/>
+            <point key="canvasLocation" x="149.27536231884059" y="184.15178571428569"/>
         </tableViewCell>
     </objects>
 </document>

@@ -34,6 +34,7 @@
         label.text = [NSString stringWithFormat:@"%@：%@种", ingredientContent[i][@"name"], ingredientContent[i][@"number"]];
         label.textColor = UIColorFromRGB(0x666666);
         label.font = [UIFont systemFontOfSize:14.0f];
+        label.textAlignment = NSTextAlignmentCenter;
         [self.addLabelView addSubview:label];
 
         CGFloat x = 0;
