@@ -13,7 +13,7 @@
 #import "VENProductDetailViewController.h"
 #import "VENRightSideSelectorView.h"
 
-@interface VENHomePageSearchResultsViewController () <UIGestureRecognizerDelegate>
+@interface VENHomePageSearchResultsViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *contentMuArr;
 
@@ -194,6 +194,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     // 搜索框
     UITextField *searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, kStatusBarHeight + 6, kMainScreenWidth - 55 - 55, 32)];
+    searchTextField.delegate = self;
     searchTextField.text = self.keyWords;
 //    searchTextField.delegate = self;
     searchTextField.font = [UIFont systemFontOfSize:12.0f];
@@ -288,6 +289,16 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     } else {
         [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+#pragma mark - 搜索
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    self.keyWords = textField.text;
+    
+    [self.view endEditing:YES];
+    [self loadDataSourceWithPage:@"1"];
+    
+    return YES;
 }
 
 /*

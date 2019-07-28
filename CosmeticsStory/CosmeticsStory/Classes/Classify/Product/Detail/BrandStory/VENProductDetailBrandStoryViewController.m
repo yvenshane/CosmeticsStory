@@ -7,6 +7,7 @@
 //
 
 #import "VENProductDetailBrandStoryViewController.h"
+#import "VENHomePageSearchResultsViewController.h"
 
 @interface VENProductDetailBrandStoryViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -40,6 +41,13 @@
     self.urlLabel.text = self.goods_brand[@"website"];
     
     self.contentLabel.text = self.goods_brand[@"content"];
+}
+
+- (IBAction)searchButtonClick:(id)sender {
+    VENHomePageSearchResultsViewController *vc = [[VENHomePageSearchResultsViewController alloc] init];
+    vc.isPush = YES;
+    vc.brand_id = self.goods_brand[@"id"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /*
