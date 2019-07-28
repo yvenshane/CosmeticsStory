@@ -68,6 +68,8 @@
             return;
         }
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
+        
         successBlock(responseObject);
     }];
 }
