@@ -8,12 +8,11 @@
 
 #import "VENHomePageSearchResultsViewController.h"
 #import "VENHomePageSearchResultsTableViewCell.h"
-#import "VENPopupView.h"
 #import "VENHomePageSearchResultsModel.h"
 #import "VENProductDetailViewController.h"
 #import "VENRightSideSelectorView.h"
 
-@interface VENHomePageSearchResultsViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
+@interface VENHomePageSearchResultsViewController () <UITextFieldDelegate>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *contentMuArr;
 
