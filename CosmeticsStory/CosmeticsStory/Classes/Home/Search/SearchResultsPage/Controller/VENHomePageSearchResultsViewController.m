@@ -7,32 +7,27 @@
 //
 
 #import "VENHomePageSearchResultsViewController.h"
-#import "VENExpansionPanelView.h"
 #import "VENHomePageSearchResultsTableViewCell.h"
 #import "VENPopupView.h"
 #import "VENHomePageSearchResultsModel.h"
 #import "VENProductDetailViewController.h"
+#import "VENRightSideSelectorView.h"
 
 @interface VENHomePageSearchResultsViewController () <UIGestureRecognizerDelegate>
-@property (nonatomic, strong) UIView *topView;
-@property (nonatomic, strong) VENPopupView *popupView;
-@property (nonatomic, assign) CGFloat expansionPanelViewHeight;
-@property (nonatomic, assign) CGFloat popupViewHeight;
-@property (nonatomic, strong) NSMutableArray *buttonSelectedMuArr;
-@property (nonatomic, copy) NSDictionary *selectedItem;
-
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *contentMuArr;
 
+@property (nonatomic, strong) VENRightSideSelectorView *rightSideSelectorView;
+
 @property (nonatomic, copy) NSArray *label_comprehensiveArr;
+@property (nonatomic, copy) NSArray *label_purposeArr;
 @property (nonatomic, copy) NSArray *label_effectArr;
 @property (nonatomic, copy) NSArray *label_priceArr;
-@property (nonatomic, copy) NSArray *label_purposeArr;
 
+@property (nonatomic, copy) NSString *label_comprehensive;
 @property (nonatomic, copy) NSString *label_purpose;
 @property (nonatomic, copy) NSString *label_effect;
 @property (nonatomic, copy) NSString *label_price;
-@property (nonatomic, copy) NSString *label_comprehensive;
 
 @end
 
@@ -46,15 +41,12 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     self.view.backgroundColor = UIColorFromRGB(0xF8F8F8);
     
-    self.expansionPanelViewHeight = 44 + 2;
-    self.popupViewHeight = kMainScreenHeight - kStatusBarAndNavigationBarHeight - self.expansionPanelViewHeight;
-    
     [self setupTopView];
     
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"VENHomePageSearchResultsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight + self.expansionPanelViewHeight, kMainScreenWidth, self.popupViewHeight);
+    self.tableView.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight);
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadDataSourceWithPage:@"1"];
@@ -74,9 +66,14 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)loadLabel {
     [[VENApiManager sharedManager] searchPageProductListLabelWithSuccessBlock:^(id  _Nonnull responseObject) {
         self.label_comprehensiveArr = responseObject[@"content"][@"label_comprehensive"];
+        self.label_purposeArr = responseObject[@"content"][@"label_purpose"];
         self.label_effectArr = responseObject[@"content"][@"label_effect"];
         self.label_priceArr = responseObject[@"content"][@"label_price"];
-        self.label_purposeArr = responseObject[@"content"][@"label_purpose"];
+        
+        self.label_comprehensive = self.label_comprehensiveArr.firstObject[@"name"];
+        self.label_purpose = @"";
+        self.label_effect = @"";
+        self.label_price = @"";
     }];
 }
 
@@ -85,23 +82,39 @@ static NSString *const cellIdentifier = @"cellIdentifier";
                                                                                       @"size" : @"10"}];
     
     if (![VENEmptyClass isEmptyString:self.keyWords]) {
-        [parameters setObject:self.label_purpose forKey:@"goods_name"];
-    }
-    
-    if (![VENEmptyClass isEmptyString:self.label_purpose]) {
-        [parameters setObject:self.label_purpose forKey:@"label_purpose"];
-    }
-    
-    if (![VENEmptyClass isEmptyString:self.label_effect]) {
-        [parameters setObject:self.label_effect forKey:@"label_effect"];
-    }
-    
-    if (![VENEmptyClass isEmptyString:self.label_price]) {
-        [parameters setObject:self.label_price forKey:@"label_price"];
+        [parameters setObject:self.keyWords forKey:@"goods_name"];
     }
     
     if (![VENEmptyClass isEmptyString:self.label_comprehensive]) {
-        [parameters setObject:self.label_comprehensive forKey:@"label_comprehensive"];
+        for (NSDictionary *dict in self.label_comprehensiveArr) {
+            if ([dict[@"name"] isEqualToString:self.label_comprehensive]) {
+                [parameters setObject:dict[@"id"] forKey:@"label_comprehensive"];
+            }
+        }
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.label_purpose]) {
+        for (NSDictionary *dict in self.label_purposeArr) {
+            if ([dict[@"name"] isEqualToString:self.label_purpose]) {
+                [parameters setObject:dict[@"id"] forKey:@"label_purpose"];
+            }
+        }
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.label_effect]) {
+        for (NSDictionary *dict in self.label_effectArr) {
+            if ([dict[@"name"] isEqualToString:self.label_effect]) {
+                [parameters setObject:dict[@"id"] forKey:@"label_effect"];
+            }
+        }
+    }
+    
+    if (![VENEmptyClass isEmptyString:self.label_price]) {
+        for (NSDictionary *dict in self.label_priceArr) {
+            if ([dict[@"name"] isEqualToString:self.label_price]) {
+                [parameters setObject:dict[@"id"] forKey:@"label_price"];
+            }
+        }
     }
     
     if (![VENEmptyClass isEmptyString:self.brand_id]) {
@@ -170,12 +183,17 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 #pragma mark - 搜索栏
 - (void)setupTopView {
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kStatusBarAndNavigationBarHeight + self.expansionPanelViewHeight)];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kStatusBarAndNavigationBarHeight)];
     topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:topView];
     
+    UIButton *colButton = [[UIButton alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, 55, 44)];
+    [colButton setImage:[UIImage imageNamed:@"icon_shaixuan"] forState:UIControlStateNormal];
+    [colButton addTarget:self action:@selector(colButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [topView addSubview:colButton];
+    
     // 搜索框
-    UITextField *searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(15, kStatusBarHeight + 6, kMainScreenWidth - 15 - 55, 32)];
+    UITextField *searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, kStatusBarHeight + 6, kMainScreenWidth - 55 - 55, 32)];
     searchTextField.text = self.keyWords;
 //    searchTextField.delegate = self;
     searchTextField.font = [UIFont systemFontOfSize:12.0f];
@@ -203,153 +221,73 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     cancelButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [cancelButton addTarget:self action:@selector(cancelButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:cancelButton];
-    
-    // 工具栏
-    VENExpansionPanelView *expansionPanelView = [[VENExpansionPanelView alloc] initWithFrame:CGRectMake(0, kStatusBarAndNavigationBarHeight, kMainScreenWidth, self.expansionPanelViewHeight)];
-    expansionPanelView.widgetMuArr = [NSMutableArray arrayWithArray:@[@"综合", @"用途", @"功效", @"价格"]];
-    expansionPanelView.expansionPanelViewBlock = ^(UIButton * button) {
-        
-        if (![VENEmptyClass isEmptyArray:self.buttonSelectedMuArr]) {
-            for (UIButton *btn in self.buttonSelectedMuArr) {
-                [self.buttonSelectedMuArr removeAllObjects];
-                [self hidden];
-                if (button.tag != btn.tag) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self.buttonSelectedMuArr addObject:button];
-                        [self setupPopupViewWithButton:button];
-                        [self show];
-                    });
-                }
-            }
-        } else {
-            [self.buttonSelectedMuArr addObject:button];
-            [self setupPopupViewWithButton:button];
-            [self show];
-        }
-    };
-    [topView addSubview:expansionPanelView];
-    
-    _topView = topView;
 }
 
+#pragma mark - 筛选
+- (void)colButtonClick {
+    [self.view endEditing:YES];
+    [self show];
+}
+
+- (void)show {
+    self.rightSideSelectorView.frame = CGRectMake(- kMainScreenWidth, 0, kMainScreenWidth, kMainScreenHeight);
+    [UIView animateWithDuration:kAnimationDuration animations:^{
+        self.rightSideSelectorView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight);
+    } completion:nil];
+}
+
+- (void)hidden {
+    [UIView animateWithDuration:kAnimationDuration animations:^{
+        self.rightSideSelectorView.frame = CGRectMake(- kMainScreenWidth, 0, kMainScreenWidth, kMainScreenHeight);
+    } completion:^(BOOL finished) {
+        [self.rightSideSelectorView removeFromSuperview];
+        self.rightSideSelectorView = nil;
+    }];
+}
+
+- (VENRightSideSelectorView *)rightSideSelectorView {
+    if (!_rightSideSelectorView) {
+        _rightSideSelectorView = [[VENRightSideSelectorView alloc] init];
+        
+        _rightSideSelectorView.dataSource = @{@"label_comprehensiveArr" : self.label_comprehensiveArr,
+                                              @"label_purposeArr" : self.label_purposeArr,
+                                              @"label_effectArr" : self.label_effectArr,
+                                              @"label_priceArr" : self.label_priceArr};
+        
+        _rightSideSelectorView.comprehensive = self.label_comprehensive;
+        _rightSideSelectorView.purpose = self.label_purpose;
+        _rightSideSelectorView.effect = self.label_effect;
+        _rightSideSelectorView.price = self.label_price;
+        
+        [_rightSideSelectorView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        __weak typeof(self) weakSelf = self;
+        _rightSideSelectorView.rightSideSelectorViewBlock = ^(NSArray *arr) {
+            weakSelf.label_comprehensive = arr[0];
+            weakSelf.label_purpose = arr[1];
+            weakSelf.label_effect = arr[2];
+            weakSelf.label_price = arr[3];
+            
+            [weakSelf hidden];
+            [weakSelf loadDataSourceWithPage:@"1"];
+        };
+        
+        [self.view addSubview:_rightSideSelectorView];
+    }
+    return _rightSideSelectorView;
+}
+
+- (void)closeButtonClick {
+    [self hidden];
+}
+
+#pragma mark - 取消
 - (void)cancelButtonClick {
     if (self.isPush) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
-}
-
-#pragma mark -  popupView
-- (void)show {
-    self.popupView.frame = CGRectMake(0, - self.popupViewHeight, kMainScreenWidth, self.popupViewHeight);
-    [UIView animateWithDuration:kAnimationDuration animations:^{
-        self.popupView.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight + self.expansionPanelViewHeight, kMainScreenWidth, self.popupViewHeight);
-    } completion:nil];
-}
-
-- (void)hidden {
-    [UIView animateWithDuration:kAnimationDuration animations:^{
-        self.popupView.frame = CGRectMake(0, - self.popupViewHeight, kMainScreenWidth, self.popupViewHeight);
-    } completion:^(BOOL finished) {
-        [self.popupView removeFromSuperview];
-        self.popupView = nil;
-    }];
-}
-
-- (void)setupPopupViewWithButton:(UIButton *)button {
-    if (!_popupView) {
-        VENPopupView *popupView = [[VENPopupView alloc] init];
-        
-        if (button.tag == 0) {
-            popupView.popupViewStyle = @"tableView";
-            popupView.dataSourceArr = self.label_comprehensiveArr;
-        } else if (button.tag == 1) {
-            popupView.popupViewStyle = @"collectionView3";
-            popupView.dataSourceArr = self.label_purposeArr;
-        } else if (button.tag == 2) {
-            popupView.popupViewStyle = @"collectionView3";
-            popupView.dataSourceArr = self.label_effectArr;
-        } else {
-            popupView.popupViewStyle = @"tableView";
-            popupView.dataSourceArr = self.label_priceArr;
-        }
-        
-        popupView.selectedItem = self.selectedItem;
-        
-        
-        __weak typeof(self) weakSelf = self;
-        popupView.popupViewBlock = ^(NSDictionary *dict) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdataTitle" object:nil userInfo:dict];
-            self.selectedItem = dict;
-            [weakSelf.buttonSelectedMuArr removeAllObjects];
-            [weakSelf hidden];
-            
-            self.label_comprehensive = @"";
-            self.label_purpose = @"";
-            self.label_effect = @"";
-            self.label_price = @"";
-            
-            if (button.tag == 0) {
-                self.label_comprehensive = dict[@"id"];
-            } else if (button.tag == 1) {
-                self.label_purpose = dict[@"id"];
-            } else if (button.tag == 2) {
-                self.label_effect = dict[@"id"];
-            } else {
-                self.label_price = dict[@"id"];
-            }
-            
-            [self loadDataSourceWithPage:@"1"];
-            
-            [weakSelf.tableView reloadData];
-        };
-        
-        
-        
-        popupView.tableView.userInteractionEnabled = YES;
-        popupView.backgroundView.userInteractionEnabled = YES;
-        
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)];
-        tapGestureRecognizer.delegate = self;
-        
-        [popupView.tableView addGestureRecognizer:tapGestureRecognizer];
-        [popupView.backgroundView addGestureRecognizer:tapGestureRecognizer];
-        
-        
-        
-        
-        [self.view addSubview:popupView];
-        [self.view bringSubviewToFront:self.topView];
-        
-        _popupView = popupView;
-    }
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer*)gestureRecognizer shouldReceiveTouch:(UITouch*)touch {
-    if ([NSStringFromClass([touch.view class])isEqual:@"UITableViewCellContentView"] || [touch.view isDescendantOfView:self.popupView.collectionView]) {
-        return NO;
-    }
-    return YES;
-}
-
-- (void)tapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
-    [self.buttonSelectedMuArr removeAllObjects];
-    [self hidden];
-}
-
-- (NSMutableArray *)buttonSelectedMuArr {
-    if (!_buttonSelectedMuArr) {
-        _buttonSelectedMuArr = [NSMutableArray array];
-    }
-    return _buttonSelectedMuArr;
-}
-
-- (NSDictionary *)selectedItem {
-    if (!_selectedItem) {
-        _selectedItem = self.label_comprehensiveArr[0];
-    }
-    return _selectedItem;
 }
 
 /*

@@ -11,6 +11,11 @@
 @implementation MBProgressHUD (VEN)
 
 + (void)showText:(NSString *)text {
+    
+    if ([VENEmptyClass isEmptyString:text]) {
+        return;
+    }
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication].windows lastObject] animated:YES];
     hud.labelText = text;
     hud.mode = MBProgressHUDModeText;

@@ -69,9 +69,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else {
-        [[VENNetworkTool sharedManager] requestWithMethod:HTTPMethodPost path:@"base/contacUs" params:@{} showLoading:NO successBlock:^(id response) {
+        
+        [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"base/contacUs" parameters:@{} successBlock:^(id responseObject) {
             
-            NSString *tel = [NSString stringWithFormat:@"telprompt://%@", response[@"content"]];
+            NSString *tel = [NSString stringWithFormat:@"telprompt://%@", responseObject[@"content"]];
             
             if (@available(iOS 10.0, *)) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel] options:@{} completionHandler:nil];
