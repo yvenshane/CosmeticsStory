@@ -26,9 +26,11 @@
     _model = model;
     
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:model.name_ch];
-    [attributedString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, model.name_ch.length)];
-    [self.nameButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:model.name_ch];
+//    [attributedString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, model.name_ch.length)];
+//    [self.nameButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+    
+    [self.nameButton setTitle:model.name_ch forState:UIControlStateNormal];
     
     ViewRadius(self.safeLabel, 9);
     

@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="128" height="74.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="Button">
-                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1D-mZ-S6p">
@@ -66,10 +66,10 @@
                         <rect key="frame" x="242" y="0.0" width="57" height="74.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_112963" translatesAutoresizingMaskIntoConstraints="NO" id="awj-Vp-H2j">
-                                <rect key="frame" x="21.5" y="30.5" width="14" height="14"/>
+                                <rect key="frame" x="19.5" y="28.5" width="18" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="b0Y-UP-c1y"/>
-                                    <constraint firstAttribute="height" constant="14" id="mHc-mN-s1z"/>
+                                    <constraint firstAttribute="width" constant="18" id="b0Y-UP-c1y"/>
+                                    <constraint firstAttribute="height" constant="18" id="mHc-mN-s1z"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDf-cZ-Hb1">
@@ -94,10 +94,10 @@
                         <rect key="frame" x="185" y="0.0" width="57" height="74.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_112964" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-PO-tAW">
-                                <rect key="frame" x="21.5" y="30.5" width="14" height="14"/>
+                                <rect key="frame" x="19.5" y="28.5" width="18" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="8YZ-2g-ZXw"/>
-                                    <constraint firstAttribute="width" constant="14" id="EmG-Ax-I6e"/>
+                                    <constraint firstAttribute="height" constant="18" id="8YZ-2g-ZXw"/>
+                                    <constraint firstAttribute="width" constant="18" id="EmG-Ax-I6e"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YL-8h-dJi">
@@ -163,7 +163,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_112963" width="11" height="11"/>
-        <image name="icon_112964" width="14" height="15"/>
+        <image name="icon_112963" width="18" height="18"/>
+        <image name="icon_112964" width="18" height="18"/>
     </resources>
 </document>
