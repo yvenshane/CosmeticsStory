@@ -91,7 +91,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         
         CGFloat width = [label sizeThatFits:CGSizeMake(CGFLOAT_MAX, 24.0f)].width;
-        label.frame = CGRectMake(x, 231, width + 24, 24.0f);
+        label.frame = CGRectMake(x, 0, width + 24, 24.0f);
         
         ViewBorderRadius(label, 4.0f, 1.0f, UIColorFromRGB(0xE8E8E8));
         
@@ -101,7 +101,7 @@
             return;
         }
         
-        [self addSubview:label];
+        [self.labelView addSubview:label];
     }
 }
 
