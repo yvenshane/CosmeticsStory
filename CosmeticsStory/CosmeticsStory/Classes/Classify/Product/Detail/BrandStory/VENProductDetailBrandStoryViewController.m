@@ -40,7 +40,7 @@
     self.company.text = self.goods_brand[@"ascription"];
     self.urlLabel.text = self.goods_brand[@"website"];
     
-    self.contentLabel.text = self.goods_brand[@"content"];
+    self.contentLabel.text = self.goods_brand[@"descriptionn"];
 }
 
 - (IBAction)searchButtonClick:(id)sender {
