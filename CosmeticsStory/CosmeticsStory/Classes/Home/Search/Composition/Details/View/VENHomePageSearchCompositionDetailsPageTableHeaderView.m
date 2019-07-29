@@ -22,9 +22,9 @@
 - (void)setModel:(VENHomePageSearchCompositionDetailsPageModel *)model {
     _model = model;
     
-    self.titleLabel.text = model.name;
+    self.titleLabel.text = model.name_ch;
     self.enNameLabel.text = [NSString stringWithFormat:@"英文名(INCI)：%@", model.name_en];
-    self.otherNameLabel.text = [NSString stringWithFormat:@"别名：%@", model.name_ch];
+    self.otherNameLabel.text = [NSString stringWithFormat:@"别名：%@", model.name_alias];
     self.casLabel.text = [NSString stringWithFormat:@"CAS号：%@", model.cas];
     
     self.compositionLabel.text = model.active_ingredients_name;
