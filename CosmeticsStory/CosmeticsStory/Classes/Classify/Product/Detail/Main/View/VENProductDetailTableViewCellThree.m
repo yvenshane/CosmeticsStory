@@ -27,7 +27,7 @@
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:goods_brand[@"logo"]]];
     self.nameLabel.text = goods_brand[@"name_ch"];
     self.descriptionLabel.text = goods_brand[@"name_en"];
-    self.contentLabel.text = goods_brand[@"content"];
+    self.contentLabel.text = goods_brand[@"descriptionn"];
 }
 
 @end
