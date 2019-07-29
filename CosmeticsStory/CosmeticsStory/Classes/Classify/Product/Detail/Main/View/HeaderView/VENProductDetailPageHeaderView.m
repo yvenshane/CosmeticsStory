@@ -30,7 +30,13 @@
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"icon_large"]];
     self.nameLabel.text = model.goods_name_ch;
-    self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", model.goods_name_en];
+    
+    if ([VENEmptyClass isEmptyString:model.goods_name_en]) {
+        self.enNameLabel.text = @"";
+    } else {
+        self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", model.goods_name_en];
+    }
+    
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：¥%@/%@", model.price, model.capacity];
     [self showStarsWithNumber:model.fraction];
     self.numberLabel.text = model.refraction;

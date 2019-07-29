@@ -27,7 +27,12 @@
     [self loadDataSource];
     
     self.cnNameLabel.text = self.cnName;
-    self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", self.enName];
+    
+    if ([VENEmptyClass isEmptyString:self.enName]) {
+        self.enNameLabel.text = @"";
+    } else {
+        self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", self.enName];
+    }
 }
 
 - (IBAction)typeButtonClick:(id)sender {
