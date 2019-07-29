@@ -30,7 +30,8 @@
 //    [attributedString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, model.name_ch.length)];
 //    [self.nameButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     
-    [self.nameButton setTitle:model.name_ch forState:UIControlStateNormal];
+//    [self.nameButton setTitle:model.name_ch forState:UIControlStateNormal];
+    self.nameLabel.text = model.name_ch;
     
     ViewRadius(self.safeLabel, 9);
     
