@@ -19,7 +19,7 @@
 - (void)setModel:(VENHomePageModel *)model {
     _model = model;
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb] placeholderImage:[UIImage imageNamed:@"icon_large"]];
     self.titleLabel.text = model.goods_name;
     self.numberLabel.text = model.refraction;
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：¥%@/%@", model.price, model.capacity];

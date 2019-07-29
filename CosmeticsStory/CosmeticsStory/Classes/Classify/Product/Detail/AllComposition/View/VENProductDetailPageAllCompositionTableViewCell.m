@@ -34,7 +34,8 @@
     
     ViewRadius(self.safeLabel, 9);
     
-    self.safeLabel.text = model.safety_factor;
+    self.safeLabel.text = model.safety_factor_show;
+    
     if ([model.safety_factor integerValue] < 3) {
         self.safeLabel.backgroundColor = UIColorFromRGB(0x56B864);
     } else if ([model.safety_factor integerValue] > 2 && [model.safety_factor integerValue] < 7) {
@@ -43,11 +44,12 @@
         self.safeLabel.backgroundColor = UIColorFromRGB(0xC03232);
     }
     
-    if (model.safety_factor.length == 3) {
+    
+    if (model.safety_factor_show.length == 3) {
         self.safeLabelLayoutConstraintWidth.constant = 24.0f;
-    } else if (model.safety_factor.length == 4) {
+    } else if (model.safety_factor_show.length == 4) {
         self.safeLabelLayoutConstraintWidth.constant = 32.0f;
-    } else if (model.safety_factor.length == 5) {
+    } else if (model.safety_factor_show.length == 5) {
         self.safeLabelLayoutConstraintWidth.constant = 36.0f;
     } else {
         self.safeLabelLayoutConstraintWidth.constant = 18.0f;

@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *risk_id;
 @property (nonatomic, copy) NSString *safety_factor;
 @property (nonatomic, copy) NSString *status;
+@property (nonatomic, copy) NSString *safety_factor_show;
 
 @end
 
