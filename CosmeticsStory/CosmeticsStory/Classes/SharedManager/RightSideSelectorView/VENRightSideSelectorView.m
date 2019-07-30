@@ -133,16 +133,15 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     y += 20 + 10;
     
     CGFloat width2 = (selfWidth - 19 * 2 - 8) / 3;
-    CGFloat x = 19;
+    CGFloat x = 0;
     for (NSInteger i = 0; i < self.label_purposeArr.count; i++) {
         
-        x = 19 + i * 8 + i * width2;
+        x = 19 + i % 3 * 8 + i % 3 * width2;
         
         if (i % 3 == 0) {
             if (i != 0) {
                 y += 40 + 10;
             }
-            x = 19;
         }
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, width2, 40)];
@@ -177,16 +176,15 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     y += 20 + 10;
     
-    CGFloat x2 = 19;
+    CGFloat x2 = 0;
     for (NSInteger i = 0; i < self.label_effectArr.count; i++) {
         
-        x2 = 19 + i * 8 + i * width2;
+        x2 = 19 + i % 3 * 8 + i % 3 * width2;
         
         if (i % 3 == 0) {
             if (i != 0) {
                 y += 40 + 10;
             }
-            x2 = 19;
         }
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x2, y, width2, 40)];
@@ -220,16 +218,15 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     y += 20 + 10;
     
-    CGFloat x3 = 19;
+    CGFloat x3 = 0;
     for (NSInteger i = 0; i < self.label_priceArr.count; i++) {
         
-        x3 = 19 + i * 8 + i * width2;
+        x3 = 19 + i % 3 * 8 + i % 3 * width2;
         
         if (i % 3 == 0) {
             if (i != 0) {
                 y += 40 + 10;
             }
-            x3 = 19;
         }
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x3, y, width2, 40)];
@@ -257,7 +254,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return kMainScreenHeight - 48;
+    return kStatusBarHeight + 11 + (20 + 10) * 4 + 32 * 4 + ceilf(self.label_comprehensiveArr.count / 2.0) * (40 + 10) + ceilf(self.label_purposeArr.count / 3.0) * (40 + 10) + ceilf(self.label_effectArr.count / 3.0) * (40 + 10) + ceilf(self.label_priceArr.count / 3.0) * (40 + 10) - 40;
 }
 
 #pragma mark - 重置 / 确认

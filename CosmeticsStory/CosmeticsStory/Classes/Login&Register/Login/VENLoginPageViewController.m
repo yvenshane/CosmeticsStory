@@ -131,6 +131,7 @@
                                        @"unique" : resp.uid};
                 
                 [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"AutoLogin"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
                 
                 if ([self.pushType isEqualToString:@"initialPage"]) {
                     [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];

@@ -93,6 +93,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                             [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/submitOtherLogin" parameters:@{@"platform" : dict[@"type"], @"unique" : dict[@"unique"]} successBlock:^(id responseObject) {
                                 
                                 [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                                [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
                                 
                             } failureBlock:^(NSError *error) {
                                 
@@ -203,6 +204,7 @@ static NSString *const url = @"http://meizhuanggushi.ahaiba.com/index.php/";
                     [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"login/submitOtherLogin" parameters:@{@"platform" : dict[@"type"], @"unique" : dict[@"unique"]} successBlock:^(id responseObject) {
                         
                         [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"content"] forKey:@"LOGIN"];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh_Mine_Page" object:nil];
                         
                     } failureBlock:^(NSError *error) {
                         
