@@ -70,19 +70,28 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         }
     } else {
         
-        [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"base/contacUs" parameters:@{} successBlock:^(id responseObject) {
-            
-            NSString *tel = [NSString stringWithFormat:@"telprompt://%@", responseObject[@"content"]];
-            
-            if (@available(iOS 10.0, *)) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel] options:@{} completionHandler:nil];
-            } else {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
-            }
-            
-        } failureBlock:^(NSError *error) {
-            
-        }];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"kefu@leyumz.com\n品牌合作：BD@leyumz.com" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *determineAction = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:determineAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+        
+//        [[VENNetworkingManager shareManager] requestWithType:HttpRequestTypePOST urlString:@"base/contacUs" parameters:@{} successBlock:^(id responseObject) {
+//
+//            NSString *tel = [NSString stringWithFormat:@"telprompt://%@", responseObject[@"content"]];
+//
+//            if (@available(iOS 10.0, *)) {
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel] options:@{} completionHandler:nil];
+//            } else {
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
+//            }
+//
+//        } failureBlock:^(NSError *error) {
+//
+//        }];
     }
 }
 

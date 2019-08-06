@@ -148,7 +148,17 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     [headerView.addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
+    headerView.iconImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconImageViewClick)];
+    [headerView.iconImageView addGestureRecognizer:tapGestureRecognizer];
+    
     return headerView;
+}
+
+- (void)iconImageViewClick {
+    VENSettingViewController *vc = [[VENSettingViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
