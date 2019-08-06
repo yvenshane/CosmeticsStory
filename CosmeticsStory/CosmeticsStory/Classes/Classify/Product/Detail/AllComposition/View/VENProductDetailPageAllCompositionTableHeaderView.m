@@ -13,7 +13,7 @@
 - (void)setCount:(NSInteger)count {
     _count = count;
     
-    self.titleLabel.text = [NSString stringWithFormat:@"本产品含%ld种成分", (long)self.count];
+    self.titleLabel.text = [NSString stringWithFormat:@"选中%ld种成分", (long)self.count];
     
     NSString *content = @"本产品成分表顺序为产品备案顺序，根据产品在药监局备案提供的成分表，原则上应该和产品标签一致，但由于厂家问题也有例外情况。";
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];

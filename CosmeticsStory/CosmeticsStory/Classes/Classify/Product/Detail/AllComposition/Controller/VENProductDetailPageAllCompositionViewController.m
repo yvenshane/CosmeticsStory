@@ -142,7 +142,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     // 工具栏
     VENExpansionPanelView *expansionPanelView = [[VENExpansionPanelView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 44)];
     expansionPanelView.expansionPanelViewStyle = @"AllComposition";
-    expansionPanelView.widgetMuArr = [NSMutableArray arrayWithArray:@[@"全成分表", @"安全指数", @"功效分类"]];
+    expansionPanelView.widgetMuArr = [NSMutableArray arrayWithArray:@[@"全成分表", @"风险分类", @"功效分类"]];
     expansionPanelView.expansionPanelViewBlock = ^(UIButton * button) {
         
         for (UILabel *label in button.subviews) {

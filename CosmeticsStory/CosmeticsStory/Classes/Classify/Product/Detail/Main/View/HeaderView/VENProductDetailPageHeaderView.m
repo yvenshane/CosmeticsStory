@@ -34,7 +34,7 @@
     if ([VENEmptyClass isEmptyString:model.goods_name_en]) {
         self.enNameLabel.text = @"";
     } else {
-        self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", model.goods_name_en];
+        self.enNameLabel.text = model.goods_name_en;
     }
     
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：¥%@/%@", model.price, model.capacity];

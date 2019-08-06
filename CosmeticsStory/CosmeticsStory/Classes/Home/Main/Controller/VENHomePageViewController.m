@@ -202,7 +202,7 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
     searchTextField.delegate = self;
     searchTextField.font = [UIFont systemFontOfSize:12.0f];
     searchTextField.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.31];
-    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"搜索200万+化妆品的安全和功效" attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"查询100万+化妆品的功效及成分" attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     searchTextField.attributedPlaceholder = attrString;
     ViewRadius(searchTextField, 16.0f);
 

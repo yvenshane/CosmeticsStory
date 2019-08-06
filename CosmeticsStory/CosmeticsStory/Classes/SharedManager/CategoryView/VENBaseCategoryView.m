@@ -1,6 +1,5 @@
 //
 //  VENBaseCategoryView.m
-//  CosmeticsStory
 //
 //  Created by YVEN on 2019/5/21.
 //  Copyright © 2019 Hefei Haiba Network Technology Co., Ltd. All rights reserved.

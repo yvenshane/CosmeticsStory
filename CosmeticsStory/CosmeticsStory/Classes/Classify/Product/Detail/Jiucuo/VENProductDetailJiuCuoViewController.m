@@ -31,7 +31,7 @@
     if ([VENEmptyClass isEmptyString:self.enName]) {
         self.enNameLabel.text = @"";
     } else {
-        self.enNameLabel.text = [NSString stringWithFormat:@"英文名称：%@", self.enName];
+        self.enNameLabel.text = self.enName;
     }
 }
 

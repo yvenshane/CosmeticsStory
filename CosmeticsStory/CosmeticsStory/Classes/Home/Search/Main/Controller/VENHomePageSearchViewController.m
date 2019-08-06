@@ -165,7 +165,7 @@
     searchTextField.delegate = self;
     searchTextField.font = [UIFont systemFontOfSize:12.0f];
     searchTextField.backgroundColor = UIColorFromRGB(0xF5F5F5);
-    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"搜索200万+化妆品的安全和功效" attributes:@{NSForegroundColorAttributeName : UIColorFromRGB(0xCCCCCC)}];
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"查询100万+化妆品的功效及成分" attributes:@{NSForegroundColorAttributeName : UIColorFromRGB(0xCCCCCC)}];
     searchTextField.attributedPlaceholder = attrString;
     ViewRadius(searchTextField, 16.0f);
 

@@ -462,7 +462,7 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     [backgroundButton addSubview:alertView];
     
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 10, 300 - 40, 136 - 10)];
-    textView.text = [NSString stringWithFormat:@"备案信息备案文号：%@\n\n产地：%@\n\n生产企业（中文）：%@\n\n生产企业（英文）：%@", self.model.record_number, self.model.place_of_production, self.model.enterprise_ch, self.model.enterprise_en];
+    textView.text = [NSString stringWithFormat:@"备案文号：%@\n\n产地：%@\n\n生产企业（中文）：%@\n\n生产企业（英文）：%@", self.model.record_number, self.model.place_of_production, self.model.enterprise_ch, self.model.enterprise_en];
     textView.textColor = UIColorFromRGB(0x333333);
     textView.font = [UIFont systemFontOfSize:12.0f];
     textView.userInteractionEnabled = NO;
