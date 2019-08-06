@@ -175,8 +175,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 #pragma mark - 筛选
 - (void)setupNavigationItemRightBarButtonItem {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 44)];
     [button setImage:[UIImage imageNamed:@"icon_shaixuan"] forState:UIControlStateNormal];
+    [button setTitle:@" 筛选" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:11.0f];
     [button addTarget:self action:@selector(shuaixuanButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];

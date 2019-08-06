@@ -186,6 +186,9 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [self.view addSubview:topView];
     
     UIButton *colButton = [[UIButton alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, 55, 44)];
+    [colButton setTitle:@" 筛选" forState:UIControlStateNormal];
+    [colButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    colButton.titleLabel.font = [UIFont systemFontOfSize:11.0f];
     [colButton setImage:[UIImage imageNamed:@"icon_shaixuan"] forState:UIControlStateNormal];
     [colButton addTarget:self action:@selector(colButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:colButton];
