@@ -114,6 +114,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [button addTarget:self action:@selector(comprehensiveClick:) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:button];
+        ViewRadius(button, 20);
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width - 23, 40 - 16, 23, 16)];
@@ -158,6 +159,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [button addTarget:self action:@selector(purposeClick:) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:button];
+        ViewRadius(button, 20);
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width2 - 23, 40 - 16, 23, 16)];
@@ -200,6 +202,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [button addTarget:self action:@selector(effectClick:) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:button];
+        ViewRadius(button, 20);
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width2 - 23, 40 - 16, 23, 16)];
@@ -242,6 +245,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [button addTarget:self action:@selector(priceClick:) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:button];
+        ViewRadius(button, 20);
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width2 - 23, 40 - 16, 23, 16)];
