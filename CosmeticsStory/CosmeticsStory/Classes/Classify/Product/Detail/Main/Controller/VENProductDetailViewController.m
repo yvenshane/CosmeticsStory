@@ -63,14 +63,9 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPopupView) name:@"Add_PopupView" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
-    if (self.isPresents) {
-        self.isPresent = YES;
-        [self setupNavigationItemLeftBarButtonItem];
-        
-        self.tableView.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight, kMainScreenWidth, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 48  - (kTabBarHeight - 49));
-    }
+    [self setupNavigationItemLeftBarButtonItem];
     
-    self.type = 1;
+    self.type = 3;
     
     [self setupBottomToolBar];
     [self setupNavigationItemRightBarButtonItem];
@@ -331,10 +326,6 @@ static NSString *const cellIdentifier4 = @"cellIdentifier4";
     UIView *bottomToolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, kMainScreenHeight - kStatusBarAndNavigationBarHeight - 48 - (kTabBarHeight - 49), kMainScreenWidth, 48)];
     bottomToolBarView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomToolBarView];
-    
-    if (self.isPresents) {
-        bottomToolBarView.frame = CGRectMake(0, kMainScreenHeight - 48 - (kTabBarHeight - 49), kMainScreenWidth, 48);
-    }
     
     CGFloat width = kMainScreenWidth / 3;
     UIButton *likeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, 48)];

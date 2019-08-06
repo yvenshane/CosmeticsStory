@@ -155,8 +155,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     
     VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
     vc.goods_id = model.goods_id;
-    vc.isPresents = YES;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    VENNavigationController *nav = [[VENNavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
 }
 
