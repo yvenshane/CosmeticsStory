@@ -41,7 +41,7 @@
         [self.bottomToolBar.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.goodsInfoModel.goods_thumb]];
         self.bottomToolBar.numberLabel.text = self.goodsInfoModel.refraction;
         self.bottomToolBar.priceLabel.text = [NSString stringWithFormat:@"参考价：¥%@/%@", self.goodsInfoModel.price, self.goodsInfoModel.capacity];
-        [self showStarsWithNumber:self.goodsInfoModel.fraction];
+        [self showStarsWithNumber:self.goodsInfoModel.refraction];
         
         [self.bottomToolBar.colButton setTitle:[NSString stringWithFormat:@"  收藏%@", self.contentModel.collectionCount] forState:UIControlStateNormal];
         self.bottomToolBar.colButton.selected = [self.contentModel.userCollection integerValue] == 0 ? NO : YES;
@@ -107,9 +107,11 @@
         }
     }
     
-    for (NSInteger i = 0; i < 5 - [number integerValue]; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i + [number integerValue]) * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star5"];
+    CGFloat number2 = [number floatValue] - [number integerValue];
+    
+    if (number2 > 0) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(([number integerValue]) * (12 + 6), 0, 12, 12)];
+        imageView.image = [UIImage imageNamed:@"icon_star3"];
         [self.bottomToolBar.starsView addSubview:imageView];
     }
 }

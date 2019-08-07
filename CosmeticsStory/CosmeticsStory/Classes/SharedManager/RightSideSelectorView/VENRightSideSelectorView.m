@@ -118,7 +118,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width - 23, 40 - 16, 23, 16)];
-            imageView.image = [UIImage imageNamed:@"icon_selected"];
+            imageView.image = [UIImage imageNamed:@""];// icon_selected
             [button addSubview:imageView];
         }
     }
@@ -163,7 +163,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width2 - 23, 40 - 16, 23, 16)];
-            imageView.image = [UIImage imageNamed:@"icon_selected"];
+            imageView.image = [UIImage imageNamed:@""];// icon_selected
             [button addSubview:imageView];
         }
     }
@@ -206,7 +206,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width2 - 23, 40 - 16, 23, 16)];
-            imageView.image = [UIImage imageNamed:@"icon_selected"];
+            imageView.image = [UIImage imageNamed:@""];// icon_selected
             [button addSubview:imageView];
         }
     }
@@ -249,7 +249,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         
         if (button.selected) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(width2 - 23, 40 - 16, 23, 16)];
-            imageView.image = [UIImage imageNamed:@"icon_selected"];
+            imageView.image = [UIImage imageNamed:@""];// icon_selected
             [button addSubview:imageView];
         }
     }

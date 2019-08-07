@@ -38,7 +38,7 @@
     }
     
     self.priceLabel.text = [NSString stringWithFormat:@"参考价：¥%@/%@", model.price, model.capacity];
-    [self showStarsWithNumber:model.fraction];
+    [self showStarsWithNumber:model.refraction];
     self.numberLabel.text = model.refraction;
     [self showChipsWithArray:model.label_purpose];
     
@@ -81,9 +81,11 @@
         }
     }
     
-    for (NSInteger i = 0; i < 5 - [number integerValue]; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i + [number integerValue]) * (12 + 6), 0, 12, 12)];
-        imageView.image = [UIImage imageNamed:@"icon_star5"];
+    CGFloat number2 = [number floatValue] - [number integerValue];
+    
+    if (number2 > 0) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(([number integerValue]) * (12 + 6), 0, 12, 12)];
+        imageView.image = [UIImage imageNamed:@"icon_star3"];
         [self.starView addSubview:imageView];
     }
 }
