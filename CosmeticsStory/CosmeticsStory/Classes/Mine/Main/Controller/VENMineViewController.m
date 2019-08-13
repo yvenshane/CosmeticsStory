@@ -156,9 +156,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)iconImageViewClick {
-    VENSettingViewController *vc = [[VENSettingViewController alloc] init];
+    VENDataViewController *vc = [[VENDataViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
