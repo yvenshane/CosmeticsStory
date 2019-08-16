@@ -75,6 +75,13 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (self.contentMuArr.count > 0) {
+        [self.tableView removePlaceholderView];
+    } else {
+        [self.tableView showPlaceholderViewWithType:VENPlaceholderViewTypeNoData];
+    }
+    
     return self.contentMuArr.count;
 }
 
@@ -117,12 +124,6 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:YES];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

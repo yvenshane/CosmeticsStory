@@ -139,6 +139,12 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.contentMuArr.count > 0) {
+        [self.tableView removePlaceholderView];
+    } else {
+        [self.tableView showPlaceholderViewWithType:VENPlaceholderViewTypeNoData];
+    }
+    
     return self.contentMuArr.count;
 }
 

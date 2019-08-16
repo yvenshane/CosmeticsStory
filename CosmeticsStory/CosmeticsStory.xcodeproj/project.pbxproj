@@ -240,6 +240,7 @@
 		2CA7F72222BA2BB600250D95 /* VENProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7F72122BA2BB600250D95 /* VENProductDetailViewController.m */; };
 		2CA7F72522BA3AFD00250D95 /* VENProductDetailPageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7F72422BA3AFD00250D95 /* VENProductDetailPageHeaderView.m */; };
 		2CA7F72722BA3B1100250D95 /* VENProductDetailPageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA7F72622BA3B1100250D95 /* VENProductDetailPageHeaderView.xib */; };
+		2CA9908C230657920081CC0C /* UIView+PlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9908A230657910081CC0C /* UIView+PlaceholderView.m */; };
 		2CB5C65422885A1C009F1ABC /* VENListPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5C65222885A1C009F1ABC /* VENListPickerViewCell.m */; };
 		2CB5C65522885A1C009F1ABC /* VENListPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CB5C65322885A1C009F1ABC /* VENListPickerViewCell.xib */; };
 		2CB5C65C22890338009F1ABC /* VENSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB5C65B22890338009F1ABC /* VENSettingViewController.m */; };
@@ -750,6 +751,8 @@
 		2CA7F72322BA3AFD00250D95 /* VENProductDetailPageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENProductDetailPageHeaderView.h; sourceTree = "<group>"; };
 		2CA7F72422BA3AFD00250D95 /* VENProductDetailPageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENProductDetailPageHeaderView.m; sourceTree = "<group>"; };
 		2CA7F72622BA3B1100250D95 /* VENProductDetailPageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENProductDetailPageHeaderView.xib; sourceTree = "<group>"; };
+		2CA9908A230657910081CC0C /* UIView+PlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PlaceholderView.m"; sourceTree = "<group>"; };
+		2CA9908B230657920081CC0C /* UIView+PlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PlaceholderView.h"; sourceTree = "<group>"; };
 		2CB5C65122885A1C009F1ABC /* VENListPickerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENListPickerViewCell.h; sourceTree = "<group>"; };
 		2CB5C65222885A1C009F1ABC /* VENListPickerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENListPickerViewCell.m; sourceTree = "<group>"; };
 		2CB5C65322885A1C009F1ABC /* VENListPickerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VENListPickerViewCell.xib; sourceTree = "<group>"; };
@@ -1970,6 +1973,8 @@
 		2C8865712281381300B21E2D /* SharedManager */ = {
 			isa = PBXGroup;
 			children = (
+				2CA9908B230657920081CC0C /* UIView+PlaceholderView.h */,
+				2CA9908A230657910081CC0C /* UIView+PlaceholderView.m */,
 				2C8ADA3F22A0D02A0022A234 /* Network */,
 				2C93092922A7A3750057A27B /* VENUserStatusManager.h */,
 				2C93092A22A7A3750057A27B /* VENUserStatusManager.m */,
@@ -3143,6 +3148,7 @@
 				2CE57C4B2294555F00792248 /* VENBaseCategoryView.m in Sources */,
 				2C7A7FA422C0BD1700B402C6 /* VENCosmeticBagPopupView.m in Sources */,
 				2C7A7F9B22BF97F400B402C6 /* VENVerificationCodeButton.m in Sources */,
+				2CA9908C230657920081CC0C /* UIView+PlaceholderView.m in Sources */,
 				2CC9782E22AF941400268891 /* VENHomePageFindDetailViewController.m in Sources */,
 				2C8865AC2281381400B21E2D /* JXCategoryIndicatorLineView.m in Sources */,
 				2C8865C32281381400B21E2D /* JXCategoryNumberCellModel.m in Sources */,
