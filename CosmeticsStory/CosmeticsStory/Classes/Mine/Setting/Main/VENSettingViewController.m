@@ -70,7 +70,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         }
     } else {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"kefu@leyumz.com\n品牌合作：BD@leyumz.com" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"客户服务：kefu@leyumz.com\n品牌合作：BD@leyumz.com" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *determineAction = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:determineAction];

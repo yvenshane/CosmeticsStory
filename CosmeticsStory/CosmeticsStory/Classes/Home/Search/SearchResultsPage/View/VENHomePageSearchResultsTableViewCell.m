@@ -52,6 +52,22 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(([number integerValue]) * (12 + 6), 0, 12, 12)];
         imageView.image = [UIImage imageNamed:@"icon_star3"];
         [self.starView addSubview:imageView];
+        
+        if (5 - [number integerValue] - 1 > 0) {
+            for (NSInteger j = 0; j < 5 - [number integerValue] - 1; j++) {
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(([number integerValue] + 1 + j) * (12 + 6), 0, 12, 12)];
+                imageView.image = [UIImage imageNamed:@"icon_star5"];
+                [self.starView addSubview:imageView];
+            }
+        }
+    } else {
+        if (5 - [number integerValue] > 0) {
+            for (NSInteger j = 0; j < 5 - [number integerValue]; j++) {
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(([number integerValue] + j) * (12 + 6), 0, 12, 12)];
+                imageView.image = [UIImage imageNamed:@"icon_star5"];
+                [self.starView addSubview:imageView];
+            }
+        }
     }
 }
 

@@ -20,18 +20,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本商品成分来自该商品的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-Fw-NBk">
-                        <rect key="frame" x="75.5" y="12" width="135" height="14.5"/>
+                        <rect key="frame" x="61.5" y="12" width="135" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyN-Sx-Bwq">
-                        <rect key="frame" x="210.5" y="12" width="50" height="15"/>
+                        <rect key="frame" x="196.5" y="12" width="78" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="WDM-RZ-XFO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="国产备案"/>
+                        <state key="normal" title="产品备案/标签"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWC-kb-TtY">
                         <rect key="frame" x="0.0" y="86.5" width="336" height="57"/>
@@ -62,7 +62,7 @@
                     <constraint firstAttribute="trailing" secondItem="ZWC-kb-TtY" secondAttribute="trailing" id="oOU-at-Ygi"/>
                     <constraint firstAttribute="trailing" secondItem="dof-yl-pha" secondAttribute="trailing" constant="15" id="ocg-Ao-4f5"/>
                     <constraint firstItem="ZWC-kb-TtY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="s5f-is-y8U"/>
-                    <constraint firstItem="gMR-Fw-NBk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-25" id="uJs-zA-eWj"/>
+                    <constraint firstItem="gMR-Fw-NBk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-39" id="uJs-zA-eWj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
