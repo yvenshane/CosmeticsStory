@@ -47,7 +47,11 @@ static NSString *const cellIdentifier = @"cellIdentifier";
         tableView.backgroundColor = [UIColor whiteColor];
         tableView.delegate = self;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        tableView.estimatedRowHeight = 0;
+        tableView.estimatedSectionHeaderHeight = 0;
+        tableView.estimatedSectionFooterHeight = 0;
         [self addSubview:tableView];
+        
         
         _closeButton = closeButton;
         _resetButton = resetButton;
