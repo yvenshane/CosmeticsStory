@@ -144,7 +144,7 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VENHomePageModel *model = self.recommendListArr[indexPath.row];
-    
+    // push
     VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
     vc.goods_id = model.goods_id;
     vc.hidesBottomBarWhenPushed = YES;
@@ -169,7 +169,7 @@ static NSString *const cellIdentifier2 = @"cellIdentifier2";
             VENHomePageFindViewController *vc = [[VENHomePageFindViewController alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-        } else if ([str isEqualToString:@"banner"]) {
+        } else if ([str isEqualToString:@"banner"]) { // push
             VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
             vc.goods_id = goods_id;
             vc.hidesBottomBarWhenPushed = YES;

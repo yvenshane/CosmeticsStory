@@ -83,7 +83,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     [navigationBar addSubview:closeButton];
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = [VENEmptyClass isEmptyString:self.navigationItemTitle] ? @"美妆故事" : self.navigationItemTitle;
+    titleLabel.text = [VENEmptyClass isEmptyString:self.navigationItemTitle] ? @"乐鱼美妆" : self.navigationItemTitle;
     titleLabel.font = [UIFont systemFontOfSize:16.0f];
     titleLabel.textColor = UIColorFromRGB(0x1A1A1A);
     CGFloat width = [self label:titleLabel setWidthToHeight:22.0f];

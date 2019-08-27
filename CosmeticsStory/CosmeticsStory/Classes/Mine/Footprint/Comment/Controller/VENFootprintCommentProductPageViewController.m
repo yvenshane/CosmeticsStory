@@ -85,7 +85,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)goodsButtonClick:(UIButton *)button {
     
     VENFootprintCommentModel *model = self.contentMuArr[button.tag];
-
+// push
     VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
     vc.goods_id = model.goods_id;
     [self.navigationController pushViewController:vc animated:YES];

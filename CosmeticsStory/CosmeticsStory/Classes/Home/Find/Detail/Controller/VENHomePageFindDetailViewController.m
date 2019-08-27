@@ -52,7 +52,7 @@
     }];
 }
 
-- (void)productDetailButtonClick {
+- (void)productDetailButtonClick {// push
     VENProductDetailViewController *vc = [[VENProductDetailViewController alloc] init];
     vc.goods_id = self.goodsInfoModel.goods_id;
     vc.hidesBottomBarWhenPushed = YES;

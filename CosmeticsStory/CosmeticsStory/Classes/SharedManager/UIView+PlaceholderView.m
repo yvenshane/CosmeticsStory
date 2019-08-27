@@ -80,7 +80,7 @@ static void *originalScrollEnabledKey = &originalScrollEnabledKey;
         {
             imageView.image = [UIImage imageNamed:@"icon_noData"];
             descLabel.text = @"对不起，没有搜索到您要的结果。";
-            descLabel2.text = @"美妆故事建议您：\n\n1、检查下搜索名称是否正确\n2、更换或减少搜索的筛选条件";
+            descLabel2.text = @"乐鱼美妆建议您：\n\n1、检查下搜索名称是否正确\n2、更换或减少搜索的筛选条件";
         }
             break;
             
