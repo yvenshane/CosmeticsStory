@@ -30,6 +30,10 @@
     
     for (NSInteger i = 0; i < ingredientContent.count; i++) {
         
+        if (i > 3) { // 只显示4个
+            return;
+        }
+        
         UILabel *label = [[UILabel alloc] init];
         label.text = [NSString stringWithFormat:@"%@：%@种", ingredientContent[i][@"name"], ingredientContent[i][@"number"]];
         label.textColor = UIColorFromRGB(0x666666);

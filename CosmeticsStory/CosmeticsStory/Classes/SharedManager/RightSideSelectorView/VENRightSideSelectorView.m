@@ -130,7 +130,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     y += 40 + 32;
     
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(19, y, selfWidth, 20)];
-    label2.text = @"用途";
+    label2.text = @"功效";
     label2.textColor = UIColorFromRGB(0x666666);
     label2.font = [UIFont systemFontOfSize:14.0f];
     [headerView addSubview:label2];
@@ -175,7 +175,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     y += 40 + 32;
     
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(19, y, selfWidth, 20)];
-    label3.text = @"功效";
+    label3.text = @"用途";
     label3.textColor = UIColorFromRGB(0x666666);
     label3.font = [UIFont systemFontOfSize:14.0f];
     [headerView addSubview:label3];
